@@ -1,0 +1,104 @@
+  [1m[35m (9317.6ms)[0m  [1m[35mCREATE DATABASE "google-arts-culture_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (3705.3ms)[0m  [1m[35mCREATE DATABASE "google-arts-culture_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (773.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (323.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3208094165891956635)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20210510173835)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (268.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "profile_image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210510173835_create_users.rb:3
+  [1m[35m (95.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20210510173835_create_users.rb:13
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_first_name" ON "users"  ("first_name")[0m
+  ↳ db/migrate/20210510173835_create_users.rb:14
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_last_name" ON "users"  ("last_name")[0m
+  ↳ db/migrate/20210510173835_create_users.rb:15
+  [1m[35m (27.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20210510173835_create_users.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210510173835"]]
+  ↳ bin/rails:9
+  [1m[35m (218.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateArtworks (20210510173920)
+  [1m[35m (58.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (375.2ms)[0m  [1m[35mCREATE TABLE "artworks" ("id" bigserial primary key, "title" character varying NOT NULL, "creator_id" integer NOT NULL, "date_created" date NOT NULL, "color" character varying NOT NULL, "style" character varying NOT NULL, "medium" character varying NOT NULL, "partner_organization" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210510173920_create_artworks.rb:3
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE  INDEX  "index_artworks_on_title" ON "artworks"  ("title")[0m
+  ↳ db/migrate/20210510173920_create_artworks.rb:14
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE  INDEX  "index_artworks_on_creator_id" ON "artworks"  ("creator_id")[0m
+  ↳ db/migrate/20210510173920_create_artworks.rb:15
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210510173920"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateArtists (20210510173957)
+  [1m[35m (46.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying NOT NULL, "born" date NOT NULL, "died" date NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210510173957_create_artists.rb:3
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE  INDEX  "index_artists_on_name" ON "artists"  ("name")[0m
+  ↳ db/migrate/20210510173957_create_artists.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210510173957"]]
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateFavorites (20210510174026)
+  [1m[35m (52.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (51.9ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" bigserial primary key, "favoriter_id" integer NOT NULL, "artwork_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210510174026_create_favorites.rb:3
+  [1m[35m (483.7ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_favoriter_id" ON "favorites"  ("favoriter_id")[0m
+  ↳ db/migrate/20210510174026_create_favorites.rb:9
+  [1m[35m (62.3ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_artwork_id" ON "favorites"  ("artwork_id")[0m
+  ↳ db/migrate/20210510174026_create_favorites.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210510174026"]]
+  ↳ bin/rails:9
+  [1m[35m (13.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateGalleries (20210510174036)
+  [1m[35m (29.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (16.7ms)[0m  [1m[35mCREATE TABLE "galleries" ("id" bigserial primary key, "title" character varying NOT NULL, "description" text, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210510174036_create_galleries.rb:3
+  [1m[35m (22.5ms)[0m  [1m[35mCREATE  INDEX  "index_galleries_on_title" ON "galleries"  ("title")[0m
+  ↳ db/migrate/20210510174036_create_galleries.rb:10
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_galleries_on_user_id" ON "galleries"  ("user_id")[0m
+  ↳ db/migrate/20210510174036_create_galleries.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210510174036"]]
+  ↳ bin/rails:9
+  [1m[35m (13.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateCollectedArtworks (20210510174104)
+  [1m[35m (25.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (141.4ms)[0m  [1m[35mCREATE TABLE "collected_artworks" ("id" bigserial primary key, "gallery_id" integer NOT NULL, "artwork_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210510174104_create_collected_artworks.rb:3
+  [1m[35m (80.1ms)[0m  [1m[35mCREATE  INDEX  "index_collected_artworks_on_gallery_id" ON "collected_artworks"  ("gallery_id")[0m
+  ↳ db/migrate/20210510174104_create_collected_artworks.rb:10
+  [1m[35m (39.2ms)[0m  [1m[35mCREATE  INDEX  "index_collected_artworks_on_artwork_id" ON "collected_artworks"  ("artwork_id")[0m
+  ↳ db/migrate/20210510174104_create_collected_artworks.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210510174104"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (39.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (13.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-05-10 18:11:05.927088"], ["updated_at", "2021-05-10 18:11:05.927088"]]
+  ↳ bin/rails:9
+  [1m[35m (43.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3208094165891956635)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
