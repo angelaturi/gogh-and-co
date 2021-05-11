@@ -882,3 +882,35 @@ Checked in these paths:
   
 app/assets/javascripts/application.js:13
 app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__912501198948695592_70253580815360'
+Started GET "/" for ::1 at 2021-05-11 14:18:31 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 319ms (ActiveRecord: 9.7ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/Angela/Desktop/Fullstack/van-gogh-and-co/app/assets/config
+  /Users/Angela/Desktop/Fullstack/van-gogh-and-co/app/assets/images
+  /Users/Angela/Desktop/Fullstack/van-gogh-and-co/app/assets/javascripts
+  /Users/Angela/Desktop/Fullstack/van-gogh-and-co/app/assets/stylesheets
+  /Users/Angela/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/Angela/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.5/lib/assets/compiled
+  /Users/Angela/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.5/app/assets/javascripts
+  /Users/Angela/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.5/lib/assets/compiled
+  /Users/Angela/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__912501198948695592_70253580182480'
