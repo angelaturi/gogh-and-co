@@ -1,6 +1,7 @@
 import {
     RECEIVE_CURRENT_USER,
-    LOGOUT_CURRENT_USER
+    LOGOUT_CURRENT_USER,
+    RECEIVE_SESSION_ERRORS
 } from '../actions/session_actions';
 
 // need to create a place in our state where we can store information about our current user

@@ -6,9 +6,9 @@ import CreateAccountFormContainer from './account_form/create_account_form_conta
 
 const App = () => (
     <div>
-        <AuthRoute path="/login" component={SessionFormContainer}/>
-        <AuthRoute path="/signup" component={CreateAccountFormContainer}/>
+        <Route path="/login" component={SessionFormContainer}/>
+        <Route path="/signup" component={CreateAccountFormContainer}/>
     </div>
 );
 
-export default App
+export default App;

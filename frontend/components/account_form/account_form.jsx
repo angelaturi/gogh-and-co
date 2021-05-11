@@ -11,7 +11,7 @@ class AccountForm extends React.Component {
             last_name: "",
             email: "",
             password: "",
-        }
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demologin = this.demologin.bind(this);
     }

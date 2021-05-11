@@ -3,13 +3,13 @@ import signupButton from './signup_button';
 import Goghgle from '../goghgle';
 import {Redirect, Route} from 'react-router-dom';
 
-class AccountForm extends React.Component {
+class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: "",
             password: "",
-        }
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demologin = this.demologin.bind(this);
     }
@@ -54,7 +54,7 @@ class AccountForm extends React.Component {
                     <div className="signin-heading" id="create-account">
                         <Goghgle />
                         <h1>Sign in</h1>
-                        <h2 class="form-h2">Use your Goghgle Account</h2>
+                        <h2 className="form-h2">Use your Goghgle Account</h2>
                     </div>
 
                     <div className="signin-body">
@@ -105,4 +105,4 @@ class AccountForm extends React.Component {
     }
 }
 
-export default AccountForm;
+export default SessionForm;
