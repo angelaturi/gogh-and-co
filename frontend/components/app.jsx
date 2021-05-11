@@ -1,11 +1,14 @@
 import React from 'react';
-import SignupContainer from './session/signup_container';
 import {Route} from 'react-router-dom';
+import {AuthRoute, ProtectedRoute} from '../utils/route_utils';
+import SessionFormContainer from './session_form/session_form_container';
+import CreateAccountFormContainer from './account_form/create_account_form_container'
 
-const App = () => {
+const App = () => (
     <div>
-        <Route path="/signup" component={SignupContainer}></Route>
+        <AuthRoute path="/login" component={SessionFormContainer}/>
+        <AuthRoute path="/signup" component={CreateAccountFormContainer}/>
     </div>
-};
+);
 
 export default App

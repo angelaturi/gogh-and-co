@@ -26,7 +26,7 @@ class User < ApplicationRecord
         class_name: :Favorite
 
     has_many :galleries,
-        foreign_key: :user_id
+        foreign_key: :user_id,
         class_name: :Gallery
 
     has_many :artworks,

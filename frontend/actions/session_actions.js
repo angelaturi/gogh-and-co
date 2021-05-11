@@ -51,7 +51,5 @@ export const logout = () => dispatch => deleteSession()
         errors => dispatch(receiveErrors(errors.responseJSON))
     )
 
-ex
-
 
 

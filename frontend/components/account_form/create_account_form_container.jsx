@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {createAccount, login, clearErrors} from '../../actions/session_actions';
 import AccountForm from './account_form';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id],
     errors: state.errors.session,
     formType: 'Create account'
