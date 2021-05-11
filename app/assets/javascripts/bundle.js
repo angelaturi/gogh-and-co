@@ -267,41 +267,6 @@ var logout = function logout() {
 
 /***/ }),
 
-/***/ "./frontend/components/App.jsx":
-/*!*************************************!*\
-  !*** ./frontend/components/App.jsx ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _utils_route_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/route_utils */ "./frontend/utils/route_utils.jsx");
-/* harmony import */ var _session_form_session_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_form/session_form_container */ "./frontend/components/session_form/session_form_container.jsx");
-/* harmony import */ var _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./account_form/create_account_form_container */ "./frontend/components/account_form/create_account_form_container.jsx");
-
-
-
-
-
-
-var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
-    path: "/login",
-    component: _session_form_session_form_container__WEBPACK_IMPORTED_MODULE_2__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
-    path: "/signup",
-    component: _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_3__.default
-  }));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
-
-/***/ }),
-
 /***/ "./frontend/components/account_form/account_form.jsx":
 /*!***********************************************************!*\
   !*** ./frontend/components/account_form/account_form.jsx ***!
@@ -561,6 +526,41 @@ var signinButton = function signinButton() {
 
 /***/ }),
 
+/***/ "./frontend/components/app.jsx":
+/*!*************************************!*\
+  !*** ./frontend/components/app.jsx ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _utils_route_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/route_utils */ "./frontend/utils/route_utils.jsx");
+/* harmony import */ var _session_form_session_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_form/session_form_container */ "./frontend/components/session_form/session_form_container.jsx");
+/* harmony import */ var _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./account_form/create_account_form_container */ "./frontend/components/account_form/create_account_form_container.jsx");
+
+
+
+
+
+
+var App = function App() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
+    path: "/login",
+    component: _session_form_session_form_container__WEBPACK_IMPORTED_MODULE_2__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
+    path: "/signup",
+    component: _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_3__.default
+  }));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
+
+/***/ }),
+
 /***/ "./frontend/components/goghgle.jsx":
 /*!*****************************************!*\
   !*** ./frontend/components/goghgle.jsx ***!
@@ -610,7 +610,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./frontend/components/App.jsx");
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app */ "./frontend/components/app.jsx");
 
 
 
@@ -620,7 +620,7 @@ var Root = function Root(_ref) {
   var store = _ref.store;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_1__.Provider, {
     store: store
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app__WEBPACK_IMPORTED_MODULE_2__.default, null)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Root);
