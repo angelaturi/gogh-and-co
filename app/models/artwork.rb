@@ -24,7 +24,7 @@ class Artwork < ApplicationRecord
         foreign_key: :artwork_id,
         class_name: :Favorite
     
-    has_many :collected_artworks
+    has_many :collected_artworks,
         foreign_key: :artwork_id,
         class_name: :CollectedArtwork
     

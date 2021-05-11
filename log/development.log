@@ -965,3 +965,172 @@ Processing by Api::SessionsController#create as JSON
 Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for ::1 at 2021-05-11 14:36:11 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 114ms (Views: 102.3ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/api/session" for ::1 at 2021-05-11 14:36:24 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/session" for ::1 at 2021-05-11 14:36:30 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/users" for ::1 at 2021-05-11 14:38:02 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"angela", "last_name"=>"turi", "email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 500 Internal Server Error in 605ms (ActiveRecord: 255.4ms)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x00007fdeb0fa89d0>):
+  
+app/controllers/api/users_controller.rb:6:in `create'
+Started POST "/api/users" for ::1 at 2021-05-11 14:38:04 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"angela", "last_name"=>"turi", "email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x00007fdeb70ffb70>):
+  
+app/controllers/api/users_controller.rb:6:in `create'
+Started POST "/api/users" for ::1 at 2021-05-11 14:38:05 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"angela", "last_name"=>"turi", "email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 500 Internal Server Error in 266ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x00007fdeb984c5c0>):
+  
+app/controllers/api/users_controller.rb:6:in `create'
+Started POST "/api/users" for ::1 at 2021-05-11 14:38:06 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"angela", "last_name"=>"turi", "email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 500 Internal Server Error in 279ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x00007fdeb72bf2d0>):
+  
+app/controllers/api/users_controller.rb:6:in `create'
+Started POST "/api/users" for ::1 at 2021-05-11 14:38:06 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"angela", "last_name"=>"turi", "email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x00007fdeb1629d90>):
+  
+app/controllers/api/users_controller.rb:6:in `create'
+Started POST "/api/users" for ::1 at 2021-05-11 14:38:09 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"angela", "last_name"=>"turi", "email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x00007fdeaf7f54a0>):
+  
+app/controllers/api/users_controller.rb:6:in `create'
+Started POST "/api/session" for ::1 at 2021-05-11 14:38:47 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"monalisa@demoemail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/users" for ::1 at 2021-05-11 14:39:18 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"angela", "last_name"=>"turi", "email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 500 Internal Server Error in 268ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x00007fdeb7157320>):
+  
+app/controllers/api/users_controller.rb:6:in `create'
+Started POST "/api/users" for ::1 at 2021-05-11 14:42:36 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"angela", "last_name"=>"turi", "email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 500 Internal Server Error in 267ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x00007fdeb723ddc0>):
+  
+app/controllers/api/users_controller.rb:6:in `create'
+Started POST "/api/session" for ::1 at 2021-05-11 14:44:49 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/session" for ::1 at 2021-05-11 14:44:50 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+Completed 401 Unauthorized in 7ms (Views: 0.3ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/api/session" for ::1 at 2021-05-11 14:44:51 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"angelaturi99@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+Completed 401 Unauthorized in 4ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
