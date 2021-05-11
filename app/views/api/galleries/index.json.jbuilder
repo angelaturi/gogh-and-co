@@ -1,0 +1,1 @@
+json.array! @galleries, partial: 'api/galleries/gallery', as: :gallery
