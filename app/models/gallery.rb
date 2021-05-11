@@ -14,7 +14,7 @@ class Gallery < ApplicationRecord
     validates :description, length: {maximum: 800}
 
     belongs_to :user,
-        foreign_key: :user_id
+        foreign_key: :user_id,
         class_name: :User
 
     has_many :collected_artworks,
