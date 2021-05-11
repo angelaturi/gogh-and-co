@@ -1,0 +1,354 @@
+.form-background {
+    position: absolute;
+    background: white;
+    display: inline-block;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    direction: ltr;
+    z-index: 1;
+}
+
+.content-out {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.content-out, .content-out::before, .content-out::after {
+    box-sizing: border-box;
+}
+
+.content-out::before, .content-out::after {
+    content: "";
+    display: block;
+    flex-grow: 1;
+    height: 24px
+}
+
+@media (min-width: 601px) {
+    .content-in {
+        display: flex;
+        justify-content: center;
+        border-radius: 8px;
+        border: 1px solid #dadce0;
+        display: block;
+        flex-shrink: 0;
+        margin: 0 auto;
+        min-height: 0;
+        transition: .2s;
+        width: 450px;
+        max-width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.content-padding {
+    height: auto;
+    overflow-y: auto;
+    transition: .2s;
+    padding: 48px 40px 36px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.signin-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+
+    h1 {
+        font-size: 24px;
+        font-weight: 400;
+        color: black;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding-top: 16px;
+        font-smooth: auto;
+    }
+
+    h2 {
+        font-size: 16px;
+        font-weight: 400;
+        color: black;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding-top: 8px;
+    }
+}
+
+// .signin-heading#create-account {
+//     align-items: flex-start;
+// }
+
+form {
+    display: flex;
+    flex-direction: column;
+    color: rgb(116, 116, 116);
+}
+
+::placeholder {
+    color: #888888;
+    opacity: 1;
+}
+
+button.signin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1 1 auto;
+    border: 1px solid rgb(26, 115, 232);
+    border-radius: 2px;
+    padding: 7px 11px;
+    background: white;
+    width: 110px;
+    margin-left: 10px;
+}
+
+#sign-in-text {text-decoration: none;}
+
+.signin p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-left: 8px;
+    color: rgb(26, 115, 232);
+}
+
+input.form-submit {
+    padding: 0 21px;
+    border-radius: 5px;
+    border: 2px solid rgb(26, 115, 232);
+    background-color: rgb(26, 115, 232);
+    color: white;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    white-space: no-wrap;
+    height: 36px;
+    transition: 150ms
+}
+
+.content-padding input:hover {
+    cursor: pointer;
+    outline: none;
+    background: rgb(23, 90, 190);
+    border-color: rgb(23, 90, 190);
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1)
+}
+
+.form-alt-submit {
+    border-radius: 5px;
+    font-family: 'Open Sans';
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(26, 115, 232);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.content-out input {
+    box-shadow: none;
+    border: 1px solid #dadce0;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin: 10px 0;
+    height: 100%;
+    width: 100%;
+    padding: 12px 14px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    transition: border 150ms, box-shadow 150ms;
+}
+
+.content-out input:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 0.5pt #1a73e8;
+    border: 1px solid #1a73e8;
+}
+
+.session-input {
+    position: relative;
+    display: block;
+    height: 56px;
+    width: 100%;
+    z-index: 5
+}
+
+.session-text {
+    padding: 15px;
+    border: 1px solid #dadce0;
+    outline: none;
+    box-shadow: none;
+    color: #000
+}
+
+.session-text:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 0.5pt #1a73e8;
+    border-color: #1a73e8;
+}
+
+.session-text:focus + .session-label, input:not([value=""]) + .session-label {
+    top: 2px;
+    left: -2px;
+    color: #1a73e8;
+    transform: scale(.75)
+}
+
+input:not(:focus) + .session-label {
+    color: #757575;
+}
+
+.session-label {
+    padding: 0 10px;
+    position: absolute;
+    top: 30px;
+    left: 5px;
+    background: #fff;
+    color: #757575;
+    letter-spacing: .25px;
+    transition: .2s;
+    user-select: none;
+    pointer-events: none;
+}
+
+.signin-body-small-box .session-input{
+    border-bottom: 15px solid transparent;
+}
+
+div#name > .session-input:first-child {
+    margin-right: 10px
+}
+
+div#name {
+    width: 100%;
+    display: flex;
+}
+
+.form-btn {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 40px;
+    margin-bottom: 24px;
+    padding-bottom: 20;
+}
+
+.signin-body-box {
+    display: block;
+    box-sizing: border-box;
+}
+
+.signin-body-small-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-body {
+    padding-top: 24px;
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+    width: 100%;
+
+    span {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #575757;
+        padding-left: 5px
+    }
+
+}
+
+@media (min-width: 450px) {
+    .signin-body {
+        margin: auto -40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin-bottom: 16px;
+    }
+}
+
+.signin-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    a {
+        border-radius: 4px;
+        color: #1a73e8;
+        display: inline-block;
+        font-weight: 500;
+        letter-spacing: .25px;
+        outline: 0;
+        position: relative;
+        background: transparent;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        border: 0;
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+    }
+
+    a:last-of-type {
+        margin-top: 5px;
+    }
+
+    p#signin-forgot {
+        margin-top: 2px;
+        margin-bottom: 50px
+    }
+
+}
+
+.goghgle {
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Noto Sans HK', sans-serif;
+}
+
+#blue {
+    color: rgb(66,133,244);
+    user-select: none;
+}
+
+#red {
+    color: #EA4335;
+    user-select: none;
+}
+
+#yellow {
+    color: #FABC07
+}
+
+#green {
+    color: hsl(135,51%,44%)
+}
+
+.errors {
+    color: #d93025;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.errors-icon {
+    width: 16px;
+    height: 16px;
+    fill: #d93025;
+    margin-right: 5px
+}
+

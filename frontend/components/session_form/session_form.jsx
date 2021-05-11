@@ -45,7 +45,7 @@ class SessionForm extends React.Component {
         const {currentUser, errors} = this.props
         return (
             <div className="form-background">
-                {currentUser ? <Redirect to="/" /> : ""}
+                {/* {currentUser ? <Redirect to="/" /> : ""} */}
                 <div className="content-out">
                 <div className="content-in">
                 <div className="content-padding">
@@ -74,7 +74,7 @@ class SessionForm extends React.Component {
 
                         <div className="session-input">
                             <input 
-                                type="text"
+                                type="password"
                                 value={this.state.password}
                                 placeholder=" "
                                 onChange={this.update('password')}
@@ -83,7 +83,14 @@ class SessionForm extends React.Component {
                             <label className="session-label">Password</label>
                         </div>
                         
-                        {/* Insert errors here */}
+                        {errors ? errors.map(error => (
+                            <div className="errors" key={error.id}>
+                                <svg className="errors-icon" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+                                </svg>
+                                {error}
+                            </div>
+                        )) : "" }
                         
                         <div className="signin-body">
                             <p id="signin-forgot"><a onClick={this.toggleForgot.bind(this)}>Forgot password?</a>{this.state.forgot ? this.displayForgot() : ""}</p>
@@ -92,7 +99,7 @@ class SessionForm extends React.Component {
                         </div>
 
                         <div className="form-btn">
-                            <button className="form-submit">{this.props.formType}</button>
+                            <input type="submit" className="form-submit"/>{this.props.formType}
                             <Route path="/login" component={signupButton} />
                         </div>
                         </div></div>
