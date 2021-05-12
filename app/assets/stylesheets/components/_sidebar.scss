@@ -1,0 +1,47 @@
+.slide-in {
+    transform: translate3D(300px, 0, 0);
+    transition: transform ease 450ms;
+}
+
+#sidebar-links {
+    padding: 16px 0;
+}
+
+.sidebar-link {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 5px 24px 0;
+}
+
+.sidebar-link.active {
+    background: #e8e8e8;
+}
+
+.sidebar-link.hover {
+    background: #f0f0f0;
+}
+
+.sidebar-link svg {
+    fill: #606060;
+    margin-bottom: 7px;
+    width: 24px;
+    height: 24px;
+    margin-right: 24px;
+}
+
+.sidebar-link.active svg {
+    fill: rgb(26, 115, 232)
+}
+
+.sidebar-link.active span {
+    color: rgb(26, 115, 232)
+}
+
+.sidebar-link span {
+    color: #575757;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+}

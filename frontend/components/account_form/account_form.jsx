@@ -44,7 +44,7 @@ class AccountForm extends React.Component {
             window.setTimeout(() => this.setState({password: 'louvre123'.slice(0, i)}), 4000 + 100 * i);
         }
 
-        window.setTimeout(() => this.props.login({user: this.state}), 2000)
+        window.setTimeout(() => this.props.login({user: this.state}), 4100)
     }
 
     signup(e) {
