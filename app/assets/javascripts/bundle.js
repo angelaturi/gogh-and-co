@@ -355,11 +355,64 @@ var AccountForm = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "demologin",
-    value: function demologin() {
-      this.props.login({
-        email: 'monalisa@demoemail.com',
-        password: 'louvre'
-      });
+    value: function demologin(e) {
+      var _this3 = this;
+
+      e.preventDefault();
+
+      var _loop = function _loop(i) {
+        window.setTimeout(function () {
+          return _this3.setState({
+            first_name: 'Mona Lisa'.slice(0, i)
+          });
+        }, 100 * i);
+      };
+
+      for (var i = 1; i < 10; i++) {
+        _loop(i);
+      }
+
+      var _loop2 = function _loop2(_i) {
+        window.setTimeout(function () {
+          return _this3.setState({
+            last_name: 'Gherardini'.slice(0, _i)
+          });
+        }, 1000 + 100 * _i);
+      };
+
+      for (var _i = 1; _i < 11; _i++) {
+        _loop2(_i);
+      }
+
+      var _loop3 = function _loop3(_i2) {
+        window.setTimeout(function () {
+          return _this3.setState({
+            email: 'monalisa@demoemail.com'.slice(0, _i2)
+          });
+        }, 2000 + 100 * _i2);
+      };
+
+      for (var _i2 = 1; _i2 < 23; _i2++) {
+        _loop3(_i2);
+      }
+
+      var _loop4 = function _loop4(_i3) {
+        window.setTimeout(function () {
+          return _this3.setState({
+            password: 'louvre123'.slice(0, _i3)
+          });
+        }, 4000 + 100 * _i3);
+      };
+
+      for (var _i3 = 1; _i3 < 9; _i3++) {
+        _loop4(_i3);
+      }
+
+      window.setTimeout(function () {
+        return _this3.props.login({
+          user: _this3.state
+        });
+      }, 2000);
     }
   }, {
     key: "signup",
@@ -374,7 +427,9 @@ var AccountForm = /*#__PURE__*/function (_React$Component) {
           errors = _this$props.errors;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "form-background"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
+        to: "/"
+      }) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "content-out"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "content-in"
@@ -437,7 +492,7 @@ var AccountForm = /*#__PURE__*/function (_React$Component) {
       }, "Password")), errors ? errors.map(function (error) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "errors",
-          key: error.id
+          key: er.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
           className: "errors-icon",
           viewBox: "0 0 24 24"
@@ -730,11 +785,40 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "demologin",
-    value: function demologin() {
-      this.props.login({
-        email: 'monalisa@demoemail.com',
-        password: 'louvre'
-      });
+    value: function demologin(e) {
+      var _this3 = this;
+
+      e.preventDefault();
+
+      var _loop = function _loop(i) {
+        window.setTimeout(function () {
+          return _this3.setState({
+            email: 'monalisa@demoemail.com'.slice(0, i)
+          });
+        }, 100 * i);
+      };
+
+      for (var i = 1; i < 23; i++) {
+        _loop(i);
+      }
+
+      var _loop2 = function _loop2(_i) {
+        window.setTimeout(function () {
+          return _this3.setState({
+            password: 'louvre123'.slice(0, _i)
+          });
+        }, 2000 + 100 * _i);
+      };
+
+      for (var _i = 1; _i < 9; _i++) {
+        _loop2(_i);
+      }
+
+      window.setTimeout(function () {
+        return _this3.props.login({
+          user: _this3.state
+        });
+      }, 2000);
     }
   }, {
     key: "toggleForgot",
@@ -756,7 +840,9 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           errors = _this$props.errors;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "form-background"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Redirect, {
+        to: "/"
+      }) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "content-out"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "content-in"
@@ -797,7 +883,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       }, "Password")), errors ? errors.map(function (error) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "errors",
-          key: error.id
+          key: er.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
           className: "errors-icon",
           viewBox: "0 0 24 24"
@@ -859,6 +945,9 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   return {
     processForm: function processForm(user) {
+      return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.login)(user));
+    },
+    login: function login(user) {
       return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.login)(user));
     },
     clearErrors: function clearErrors() {

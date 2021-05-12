@@ -162,11 +162,11 @@ input.signin {
     box-shadow: none;
     border: 1px solid #dadce0;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 14px;
     margin: 10px 0;
     height: 100%;
     width: 100%;
-    // padding: 12px 14px;
+    padding: 12px 14px;
     flex-grow: 1;
     flex-shrink: 1;
     transition: border 150ms, box-shadow 150ms;
@@ -175,7 +175,6 @@ input.signin {
 input.session-text {
     border-radius: 4px;
     font-family: 'Roboto', sans-serif;
-
 }
 
 .content-out input:focus {
@@ -208,7 +207,7 @@ input.session-text {
 
 .session-text:focus + .session-label, input:not([value=""]) + .session-label {
     top: 2px;
-    left: -2px;
+    left: -5px;
     color: #1a73e8;
     transform: scale(.75);
 }

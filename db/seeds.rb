@@ -8,4 +8,4 @@
 
 User.destroy_all
 
-User.create(email: 'monalisa@demoemail.com', password: 'louvre', first_name: 'Mona Lisa', last_name: 'Gherardini', profile_image_url: 'https://ibb.co/yXPR07z')
+User.create(email: 'monalisa@demoemail.com', password: 'louvre123', first_name: 'Mona Lisa', last_name: 'Gherardini', profile_image_url: 'https://ibb.co/yXPR07z')

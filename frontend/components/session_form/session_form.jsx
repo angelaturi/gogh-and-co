@@ -27,8 +27,17 @@ class SessionForm extends React.Component {
         return e => (this.setState({[field]: e.target.value}))
     }
 
-    demologin() {
-        this.props.login({email: 'monalisa@demoemail.com', password: 'louvre' })
+    demologin(e) {
+        e.preventDefault()
+
+        for(let i = 1; i < 23; i++){
+            window.setTimeout(() => this.setState({email: 'monalisa@demoemail.com'.slice(0, i)}), 100 * i);
+        }
+        for(let i = 1; i < 9; i++){
+            window.setTimeout(() => this.setState({password: 'louvre123'.slice(0, i)}), 2000 + 100 * i);
+        }
+
+        window.setTimeout(() => this.props.login({user: this.state}), 2000)
     }
 
     toggleForgot() {
@@ -45,7 +54,7 @@ class SessionForm extends React.Component {
         const {currentUser, errors} = this.props
         return (
             <div className="form-background">
-                {/* {currentUser ? <Redirect to="/" /> : ""} */}
+                {currentUser ? <Redirect to="/" /> : ""}
                 <div className="content-out">
                     <div className="content-in">
                     <div className="content-padding">
@@ -84,7 +93,7 @@ class SessionForm extends React.Component {
                                 </div>
                     
                                 {errors ? errors.map(error => (
-                                    <div className="errors" key={error.id}>
+                                    <div className="errors" key={er.id}>
                                         <svg className="errors-icon" viewBox="0 0 24 24">
                                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
                                         </svg>
