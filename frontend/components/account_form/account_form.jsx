@@ -44,17 +44,17 @@ class AccountForm extends React.Component {
                 {/* {currentUser ? <Redirect to="/" /> : ""} */}
                 <div className="content-out">
                     <div className="content-in">
-                        <div className="content-padding">
+                    <div className="content-padding">
                 
-                            <form onSubmit={this.handleSubmit}>
-                                <div className="signin-heading" id="create-account">
-                                    <Goghgle />
-                                    <h1>Create your Goghgle Account</h1>
-                                </div>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="signin-heading" id="create-account">
+                                <Goghgle />
+                                <h1>Create your Goghgle Account</h1>
+                            </div>
 
-                                <div className="signin-body">
-                                    <div className="signin-body-box">
-                                    <div className="signin-body-small-box">
+                            <div className="signin-body">
+                            <div className="signin-body-box">
+                                <div className="signin-body-small-box">
 
                                     <div id="name">
                                         <div className="session-input">
@@ -112,17 +112,17 @@ class AccountForm extends React.Component {
                                         </div>
                                     )) : "" }
                                     
-                                    <div className="signin-body">
+                                    <div className="signin-body-text">
                                         <p id="signin-demo">or explore site with a <a onClick={this.demologin}>demo account</a></p>
                                     </div>
 
-                                    <div className="form-btn">
-                                        <input type="submit" className="form-submit"/>{this.props.formType}
-                                        <Route path="/signup" component={signinButton} />
-                                    </div>
+                                </div>
 
-                                    </div></div>
-                            </div>
+                                <div className="form-btn">
+                                    <button className="form-submit">{this.props.formType}</button>
+                                    <Route path="/signup" component={signinButton} />
+                                </div>
+                            </div></div>
                         </form>
                     </div></div>
                 </div>
