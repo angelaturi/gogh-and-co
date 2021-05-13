@@ -1,6 +1,13 @@
 .slide-in {
-    transform: translate3D(300px, 0, 0);
-    transition: transform ease 450ms;
+    width: 240px;
+    height: 100%;
+    z-index: 7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    overflow-x: hidden;
+    transition: 0.3s;
 }
 
 #sidebar-links {
@@ -44,4 +51,29 @@
     font-family: 'Roboto';
     font-size: 14px;
     font-weight: 400;
+}
+
+.hide {
+    display: none;
+}
+
+.dropdown {
+    width: 240px;
+    height: 100%;
+    z-index: 7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    overflow-x: hidden;
+    transition: 0.3s;
+}
+
+#dropdown-header {
+    height: 56px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-left: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

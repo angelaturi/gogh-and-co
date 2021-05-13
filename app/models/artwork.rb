@@ -27,5 +27,7 @@ class Artwork < ApplicationRecord
     has_many :collected_artworks,
         foreign_key: :artwork_id,
         class_name: :CollectedArtwork
+
+    has_one_attached :photo
     
 end

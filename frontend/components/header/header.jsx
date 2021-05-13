@@ -8,19 +8,22 @@ import Sidebar from '../sidebar'
 const Header = (props) => {
     const {currentUser, logout} = props
     const sidebar = useRef(null)
+    const screen = useRef(null)
 
     const toggleSidebar = () => {
         sidebar.current.classList.toggle('slide-in')
+        screen.current.classList.toggle('hide')
     }
 
     return (
         <div id="header">
             <div className="dropdown" ref={sidebar}>
-                <div id="dropdown-header"></div>
-                <div className="hamburger-circle" onClick={toggleSidebar}>
-                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="hamburder">
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                    </svg>
+                <div id="dropdown-header">
+                    <div className="hamburger-circle" onClick={toggleSidebar}>
+                        <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="hamburger">
+                            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                        </svg>
+                    </div>
                 </div>
                 <Sidebar />
             </div>

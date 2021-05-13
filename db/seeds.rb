@@ -7,5 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Artwork.destroy_all
 
 User.create(email: 'monalisa@demoemail.com', password: 'louvre123', first_name: 'Mona Lisa', last_name: 'Gherardini', profile_image_url: 'https://ibb.co/yXPR07z')
+
+Artwork.create(title: 'The Starry Night', creator_id: 1, date_created: 1989, color: 'red', style: 'impressionism', medium: 'oil on canvas', partner_organization: "Museum of Modern Art")
