@@ -6,6 +6,7 @@ class Api::ArtworksController < ApplicationController
 
     def show
         @artwork = Artwork.find(params[:id])
+        render :show
     end
 
     def favorite

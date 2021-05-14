@@ -6,6 +6,5 @@ json.color @artwork.color
 json.style @artwork.style
 json.medium @artwork.medium
 json.partner_organization @artwork.partner_organization
-json.url @artwork.url
-json.thumb_url @artwork.thumb_url
+json.photoURL url_for(@post.photo)
 json.favorited (current_user && current_user.artworks.include?(@artwork))

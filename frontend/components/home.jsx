@@ -1,8 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 import HeaderContainer from './header/header_container'
-import {Date} from 'prismic-reactjs';
-import {format} from 'date-fns-tz';
+
 
 class Home extends React.Component {
     constructor(props) {
@@ -97,15 +96,48 @@ class Home extends React.Component {
                         </div>
                     </section>
                     <section className="fav-color">
-                        <div className="fav-color-header">
-                            <h2><span>What's your favorite color?</span></h2>
-
+                        <div className="fav-color-inner">
+                            <div className="fav-color-header">
+                                <h2><span>What's your favorite color?</span></h2>
+                                <h3>Discover artworks by color</h3>
+                            </div>
+                            <div className="color-boxes">
+                                <div className="color-cards">
+                                    <div className="green">
+                                        <a className="green-card">
+                                            <div className="title-div">
+                                                <h3 className="title">Green</h3>
+                                            </div>
+                                        </a>
+                                    </div>
+                                     <div className="pink">
+                                        <a className="pink-card">
+                                            <div className="title">
+                                                <h3 className="title">Pink</h3>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                     </section>
                     <section className="museum-home">
-                        <div className="museum-home-header">
-                            <h3>Explore a museum from home</h3>
+                        <div className="museum-home-inner">
+                            <div className="museum-home-second-inner">
+                                <div className="museum-home-third-inner">
+                                    <div className="museum-home-words">
+                                        <h3>Explore a museum from home</h3>
+                                        <div>
+                                            <div className="museum-icon"></div>
+                                            <div className="musuem-description">
+                                                <h4>Found in 1929, The Museum of Modern Art (MoMA) in midtown Manhattan was the first museum devoted to the modern era. Today's MoMA's rich and varied collection offers a panoramic overview of modern and contemporary art, from the innovative European painting and sculpture of the 1880s to today's film, design, and performance art.</h4>
+                                                <button>See the collection</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </section>
                     <section className="explore-street">
