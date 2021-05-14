@@ -4,7 +4,7 @@
 }
 
 .user-icon-dropdown-content {
-    right: 0;
+    right: 8px;
     display: block;
     position: absolute;
     background: white;
@@ -13,6 +13,9 @@
     border-top: none;
     z-index: 4;
     margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    border: 1px solid #ccc;
 }
 
 .user-icon-big {
@@ -63,4 +66,40 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.user-info {
+    button {
+        border-radius: 100px;
+        border: 1px solid #dadce0;
+        background: #ffffff;
+        color: #3d4043;
+        display: inline-block;
+        font-family: 'Roboto';
+        margin: 16px 0 0;
+        padding: 8px 16px;
+        text-align: center;
+        overflow: hidden;
+    }
+}
+
+.user-email {
+    color: #5f6268;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Noto Sans HK';
+}
+
+.user-name {
+    color: #202124;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+    overflow: hidden
+}
+
+.user-display {
+    svg {
+        
+    }
 }

@@ -10689,8 +10689,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ "./frontend/components/home.jsx");
 /* harmony import */ var _session_form_session_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/session_form_container */ "./frontend/components/session_form/session_form_container.jsx");
 /* harmony import */ var _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./account_form/create_account_form_container */ "./frontend/components/account_form/create_account_form_container.jsx");
-/* harmony import */ var _artworks_artwork_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./artworks/artwork_container */ "./frontend/components/artworks/artwork_container.jsx");
-/* harmony import */ var _artworks_artwork_container__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_artworks_artwork_container__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _artworks_artwork__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./artworks/artwork */ "./frontend/components/artworks/artwork.jsx");
 /* harmony import */ var _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions/artworks_actions */ "./frontend/actions/artworks_actions.js");
 /* harmony import */ var _fontawesome__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./fontawesome */ "./frontend/components/fontawesome.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -10755,6 +10754,9 @@ var App = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
         path: "/signup",
         component: _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_4__.default
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+        path: "/artworks",
+        component: _artworks_artwork__WEBPACK_IMPORTED_MODULE_5__.default
       }));
     }
   }]);
@@ -10767,27 +10769,85 @@ var App = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./frontend/components/artworks/artwork_container.jsx":
-/*!************************************************************!*\
-  !*** ./frontend/components/artworks/artwork_container.jsx ***!
-  \************************************************************/
-/***/ (() => {
+/***/ "./frontend/components/artworks/artwork.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/components/artworks/artwork.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// import React from 'react';
-// import {withRouter} from 'react-router';
-// import {connect} from 'react-redux';
-// import Artwork from 'react-redux';
-// const mapStateToProps = state => ({
-//     title: state.artworks.currentArtwork.title,
-//     date_created: state.artworks.currentArtwork.date_created,
-//     color: state.artworks.currentArtwork.color,
-//     style: state.artworks.currentArtwork.style,
-//     medium: state.artworks.currentArtwork.medium,
-//     partner_organization: state.artworks.currentArtwork.partner_organization
-// })
-// const mapDispatchToProps = dispatch ({    
-// });
-// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Artwork))
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var iv_viewer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! iv-viewer */ "./node_modules/iv-viewer/lib/index.js");
+/* harmony import */ var iv_viewer_dist_iv_viewer_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! iv-viewer/dist/iv-viewer.css */ "./node_modules/iv-viewer/dist/iv-viewer.css");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var Artwork = /*#__PURE__*/function (_React$Component) {
+  _inherits(Artwork, _React$Component);
+
+  var _super = _createSuper(Artwork);
+
+  function Artwork(props) {
+    _classCallCheck(this, Artwork);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(Artwork, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log("MADE IT!!");
+      var viewer = new iv_viewer__WEBPACK_IMPORTED_MODULE_1__.default(document.querySelector("#image")); // viewer.load(window.placeholderImg);
+      // viewer.refresh;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      // const image = document.querySelector('#artwork-loader')
+      // console.log(container)
+      // viewer.load(image)
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "artwork"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "artwork-loader"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: window.starryNight,
+        id: "image"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.date_created), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.color), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.style), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.medium), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.partner_organization));
+    }
+  }]);
+
+  return Artwork;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Artwork);
 
 /***/ }),
 
@@ -12485,6 +12545,151 @@ var deleteSession = function deleteSession(error) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/iv-viewer/dist/iv-viewer.css":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/iv-viewer/dist/iv-viewer.css ***!
+  \*****************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".iv {\n  /***** snap view css *****/\n  /*** zoom slider ***/\n  /**** snap view css end *****/\n}\n.iv-container {\n  overflow: hidden;\n  position: relative;\n}\n.iv-fullscreen {\n  position: fixed;\n  background: #0d0d0d;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  display: none;\n  z-index: 1000;\n}\n.iv-fullscreen-container {\n  position: relative;\n  height: 100%;\n  width: 100%;\n}\n.iv-container {\n  overflow: hidden;\n  position: relative;\n}\n.iv-image-mode {\n  display: inline-block;\n}\n.iv-fullscreen-close {\n  position: absolute;\n  width: 24px;\n  height: 24px;\n  right: 10px;\n  top: 10px;\n  padding: 10px;\n  cursor: pointer;\n  text-align: center;\n  overflow: hidden;\n  text-shadow: 0px 0px 3px #6d6d6d;\n  transition: all ease 200ms;\n}\n.iv-fullscreen-close:after, .iv-fullscreen-close:before {\n  content: \"\";\n  height: 4px;\n  width: 24px;\n  background: #FFF;\n  position: absolute;\n  left: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.iv-fullscreen-close:before {\n  transform: translate(-50%, -50%) rotate(45deg);\n}\n.iv-fullscreen-close:after {\n  transform: translate(-50%, -50%) rotate(-45deg);\n}\n.iv-fullscreen-close:hover {\n  transform: rotate(90deg);\n  transform-origin: 50% 50%;\n}\n.iv-snap-view {\n  width: 150px;\n  height: 150px;\n  position: absolute;\n  top: 20px;\n  left: 20px;\n  border: 1px solid #aaa;\n  background: black;\n  z-index: 100;\n  box-sizing: content-box;\n  transition: opacity ease 400ms;\n  opacity: 0;\n}\n.iv-snap-image-wrap {\n  display: inline-block;\n  position: absolute;\n  max-width: 150px;\n  max-height: 150px;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  overflow: hidden;\n}\n.iv-snap-image {\n  position: relative;\n  -ms-touch-action: none;\n      touch-action: none;\n}\n.iv-snap-handle {\n  box-sizing: border-box;\n  position: absolute;\n  border: 1px solid white;\n  transform: translate3d(0, 0, 0);\n  box-shadow: 0px 0px 0px 200px rgba(0, 0, 0, 0.5);\n  cursor: pointer;\n  cursor: grab;\n}\n.iv-snap-handle:active {\n  cursor: grabbing;\n}\n.iv-zoom-slider {\n  width: 100%;\n  box-sizing: content-box;\n  border: 1px solid #aaa;\n  border-top: 0;\n  background: rgba(0, 0, 0, 0.3);\n  height: 15px;\n  position: absolute;\n  top: 150px;\n  left: -1px;\n}\n.iv-zoom-handle {\n  width: 20px;\n  height: 15px;\n  background: white;\n  position: absolute;\n  cursor: pointer;\n  cursor: grab;\n}\n.iv-zoom-handle:active {\n  cursor: grabbing;\n}\n.iv-image-view {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n}\n.iv-image-wrap {\n  display: inline-block;\n}\n.iv-image-wrap:active {\n  cursor: move;\n}\n.iv-image {\n  max-width: 100%;\n  max-height: 100%;\n  position: absolute;\n  -ms-touch-action: none;\n      touch-action: none;\n  transform: translate3d(0, 0, 0);\n}\n.iv-loader {\n  top: 50%;\n  left: 50%;\n  border-radius: 50%;\n  width: 32px;\n  height: 32px;\n  z-index: 100;\n  margin-top: -16px;\n  margin-left: -16px;\n  font-size: 5px;\n  position: absolute;\n  text-indent: -9999em;\n  border: 1.1em solid rgba(255, 255, 255, 0.2);\n  border-left: 1.1em solid #ffffff;\n  transform: translateZ(0);\n  animation: loading-icon 1.1s infinite linear;\n}\n.iv-loader:after {\n  width: 10em;\n  height: 10em;\n  border-radius: 50%;\n}\n@keyframes loading-icon {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@media screen and (max-width: 767px) {\n  .iv-snap-view {\n    z-index: -1;\n    visibility: hidden;\n  }\n}", "",{"version":3,"sources":["webpack://./node_modules/iv-viewer/dist/iv-viewer.css"],"names":[],"mappings":"AAAA;EACE,0BAA0B;EAC1B,oBAAoB;EACpB,6BAA6B;AAC/B;AACA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,eAAe;EACf,mBAAmB;EACnB,WAAW;EACX,YAAY;EACZ,MAAM;EACN,OAAO;EACP,aAAa;EACb,aAAa;AACf;AACA;EACE,kBAAkB;EAClB,YAAY;EACZ,WAAW;AACb;AACA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,qBAAqB;AACvB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,WAAW;EACX,SAAS;EACT,aAAa;EACb,eAAe;EACf,kBAAkB;EAClB,gBAAgB;EAChB,gCAAgC;EAChC,0BAA0B;AAC5B;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,gBAAgB;EAChB,kBAAkB;EAClB,OAAO;EACP,QAAQ;EACR,SAAS;EACT,gCAAgC;AAClC;AACA;EACE,8CAA8C;AAChD;AACA;EACE,+CAA+C;AACjD;AACA;EACE,wBAAwB;EACxB,yBAAyB;AAC3B;AACA;EACE,YAAY;EACZ,aAAa;EACb,kBAAkB;EAClB,SAAS;EACT,UAAU;EACV,sBAAsB;EACtB,iBAAiB;EACjB,YAAY;EACZ,uBAAuB;EACvB,8BAA8B;EAC9B,UAAU;AACZ;AACA;EACE,qBAAqB;EACrB,kBAAkB;EAClB,gBAAgB;EAChB,iBAAiB;EACjB,QAAQ;EACR,SAAS;EACT,gCAAgC;EAChC,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,sBAAsB;MAClB,kBAAkB;AACxB;AACA;EACE,sBAAsB;EACtB,kBAAkB;EAClB,uBAAuB;EACvB,+BAA+B;EAC/B,gDAAgD;EAChD,eAAe;EACf,YAAY;AACd;AACA;EACE,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,uBAAuB;EACvB,sBAAsB;EACtB,aAAa;EACb,8BAA8B;EAC9B,YAAY;EACZ,kBAAkB;EAClB,UAAU;EACV,UAAU;AACZ;AACA;EACE,WAAW;EACX,YAAY;EACZ,iBAAiB;EACjB,kBAAkB;EAClB,eAAe;EACf,YAAY;AACd;AACA;EACE,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,MAAM;EACN,OAAO;AACT;AACA;EACE,qBAAqB;AACvB;AACA;EACE,YAAY;AACd;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,kBAAkB;EAClB,sBAAsB;MAClB,kBAAkB;EACtB,+BAA+B;AACjC;AACA;EACE,QAAQ;EACR,SAAS;EACT,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,YAAY;EACZ,iBAAiB;EACjB,kBAAkB;EAClB,cAAc;EACd,kBAAkB;EAClB,oBAAoB;EACpB,4CAA4C;EAC5C,gCAAgC;EAChC,wBAAwB;EACxB,4CAA4C;AAC9C;AACA;EACE,WAAW;EACX,YAAY;EACZ,kBAAkB;AACpB;AACA;EACE;IACE,uBAAuB;EACzB;EACA;IACE,yBAAyB;EAC3B;AACF;AACA;EACE;IACE,WAAW;IACX,kBAAkB;EACpB;AACF","sourcesContent":[".iv {\n  /***** snap view css *****/\n  /*** zoom slider ***/\n  /**** snap view css end *****/\n}\n.iv-container {\n  overflow: hidden;\n  position: relative;\n}\n.iv-fullscreen {\n  position: fixed;\n  background: #0d0d0d;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  display: none;\n  z-index: 1000;\n}\n.iv-fullscreen-container {\n  position: relative;\n  height: 100%;\n  width: 100%;\n}\n.iv-container {\n  overflow: hidden;\n  position: relative;\n}\n.iv-image-mode {\n  display: inline-block;\n}\n.iv-fullscreen-close {\n  position: absolute;\n  width: 24px;\n  height: 24px;\n  right: 10px;\n  top: 10px;\n  padding: 10px;\n  cursor: pointer;\n  text-align: center;\n  overflow: hidden;\n  text-shadow: 0px 0px 3px #6d6d6d;\n  transition: all ease 200ms;\n}\n.iv-fullscreen-close:after, .iv-fullscreen-close:before {\n  content: \"\";\n  height: 4px;\n  width: 24px;\n  background: #FFF;\n  position: absolute;\n  left: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.iv-fullscreen-close:before {\n  transform: translate(-50%, -50%) rotate(45deg);\n}\n.iv-fullscreen-close:after {\n  transform: translate(-50%, -50%) rotate(-45deg);\n}\n.iv-fullscreen-close:hover {\n  transform: rotate(90deg);\n  transform-origin: 50% 50%;\n}\n.iv-snap-view {\n  width: 150px;\n  height: 150px;\n  position: absolute;\n  top: 20px;\n  left: 20px;\n  border: 1px solid #aaa;\n  background: black;\n  z-index: 100;\n  box-sizing: content-box;\n  transition: opacity ease 400ms;\n  opacity: 0;\n}\n.iv-snap-image-wrap {\n  display: inline-block;\n  position: absolute;\n  max-width: 150px;\n  max-height: 150px;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  overflow: hidden;\n}\n.iv-snap-image {\n  position: relative;\n  -ms-touch-action: none;\n      touch-action: none;\n}\n.iv-snap-handle {\n  box-sizing: border-box;\n  position: absolute;\n  border: 1px solid white;\n  transform: translate3d(0, 0, 0);\n  box-shadow: 0px 0px 0px 200px rgba(0, 0, 0, 0.5);\n  cursor: pointer;\n  cursor: grab;\n}\n.iv-snap-handle:active {\n  cursor: grabbing;\n}\n.iv-zoom-slider {\n  width: 100%;\n  box-sizing: content-box;\n  border: 1px solid #aaa;\n  border-top: 0;\n  background: rgba(0, 0, 0, 0.3);\n  height: 15px;\n  position: absolute;\n  top: 150px;\n  left: -1px;\n}\n.iv-zoom-handle {\n  width: 20px;\n  height: 15px;\n  background: white;\n  position: absolute;\n  cursor: pointer;\n  cursor: grab;\n}\n.iv-zoom-handle:active {\n  cursor: grabbing;\n}\n.iv-image-view {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n}\n.iv-image-wrap {\n  display: inline-block;\n}\n.iv-image-wrap:active {\n  cursor: move;\n}\n.iv-image {\n  max-width: 100%;\n  max-height: 100%;\n  position: absolute;\n  -ms-touch-action: none;\n      touch-action: none;\n  transform: translate3d(0, 0, 0);\n}\n.iv-loader {\n  top: 50%;\n  left: 50%;\n  border-radius: 50%;\n  width: 32px;\n  height: 32px;\n  z-index: 100;\n  margin-top: -16px;\n  margin-left: -16px;\n  font-size: 5px;\n  position: absolute;\n  text-indent: -9999em;\n  border: 1.1em solid rgba(255, 255, 255, 0.2);\n  border-left: 1.1em solid #ffffff;\n  transform: translateZ(0);\n  animation: loading-icon 1.1s infinite linear;\n}\n.iv-loader:after {\n  width: 10em;\n  height: 10em;\n  border-radius: 50%;\n}\n@keyframes loading-icon {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@media screen and (max-width: 767px) {\n  .iv-snap-view {\n    z-index: -1;\n    visibility: hidden;\n  }\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/cssWithMappingToString.js ***!
+  \************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+module.exports = function cssWithMappingToString(item) {
+  var _item = _slicedToArray(item, 4),
+      content = _item[1],
+      cssMapping = _item[3];
+
+  if (typeof btoa === "function") {
+    // eslint-disable-next-line no-undef
+    var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(cssMapping))));
+    var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+    var sourceMapping = "/*# ".concat(data, " */");
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return "/*# sourceURL=".concat(cssMapping.sourceRoot || "").concat(source, " */");
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join("\n");
+  }
+
+  return [content].join("\n");
+};
+
+/***/ }),
+
 /***/ "./node_modules/history/esm/history.js":
 /*!*********************************************!*\
   !*** ./node_modules/history/esm/history.js ***!
@@ -13554,6 +13759,1445 @@ module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
+
+/***/ }),
+
+/***/ "./node_modules/iv-viewer/lib/FullScreen.js":
+/*!**************************************************!*\
+  !*** ./node_modules/iv-viewer/lib/FullScreen.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var _util = __webpack_require__(/*! ./util */ "./node_modules/iv-viewer/lib/util.js");
+
+var _ImageViewer2 = _interopRequireDefault(__webpack_require__(/*! ./ImageViewer */ "./node_modules/iv-viewer/lib/ImageViewer.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var fullScreenHtml = "\n  <div class=\"iv-fullscreen-container\"></div>\n  <div class=\"iv-fullscreen-close\"></div>\n";
+
+var FullScreenViewer =
+/*#__PURE__*/
+function (_ImageViewer) {
+  _inherits(FullScreenViewer, _ImageViewer);
+
+  function FullScreenViewer() {
+    var _this;
+
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    _classCallCheck(this, FullScreenViewer);
+
+    var fullScreenElem = (0, _util.createElement)({
+      tagName: 'div',
+      className: 'iv-fullscreen',
+      html: fullScreenHtml,
+      parent: document.body
+    });
+    var container = fullScreenElem.querySelector('.iv-fullscreen-container'); // call the ImageViewer constructor
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(FullScreenViewer).call(this, container, _objectSpread({}, options, {
+      refreshOnResize: false
+    }))); // add fullScreenElem on element list
+
+    _defineProperty(_assertThisInitialized(_this), "hide", function () {
+      // hide the fullscreen
+      (0, _util.css)(_this._elements.fullScreen, {
+        display: 'none'
+      }); // enable scroll
+
+      (0, _util.removeCss)(document.querySelector('html'), 'overflow'); // remove window event
+
+      _this._events.onWindowResize();
+    });
+
+    _this._elements.fullScreen = fullScreenElem;
+
+    _this._initFullScreenEvents();
+
+    return _this;
+  }
+
+  _createClass(FullScreenViewer, [{
+    key: "_initFullScreenEvents",
+    value: function _initFullScreenEvents() {
+      var fullScreen = this._elements.fullScreen;
+      var closeBtn = fullScreen.querySelector('.iv-fullscreen-close'); // add close button event
+
+      this._events.onCloseBtnClick = (0, _util.assignEvent)(closeBtn, 'click', this.hide);
+    }
+  }, {
+    key: "show",
+    value: function show(imageSrc, hiResImageSrc) {
+      // show the element
+      (0, _util.css)(this._elements.fullScreen, {
+        display: 'block'
+      }); // if image source is provide load image source
+
+      if (imageSrc) {
+        this.load(imageSrc, hiResImageSrc);
+      } // handle window resize
+
+
+      this._events.onWindowResize = (0, _util.assignEvent)(window, 'resize', this.refresh); // disable scroll on html
+
+      (0, _util.css)(document.querySelector('html'), {
+        overflow: 'hidden'
+      });
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      var fullScreen = this._elements.fullScreen; // destroy image viewer
+
+      _get(_getPrototypeOf(FullScreenViewer.prototype), "destroy", this).call(this); // remove the element
+
+
+      (0, _util.remove)(fullScreen);
+    }
+  }]);
+
+  return FullScreenViewer;
+}(_ImageViewer2.default);
+
+var _default = FullScreenViewer;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/iv-viewer/lib/ImageViewer.js":
+/*!***************************************************!*\
+  !*** ./node_modules/iv-viewer/lib/ImageViewer.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var _util = __webpack_require__(/*! ./util */ "./node_modules/iv-viewer/lib/util.js");
+
+var _Slider = _interopRequireDefault(__webpack_require__(/*! ./Slider */ "./node_modules/iv-viewer/lib/Slider.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var imageViewHtml = "\n  <div class=\"iv-loader\"></div>\n  <div class=\"iv-snap-view\">\n    <div class=\"iv-snap-image-wrap\">\n      <div class=\"iv-snap-handle\"></div>\n    </div>\n    <div class=\"iv-zoom-slider\">\n      <div class=\"iv-zoom-handle\"></div>\n    </div>\n  </div>\n  <div class=\"iv-image-view\" >\n    <div class=\"iv-image-wrap\" ></div>\n  </div>\n";
+
+var ImageViewer =
+/*#__PURE__*/
+function () {
+  function ImageViewer(element) {
+    var _this = this;
+
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    _classCallCheck(this, ImageViewer);
+
+    _defineProperty(this, "zoom", function (perc, point) {
+      var _options = _this._options,
+          _elements = _this._elements,
+          _state = _this._state;
+      var curPerc = _state.zoomValue,
+          imageDim = _state.imageDim,
+          containerDim = _state.containerDim,
+          zoomSliderLength = _state.zoomSliderLength;
+      var image = _elements.image,
+          zoomHandle = _elements.zoomHandle;
+      var maxZoom = _options.maxZoom;
+      perc = Math.round(Math.max(100, perc));
+      perc = Math.min(maxZoom, perc);
+      point = point || {
+        x: containerDim.w / 2,
+        y: containerDim.h / 2
+      };
+      var curLeft = parseFloat((0, _util.css)(image, 'left'));
+      var curTop = parseFloat((0, _util.css)(image, 'top')); // clear any panning frames
+
+      _this._clearFrames();
+
+      var step = 0;
+      var baseLeft = (containerDim.w - imageDim.w) / 2;
+      var baseTop = (containerDim.h - imageDim.h) / 2;
+      var baseRight = containerDim.w - baseLeft;
+      var baseBottom = containerDim.h - baseTop;
+
+      var zoom = function zoom() {
+        step++;
+
+        if (step < 16) {
+          _this._frames.zoomFrame = requestAnimationFrame(zoom);
+        }
+
+        var tickZoom = (0, _util.easeOutQuart)(step, curPerc, perc - curPerc, 16);
+        var ratio = tickZoom / curPerc;
+        var imgWidth = imageDim.w * tickZoom / 100;
+        var imgHeight = imageDim.h * tickZoom / 100;
+        var newLeft = -((point.x - curLeft) * ratio - point.x);
+        var newTop = -((point.y - curTop) * ratio - point.y); // fix for left and top
+
+        newLeft = Math.min(newLeft, baseLeft);
+        newTop = Math.min(newTop, baseTop); // fix for right and bottom
+
+        if (newLeft + imgWidth < baseRight) {
+          newLeft = baseRight - imgWidth; // newLeft - (newLeft + imgWidth - baseRight)
+        }
+
+        if (newTop + imgHeight < baseBottom) {
+          newTop = baseBottom - imgHeight; // newTop + (newTop + imgHeight - baseBottom)
+        }
+
+        (0, _util.css)(image, {
+          height: "".concat(imgHeight, "px"),
+          width: "".concat(imgWidth, "px"),
+          left: "".concat(newLeft, "px"),
+          top: "".concat(newTop, "px")
+        });
+        _this._state.zoomValue = tickZoom;
+
+        _this._resizeSnapHandle(imgWidth, imgHeight, newLeft, newTop); // update zoom handle position
+
+
+        (0, _util.css)(zoomHandle, {
+          left: "".concat((tickZoom - 100) * zoomSliderLength / (maxZoom - 100), "px")
+        });
+      };
+
+      zoom();
+    });
+
+    _defineProperty(this, "_clearFrames", function () {
+      var _this$_frames = _this._frames,
+          slideMomentumCheck = _this$_frames.slideMomentumCheck,
+          sliderMomentumFrame = _this$_frames.sliderMomentumFrame,
+          zoomFrame = _this$_frames.zoomFrame;
+      clearInterval(slideMomentumCheck);
+      cancelAnimationFrame(sliderMomentumFrame);
+      cancelAnimationFrame(zoomFrame);
+    });
+
+    _defineProperty(this, "_resizeSnapHandle", function (imgWidth, imgHeight, imgLeft, imgTop) {
+      var _elements = _this._elements,
+          _state = _this._state;
+      var snapHandle = _elements.snapHandle,
+          image = _elements.image;
+      var imageDim = _state.imageDim,
+          containerDim = _state.containerDim,
+          zoomValue = _state.zoomValue,
+          snapImageDim = _state.snapImageDim;
+      var imageWidth = imgWidth || imageDim.w * zoomValue / 100;
+      var imageHeight = imgHeight || imageDim.h * zoomValue / 100;
+      var imageLeft = imgLeft || parseFloat((0, _util.css)(image, 'left'));
+      var imageTop = imgTop || parseFloat((0, _util.css)(image, 'top'));
+      var left = -imageLeft * snapImageDim.w / imageWidth;
+      var top = -imageTop * snapImageDim.h / imageHeight;
+      var handleWidth = containerDim.w * snapImageDim.w / imageWidth;
+      var handleHeight = containerDim.h * snapImageDim.h / imageHeight;
+      (0, _util.css)(snapHandle, {
+        top: "".concat(top, "px"),
+        left: "".concat(left, "px"),
+        width: "".concat(handleWidth, "px"),
+        height: "".concat(handleHeight, "px")
+      });
+      _this._state.snapHandleDim = {
+        w: handleWidth,
+        h: handleHeight
+      };
+    });
+
+    _defineProperty(this, "showSnapView", function (noTimeout) {
+      var _this$_state = _this._state,
+          snapViewVisible = _this$_state.snapViewVisible,
+          zoomValue = _this$_state.zoomValue,
+          loaded = _this$_state.loaded;
+      var snapView = _this._elements.snapView;
+      if (!_this._options.snapView) return;
+      if (snapViewVisible || zoomValue <= 100 || !loaded) return;
+      clearTimeout(_this._frames.snapViewTimeout);
+      _this._state.snapViewVisible = true;
+      (0, _util.css)(snapView, {
+        opacity: 1,
+        pointerEvents: 'inherit'
+      });
+
+      if (!noTimeout) {
+        _this._frames.snapViewTimeout = setTimeout(_this.hideSnapView, 1500);
+      }
+    });
+
+    _defineProperty(this, "hideSnapView", function () {
+      var snapView = _this._elements.snapView;
+      (0, _util.css)(snapView, {
+        opacity: 0,
+        pointerEvents: 'none'
+      });
+      _this._state.snapViewVisible = false;
+    });
+
+    _defineProperty(this, "refresh", function () {
+      _this._calculateDimensions();
+
+      _this.resetZoom();
+    });
+
+    var _this$_findContainerA = this._findContainerAndImageSrc(element, options),
+        container = _this$_findContainerA.container,
+        domElement = _this$_findContainerA.domElement,
+        imageSrc = _this$_findContainerA.imageSrc,
+        hiResImageSrc = _this$_findContainerA.hiResImageSrc; // containers for elements
+
+
+    this._elements = {
+      container: container,
+      domElement: domElement
+    };
+    this._options = _objectSpread({}, ImageViewer.defaults, options); // container for all events
+
+    this._events = {}; // container for all timeout and frames
+
+    this._frames = {}; // container for all sliders
+
+    this._sliders = {}; // maintain current state
+
+    this._state = {
+      zoomValue: this._options.zoomValue
+    };
+    this._images = {
+      imageSrc: imageSrc,
+      hiResImageSrc: hiResImageSrc
+    };
+
+    this._init();
+
+    if (imageSrc) {
+      this._loadImages();
+    } // store reference of imageViewer in domElement
+
+
+    domElement._imageViewer = this;
+  }
+
+  _createClass(ImageViewer, [{
+    key: "_findContainerAndImageSrc",
+    value: function _findContainerAndImageSrc(element) {
+      var domElement = element;
+      var imageSrc, hiResImageSrc;
+
+      if (typeof element === 'string') {
+        domElement = document.querySelector(element);
+      } // throw error if imageViewer is already assigned
+
+
+      if (domElement._imageViewer) {
+        throw new Error('An image viewer is already being initiated on the element.');
+      }
+
+      var container = element;
+
+      if (domElement.tagName === 'IMG') {
+        imageSrc = domElement.src;
+        hiResImageSrc = domElement.getAttribute('high-res-src') || domElement.getAttribute('data-high-res-src'); // wrap the image with iv-container div
+
+        container = (0, _util.wrap)(domElement, {
+          className: 'iv-container iv-image-mode',
+          style: {
+            display: 'inline-block',
+            overflow: 'hidden'
+          }
+        }); // hide the image and add iv-original-img class
+
+        (0, _util.css)(domElement, {
+          opacity: 0,
+          position: 'relative',
+          zIndex: -1
+        });
+      } else {
+        imageSrc = domElement.getAttribute('src') || domElement.getAttribute('data-src');
+        hiResImageSrc = domElement.getAttribute('high-res-src') || domElement.getAttribute('data-high-res-src');
+      }
+
+      return {
+        container: container,
+        domElement: domElement,
+        imageSrc: imageSrc,
+        hiResImageSrc: hiResImageSrc
+      };
+    }
+  }, {
+    key: "_init",
+    value: function _init() {
+      // initialize the dom elements
+      this._initDom(); // initialize slider
+
+
+      this._initImageSlider();
+
+      this._initSnapSlider();
+
+      this._initZoomSlider(); // enable pinch and zoom feature for touch screens
+
+
+      this._pinchAndZoom(); // enable scroll zoom interaction
+
+
+      this._scrollZoom(); // enable double tap to zoom interaction
+
+
+      this._doubleTapToZoom(); // initialize events
+
+
+      this._initEvents();
+    }
+  }, {
+    key: "_initDom",
+    value: function _initDom() {
+      var container = this._elements.container; // add image-viewer layout elements
+
+      (0, _util.createElement)({
+        tagName: 'div',
+        className: 'iv-wrap',
+        html: imageViewHtml,
+        parent: container
+      }); // add container class on the container
+
+      (0, _util.addClass)(container, 'iv-container'); // if the element is static position, position it relatively
+
+      if ((0, _util.css)(container, 'position') === 'static') {
+        (0, _util.css)(container, {
+          position: 'relative'
+        });
+      } // save references for later use
+
+
+      this._elements = _objectSpread({}, this._elements, {
+        snapView: container.querySelector('.iv-snap-view'),
+        snapImageWrap: container.querySelector('.iv-snap-image-wrap'),
+        imageWrap: container.querySelector('.iv-image-wrap'),
+        snapHandle: container.querySelector('.iv-snap-handle'),
+        zoomHandle: container.querySelector('.iv-zoom-handle')
+      });
+    }
+  }, {
+    key: "_initImageSlider",
+    value: function _initImageSlider() {
+      var _this2 = this;
+
+      var _elements = this._elements;
+      var imageWrap = _elements.imageWrap;
+      var positions, currentPos;
+      /* Add slide interaction to image */
+
+      var imageSlider = new _Slider.default(imageWrap, {
+        isSliderEnabled: function isSliderEnabled() {
+          var _this2$_state = _this2._state,
+              loaded = _this2$_state.loaded,
+              zooming = _this2$_state.zooming,
+              zoomValue = _this2$_state.zoomValue;
+          return loaded && !zooming && zoomValue > 100;
+        },
+        onStart: function onStart(e, position) {
+          var snapSlider = _this2._sliders.snapSlider; // clear all animation frame and interval
+
+          _this2._clearFrames();
+
+          snapSlider.onStart(); // reset positions
+
+          positions = [position, position];
+          currentPos = undefined;
+          _this2._frames.slideMomentumCheck = setInterval(function () {
+            if (!currentPos) return;
+            positions.shift();
+            positions.push({
+              x: currentPos.mx,
+              y: currentPos.my
+            });
+          }, 50);
+        },
+        onMove: function onMove(e, position) {
+          var snapImageDim = _this2._state.snapImageDim;
+          var snapSlider = _this2._sliders.snapSlider;
+
+          var imageCurrentDim = _this2._getImageCurrentDim();
+
+          currentPos = position;
+          snapSlider.onMove(e, {
+            dx: -position.dx * snapImageDim.w / imageCurrentDim.w,
+            dy: -position.dy * snapImageDim.h / imageCurrentDim.h
+          });
+        },
+        onEnd: function onEnd() {
+          var snapImageDim = _this2._state.snapImageDim;
+          var snapSlider = _this2._sliders.snapSlider;
+
+          var imageCurrentDim = _this2._getImageCurrentDim(); // clear all animation frame and interval
+
+
+          _this2._clearFrames();
+
+          var step, positionX, positionY;
+          var xDiff = positions[1].x - positions[0].x;
+          var yDiff = positions[1].y - positions[0].y;
+
+          var momentum = function momentum() {
+            if (step <= 60) {
+              _this2._frames.sliderMomentumFrame = requestAnimationFrame(momentum);
+            }
+
+            positionX += (0, _util.easeOutQuart)(step, xDiff / 3, -xDiff / 3, 60);
+            positionY += (0, _util.easeOutQuart)(step, yDiff / 3, -yDiff / 3, 60);
+            snapSlider.onMove(null, {
+              dx: -(positionX * snapImageDim.w / imageCurrentDim.w),
+              dy: -(positionY * snapImageDim.h / imageCurrentDim.h)
+            });
+            step++;
+          };
+
+          if (Math.abs(xDiff) > 30 || Math.abs(yDiff) > 30) {
+            step = 1;
+            positionX = currentPos.dx;
+            positionY = currentPos.dy;
+            momentum();
+          }
+        }
+      });
+      imageSlider.init();
+      this._sliders.imageSlider = imageSlider;
+    }
+  }, {
+    key: "_initSnapSlider",
+    value: function _initSnapSlider() {
+      var _this3 = this;
+
+      var snapHandle = this._elements.snapHandle;
+      var startHandleTop, startHandleLeft;
+      var snapSlider = new _Slider.default(snapHandle, {
+        isSliderEnabled: function isSliderEnabled() {
+          return _this3._state.loaded;
+        },
+        onStart: function onStart() {
+          var _this3$_frames = _this3._frames,
+              slideMomentumCheck = _this3$_frames.slideMomentumCheck,
+              sliderMomentumFrame = _this3$_frames.sliderMomentumFrame;
+          startHandleTop = parseFloat((0, _util.css)(snapHandle, 'top'));
+          startHandleLeft = parseFloat((0, _util.css)(snapHandle, 'left')); // stop momentum on image
+
+          clearInterval(slideMomentumCheck);
+          cancelAnimationFrame(sliderMomentumFrame);
+        },
+        onMove: function onMove(e, position) {
+          var _this3$_state = _this3._state,
+              snapHandleDim = _this3$_state.snapHandleDim,
+              snapImageDim = _this3$_state.snapImageDim;
+          var image = _this3._elements.image;
+
+          var imageCurrentDim = _this3._getImageCurrentDim(); // find handle left and top and make sure they lay between the snap image
+
+
+          var maxLeft = Math.max(snapImageDim.w - snapHandleDim.w, startHandleLeft);
+          var maxTop = Math.max(snapImageDim.h - snapHandleDim.h, startHandleTop);
+          var minLeft = Math.min(0, startHandleLeft);
+          var minTop = Math.min(0, startHandleTop);
+          var left = (0, _util.clamp)(startHandleLeft + position.dx, minLeft, maxLeft);
+          var top = (0, _util.clamp)(startHandleTop + position.dy, minTop, maxTop);
+          var imgLeft = -left * imageCurrentDim.w / snapImageDim.w;
+          var imgTop = -top * imageCurrentDim.h / snapImageDim.h;
+          (0, _util.css)(snapHandle, {
+            left: "".concat(left, "px"),
+            top: "".concat(top, "px")
+          });
+          (0, _util.css)(image, {
+            left: "".concat(imgLeft, "px"),
+            top: "".concat(imgTop, "px")
+          });
+        }
+      });
+      snapSlider.init();
+      this._sliders.snapSlider = snapSlider;
+    }
+  }, {
+    key: "_initZoomSlider",
+    value: function _initZoomSlider() {
+      var _this4 = this;
+
+      var _this$_elements = this._elements,
+          snapView = _this$_elements.snapView,
+          zoomHandle = _this$_elements.zoomHandle; // zoom in zoom out using zoom handle
+
+      var sliderElm = snapView.querySelector('.iv-zoom-slider');
+      var leftOffset, handleWidth; // on zoom slider we have to follow the mouse and set the handle to its position.
+
+      var zoomSlider = new _Slider.default(sliderElm, {
+        isSliderEnabled: function isSliderEnabled() {
+          return _this4._state.loaded;
+        },
+        onStart: function onStart(eStart) {
+          var slider = _this4._sliders.zoomSlider;
+          leftOffset = sliderElm.getBoundingClientRect().left + document.body.scrollLeft;
+          handleWidth = parseInt((0, _util.css)(zoomHandle, 'width'), 10); // move the handle to current mouse position
+
+          slider.onMove(eStart);
+        },
+        onMove: function onMove(e) {
+          var maxZoom = _this4._options.maxZoom;
+          var zoomSliderLength = _this4._state.zoomSliderLength;
+          var pageX = e.pageX !== undefined ? e.pageX : e.touches[0].pageX;
+          var newLeft = (0, _util.clamp)(pageX - leftOffset - handleWidth / 2, 0, zoomSliderLength);
+          var zoomValue = 100 + (maxZoom - 100) * newLeft / zoomSliderLength;
+
+          _this4.zoom(zoomValue);
+        }
+      });
+      zoomSlider.init();
+      this._sliders.zoomSlider = zoomSlider;
+    }
+  }, {
+    key: "_initEvents",
+    value: function _initEvents() {
+      this._snapViewEvents(); // handle window resize
+
+
+      if (this._options.refreshOnResize) {
+        this._events.onWindowResize = (0, _util.assignEvent)(window, 'resize', this.refresh);
+      }
+    }
+  }, {
+    key: "_snapViewEvents",
+    value: function _snapViewEvents() {
+      var _this5 = this;
+
+      var _this$_elements2 = this._elements,
+          imageWrap = _this$_elements2.imageWrap,
+          snapView = _this$_elements2.snapView; // show snapView on mouse move
+
+      this._events.snapViewOnMouseMove = (0, _util.assignEvent)(imageWrap, ['touchmove', 'mousemove'], function () {
+        _this5.showSnapView();
+      }); // keep showing snapView if on hover over it without any timeout
+
+      this._events.mouseEnterSnapView = (0, _util.assignEvent)(snapView, ['mouseenter', 'touchstart'], function () {
+        _this5._state.snapViewVisible = false;
+
+        _this5.showSnapView(true);
+      }); // on mouse leave set timeout to hide snapView
+
+      this._events.mouseLeaveSnapView = (0, _util.assignEvent)(snapView, ['mouseleave', 'touchend'], function () {
+        _this5._state.snapViewVisible = false;
+
+        _this5.showSnapView();
+      });
+    }
+  }, {
+    key: "_pinchAndZoom",
+    value: function _pinchAndZoom() {
+      var _this6 = this;
+
+      var _this$_elements3 = this._elements,
+          imageWrap = _this$_elements3.imageWrap,
+          container = _this$_elements3.container; // apply pinch and zoom feature
+
+      var onPinchStart = function onPinchStart(eStart) {
+        var _this6$_state = _this6._state,
+            loaded = _this6$_state.loaded,
+            startZoomValue = _this6$_state.zoomValue;
+        var events = _this6._events;
+        if (!loaded) return;
+        var touch0 = eStart.touches[0];
+        var touch1 = eStart.touches[1];
+
+        if (!(touch0 && touch1)) {
+          return;
+        }
+
+        _this6._state.zooming = true;
+        var contOffset = container.getBoundingClientRect(); // find distance between two touch points
+
+        var startDist = (0, _util.getTouchPointsDistance)(eStart.touches); // find the center for the zoom
+
+        var center = {
+          x: (touch1.pageX + touch0.pageX) / 2 - (contOffset.left + document.body.scrollLeft),
+          y: (touch1.pageY + touch0.pageY) / 2 - (contOffset.top + document.body.scrollTop)
+        };
+
+        var moveListener = function moveListener(eMove) {
+          // eMove.preventDefault();
+          var newDist = (0, _util.getTouchPointsDistance)(eMove.touches);
+          var zoomValue = startZoomValue + (newDist - startDist) / 2;
+
+          _this6.zoom(zoomValue, center);
+        };
+
+        var endListener = function endListener() {
+          // unbind events
+          events.pinchMove();
+          events.pinchEnd();
+          _this6._state.zooming = false;
+        }; // remove events if already assigned
+
+
+        if (events.pinchMove) events.pinchMove();
+        if (events.pinchEnd) events.pinchEnd(); // assign events
+
+        events.pinchMove = (0, _util.assignEvent)(document, 'touchmove', moveListener);
+        events.pinchEnd = (0, _util.assignEvent)(document, 'touchend', endListener);
+      };
+
+      this._events.pinchStart = (0, _util.assignEvent)(imageWrap, 'touchstart', onPinchStart);
+    }
+  }, {
+    key: "_scrollZoom",
+    value: function _scrollZoom() {
+      var _this7 = this;
+
+      /* Add zoom interaction in mouse wheel */
+      var _options = this._options;
+      var _this$_elements4 = this._elements,
+          container = _this$_elements4.container,
+          imageWrap = _this$_elements4.imageWrap;
+      var changedDelta = 0;
+
+      var onMouseWheel = function onMouseWheel(e) {
+        var _this7$_state = _this7._state,
+            loaded = _this7$_state.loaded,
+            zoomValue = _this7$_state.zoomValue;
+        if (!_options.zoomOnMouseWheel || !loaded) return; // clear all animation frame and interval
+
+        _this7._clearFrames(); // cross-browser wheel delta
+
+
+        var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail || -e.deltaY));
+        var newZoomValue = zoomValue * (100 + delta * _util.ZOOM_CONSTANT) / 100;
+
+        if (!(newZoomValue >= 100 && newZoomValue <= _options.maxZoom)) {
+          changedDelta += Math.abs(delta);
+        } else {
+          changedDelta = 0;
+        }
+
+        e.preventDefault();
+        if (changedDelta > _util.MOUSE_WHEEL_COUNT) return;
+        var contOffset = container.getBoundingClientRect();
+        var x = (e.pageX || e.pageX) - (contOffset.left + document.body.scrollLeft);
+        var y = (e.pageY || e.pageY) - (contOffset.top + document.body.scrollTop);
+
+        _this7.zoom(newZoomValue, {
+          x: x,
+          y: y
+        }); // show the snap viewer
+
+
+        _this7.showSnapView();
+      };
+
+      this._ev = (0, _util.assignEvent)(imageWrap, 'wheel', onMouseWheel);
+    }
+  }, {
+    key: "_doubleTapToZoom",
+    value: function _doubleTapToZoom() {
+      var _this8 = this;
+
+      var imageWrap = this._elements.imageWrap; // handle double tap for zoom in and zoom out
+
+      var touchTime = 0;
+      var point;
+
+      var onDoubleTap = function onDoubleTap(e) {
+        if (touchTime === 0) {
+          touchTime = Date.now();
+          point = {
+            x: e.pageX,
+            y: e.pageY
+          };
+        } else if (Date.now() - touchTime < 500 && Math.abs(e.pageX - point.x) < 50 && Math.abs(e.pageY - point.y) < 50) {
+          if (_this8._state.zoomValue === _this8._options.zoomValue) {
+            _this8.zoom(200);
+          } else {
+            _this8.resetZoom();
+          }
+
+          touchTime = 0;
+        } else {
+          touchTime = 0;
+        }
+      };
+
+      (0, _util.assignEvent)(imageWrap, 'click', onDoubleTap);
+    }
+  }, {
+    key: "_getImageCurrentDim",
+    value: function _getImageCurrentDim() {
+      var _this$_state2 = this._state,
+          zoomValue = _this$_state2.zoomValue,
+          imageDim = _this$_state2.imageDim;
+      return {
+        w: imageDim.w * (zoomValue / 100),
+        h: imageDim.h * (zoomValue / 100)
+      };
+    }
+  }, {
+    key: "_loadImages",
+    value: function _loadImages() {
+      var _this9 = this;
+
+      var _images = this._images,
+          _elements = this._elements;
+      var imageSrc = _images.imageSrc,
+          hiResImageSrc = _images.hiResImageSrc;
+      var container = _elements.container,
+          snapImageWrap = _elements.snapImageWrap,
+          imageWrap = _elements.imageWrap;
+      var ivLoader = container.querySelector('.iv-loader'); // remove old images
+
+      (0, _util.remove)(container.querySelectorAll('.iv-snap-image, .iv-image')); // add snapView image
+
+      var snapImage = (0, _util.createElement)({
+        tagName: 'img',
+        className: 'iv-snap-image',
+        src: imageSrc,
+        insertBefore: snapImageWrap.firstChild,
+        parent: snapImageWrap
+      }); // add image
+
+      var image = (0, _util.createElement)({
+        tagName: 'img',
+        className: 'iv-image iv-small-image',
+        src: imageSrc,
+        parent: imageWrap
+      });
+      this._state.loaded = false; // store image reference in _elements
+
+      this._elements.image = image;
+      this._elements.snapImage = snapImage;
+      (0, _util.css)(ivLoader, {
+        display: 'block'
+      }); // keep visibility hidden until image is loaded
+
+      (0, _util.css)(image, {
+        visibility: 'hidden'
+      }); // hide snap view if open
+
+      this.hideSnapView();
+
+      var onImageLoad = function onImageLoad() {
+        // hide the iv loader
+        (0, _util.css)(ivLoader, {
+          display: 'none'
+        }); // show the image
+
+        (0, _util.css)(image, {
+          visibility: 'visible'
+        }); // load high resolution image if provided
+
+        if (hiResImageSrc) {
+          _this9._loadHighResImage(hiResImageSrc);
+        } // set loaded flag to true
+
+
+        _this9._state.loaded = true; // calculate the dimension
+
+        _this9._calculateDimensions(); // reset the zoom
+
+
+        _this9.resetZoom();
+      };
+
+      if ((0, _util.imageLoaded)(image)) {
+        onImageLoad();
+      } else {
+        this._events.imageLoad = (0, _util.assignEvent)(image, 'load', onImageLoad);
+      }
+    }
+  }, {
+    key: "_loadHighResImage",
+    value: function _loadHighResImage(hiResImageSrc) {
+      var _this10 = this;
+
+      var _this$_elements5 = this._elements,
+          imageWrap = _this$_elements5.imageWrap,
+          container = _this$_elements5.container;
+      var lowResImg = this._elements.image;
+      var hiResImage = (0, _util.createElement)({
+        tagName: 'img',
+        className: 'iv-image iv-large-image',
+        src: hiResImageSrc,
+        parent: imageWrap,
+        style: lowResImg.style.cssText
+      }); // add all the style attributes from lowResImg to highResImg
+
+      hiResImage.style.cssText = lowResImg.style.cssText;
+      this._elements.image = container.querySelectorAll('.iv-image');
+
+      var onHighResImageLoad = function onHighResImageLoad() {
+        // remove the low size image and set this image as default image
+        (0, _util.remove)(lowResImg);
+        _this10._elements.image = hiResImage; // this._calculateDimensions();
+      };
+
+      if ((0, _util.imageLoaded)(hiResImage)) {
+        onHighResImageLoad();
+      } else {
+        this._events.hiResImageLoad = (0, _util.assignEvent)(hiResImage, 'load', onHighResImageLoad);
+      }
+    }
+  }, {
+    key: "_calculateDimensions",
+    value: function _calculateDimensions() {
+      var _this$_elements6 = this._elements,
+          image = _this$_elements6.image,
+          container = _this$_elements6.container,
+          snapView = _this$_elements6.snapView,
+          snapImage = _this$_elements6.snapImage,
+          zoomHandle = _this$_elements6.zoomHandle; // calculate content width of image and snap image
+
+      var imageWidth = parseInt((0, _util.css)(image, 'width'), 10);
+      var imageHeight = parseInt((0, _util.css)(image, 'height'), 10);
+      var contWidth = parseInt((0, _util.css)(container, 'width'), 10);
+      var contHeight = parseInt((0, _util.css)(container, 'height'), 10);
+      var snapViewWidth = snapView.clientWidth;
+      var snapViewHeight = snapView.clientHeight; // set the container dimension
+
+      this._state.containerDim = {
+        w: contWidth,
+        h: contHeight
+      }; // set the image dimension
+
+      var imgWidth;
+      var imgHeight;
+      var ratio = imageWidth / imageHeight;
+      imgWidth = imageWidth > imageHeight && contHeight >= contWidth || ratio * contHeight > contWidth ? contWidth : ratio * contHeight;
+      imgHeight = imgWidth / ratio;
+      this._state.imageDim = {
+        w: imgWidth,
+        h: imgHeight
+      }; // reset image position and zoom
+
+      (0, _util.css)(image, {
+        width: "".concat(imgWidth, "px"),
+        height: "".concat(imgHeight, "px"),
+        left: "".concat((contWidth - imgWidth) / 2, "px"),
+        top: "".concat((contHeight - imgHeight) / 2, "px"),
+        maxWidth: 'none',
+        maxHeight: 'none'
+      }); // set the snap Image dimension
+
+      var snapWidth = imgWidth > imgHeight ? snapViewWidth : imgWidth * snapViewHeight / imgHeight;
+      var snapHeight = imgHeight > imgWidth ? snapViewHeight : imgHeight * snapViewWidth / imgWidth;
+      this._state.snapImageDim = {
+        w: snapWidth,
+        h: snapHeight
+      };
+      (0, _util.css)(snapImage, {
+        width: "".concat(snapWidth, "px"),
+        height: "".concat(snapHeight, "px")
+      }); // calculate zoom slider area
+
+      this._state.zoomSliderLength = snapViewWidth - zoomHandle.offsetWidth;
+    }
+  }, {
+    key: "resetZoom",
+    value: function resetZoom() {
+      var animate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      var zoomValue = this._options.zoomValue;
+
+      if (!animate) {
+        this._state.zoomValue = zoomValue;
+      }
+
+      this.zoom(zoomValue);
+    }
+  }, {
+    key: "load",
+    value: function load(imageSrc, hiResImageSrc) {
+      this._images = {
+        imageSrc: imageSrc,
+        hiResImageSrc: hiResImageSrc
+      };
+
+      this._loadImages();
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      var _this$_elements7 = this._elements,
+          container = _this$_elements7.container,
+          domElement = _this$_elements7.domElement; // destroy all the sliders
+
+      Object.entries(this._sliders).forEach(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+            key = _ref2[0],
+            slider = _ref2[1];
+
+        slider.destroy();
+      }); // unbind all events
+
+      Object.entries(this._events).forEach(function (_ref3) {
+        var _ref4 = _slicedToArray(_ref3, 2),
+            key = _ref4[0],
+            unbindEvent = _ref4[1];
+
+        unbindEvent();
+      }); // clear all the frames
+
+      this._clearFrames(); // remove html from the container
+
+
+      (0, _util.remove)(container.querySelector('.iv-wrap')); // remove iv-container class from container
+
+      (0, _util.removeClass)(container, 'iv-container'); // remove added style from container
+
+      (0, _util.removeCss)(document.querySelector('html'), 'relative'); // if container has original image, unwrap the image and remove the class
+      // which will happen when domElement is not the container
+
+      if (domElement !== container) {
+        (0, _util.unwrap)(domElement);
+      } // remove imageViewer reference from dom element
+
+
+      domElement._imageViewer = null;
+    }
+  }]);
+
+  return ImageViewer;
+}();
+
+ImageViewer.defaults = {
+  zoomValue: 100,
+  snapView: true,
+  maxZoom: 500,
+  refreshOnResize: true,
+  zoomOnMouseWheel: true
+};
+var _default = ImageViewer;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/iv-viewer/lib/Slider.js":
+/*!**********************************************!*\
+  !*** ./node_modules/iv-viewer/lib/Slider.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var _util = __webpack_require__(/*! ./util */ "./node_modules/iv-viewer/lib/util.js");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Slider =
+/*#__PURE__*/
+function () {
+  function Slider(container, _ref) {
+    var _this = this;
+
+    var _onStart = _ref.onStart,
+        _onMove = _ref.onMove,
+        onEnd = _ref.onEnd,
+        isSliderEnabled = _ref.isSliderEnabled;
+
+    _classCallCheck(this, Slider);
+
+    _defineProperty(this, "startHandler", function (eStart) {
+      if (!_this.isSliderEnabled()) return;
+
+      _this.removeListeners();
+
+      eStart.preventDefault();
+      var moveHandler = _this.moveHandler,
+          endHandler = _this.endHandler,
+          onStart = _this.onStart;
+      var isTouchEvent = eStart.type === 'touchstart';
+      _this.touchMoveEvent = isTouchEvent ? 'touchmove' : 'mousemove';
+      _this.touchEndEvent = isTouchEvent ? 'touchend' : 'mouseup';
+      _this.sx = isTouchEvent ? eStart.touches[0].clientX : eStart.clientX;
+      _this.sy = isTouchEvent ? eStart.touches[0].clientY : eStart.clientY;
+      onStart(eStart, {
+        x: _this.sx,
+        y: _this.sy
+      }); // add listeners
+
+      document.addEventListener(_this.touchMoveEvent, moveHandler);
+      document.addEventListener(_this.touchEndEvent, endHandler);
+      /*
+        add end handler in context menu as well.
+        As mouseup event is not trigger on context menu open
+        https://bugs.chromium.org/p/chromium/issues/detail?id=506801
+      */
+
+      document.addEventListener('contextmenu', endHandler);
+    });
+
+    _defineProperty(this, "moveHandler", function (eMove) {
+      if (!_this.isSliderEnabled()) return;
+      eMove.preventDefault();
+      var sx = _this.sx,
+          sy = _this.sy,
+          onMove = _this.onMove;
+      var isTouchEvent = _this.touchMoveEvent === 'touchmove'; // get the coordinates
+
+      var mx = isTouchEvent ? eMove.touches[0].clientX : eMove.clientX;
+      var my = isTouchEvent ? eMove.touches[0].clientY : eMove.clientY;
+      onMove(eMove, {
+        dx: mx - sx,
+        dy: my - sy,
+        mx: mx,
+        my: my
+      });
+    });
+
+    _defineProperty(this, "endHandler", function () {
+      if (!_this.isSliderEnabled()) return;
+
+      _this.removeListeners();
+
+      _this.onEnd();
+    });
+
+    this.container = container;
+    this.isSliderEnabled = isSliderEnabled;
+    this.onStart = _onStart || _util.noop;
+    this.onMove = _onMove || _util.noop;
+    this.onEnd = onEnd || _util.noop;
+  }
+
+  _createClass(Slider, [{
+    key: "removeListeners",
+    // remove previous events if its not removed
+    // - Case when while sliding mouse moved out of document and released there
+    value: function removeListeners() {
+      if (!this.touchMoveEvent) return;
+      document.removeEventListener(this.touchMoveEvent, this.moveHandler);
+      document.removeEventListener(this.touchEndEvent, this.endHandler);
+      document.removeEventListener('contextmenu', this.endHandler);
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      var _this2 = this;
+
+      ['touchstart', 'mousedown'].forEach(function (evt) {
+        _this2.container.addEventListener(evt, _this2.startHandler);
+      });
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      var _this3 = this;
+
+      ['touchstart', 'mousedown'].forEach(function (evt) {
+        _this3.container.removeEventListener(evt, _this3.startHandler);
+      });
+      this.removeListeners();
+    }
+  }]);
+
+  return Slider;
+}();
+
+var _default = Slider;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/iv-viewer/lib/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/iv-viewer/lib/index.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+Object.defineProperty(exports, "ImageViewer", ({
+  enumerable: true,
+  get: function get() {
+    return _ImageViewer.default;
+  }
+}));
+Object.defineProperty(exports, "FullScreenViewer", ({
+  enumerable: true,
+  get: function get() {
+    return _FullScreen.default;
+  }
+}));
+exports.default = void 0;
+
+var _ImageViewer = _interopRequireDefault(__webpack_require__(/*! ./ImageViewer */ "./node_modules/iv-viewer/lib/ImageViewer.js"));
+
+var _FullScreen = _interopRequireDefault(__webpack_require__(/*! ./FullScreen */ "./node_modules/iv-viewer/lib/FullScreen.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = _ImageViewer.default;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/iv-viewer/lib/util.js":
+/*!********************************************!*\
+  !*** ./node_modules/iv-viewer/lib/util.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.noop = noop;
+exports.easeOutQuart = easeOutQuart;
+exports.createElement = createElement;
+exports.addClass = addClass;
+exports.removeClass = removeClass;
+exports.imageLoaded = imageLoaded;
+exports.toArray = toArray;
+exports.assign = assign;
+exports.css = css;
+exports.removeCss = removeCss;
+exports.wrap = wrap;
+exports.unwrap = unwrap;
+exports.remove = remove;
+exports.clamp = clamp;
+exports.assignEvent = assignEvent;
+exports.getTouchPointsDistance = getTouchPointsDistance;
+exports.MOUSE_WHEEL_COUNT = exports.ZOOM_CONSTANT = void 0;
+// constants
+var ZOOM_CONSTANT = 15; // increase or decrease value for zoom on mouse wheel
+
+exports.ZOOM_CONSTANT = ZOOM_CONSTANT;
+var MOUSE_WHEEL_COUNT = 5; // A mouse delta after which it should stop preventing default behaviour of mouse wheel
+
+exports.MOUSE_WHEEL_COUNT = MOUSE_WHEEL_COUNT;
+
+function noop() {} // ease out method
+
+/*
+    t : current time,
+    b : intial value,
+    c : changed value,
+    d : duration
+*/
+
+
+function easeOutQuart(t, b, c, d) {
+  t /= d;
+  t -= 1;
+  return -c * (t * t * t * t - 1) + b;
+}
+
+function createElement(options) {
+  var elem = document.createElement(options.tagName);
+  if (options.id) elem.id = options.id;
+  if (options.html) elem.innerHTML = options.html;
+  if (options.className) elem.className = options.className;
+  if (options.src) elem.src = options.src;
+  if (options.style) elem.style.cssText = options.style;
+  if (options.child) elem.appendChild(options.child); // Insert before
+
+  if (options.insertBefore) {
+    options.parent.insertBefore(elem, options.insertBefore); // Standard append
+  } else {
+    options.parent.appendChild(elem);
+  }
+
+  return elem;
+} // method to add class
+
+
+function addClass(el, className) {
+  var classNameAry = className.split(' ');
+
+  if (classNameAry.length > 1) {
+    classNameAry.forEach(function (classItem) {
+      return addClass(el, classItem);
+    });
+  } else if (el.classList) {
+    el.classList.add(className);
+  } else {
+    el.className += " ".concat(className); // eslint-disable-line no-param-reassign
+  }
+} // method to remove class
+
+
+function removeClass(el, className) {
+  var classNameAry = className.split(' ');
+
+  if (classNameAry.length > 1) {
+    classNameAry.forEach(function (classItem) {
+      return removeClass(el, classItem);
+    });
+  } else if (el.classList) {
+    el.classList.remove(className);
+  } else {
+    el.className = el.className.replace(new RegExp("(^|\\b)".concat(className.split(' ').join('|'), "(\\b|$)"), 'gi'), ' '); // eslint-disable-line no-param-reassign
+  }
+} // function to check if image is loaded
+
+
+function imageLoaded(img) {
+  return img.complete && (typeof img.naturalWidth === 'undefined' || img.naturalWidth !== 0);
+}
+
+function toArray(list) {
+  if (!(list instanceof NodeList || list instanceof HTMLCollection)) return [list];
+  return Array.prototype.slice.call(list);
+}
+
+function assign(target) {
+  for (var _len = arguments.length, rest = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    rest[_key - 1] = arguments[_key];
+  }
+
+  rest.forEach(function (obj) {
+    Object.keys(obj).forEach(function (key) {
+      target[key] = obj[key];
+    });
+  });
+  return target;
+}
+
+function css(elements, properties) {
+  var elmArray = toArray(elements);
+
+  if (typeof properties === 'string') {
+    return window.getComputedStyle(elmArray[0])[properties];
+  }
+
+  elmArray.forEach(function (element) {
+    Object.keys(properties).forEach(function (key) {
+      var value = properties[key];
+      element.style[key] = value; // eslint-disable-line no-param-reassign
+    });
+  });
+  return undefined;
+}
+
+function removeCss(element, property) {
+  element.style.removeProperty(property);
+}
+
+function wrap(element, _ref) {
+  var _ref$tag = _ref.tag,
+      tag = _ref$tag === void 0 ? 'div' : _ref$tag,
+      className = _ref.className,
+      id = _ref.id,
+      style = _ref.style;
+  var wrapper = document.createElement(tag);
+  if (className) wrapper.className = className;
+  if (id) wrapper.id = id;
+  if (style) wrapper.style = style;
+  element.parentNode.insertBefore(wrapper, element);
+  element.parentNode.removeChild(element);
+  wrapper.appendChild(element);
+  return wrapper;
+}
+
+function unwrap(element) {
+  var parent = element.parentNode;
+
+  if (parent !== document.body) {
+    parent.parentNode.insertBefore(element, parent);
+    parent.parentNode.removeChild(parent);
+  }
+}
+
+function remove(elements) {
+  var elmArray = toArray(elements);
+  elmArray.forEach(function (element) {
+    element.parentNode.removeChild(element);
+  });
+}
+
+function clamp(num, min, max) {
+  return Math.min(Math.max(num, min), max);
+}
+
+function assignEvent(element, events, handler) {
+  if (typeof events === 'string') events = [events];
+  events.forEach(function (event) {
+    element.addEventListener(event, handler);
+  });
+  return function () {
+    events.forEach(function (event) {
+      element.removeEventListener(event, handler);
+    });
+  };
+}
+
+function getTouchPointsDistance(touches) {
+  var touch0 = touches[0];
+  var touch1 = touches[1];
+  return Math.sqrt(Math.pow(touch1.pageX - touch0.pageX, 2) + Math.pow(touch1.pageY - touch0.pageY, 2));
+}
 
 /***/ }),
 
@@ -68530,6 +70174,315 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ "./node_modules/scheduler/cjs/scheduler-tracing.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/iv-viewer/dist/iv-viewer.css":
+/*!***************************************************!*\
+  !*** ./node_modules/iv-viewer/dist/iv-viewer.css ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_cjs_js_iv_viewer_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../css-loader/dist/cjs.js!./iv-viewer.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/iv-viewer/dist/iv-viewer.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_iv_viewer_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_iv_viewer_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
 
 /***/ }),
 

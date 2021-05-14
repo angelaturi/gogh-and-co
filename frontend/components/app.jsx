@@ -4,7 +4,7 @@ import {AuthRoute, ProtectedRoute} from '../utils/route_utils';
 import Home from './home';
 import SessionFormContainer from './session_form/session_form_container';
 import CreateAccountFormContainer from './account_form/create_account_form_container'
-import Artwork from './artworks/artwork_container'
+import Artwork from './artworks/artwork'
 import {clearArtworks, requestArtworks, requestFavoriteArtworks, requestGallery, requestCurrentArtwork, receiveCurrentArtwork} from '../actions/artworks_actions'
 import './fontawesome'
 
@@ -24,7 +24,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home}/>
             <AuthRoute path="/login" component={SessionFormContainer}/>
             <AuthRoute path="/signup" component={CreateAccountFormContainer}/>
-            {/* <Route path="/artworks/:id" component={Artwork}></Route> */}
+            <Route path="/artworks" component={Artwork}/>
         </Switch>
         )
         }

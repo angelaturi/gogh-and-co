@@ -7,11 +7,21 @@ class Artwork extends React.Component {
         super(props)
     }
 
-    render() {
+    componentDidMount() {
+        console.log("MADE IT!!")
+        const viewer = new ImageViewer(document.querySelector("#image"))
+        // viewer.load(window.placeholderImg);
+        // viewer.refresh;
+    }
 
+    render() {
+        // const image = document.querySelector('#artwork-loader')
+        // console.log(container)
+        // viewer.load(image)
         return(
             <div id="artwork">
-                <img src={window.placeholderImg}/>
+                <div id="artwork-loader"></div>
+                <img src={window.starryNight} id="image"/>
                 <p>{this.props.title}</p>
                 <p>{this.props.date_created}</p>
                 <p>{this.props.color}</p>
@@ -19,8 +29,7 @@ class Artwork extends React.Component {
                 <p>{this.props.medium}</p>
                 <p>{this.props.partner_organization}</p>
             </div>
-        )
-
+        );
     }
 }
 
