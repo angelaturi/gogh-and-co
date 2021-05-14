@@ -2,31 +2,29 @@ section {
     display: block;
 }
 
-@media (min-width: 841px) {
+// @media screen and (min-width: 841px) {
     .top-picks {
         margin-left: auto;
         margin-right: auto;
         overflow: visible;
         padding: 36px 0;
+        margin: 0;
+        position: relative;
     }
-}
 
-.top-picks {
-    margin: 0;
-    position: relative;
-}
 
-@media (min-width: 841px) {
+
     .top-picks-inner {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1200px;
-        width: calc(100% - 40px *2);
-        align-items: center;
-        display: flex;
-        flex-direction: column;
+        margin: 0px 40px;
+        // margin-left: auto;
+        // margin-right: auto;
+        // max-width: 1200px;
+        // width: calc(100% - 40px *2);
+        // align-items: center;
+        // display: flex;
+        // flex-direction: column;
     }
-}
+
 
 .top-picks-header {
     margin-bottom: 24px;
@@ -94,4 +92,35 @@ section {
 .carousel-1 {
     z-index: 6;
     display: block;
+}
+
+.fav-color {
+        margin-left: auto;
+        margin-right: auto;
+        overflow: visible;
+        padding: 36px 0;
+        margin: 0;
+        position: relative;
+    }
+
+.museum-home {
+        margin-left: auto;
+        margin-right: auto;
+        overflow: visible;
+        padding: 36px 0;
+        margin: 0;
+        position: relative;
+}
+
+.explore-street {
+        margin-left: auto;
+        margin-right: auto;
+        overflow: visible;
+        padding: 36px 0;
+        margin: 0;
+        position: relative;
+}
+
+h2 span {
+    font-size: 1.375rem;
 }

@@ -1,13 +1,13 @@
-.slide-in {
+div.slide-in {
     width: 240px;
-    height: 100%;
-    z-index: 7;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: white;
-    overflow-x: hidden;
-    transition: 0.3s;
+    // height: 100%;
+    // z-index: 7;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // background: white;
+    // overflow-x: hidden;
+    // transition: 0.3s;
 }
 
 #sidebar-links {
@@ -23,7 +23,9 @@
 }
 
 .sidebar-link.active {
-    background: #e8e8e8;
+    background: rgba(26, 115, 232, 0.102);
+    margin: 0px 0px 0px 8px;
+    border-radius: 24px 0 0 24px;
 }
 
 .sidebar-link.hover {
@@ -48,7 +50,7 @@
 
 .sidebar-link span {
     color: #575757;
-    font-family: 'Roboto';
+    font-family: 'Open Sans';
     font-size: 14px;
     font-weight: 400;
 }
@@ -58,7 +60,7 @@
 }
 
 .dropdown {
-    width: 240px;
+    // width: 240px;
     height: 100%;
     z-index: 7;
     position: fixed;
@@ -67,6 +69,7 @@
     background: white;
     overflow-x: hidden;
     transition: 0.3s;
+    width: 0;
 }
 
 #dropdown-header {

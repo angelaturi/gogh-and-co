@@ -1,5 +1,5 @@
 import React from 'react';
-import signupButton from './signup_button';
+import SignupButton from './signup_button';
 import Goghgle from '../goghgle';
 import {Redirect, Route} from 'react-router-dom';
 
@@ -111,7 +111,7 @@ class SessionForm extends React.Component {
 
                             <div className="form-btn">
                                 <button className="form-submit">{this.props.formType}</button>
-                                <Route path="/login" component={signupButton} />
+                                <Route path="/login" component={SignupButton} />
                             </div>
                             </div></div>
                         </form>

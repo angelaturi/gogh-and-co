@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
 
-    window.login = login;
-    window.logout = logout;
-    window.createAccount = createAccount;
+    // window.login = login;
+    // window.logout = logout;
+    // window.createAccount = createAccount;
     window.getState = store.getState;
     window.dispatch = store.dispatch
 

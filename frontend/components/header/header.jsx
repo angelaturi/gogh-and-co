@@ -8,11 +8,12 @@ import Sidebar from '../sidebar'
 const Header = (props) => {
     const {currentUser, logout} = props
     const sidebar = useRef(null)
-    const screen = useRef(null)
+    // const screen = useRef(null)
 
     const toggleSidebar = () => {
+        // debugger
         sidebar.current.classList.toggle('slide-in')
-        screen.current.classList.toggle('hide')
+        // screen.current.classList.toggle('hide')
     }
 
     return (

@@ -8,3 +8,4 @@ json.medium @artwork.medium
 json.partner_organization @artwork.partner_organization
 json.url @artwork.url
 json.thumb_url @artwork.thumb_url
+json.favorited (current_user && current_user.artworks.include?(@artwork))
