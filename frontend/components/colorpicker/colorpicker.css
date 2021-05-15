@@ -1,0 +1,42 @@
+.box {
+    border-radius: 10px;
+    height: 450px;
+    width: 158px;
+    transition: all .5s linear;
+}
+
+.open {
+    width: 316px !important;
+}
+
+.box-color-yellow {
+    background-color: yellow;
+}
+
+.box-color-green {
+    background-color: green;
+}
+
+.box-color-teal {
+    background-color: teal;
+}
+
+.box-color-blue {
+    background-color: blue;
+}
+
+.box-color-purple {
+    background-color: purple;
+}
+
+.box-color-pink {
+    background-color: pink;
+}
+
+.box-color-red {
+    background-color: red;
+}
+
+.box-color-orange {
+    background-color: orange;
+}
