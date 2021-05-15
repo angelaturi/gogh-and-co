@@ -7,11 +7,17 @@ class ColorGrid extends React.Component {
         super(props)
     }
 
+    componentDidMount() {
+        if (!this.props.artworks.isLoaded)  {
+            this.props.requestArtworks()
+        } 
+    }
+
     render() {
         return (
             <React.Fragment>
                 <Slider items={this.props.colors} type="gogh-color"/>
-                <Grid/>
+                <Grid artworks={this.props.artworks.artworks}/>
             </React.Fragment>
         )
     }

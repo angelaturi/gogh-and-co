@@ -7,20 +7,19 @@ import {
     RECEIVE_CURRENT_ARTWORK,
     TOGGLE_FAVORITE,
     RECEIVE_FAVORITE,
-    CLEAR_ARTWORKS
+    CLEAR_ARTWORKS,
+    RECEIVE_ARTWORKS_FAIL
 } from '../actions/artworks_actions';
 
 const artwork = {
-    id: 0,
-    title: "",
-    date_created: null,
-    color: "",
-    style: "",
-    medium: "",
-    partner_organization: "",
-    url: ,
-    favorited: false
-}
+        id: 0,
+        title: "",
+        date_created: null,
+        color: "",
+        style: "",
+        medium: "",
+        partner_organization: "",
+        favorited: false}
 
 const initialState = {
     artworks: [],
@@ -32,7 +31,9 @@ const initialState = {
         style: "",
         medium: "",
         partner_organization: "",
-        favorited: false}
+        favorited: false},
+    isLoaded: false,
+    error: ""
 }
 
 const artworksReducer = (state = initialState, action) => {
@@ -40,7 +41,17 @@ const artworksReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case RECEIVE_ARTWORKS:
-            return action.artworks
+            return {
+                    ...state, 
+                    artworks: action.artworks,
+                    isLoaded: true
+                }
+        case RECEIVE_ARTWORKS_FAIL:
+            return {
+                    ...state, 
+                    error: action.error,
+                    isLoaded: true
+                }
         case CLEAR_ARTWORKS:
             nextState.artworks = [];
             return nextState

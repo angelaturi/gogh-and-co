@@ -13,7 +13,6 @@ const rootReducer = combineReducers({
     artworks: artworksReducer,
     color: colorReducer,
     time: timeReducer,
-    artworks
 })
 
 export default rootReducer

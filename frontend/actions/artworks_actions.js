@@ -7,9 +7,22 @@ export const RECEIVE_CURRENT_ARTWORK = "RECEIVE_CURRENT_ARTWORK";
 export const TOGGLE_FAVORITE = "TOGGLE_FAVORITE";
 export const RECEIVE_FAVORITE = "RECEIVE_FAVORITE";
 export const CLEAR_ARTWORKS = "CLEAR_ARTWORKS";
+export const RECEIVE_ARTWORKS_FAIL = "RECEIVE_ARTWORKS_FAIL"
+import * as ArtworksAPI from '../utils/artworks_utils';
 
-export const requestArtworks = () => ({
-    type: REQUEST_ARTWORKS
+export const requestArtworks = () => {
+    return function (dispatch) {
+        return ArtworksAPI.requestArtworks()
+            .then(
+                (artworks) => dispatch(receiveArtworks(artworks)),
+                (err) => dispatch(receiveArtworksFail(err))
+            )
+    } 
+}
+
+export const receiveArtworksFail = error => ({
+    type: RECEIVE_ARTWORKS_FAIL,
+    error
 })
 
 export const receiveArtworks = artworks => ({

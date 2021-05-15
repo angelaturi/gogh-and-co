@@ -23,7 +23,7 @@ class App extends React.Component {
     render() {
         return ( 
         <Switch>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Home} />
             <AuthRoute path="/login" component={SessionFormContainer}/>
             <AuthRoute path="/signup" component={CreateAccountFormContainer}/>
             <Route path="/artworks" component={Artwork}/>
