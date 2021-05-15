@@ -31,7 +31,7 @@ class Carousel extends Component {
 		e.preventDefault()
 		const selected = $(e.currentTarget);
 		
-		debugger
+		// debugger
 		const next = $(selected).next();
 		const prev = $(selected).prev();
 		const prevSecond = $(prev).prev();

@@ -7,9 +7,9 @@ main {
 
 #carousel {
     position: relative;
-    height: 400px;
+    height: 450px;
     top: 50%;
-    transform: translateY(-50%);
+    /*transform: translateY(-50%);*/
     overflow: hidden;
 }
 
@@ -24,6 +24,15 @@ main {
     width: 400px;
     transition: width 1s;
     border-radius: 10px;
+}
+
+#carousel div.title {
+    position: absolute;
+    bottom: 275px;
+    z-index: 20;
+    color: white;
+    font-size: 30px;
+    left: 20px;
 }
 
 #carousel div.hideLeft {
@@ -43,28 +52,42 @@ main {
 }
 
 #carousel div.hideRight img {
+    width: 200px;
     border-radius: 10px;
 }
 
 #carousel div.prev {
     z-index: 5;
     left: 40%;
-    transform: translateY(50px) translateX(-75%);
+    transform: translateY(25px) translateX(-60%);
 }
 
 #carousel div.prev img {
+    width: 350px;
+    height: 400px;
     border-radius: 10px;
+}
+
+#carousel div.prev .title {
+    bottom: 115px;
 }
 
 #carousel div.prevLeftSecond {
     z-index: 4;
     left: 32%;
-    transform: translateY(50%) translateX(-100%);
+    transform: translateY(14%) translateX(-100%);
     opacity: 0.7;
 }
 
 #carousel div.prevLeftSecond img {
+    width: 300px;
+    height: 350px;
     border-radius: 10px;
+}
+
+#carousel div.prevLeftSecond .title {
+    bottom: 115px;
+    left: 85px;
 }
 
 #carousel div.selected {
@@ -76,11 +99,17 @@ main {
 #carousel div.next {
     z-index: 5;
     left: 60%;
-    transform: translateY(50px) translateX(-25%);
+    transform: translateY(25px) translateX(-25%);
 }
 
 #carousel div.next img {
+    width: 350px;
+    height: 400px;
     border-radius: 10px;
+}
+
+#carousel div.nect .title {
+    bottom: 105px;
 }
 
 #carousel div.nextRightSecond {
@@ -91,6 +120,7 @@ main {
 }
 
 #carousel div.nextRightSecond img {
+    width: 200px;
     border-radius: 10px;
 }
 
@@ -101,11 +131,4 @@ main {
     bottom: 10px;
 }
 
-.title {
-    position: absolute;
-    bottom: 275px;
-    z-index: 20;
-    color: white;
-    font-size: 30px;
-    left: 20px;
-}
+
