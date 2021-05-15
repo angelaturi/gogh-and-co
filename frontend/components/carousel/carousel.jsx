@@ -20,15 +20,18 @@ class Carousel extends Component {
 		for(let x=0; x<this.state.images.length; x++){
 			imageCollection.push({
 				class: carouselClass[x],
-				url: this.state.images[x]
+				url: this.state.images[x].image,
+				title: this.state.images[x].title
 			});
 		}
 		this.setState({imageArray: imageCollection});
 	}
 
-	moveToSelected = (element) => {
-		const selected = element;
-
+	moveToSelected = (e) => {
+		e.preventDefault()
+		const selected = $(e.currentTarget);
+		
+		debugger
 		const next = $(selected).next();
 		const prev = $(selected).prev();
 		const prevSecond = $(prev).prev();
@@ -47,8 +50,10 @@ class Carousel extends Component {
 	}
 
 	componentDidMount = () => {
-		this.setState({images: this.props.images});
-		this.buildImageArray();
+		// debugger
+		this.setState({images: this.props.images}, () => {
+			this.buildImageArray();
+		});
 	}
 
 	render() {
@@ -56,9 +61,10 @@ class Carousel extends Component {
 		return (
 			<main>
 				<div id="carousel">
-					{imageArray && imageArray.length > 0 ? imageArray.map((singleImage) => (
-						<div onClick={() => this.moveToSelected($(this))} className={singleImage.class}>
+					{imageArray && imageArray.length > 0 ? imageArray.map((singleImage, idx) => (
+						<div key={idx} onMouseOver={(e) => this.moveToSelected(e)} className={singleImage.class}>
 							<img alt='' src={singleImage.url}/>
+							<div className="title">{singleImage.title}</div>
 						</div>
 					)) : ''}
 				</div>

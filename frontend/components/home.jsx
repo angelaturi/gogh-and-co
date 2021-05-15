@@ -1,6 +1,8 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 import HeaderContainer from './header/header_container'
+import Carousel from './carousel/carousel';
+
 
 
 class Home extends React.Component {
@@ -11,6 +13,7 @@ class Home extends React.Component {
     render() {
         // const date = Date(document.data.date);
         // const formattedDate = format(date, 'MMMM dd, yyyy')
+        const images = [{image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'},{image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'}]
         return (
             <div className="main-content">
                 <HeaderContainer />
@@ -22,27 +25,13 @@ class Home extends React.Component {
                                     <h2><span className="span-1">Today's top picks</span><span className="span-2">Fri, May 21</span></h2>
                                 </div>
                             </div>
-                        {/* <div className="top-picks-carousel">
-                            <div className="carousel">
-                                <div className="carousel-1" style="translate3d(-54.5599px, 0px, 0px) scale3d(0.678112, 0.678112, 1)">
-                                    <img src={window.placeholderImg} alt="ph-img"/>
-                                </div>
-                                <div className="carousel-2">
-                                    <img src={window.placeholderImg} alt="ph-img"/>
-                                </div>
-                                <div className="carousel-3">
-                                    <img src={window.placeholderImg} alt="ph-img"/>
-                                </div>
-                                <div className="carousel-4">
-                                    <img src={window.placeholderImg} alt="ph-img"/>
-                                </div>
-                                <div className="carousel-5">
-                                    <img src={window.placeholderImg} alt="ph-img"/>
-                                </div>
+                        <div className="top-picks-carousel">
+                            <div className="carousel-inner">
+                                <Carousel images={images}/>
                             </div>
-                        </div> */}
+                        </div>
 
-                            <div className="container">
+                            {/* <div className="container">
                             <div className="wgh-slider">
                                 <input className="wgh-slider-target" type="radio" id="slide-1" name="slider"/>
                                 <input className="wgh-slider-target" type="radio" id="slide-2" name="slider"/>
@@ -91,7 +80,7 @@ class Home extends React.Component {
                                 </div>
                                 </div>
                             </div>
-                            </div>
+                            </div> */}
 
                         </div>
                     </section>
@@ -106,14 +95,14 @@ class Home extends React.Component {
                                     <div className="green">
                                         <a className="green-card">
                                             <div className="title-div">
-                                                <h3 className="title">Green</h3>
+                                                {/* <h3 className="title">Green</h3> */}
                                             </div>
                                         </a>
                                     </div>
                                      <div className="pink">
                                         <a className="pink-card">
                                             <div className="title">
-                                                <h3 className="title">Pink</h3>
+                                                {/* <h3 className="title">Pink</h3> */}
                                             </div>
                                         </a>
                                     </div>
@@ -122,7 +111,7 @@ class Home extends React.Component {
                         </div>
 
                     </section>
-                    <section className="museum-home">
+                    {/* <section className="museum-home">
                         <div className="museum-home-inner">
                             <div className="museum-home-second-inner">
                                 <div className="museum-home-third-inner">
@@ -139,13 +128,13 @@ class Home extends React.Component {
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <section className="explore-street">
+                    </section> */}
+                    {/* <section className="explore-street">
                         <div className="explore-street-header">
                             <h2><span>Explore with Street View</span></h2>
                             <h3>From backstage at the Paris Opera to the top of the Taj Mahal</h3>
                         </div>
-                    </section>
+                    </section> */}
                 </div>
             </div>
         )
