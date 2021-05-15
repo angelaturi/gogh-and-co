@@ -33,7 +33,6 @@ main {
 }
 
 #carousel div.hideLeft img {
-    width: 200px;
     border-radius: 10px;
 }
 
@@ -44,7 +43,6 @@ main {
 }
 
 #carousel div.hideRight img {
-    width: 200px;
     border-radius: 10px;
 }
 
@@ -55,7 +53,6 @@ main {
 }
 
 #carousel div.prev img {
-    width: 300px;
     border-radius: 10px;
 }
 
@@ -67,7 +64,6 @@ main {
 }
 
 #carousel div.prevLeftSecond img {
-    width: 200px;
     border-radius: 10px;
 }
 
@@ -84,7 +80,6 @@ main {
 }
 
 #carousel div.next img {
-    width: 300px;
     border-radius: 10px;
 }
 
@@ -96,7 +91,6 @@ main {
 }
 
 #carousel div.nextRightSecond img {
-    width: 200px;
     border-radius: 10px;
 }
 
