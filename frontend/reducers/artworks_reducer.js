@@ -10,7 +10,32 @@ import {
     CLEAR_ARTWORKS
 } from '../actions/artworks_actions';
 
-const artworksReducer = (state = {artworks: [], currentArtwork: {id: 0, title: "", date_created: null, color: "", style: "", medium: "", partner_organization: "", favorited: false}}, action) => {
+const artwork = {
+    id: 0,
+    title: "",
+    date_created: null,
+    color: "",
+    style: "",
+    medium: "",
+    partner_organization: "",
+    url: ,
+    favorited: false
+}
+
+const initialState = {
+    artworks: [],
+    currentArtwork: {
+        id: 0,
+        title: "",
+        date_created: null,
+        color: "",
+        style: "",
+        medium: "",
+        partner_organization: "",
+        favorited: false}
+}
+
+const artworksReducer = (state = initialState, action) => {
     let nextState = Object.assign({}, state)
 
     switch (action.type) {

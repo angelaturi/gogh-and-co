@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 import {connect} from 'react-redux';
-import Artwork from 'react-redux';
+import Artwork from './artwork';
 
 const mapStateToProps = state => ({
     title: state.artworks.currentArtwork.title,

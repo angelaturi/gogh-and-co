@@ -10177,6 +10177,37 @@ var clearArtworks = function clearArtworks() {
 
 /***/ }),
 
+/***/ "./frontend/actions/color_actions.js":
+/*!*******************************************!*\
+  !*** ./frontend/actions/color_actions.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SET_CURRENT_COLOR": () => (/* binding */ SET_CURRENT_COLOR),
+/* harmony export */   "setCurrentColor": () => (/* binding */ setCurrentColor),
+/* harmony export */   "SET_COLORS": () => (/* binding */ SET_COLORS),
+/* harmony export */   "setColors": () => (/* binding */ setColors)
+/* harmony export */ });
+var SET_CURRENT_COLOR = "SET_CURRENT_COLOR";
+var setCurrentColor = function setCurrentColor(color) {
+  return {
+    type: SET_CURRENT_COLOR,
+    color: color
+  };
+};
+var SET_COLORS = "SET_COLORS";
+var setColors = function setColors(colors) {
+  return {
+    type: SET_COLORS,
+    colors: colors
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/galleries_actions.js":
 /*!***********************************************!*\
   !*** ./frontend/actions/galleries_actions.js ***!
@@ -10342,6 +10373,37 @@ var clearErrors = function clearErrors() {
 //         () => dispatch(logoutCurrentUser()),
 //         errors => dispatch(receiveErrors(errors.responseJSON))
 //     )
+
+/***/ }),
+
+/***/ "./frontend/actions/time_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/time_actions.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SET_CURRENT_TIME": () => (/* binding */ SET_CURRENT_TIME),
+/* harmony export */   "setCurrentTime": () => (/* binding */ setCurrentTime),
+/* harmony export */   "SET_TIMES": () => (/* binding */ SET_TIMES),
+/* harmony export */   "setTimes": () => (/* binding */ setTimes)
+/* harmony export */ });
+var SET_CURRENT_TIME = "SET_CURRENT_TIME";
+var setCurrentTime = function setCurrentTime(time) {
+  return {
+    type: SET_CURRENT_TIME,
+    time: time
+  };
+};
+var SET_TIMES = "SET_TIMES";
+var setTimes = function setTimes(times) {
+  return {
+    type: SET_TIMES,
+    times: times
+  };
+};
 
 /***/ }),
 
@@ -10684,14 +10746,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _utils_route_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/route_utils */ "./frontend/utils/route_utils.jsx");
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ "./frontend/components/home.jsx");
 /* harmony import */ var _session_form_session_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/session_form_container */ "./frontend/components/session_form/session_form_container.jsx");
 /* harmony import */ var _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./account_form/create_account_form_container */ "./frontend/components/account_form/create_account_form_container.jsx");
 /* harmony import */ var _artworks_artwork__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./artworks/artwork */ "./frontend/components/artworks/artwork.jsx");
 /* harmony import */ var _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions/artworks_actions */ "./frontend/actions/artworks_actions.js");
-/* harmony import */ var _fontawesome__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./fontawesome */ "./frontend/components/fontawesome.js");
+/* harmony import */ var _timeline_timeline_grid_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./timeline/timeline_grid_container */ "./frontend/components/timeline/timeline_grid_container.jsx");
+/* harmony import */ var _color_color_grid_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./color/color_grid_container */ "./frontend/components/color/color_grid_container.jsx");
+/* harmony import */ var _fontawesome__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./fontawesome */ "./frontend/components/fontawesome.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10724,6 +10788,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -10744,7 +10810,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
         exact: true,
         path: "/",
         component: _home__WEBPACK_IMPORTED_MODULE_2__.default
@@ -10754,9 +10820,15 @@ var App = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
         path: "/signup",
         component: _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_4__.default
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
         path: "/artworks",
         component: _artworks_artwork__WEBPACK_IMPORTED_MODULE_5__.default
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        path: "/time",
+        component: _timeline_timeline_grid_container__WEBPACK_IMPORTED_MODULE_7__.default
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        path: "/color",
+        component: _color_color_grid_container__WEBPACK_IMPORTED_MODULE_8__.default
       }));
     }
   }]);
@@ -10999,6 +11071,136 @@ var Carousel = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/color/color_grid.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/components/color/color_grid.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../slider */ "./frontend/components/slider.jsx");
+/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../grid */ "./frontend/components/grid.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var ColorGrid = /*#__PURE__*/function (_React$Component) {
+  _inherits(ColorGrid, _React$Component);
+
+  var _super = _createSuper(ColorGrid);
+
+  function ColorGrid(props) {
+    _classCallCheck(this, ColorGrid);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(ColorGrid, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_slider__WEBPACK_IMPORTED_MODULE_1__.default, {
+        items: this.props.colors,
+        type: "gogh-color"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_grid__WEBPACK_IMPORTED_MODULE_2__.default, null));
+    }
+  }]);
+
+  return ColorGrid;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ColorGrid);
+
+/***/ }),
+
+/***/ "./frontend/components/color/color_grid_container.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/color/color_grid_container.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _color_grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./color_grid */ "./frontend/components/color/color_grid.jsx");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    colors: state.color.colors,
+    currentColor: state.color.currentColor
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    setCurrentColor: function (_setCurrentColor) {
+      function setCurrentColor(_x) {
+        return _setCurrentColor.apply(this, arguments);
+      }
+
+      setCurrentColor.toString = function () {
+        return _setCurrentColor.toString();
+      };
+
+      return setCurrentColor;
+    }(function (color) {
+      return dispatch(setCurrentColor(color));
+    }),
+    setColors: function (_setColors) {
+      function setColors(_x2) {
+        return _setColors.apply(this, arguments);
+      }
+
+      setColors.toString = function () {
+        return _setColors.toString();
+      };
+
+      return setColors;
+    }(function (colors) {
+      return dispatch(setColors(colors));
+    })
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_color_grid__WEBPACK_IMPORTED_MODULE_2__.default)));
+
+/***/ }),
+
 /***/ "./frontend/components/fontawesome.js":
 /*!********************************************!*\
   !*** ./frontend/components/fontawesome.js ***!
@@ -11047,6 +11249,67 @@ __webpack_require__.r(__webpack_exports__);
     id: "yellow"
   }, "e"));
 });
+
+/***/ }),
+
+/***/ "./frontend/components/grid.jsx":
+/*!**************************************!*\
+  !*** ./frontend/components/grid.jsx ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var Grid = /*#__PURE__*/function (_React$Component) {
+  _inherits(Grid, _React$Component);
+
+  var _super = _createSuper(Grid);
+
+  function Grid(props) {
+    _classCallCheck(this, Grid);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(Grid, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Hello I'm the grid");
+    }
+  }]);
+
+  return Grid;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Grid);
 
 /***/ }),
 
@@ -11886,6 +12149,203 @@ var Sidebar = function Sidebar(props) {
 
 /***/ }),
 
+/***/ "./frontend/components/slider.jsx":
+/*!****************************************!*\
+  !*** ./frontend/components/slider.jsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var Slider = /*#__PURE__*/function (_React$Component) {
+  _inherits(Slider, _React$Component);
+
+  var _super = _createSuper(Slider);
+
+  function Slider(props) {
+    _classCallCheck(this, Slider);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(Slider, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: this.props.type
+      }, this.props.items.map(function (item, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: idx
+        }, item);
+      }));
+    }
+  }]);
+
+  return Slider;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Slider);
+
+/***/ }),
+
+/***/ "./frontend/components/timeline/timeline_grid.jsx":
+/*!********************************************************!*\
+  !*** ./frontend/components/timeline/timeline_grid.jsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../slider */ "./frontend/components/slider.jsx");
+/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../grid */ "./frontend/components/grid.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var TimelineGrid = /*#__PURE__*/function (_React$Component) {
+  _inherits(TimelineGrid, _React$Component);
+
+  var _super = _createSuper(TimelineGrid);
+
+  function TimelineGrid(props) {
+    _classCallCheck(this, TimelineGrid);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(TimelineGrid, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_slider__WEBPACK_IMPORTED_MODULE_1__.default, {
+        items: this.props.times,
+        type: "gogh-time"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_grid__WEBPACK_IMPORTED_MODULE_2__.default, null));
+    }
+  }]);
+
+  return TimelineGrid;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TimelineGrid);
+
+/***/ }),
+
+/***/ "./frontend/components/timeline/timeline_grid_container.jsx":
+/*!******************************************************************!*\
+  !*** ./frontend/components/timeline/timeline_grid_container.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _timeline_grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./timeline_grid */ "./frontend/components/timeline/timeline_grid.jsx");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    times: state.time.times,
+    currentTime: state.time.currentTime
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    setCurrentTime: function (_setCurrentTime) {
+      function setCurrentTime(_x) {
+        return _setCurrentTime.apply(this, arguments);
+      }
+
+      setCurrentTime.toString = function () {
+        return _setCurrentTime.toString();
+      };
+
+      return setCurrentTime;
+    }(function (time) {
+      return dispatch(setCurrentTime(time));
+    }),
+    setTimes: function (_setTimes) {
+      function setTimes(_x2) {
+        return _setTimes.apply(this, arguments);
+      }
+
+      setTimes.toString = function () {
+        return _setTimes.toString();
+      };
+
+      return setTimes;
+    }(function (times) {
+      return dispatch(setTimes(times));
+    })
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_timeline_grid__WEBPACK_IMPORTED_MODULE_2__.default)));
+
+/***/ }),
+
 /***/ "./frontend/middleware/artworks_middleware.js":
 /*!****************************************************!*\
   !*** ./frontend/middleware/artworks_middleware.js ***!
@@ -12106,6 +12566,16 @@ var sessionMiddleware = function sessionMiddleware(_ref) {
 /*!***********************************************!*\
   !*** ./frontend/reducers/artworks_reducer.js ***!
   \***********************************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/Angela/Desktop/Fullstack/van-gogh-and-co/frontend/reducers/artworks_reducer.js: Unexpected token, expected \",\" (22:13)\n\n\u001b[0m \u001b[90m 20 |\u001b[39m     partner_organization\u001b[33m:\u001b[39m \u001b[32m\"\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 |\u001b[39m     url\u001b[33m:\u001b[39m \u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 22 |\u001b[39m     favorited\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 23 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 24 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 25 |\u001b[39m \u001b[36mconst\u001b[39m initialState \u001b[33m=\u001b[39m {\u001b[0m\n    at Object._raise (/Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules/@babel/parser/lib/index.js:807:17)\n    at Object.raiseWithData (/Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules/@babel/parser/lib/index.js:800:17)\n    at Object.raise (/Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules/@babel/parser/lib/index.js:761:17)\n    at Object.unexpected (/Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules/@babel/parser/lib/index.js:9931:16)\n    at Object.expect (/Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules/@babel/parser/lib/index.js:9905:28)\n    at Object.parseObjectLike (/Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules/@babel/parser/lib/index.js:11685:14)\n    at Object.parseExprAtom (/Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules/@babel/parser/lib/index.js:11249:23)\n    at Object.parseExprAtom (/Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules/@babel/parser/lib/index.js:5216:20)\n    at Object.parseExprSubscripts (/Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules/@babel/parser/lib/index.js:10904:23)\n    at Object.parseUpdate (/Users/Angela/Desktop/Fullstack/van-gogh-and-co/node_modules/@babel/parser/lib/index.js:10884:21)");
+
+/***/ }),
+
+/***/ "./frontend/reducers/color_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/color_reducer.js ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -12113,48 +12583,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/artworks_actions */ "./frontend/actions/artworks_actions.js");
+/* harmony import */ var _actions_color_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/color_actions */ "./frontend/actions/color_actions.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-var artworksReducer = function artworksReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-    artworks: [],
-    currentArtwork: {
-      id: 0,
-      title: "",
-      date_created: null,
-      color: "",
-      style: "",
-      medium: "",
-      partner_organization: "",
-      favorited: false
-    }
-  };
+var initialState = {
+  colors: ["white", "gray", "pink", "purple", "royal", "blue", "green", "yellow", "orange", "red", "brown", "black"],
+  currentColor: ''
+};
+
+var colorReducer = function colorReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  var nextState = Object.assign({}, state);
 
   switch (action.type) {
-    case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ARTWORKS:
-      return action.artworks;
+    case _actions_color_actions__WEBPACK_IMPORTED_MODULE_0__.SET_CURRENT_COLOR:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        currentColor: action.color
+      });
 
-    case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.CLEAR_ARTWORKS:
-      nextState.artworks = [];
-      return nextState;
-
-    case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_ARTWORK:
-      nextState.currentArtwork = action.artwork;
-      return nextState;
-
-    case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_FAVORITE:
-      nextState.currentArtwork.favorited = !nextState.currentArtwork.favorited;
-      return nextState;
+    case _actions_color_actions__WEBPACK_IMPORTED_MODULE_0__.SET_COLORS:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        colors: action.colors
+      });
 
     default:
       return state;
   }
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (artworksReducer);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (colorReducer);
 
 /***/ }),
 
@@ -12191,21 +12653,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _entities_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./entities_reducer */ "./frontend/reducers/entities_reducer.js");
 /* harmony import */ var _session_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_reducer */ "./frontend/reducers/session_reducer.js");
 /* harmony import */ var _artworks_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./artworks_reducer */ "./frontend/reducers/artworks_reducer.js");
+/* harmony import */ var _color_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./color_reducer */ "./frontend/reducers/color_reducer.js");
+/* harmony import */ var _time_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./time_reducer */ "./frontend/reducers/time_reducer.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
 
-var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
+
+
+
+var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_5__.combineReducers)(_defineProperty({
   entities: _entities_reducer__WEBPACK_IMPORTED_MODULE_0__.default,
   session: _session_reducer__WEBPACK_IMPORTED_MODULE_1__.default,
   errors: _entities_reducer__WEBPACK_IMPORTED_MODULE_0__.default,
-  artworks: _artworks_reducer__WEBPACK_IMPORTED_MODULE_2__.default
-});
+  artworks: _artworks_reducer__WEBPACK_IMPORTED_MODULE_2__.default,
+  color: _color_reducer__WEBPACK_IMPORTED_MODULE_3__.default,
+  time: _time_reducer__WEBPACK_IMPORTED_MODULE_4__.default
+}, "artworks", artworks));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (rootReducer);
 
 /***/ }),
@@ -12276,6 +12746,54 @@ var sessionReducer = function sessionReducer() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sessionReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/time_reducer.js":
+/*!*******************************************!*\
+  !*** ./frontend/reducers/time_reducer.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_time_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/time_actions */ "./frontend/actions/time_actions.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var initialState = {
+  times: [1800, 1900, 2000, 2001, 2002, 2003, 2005, 2006, 2007, 2008, 2009, 2010],
+  currentTime: ''
+};
+
+var timeReducer = function timeReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_time_actions__WEBPACK_IMPORTED_MODULE_0__.SET_CURRENT_TIME:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        currentTime: action.time
+      });
+
+    case _actions_time_actions__WEBPACK_IMPORTED_MODULE_0__.SET_TIMES:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        times: action.times
+      });
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timeReducer);
 
 /***/ }),
 
