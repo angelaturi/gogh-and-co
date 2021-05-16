@@ -9,7 +9,7 @@ class ColorGrid extends React.Component {
 
     componentDidMount() {
         if (!this.props.artworks.isLoaded)  {
-            this.props.requestArtworks()
+            // this.props.requestArtworks()
         } 
     }
 

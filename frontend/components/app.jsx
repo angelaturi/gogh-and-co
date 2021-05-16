@@ -26,7 +26,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <AuthRoute path="/login" component={SessionFormContainer}/>
             <AuthRoute path="/signup" component={CreateAccountFormContainer}/>
-            <Route path="/artworks" component={Artwork}/>
+            <Route path="/artwork" component={Artwork}/>
             <Route path="/time" component={TimelineGridContainer}/>
             <Route path="/color" component={ColorGridContainer}/>
         </Switch>

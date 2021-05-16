@@ -9,7 +9,11 @@ class Slider extends React.Component {
         return (
             <div className={this.props.type}>
                 {this.props.items.map((item, idx)=> {
-                    return (<div key={idx}>{item}</div>)
+                    return (
+                    this.props.type === "gogh-color" ? 
+                    <div key={idx} className={item}></div> :
+                    <div key={idx} className={"timeline"}>{item}</div>
+                    )
                 })}
             </div>
         )

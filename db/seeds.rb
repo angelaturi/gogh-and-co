@@ -13,6 +13,7 @@ Artwork.destroy_all
 User.create(email: 'monalisa@demoemail.com', password: 'louvre123', first_name: 'Mona Lisa', last_name: 'Gherardini', profile_image_url: 'https://ibb.co/yXPR07z')
 
 Artwork.create(title: 'The Starry Night', creator_id: 1, date_created: 1889, color: 'blue', style: 'Post-Impressionism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
+Artwork.create(title: 'The Starry Night', creator_id: 1, date_created: 1889, color: 'blue', style: 'Post-Impressionism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
 Artwork.create(title: 'Panel for Edwin R. Campbell No. 4', creator_id: 2, date_created: 1914, color: 'blue', style: 'Expressionism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
 Artwork.create(title: 'The Persistence of Memory', creator_id: 3, date_created: 1931, color: 'brown', style: 'Surrealism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
 Artwork.create(title: 'The Town of the Poor', creator_id: 4, date_created: 1951, color: 'gray', style: 'Abstract Expressionism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')

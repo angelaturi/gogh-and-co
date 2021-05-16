@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class Grid extends React.Component {
     constructor(props) {
@@ -9,16 +10,19 @@ class Grid extends React.Component {
         const art = this.props.artworks;
         debugger
         return (
-            <div className={"artwork-grid"}>
+            <ul className={"artwork-grid"}>
                 {this.props.artworks.map((artwork, idx)=> {
-                    let artwork_source = artwork.title.toLowerCase();
-                    artwork_source.replace(/([ |%20])/g, "_")
-                    return (<div key={idx}>
+                    let artwork_source = artwork.title.toLowerCase().replace(/([ |%20])/g, "_")
+                    return (<li key={idx} className={"artwork"}>
                             {artwork.title}
-                            <img src={`https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${artwork_source}.png`} alt=""/>
-                        </div>)
+                            <Link to={`/artwork/${artwork.id}`}>
+                                <div style={{
+                                backgroundImage: `url(https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${artwork_source}.png)`
+                                }}></div>
+                            </Link>
+                        </li>)
                 })}
-            </div>
+            </ul>
         )
     }
 }

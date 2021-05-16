@@ -11,8 +11,11 @@ class Home extends React.Component {
     }
 
     render() {
-        // const date = Date(document.data.date);
-        // const formattedDate = format(date, 'MMMM dd, yyyy')
+        let d = new Date();
+        let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const finalDate = `${days[d.getDay()]}, ${months[d.getMonth()]} ${d.getDate()}`;
+
         const images = [{image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'},{image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'}]
         return (
             <div className="main-content">
@@ -22,7 +25,7 @@ class Home extends React.Component {
                         <div className="top-picks-inner">
                             <div className="top-picks-header">
                                 <div className="top-picks-header-inner">
-                                    <h2><span className="span-1">Today's top picks</span><span className="span-2">Fri, May 21</span></h2>
+                                    <h2><span className="span-1">Today's top picks</span><span className="span-2">{finalDate}</span></h2>
                                 </div>
                             </div>
                         <div className="top-picks-carousel">

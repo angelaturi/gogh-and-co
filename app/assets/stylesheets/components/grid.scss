@@ -1,0 +1,31 @@
+
+.artwork-grid {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.artwork {
+    width: calc(25% - 8px);
+    margin: 4px;
+    overflow: visible;
+    position: relative;
+
+    div {
+        width: 100%;
+        height: auto;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: inline-block;
+        padding-top: 100%;
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        vertical-align: bottom;
+    }
+}
+

@@ -10752,7 +10752,7 @@ var App = /*#__PURE__*/function (_React$Component) {
         path: "/signup",
         component: _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_4__.default
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
-        path: "/artworks",
+        path: "/artwork",
         component: _artworks_artwork__WEBPACK_IMPORTED_MODULE_5__.default
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
         path: "/time",
@@ -11056,8 +11056,7 @@ var ColorGrid = /*#__PURE__*/function (_React$Component) {
   _createClass(ColorGrid, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      if (!this.props.artworks.isLoaded) {
-        this.props.requestArtworks();
+      if (!this.props.artworks.isLoaded) {// this.props.requestArtworks()
       }
     }
   }, {
@@ -11292,6 +11291,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11316,6 +11316,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Grid = /*#__PURE__*/function (_React$Component) {
   _inherits(Grid, _React$Component);
 
@@ -11332,17 +11333,20 @@ var Grid = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var art = this.props.artworks;
       debugger;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "artwork-grid"
       }, this.props.artworks.map(function (artwork, idx) {
-        var artwork_source = artwork.title.toLowerCase();
-        artwork_source.replace(/([ |%20])/g, "_");
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          key: idx
-        }, artwork.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          src: "https://active-storage-gogh-and-co-dev.s3.amazonaws.com/".concat(artwork_source, ".png"),
-          alt: ""
-        }));
+        var artwork_source = artwork.title.toLowerCase().replace(/([ |%20])/g, "_");
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+          key: idx,
+          className: "artwork"
+        }, artwork.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          to: "/artwork/".concat(artwork.id)
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          style: {
+            backgroundImage: "url(https://active-storage-gogh-and-co-dev.s3.amazonaws.com/".concat(artwork_source, ".png)")
+          }
+        })));
       }));
     }
   }]);
@@ -11724,8 +11728,10 @@ var Home = /*#__PURE__*/function (_React$Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      // const date = Date(document.data.date);
-      // const formattedDate = format(date, 'MMMM dd, yyyy')
+      var d = new Date();
+      var days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var finalDate = "".concat(days[d.getDay()], ", ").concat(months[d.getMonth()], " ").concat(d.getDate());
       var images = [{
         image: 'https://picsum.photos/id/1/200/300',
         title: 'test'
@@ -11758,7 +11764,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
         className: "span-1"
       }, "Today's top picks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "span-2"
-      }, "Fri, May 21")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, finalDate)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-picks-carousel"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "carousel-inner"
@@ -12232,11 +12238,17 @@ var Slider = /*#__PURE__*/function (_React$Component) {
   _createClass(Slider, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: this.props.type
       }, this.props.items.map(function (item, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          key: idx
+        return _this.props.type === "gogh-color" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: idx,
+          className: item
+        }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: idx,
+          className: "timeline"
         }, item);
       }));
     }
@@ -12303,8 +12315,7 @@ var TimelineGrid = /*#__PURE__*/function (_React$Component) {
   _createClass(TimelineGrid, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      if (!this.props.artworks.isLoaded) {
-        this.props.requestArtworks();
+      if (!this.props.artworks.isLoaded) {// this.props.requestArtworks()
       }
     }
   }, {
@@ -12395,18 +12406,209 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-var artwork = {
+var artworks = [{
   id: 0,
-  title: "",
-  date_created: null,
-  color: "",
-  style: "",
-  medium: "",
-  partner_organization: "",
+  title: 'The Starry Night',
+  creator_id: 1,
+  date_created: 1889,
+  color: 'blue',
+  style: 'Post-Impressionism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
   favorited: false
-};
+}, {
+  id: 1,
+  title: 'Panel for Edwin R. Campbell No. 4',
+  creator_id: 2,
+  date_created: 1914,
+  color: 'blue',
+  style: 'Expressionism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 2,
+  title: 'The Persistence of Memory',
+  creator_id: 3,
+  date_created: 1931,
+  color: 'brown',
+  style: 'Surrealism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 3,
+  title: 'The Town of the Poor',
+  creator_id: 4,
+  date_created: 1951,
+  color: 'gray',
+  style: 'Abstract Expressionism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 4,
+  title: 'The Juggler',
+  creator_id: 5,
+  date_created: 1956,
+  color: 'brown',
+  style: 'Surrealism',
+  medium: 'Oil and inlaid mother of pearl on board',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 5,
+  title: 'Portrait of Meijer de Haan',
+  creator_id: 6,
+  date_created: 1889,
+  color: 'red',
+  style: 'Post-Impressionism',
+  medium: 'Oil on wood',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 6,
+  title: 'Château Noir',
+  creator_id: 7,
+  date_created: 1903,
+  color: 'blue',
+  style: 'Post-Impressionism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 7,
+  title: "Le Demoiselles d'Avignon",
+  creator_id: 8,
+  date_created: 1907,
+  color: 'pink',
+  style: 'Cubism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 8,
+  title: 'Woman Plaiting Her Hair',
+  creator_id: 8,
+  date_created: 1906,
+  color: 'pink',
+  style: "Picasso's Rose Period",
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 9,
+  title: 'Two Nudes',
+  creator_id: 8,
+  date_created: 1906,
+  color: 'orange',
+  style: "Picasso's Rose Period",
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 10,
+  title: 'The Reservoir, Horta de Ebro',
+  creator_id: 8,
+  date_created: 1909,
+  color: 'orange',
+  style: 'Cubism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 11,
+  title: 'Bather',
+  creator_id: 8,
+  date_created: 1908,
+  color: 'gray',
+  style: 'Cubism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 12,
+  title: 'Repose',
+  creator_id: 8,
+  date_created: 1908,
+  color: 'orange',
+  style: 'Cubism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 13,
+  title: 'Head of a Sleeping Woman',
+  creator_id: 8,
+  date_created: 1907,
+  color: 'yellow',
+  style: "Picasso's African Period",
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 14,
+  title: 'Fruit Dish',
+  creator_id: 8,
+  date_created: 1908,
+  color: 'blue',
+  style: 'Cubism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 15,
+  title: 'Pharisees',
+  creaor_id: 9,
+  date_created: 1912,
+  color: 'blue',
+  style: 'Expressionism',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 16,
+  title: 'One Number31 1950',
+  creator_id: 10,
+  date_created: 1950,
+  color: 'gray',
+  style: 'Abstract Expressionism',
+  medium: 'Oil and enamel paint on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 17,
+  title: 'Echo Number 25 1951',
+  creator_id: 10,
+  date_created: 1951,
+  color: 'black',
+  style: 'Abstract Expressionism',
+  medium: 'Enamel paint on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 18,
+  title: 'The Dream',
+  creator_id: 11,
+  date_created: 1910,
+  color: 'green',
+  style: 'Modern Art',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}, {
+  id: 19,
+  title: 'Lagoon from Jazz',
+  creator_id: 12,
+  date_created: 1947,
+  color: 'blue',
+  style: 'Modern Art',
+  medium: 'Oil on canvas',
+  partner_organization: 'MoMA The Museum of Modern Art',
+  favorited: false
+}];
 var initialState = {
-  artworks: [],
+  artworks: artworks,
   currentArtwork: {
     id: 0,
     title: "",
