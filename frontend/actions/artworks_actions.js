@@ -2,7 +2,7 @@ export const REQUEST_ARTWORKS = "REQUEST_ARTWORKS";
 export const RECEIVE_ARTWORKS = "RECEIVE_ARTWORKS";
 export const REQUEST_FAVORITE_ARTWORKS = "REQUEST_FAVORITE_ARTWORKS";
 export const REQUEST_GALLERY = "REQUEST_GALLERY";
-export const REQUEST_CURRENT_ARTWORK = "REQUEST_CURRENT_ARTWORK";
+export const SET_CURRENT_ARTWORK = "SET_CURRENT_ARTWORK";
 export const RECEIVE_CURRENT_ARTWORK = "RECEIVE_CURRENT_ARTWORK";
 export const TOGGLE_FAVORITE = "TOGGLE_FAVORITE";
 export const RECEIVE_FAVORITE = "RECEIVE_FAVORITE";
@@ -42,9 +42,9 @@ export const requestGallery = id => ({
     id
 })
 
-export const requestCurrentArtwork = id => ({
-    type: REQUEST_CURRENT_ARTWORK,
-    id
+export const setCurrentArtwork = artwork => ({
+    type: SET_CURRENT_ARTWORK,
+    artwork
 })
 
 export const receiveCurrentArtwork = artwork => ({

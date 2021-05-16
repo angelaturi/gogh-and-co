@@ -17,7 +17,14 @@ class TimelineGrid extends React.Component {
     render() {
        return (
             <React.Fragment>
-                <Slider items={this.props.times} type="gogh-time"/>
+                <div className={"time"}>
+                    <header className={"time-header"}>
+                        <div>
+                            <h1>Timeline Explorer</h1>
+                        </div>
+                    </header>
+                    <Slider items={this.props.times} type="gogh-time"/>
+                </div>
                 <Grid artworks={this.props.artworks.artworks}/>
             </React.Fragment>
         )

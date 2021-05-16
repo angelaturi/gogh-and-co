@@ -1,0 +1,38 @@
+.iv-container.iv-image-mode, 
+.description {
+    width: 80%;
+    margin: 0px auto; 
+}
+
+.iv-container.iv-image-mode {
+    width: 80%;
+    grid-area: image;
+
+     & > img {
+        width: 100%;
+        height: auto;
+     }
+}
+
+.artwork-current {
+    display: grid;
+    grid-template-areas:
+        "image"
+        "description";
+    grid-template-rows: auto 200px;
+    background: white;
+}
+
+
+.description {
+    grid-area: description;
+    border-top: 1px solid gray;
+
+    & > p {
+        color: #3c4043;
+        font-family: 'Roboto'
+    }
+    
+    
+
+}

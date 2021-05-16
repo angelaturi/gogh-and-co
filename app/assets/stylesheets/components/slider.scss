@@ -1,7 +1,10 @@
-
+.color-grid {
+    border-top: 116px solid #fff;
+}
 
 .gogh-color {
     display: flex;
+    padding-bottom: 8px;
 
     & > div {
         width: 70px;
@@ -11,49 +14,74 @@
 }
 
 .white {
-    background: white;
+    background:  #FFFFFF;
 }
 
 .gray {
-    background: gray;
+    background: #BDBDBD;
 }
 
 .pink {
-    background: pink;
+    background: #F48FB1;
 }
 
 .purple {
-    background: purple;
+    background: #9C27B0;
 }
 
 .royal {
-    background: royal;
+    background: #2A56C6;
 }
 
 .blue {
-    background: blue;
+    background: #2979FF;
 }
 
 .green {
-    background: green;
+    background: #0D904F;
 }
 
 .yellow {
-    background: yellow;
+    background: #FDD835;
 }
 
 .orange {
-    background: orange;
+    background: #FF9800;
 }
 
 .red {
-    background: red;
+    background: #D50000;
 }
 
 .brown {
-    background: brown;
+    background: #795548;
 }
 
 .black {
-    background: black;
+    background: #37474F;
 }
+
+.gogh-time {
+    display: flex;
+
+    & > div {
+        width: 70px;
+        height: 54px;
+    }
+}
+
+.timeline {
+    text-align: center;
+    color: #CCC;
+    font-family: 'Open Sans';
+
+    span::after {
+        content: " ";
+        display: block;
+        background: #CCC;
+        height: 20px;
+        width: 1px;
+        margin: 0 auto;
+    }
+}
+

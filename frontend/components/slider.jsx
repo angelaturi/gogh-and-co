@@ -12,7 +12,7 @@ class Slider extends React.Component {
                     return (
                     this.props.type === "gogh-color" ? 
                     <div key={idx} className={item}></div> :
-                    <div key={idx} className={"timeline"}>{item}</div>
+                    <div key={idx} className={"timeline"}><span>{item}</span></div>
                     )
                 })}
             </div>

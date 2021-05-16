@@ -1,39 +1,76 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ImageViewer from 'iv-viewer';
 import 'iv-viewer/dist/iv-viewer.css'
+
+// function Artwork({artworks, artwork, setCurrentArtwork, ...props}) {
+
+//     useEffect(() => {
+//         if (!artwork.title) {
+//             let currentArtwork = artworks.find((aw) => aw.id === parseInt(props.match.params.id))
+//             setCurrentArtwork(currentArtwork)
+//         }
+//         $('.favorites').removeClass('invisible')
+//         const viewer = new ImageViewer(document.querySelector("#image"))
+//     }, [artwork])
+
+
+//         // const image = document.querySelector('#artwork-loader')
+//         // console.log(container)
+//         // viewer.load(image)
+//         // let favorite = currentImage.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
+        
+//         let url = artwork.title ? 
+//         `https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${artwork.title.toLowerCase().replace(/([ |%20])/g, "_")}.png` :
+//         ""
+
+//         return(
+//             <div id="artworkCurrent">
+//                 <img src={url} id="image"/>
+//                 <p>{artwork.title}</p>
+//                 <p>{artwork.date_created}</p>
+//                 <p>{artwork.color}</p>
+//                 <p>{artwork.style}</p>
+//                 <p>{artwork.medium}</p>
+//                 <p>{artwork.partner_organization}</p>
+//             </div>
+//         );
+// }
+
+// export default Artwork
 
 class Artwork extends React.Component {
     constructor(props) {
         super(props)
+        let currentArtwork = this.props.artworks.find((aw) => aw.id === parseInt(this.props.match.params.id))
+        this.props.setCurrentArtwork(currentArtwork)
     }
 
-    componentDidMount() {
-        const viewer = new ImageViewer(document.querySelector("#image"))
-        // viewer.load(window.placeholderImg);
-        // viewer.refresh;
-        $('.favorites').removeClass('invisible')
+    componentDidUpdate() {
+        // props.artwork.title) {
+            $('.favorites').removeClass('invisible')
+            const viewer = new ImageViewer(document.querySelector("#image"))
+        // }
     }
 
-    render() {
         // const image = document.querySelector('#artwork-loader')
         // console.log(container)
         // viewer.load(image)
         // let favorite = currentImage.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
 
-        return(
-            <div id="artwork">
-                <div id="artwork-loader"></div>
-                <img src={window.placeholderImg} id="image"/>
-                {/* <img className ='favoritesrc={favorite} alt=""/> */}
-                <p>{this.props.title}</p>
-                <p>{this.props.date_created}</p>
-                <p>{this.props.color}</p>
-                <p>{this.props.style}</p>
-                <p>{this.props.medium}</p>
-                <p>{this.props.partner_organization}</p>
-            </div>
-        );
-    }
+        render() {
+            return (
+                <div id={"artworkCurrent"} className={"artwork-current"}>
+                    <img src={`https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${this.props.artwork.title.toLowerCase().replace(/([ |%20])/g, "_")}.png`} id="image"/>
+                    <div className={"description"}>
+                        <p className={"title"}><b>Title:</b> {this.props.artwork.title}</p>
+                        <p className={"date"}><b>Date Created:</b> {this.props.artwork.date_created}</p>
+                        <p className={"style"}><b>Style:</b> {this.props.artwork.style}</p>
+                        <p className={"medium"}><b>Medium:</b> {this.props.artwork.medium}</p>
+                        <p className={"partner"}><b>Partner Organization:</b> {this.props.artwork.partner_organization}</p>
+                    </div>
+                </div>
+            )
+        };
 }
 
 export default Artwork

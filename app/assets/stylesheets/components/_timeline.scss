@@ -1,0 +1,26 @@
+.time-header {
+    background: #fff;
+    height: auto;
+    min-height: 152px;
+    padding-bottom: 64px;
+    position: relative;
+
+    & > div {
+        margin: 56px 0;
+        display: flex;
+        position: relative;
+        top: 56px;
+        flex-direction: column;
+
+        & > h1 {
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: 2.5rem;
+            font-family: 'Roboto';
+            color: #3c4043;
+            padding: 0 24px;
+            text-align: center;
+        }
+    }
+}

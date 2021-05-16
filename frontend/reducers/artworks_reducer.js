@@ -3,7 +3,7 @@ import {
     RECEIVE_ARTWORKS,
     REQUEST_FAVORITE_ARTWORKS,
     REQUEST_GALLERY,
-    REQUEST_CURRENT_ARTWORK,
+    SET_CURRENT_ARTWORK,
     RECEIVE_CURRENT_ARTWORK,
     TOGGLE_FAVORITE,
     RECEIVE_FAVORITE,
@@ -74,6 +74,11 @@ const artworksReducer = (state = initialState, action) => {
         case RECEIVE_FAVORITE:
             nextState.currentArtwork.favorited = !nextState.currentArtwork.favorited
             return nextState
+        case SET_CURRENT_ARTWORK:
+            return {
+                ...state,
+                currentArtwork: action.artwork
+            }
         default:
             return state;
     }

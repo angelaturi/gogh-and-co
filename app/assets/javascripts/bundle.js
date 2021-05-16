@@ -10100,7 +10100,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "RECEIVE_ARTWORKS": () => (/* binding */ RECEIVE_ARTWORKS),
 /* harmony export */   "REQUEST_FAVORITE_ARTWORKS": () => (/* binding */ REQUEST_FAVORITE_ARTWORKS),
 /* harmony export */   "REQUEST_GALLERY": () => (/* binding */ REQUEST_GALLERY),
-/* harmony export */   "REQUEST_CURRENT_ARTWORK": () => (/* binding */ REQUEST_CURRENT_ARTWORK),
+/* harmony export */   "SET_CURRENT_ARTWORK": () => (/* binding */ SET_CURRENT_ARTWORK),
 /* harmony export */   "RECEIVE_CURRENT_ARTWORK": () => (/* binding */ RECEIVE_CURRENT_ARTWORK),
 /* harmony export */   "TOGGLE_FAVORITE": () => (/* binding */ TOGGLE_FAVORITE),
 /* harmony export */   "RECEIVE_FAVORITE": () => (/* binding */ RECEIVE_FAVORITE),
@@ -10111,7 +10111,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "receiveArtworks": () => (/* binding */ receiveArtworks),
 /* harmony export */   "requestFavoriteArtworks": () => (/* binding */ requestFavoriteArtworks),
 /* harmony export */   "requestGallery": () => (/* binding */ requestGallery),
-/* harmony export */   "requestCurrentArtwork": () => (/* binding */ requestCurrentArtwork),
+/* harmony export */   "setCurrentArtwork": () => (/* binding */ setCurrentArtwork),
 /* harmony export */   "receiveCurrentArtwork": () => (/* binding */ receiveCurrentArtwork),
 /* harmony export */   "toggleFavorite": () => (/* binding */ toggleFavorite),
 /* harmony export */   "receiveFavorite": () => (/* binding */ receiveFavorite),
@@ -10122,7 +10122,7 @@ var REQUEST_ARTWORKS = "REQUEST_ARTWORKS";
 var RECEIVE_ARTWORKS = "RECEIVE_ARTWORKS";
 var REQUEST_FAVORITE_ARTWORKS = "REQUEST_FAVORITE_ARTWORKS";
 var REQUEST_GALLERY = "REQUEST_GALLERY";
-var REQUEST_CURRENT_ARTWORK = "REQUEST_CURRENT_ARTWORK";
+var SET_CURRENT_ARTWORK = "SET_CURRENT_ARTWORK";
 var RECEIVE_CURRENT_ARTWORK = "RECEIVE_CURRENT_ARTWORK";
 var TOGGLE_FAVORITE = "TOGGLE_FAVORITE";
 var RECEIVE_FAVORITE = "RECEIVE_FAVORITE";
@@ -10162,10 +10162,10 @@ var requestGallery = function requestGallery(id) {
     id: id
   };
 };
-var requestCurrentArtwork = function requestCurrentArtwork(id) {
+var setCurrentArtwork = function setCurrentArtwork(artwork) {
   return {
-    type: REQUEST_CURRENT_ARTWORK,
-    id: id
+    type: SET_CURRENT_ARTWORK,
+    artwork: artwork
   };
 };
 var receiveCurrentArtwork = function receiveCurrentArtwork(artwork) {
@@ -10682,7 +10682,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ "./frontend/components/home.jsx");
 /* harmony import */ var _session_form_session_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/session_form_container */ "./frontend/components/session_form/session_form_container.jsx");
 /* harmony import */ var _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./account_form/create_account_form_container */ "./frontend/components/account_form/create_account_form_container.jsx");
-/* harmony import */ var _artworks_artwork__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./artworks/artwork */ "./frontend/components/artworks/artwork.jsx");
+/* harmony import */ var _artworks_artwork_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./artworks/artwork_container */ "./frontend/components/artworks/artwork_container.jsx");
 /* harmony import */ var _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions/artworks_actions */ "./frontend/actions/artworks_actions.js");
 /* harmony import */ var _timeline_timeline_grid_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./timeline/timeline_grid_container */ "./frontend/components/timeline/timeline_grid_container.jsx");
 /* harmony import */ var _color_color_grid_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./color/color_grid_container */ "./frontend/components/color/color_grid_container.jsx");
@@ -10752,8 +10752,8 @@ var App = /*#__PURE__*/function (_React$Component) {
         path: "/signup",
         component: _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_4__.default
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
-        path: "/artwork",
-        component: _artworks_artwork__WEBPACK_IMPORTED_MODULE_5__.default
+        path: "/artwork/:id",
+        component: _artworks_artwork_container__WEBPACK_IMPORTED_MODULE_5__.default
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
         path: "/time",
         component: _timeline_timeline_grid_container__WEBPACK_IMPORTED_MODULE_7__.default
@@ -10810,7 +10810,35 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
+ // function Artwork({artworks, artwork, setCurrentArtwork, ...props}) {
+//     useEffect(() => {
+//         if (!artwork.title) {
+//             let currentArtwork = artworks.find((aw) => aw.id === parseInt(props.match.params.id))
+//             setCurrentArtwork(currentArtwork)
+//         }
+//         $('.favorites').removeClass('invisible')
+//         const viewer = new ImageViewer(document.querySelector("#image"))
+//     }, [artwork])
+//         // const image = document.querySelector('#artwork-loader')
+//         // console.log(container)
+//         // viewer.load(image)
+//         // let favorite = currentImage.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
+//         let url = artwork.title ? 
+//         `https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${artwork.title.toLowerCase().replace(/([ |%20])/g, "_")}.png` :
+//         ""
+//         return(
+//             <div id="artworkCurrent">
+//                 <img src={url} id="image"/>
+//                 <p>{artwork.title}</p>
+//                 <p>{artwork.date_created}</p>
+//                 <p>{artwork.color}</p>
+//                 <p>{artwork.style}</p>
+//                 <p>{artwork.medium}</p>
+//                 <p>{artwork.partner_organization}</p>
+//             </div>
+//         );
+// }
+// export default Artwork
 
 var Artwork = /*#__PURE__*/function (_React$Component) {
   _inherits(Artwork, _React$Component);
@@ -10818,34 +10846,54 @@ var Artwork = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Artwork);
 
   function Artwork(props) {
+    var _this;
+
     _classCallCheck(this, Artwork);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+
+    var currentArtwork = _this.props.artworks.find(function (aw) {
+      return aw.id === parseInt(_this.props.match.params.id);
+    });
+
+    _this.props.setCurrentArtwork(currentArtwork);
+
+    return _this;
   }
 
   _createClass(Artwork, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var viewer = new iv_viewer__WEBPACK_IMPORTED_MODULE_1__.default(document.querySelector("#image")); // viewer.load(window.placeholderImg);
-      // viewer.refresh;
-
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      // props.artwork.title) {
       $('.favorites').removeClass('invisible');
-    }
+      var viewer = new iv_viewer__WEBPACK_IMPORTED_MODULE_1__.default(document.querySelector("#image")); // }
+    } // const image = document.querySelector('#artwork-loader')
+    // console.log(container)
+    // viewer.load(image)
+    // let favorite = currentImage.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
+
   }, {
     key: "render",
     value: function render() {
-      // const image = document.querySelector('#artwork-loader')
-      // console.log(container)
-      // viewer.load(image)
-      // let favorite = currentImage.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        id: "artwork"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        id: "artwork-loader"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: window.placeholderImg,
+        id: "artworkCurrent",
+        className: "artwork-current"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: "https://active-storage-gogh-and-co-dev.s3.amazonaws.com/".concat(this.props.artwork.title.toLowerCase().replace(/([ |%20])/g, "_"), ".png"),
         id: "image"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.date_created), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.color), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.style), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.medium), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.partner_organization));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "description"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "title"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Title:"), " ", this.props.artwork.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "date"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Date Created:"), " ", this.props.artwork.date_created), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "style"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Style:"), " ", this.props.artwork.style), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "medium"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Medium:"), " ", this.props.artwork.medium), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "partner"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Partner Organization:"), " ", this.props.artwork.partner_organization)));
     }
   }]);
 
@@ -10853,6 +10901,53 @@ var Artwork = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Artwork);
+
+/***/ }),
+
+/***/ "./frontend/components/artworks/artwork_container.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/artworks/artwork_container.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _artwork__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./artwork */ "./frontend/components/artworks/artwork.jsx");
+/* harmony import */ var _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/artworks_actions */ "./frontend/actions/artworks_actions.js");
+
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    artworks: state.artworks.artworks,
+    artwork: state.artworks.currentArtwork // title: state.artworks.currentArtwork.title,
+    // date_created: state.artworks.currentArtwork.date_created,
+    // color: state.artworks.currentArtwork.color,
+    // style: state.artworks.currentArtwork.style,
+    // medium: state.artworks.currentArtwork.medium,
+    // partner_organization: state.artworks.currentArtwork.partner_organization
+
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    setCurrentArtwork: function setCurrentArtwork(artwork) {
+      return dispatch((0,_actions_artworks_actions__WEBPACK_IMPORTED_MODULE_3__.setCurrentArtwork)(artwork));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_4__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_artwork__WEBPACK_IMPORTED_MODULE_2__.default)));
 
 /***/ }),
 
@@ -11048,9 +11143,17 @@ var ColorGrid = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ColorGrid);
 
   function ColorGrid(props) {
+    var _this;
+
     _classCallCheck(this, ColorGrid);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    var params = new URLSearchParams(_this.props.location.search);
+    var colorParam = params.has("color") ? params.get("color") : "";
+
+    _this.props.setCurrentColor(colorParam);
+
+    return _this;
   }
 
   _createClass(ColorGrid, [{
@@ -11062,12 +11165,15 @@ var ColorGrid = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_slider__WEBPACK_IMPORTED_MODULE_1__.default, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "color-grid"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_slider__WEBPACK_IMPORTED_MODULE_1__.default, {
         items: this.props.colors,
-        type: "gogh-color"
+        type: "gogh-color",
+        selected: this.props.currentColor
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_grid__WEBPACK_IMPORTED_MODULE_2__.default, {
         artworks: this.props.artworks.artworks
-      }));
+      })));
     }
   }]);
 
@@ -11143,6 +11249,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _colorpicker_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./colorpicker.css */ "./frontend/components/colorpicker/colorpicker.css");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11166,6 +11273,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -11210,7 +11318,8 @@ var Colorpicker = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "colorpicker"
       }, colors.map(function (singleColor, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          to: "/color?color=".concat(singleColor),
           key: idx,
           onMouseOver: function onMouseOver(e) {
             return _this2.expandColor(e);
@@ -11333,20 +11442,18 @@ var Grid = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var art = this.props.artworks;
       debugger;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
         className: "artwork-grid"
       }, this.props.artworks.map(function (artwork, idx) {
         var artwork_source = artwork.title.toLowerCase().replace(/([ |%20])/g, "_");
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          to: "/artwork/".concat(artwork.id),
           key: idx,
-          className: "artwork"
-        }, artwork.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-          to: "/artwork/".concat(artwork.id)
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "artwork",
           style: {
             backgroundImage: "url(https://active-storage-gogh-and-co-dev.s3.amazonaws.com/".concat(artwork_source, ".png)")
           }
-        })));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, artwork.title));
       }));
     }
   }]);
@@ -11682,10 +11789,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header/header_container */ "./frontend/components/header/header_container.js");
-/* harmony import */ var _carousel_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./carousel/carousel */ "./frontend/components/carousel/carousel.jsx");
-/* harmony import */ var _colorpicker_colorpicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./colorpicker/colorpicker */ "./frontend/components/colorpicker/colorpicker.jsx");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _carousel_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./carousel/carousel */ "./frontend/components/carousel/carousel.jsx");
+/* harmony import */ var _colorpicker_colorpicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./colorpicker/colorpicker */ "./frontend/components/colorpicker/colorpicker.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11709,7 +11815,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-
+ // import HeaderContainer from './header/header_container'
 
 
 
@@ -11750,7 +11856,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }];
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "main-content"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "main-content-inner"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
         className: "top-picks"
@@ -11768,7 +11874,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
         className: "top-picks-carousel"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "carousel-inner"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_carousel_carousel__WEBPACK_IMPORTED_MODULE_2__.default, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_carousel_carousel__WEBPACK_IMPORTED_MODULE_1__.default, {
         images: images
       }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
         className: "fav-color"
@@ -11782,14 +11888,14 @@ var Home = /*#__PURE__*/function (_React$Component) {
         className: "color-boxes"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "color-picker-box"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_colorpicker_colorpicker__WEBPACK_IMPORTED_MODULE_3__.default, null)))))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_colorpicker_colorpicker__WEBPACK_IMPORTED_MODULE_2__.default, null)))))));
     }
   }]);
 
   return Home;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_4__.withRouter)(Home));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__.withRouter)(Home));
 
 /***/ }),
 
@@ -11838,8 +11944,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app */ "./frontend/components/app.jsx");
+/* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./header/header_container */ "./frontend/components/header/header_container.js");
+
 
 
 
@@ -11849,7 +11957,7 @@ var Root = function Root(_ref) {
   var store = _ref.store;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_1__.Provider, {
     store: store
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app__WEBPACK_IMPORTED_MODULE_2__.default, null)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app__WEBPACK_IMPORTED_MODULE_2__.default, null)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Root);
@@ -12249,7 +12357,7 @@ var Slider = /*#__PURE__*/function (_React$Component) {
         }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: idx,
           className: "timeline"
-        }, item);
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, item));
       }));
     }
   }]);
@@ -12321,10 +12429,14 @@ var TimelineGrid = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_slider__WEBPACK_IMPORTED_MODULE_1__.default, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "time"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", {
+        className: "time-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Timeline Explorer"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_slider__WEBPACK_IMPORTED_MODULE_1__.default, {
         items: this.props.times,
         type: "gogh-time"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_grid__WEBPACK_IMPORTED_MODULE_2__.default, {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_grid__WEBPACK_IMPORTED_MODULE_2__.default, {
         artworks: this.props.artworks.artworks
       }));
     }
@@ -12652,6 +12764,11 @@ var artworksReducer = function artworksReducer() {
     case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_FAVORITE:
       nextState.currentArtwork.favorited = !nextState.currentArtwork.favorited;
       return nextState;
+
+    case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.SET_CURRENT_ARTWORK:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        currentArtwork: action.artwork
+      });
 
     default:
       return state;
@@ -13166,7 +13283,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".box {\n    border-radius: 10px;\n    height: 450px;\n    width: 10%;\n    transition: all .5s linear;\n    display: inline-block;\n}\n\n.open {\n    width: 25% !important;\n}\n\n.box-color-yellow {\n    background: rgb(255,255,0);\n    background: -moz-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffff00\",endColorstr=\"#9aa201\",GradientType=1);\n}\n\n.box-color-green {\n    background-color: green;\n}\n\n.box-color-teal {\n    background-color: teal;\n}\n\n.box-color-blue {\n    background-color: blue;\n}\n\n.box-color-purple {\n    background-color: purple;\n}\n\n.box-color-pink {\n    background-color: pink;\n}\n\n.box-color-red {\n    background-color: red;\n}\n\n.box-color-orange {\n    background-color: orange;\n}\n", "",{"version":3,"sources":["webpack://./frontend/components/colorpicker/colorpicker.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,aAAa;IACb,UAAU;IACV,0BAA0B;IAC1B,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,0BAA0B;IAC1B,uFAAuF;IACvF,0FAA0F;IAC1F,kFAAkF;IAClF,gHAAgH;AACpH;;AAEA;IACI,uBAAuB;AAC3B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,wBAAwB;AAC5B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,wBAAwB;AAC5B","sourcesContent":[".box {\n    border-radius: 10px;\n    height: 450px;\n    width: 10%;\n    transition: all .5s linear;\n    display: inline-block;\n}\n\n.open {\n    width: 25% !important;\n}\n\n.box-color-yellow {\n    background: rgb(255,255,0);\n    background: -moz-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffff00\",endColorstr=\"#9aa201\",GradientType=1);\n}\n\n.box-color-green {\n    background-color: green;\n}\n\n.box-color-teal {\n    background-color: teal;\n}\n\n.box-color-blue {\n    background-color: blue;\n}\n\n.box-color-purple {\n    background-color: purple;\n}\n\n.box-color-pink {\n    background-color: pink;\n}\n\n.box-color-red {\n    background-color: red;\n}\n\n.box-color-orange {\n    background-color: orange;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".box {\n    border-radius: 10px;\n    height: 450px;\n    width: 10%;\n    transition: all .5s linear;\n    display: inline-block;\n}\n\n.open {\n    width: 25% !important;\n}\n\n.box-color-yellow {\n    background: rgb(255,255,0);\n    background: -moz-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffff00\",endColorstr=\"#9aa201\",GradientType=1);\n}\n\n.box-color-green {\n    background: rgb(105,233,26);\n    background: -moz-linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    background: linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#69e91a\",endColorstr=\"#305817\",GradientType=1);\n}\n\n.box-color-teal {\n    background: rgb(26,213,233);\n    background: -moz-linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    background: linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#1ad5e9\",endColorstr=\"#1ad5e9\",GradientType=1);   \n}\n\n.box-color-blue {\n    background-color: blue;\n}\n\n.box-color-purple {\n    background-color: purple;\n}\n\n.box-color-pink {\n    background-color: pink;\n}\n\n.box-color-red {\n    background-color: red;\n}\n\n.box-color-orange {\n    background-color: orange;\n}\n", "",{"version":3,"sources":["webpack://./frontend/components/colorpicker/colorpicker.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,aAAa;IACb,UAAU;IACV,0BAA0B;IAC1B,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,0BAA0B;IAC1B,uFAAuF;IACvF,0FAA0F;IAC1F,kFAAkF;IAClF,gHAAgH;AACpH;;AAEA;IACI,2BAA2B;IAC3B,sFAAsF;IACtF,yFAAyF;IACzF,iFAAiF;IACjF,gHAAgH;AACpH;;AAEA;IACI,2BAA2B;IAC3B,wFAAwF;IACxF,2FAA2F;IAC3F,mFAAmF;IACnF,gHAAgH;AACpH;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,wBAAwB;AAC5B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,wBAAwB;AAC5B","sourcesContent":[".box {\n    border-radius: 10px;\n    height: 450px;\n    width: 10%;\n    transition: all .5s linear;\n    display: inline-block;\n}\n\n.open {\n    width: 25% !important;\n}\n\n.box-color-yellow {\n    background: rgb(255,255,0);\n    background: -moz-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffff00\",endColorstr=\"#9aa201\",GradientType=1);\n}\n\n.box-color-green {\n    background: rgb(105,233,26);\n    background: -moz-linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    background: linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#69e91a\",endColorstr=\"#305817\",GradientType=1);\n}\n\n.box-color-teal {\n    background: rgb(26,213,233);\n    background: -moz-linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    background: linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#1ad5e9\",endColorstr=\"#1ad5e9\",GradientType=1);   \n}\n\n.box-color-blue {\n    background-color: blue;\n}\n\n.box-color-purple {\n    background-color: purple;\n}\n\n.box-color-pink {\n    background-color: pink;\n}\n\n.box-color-red {\n    background-color: red;\n}\n\n.box-color-orange {\n    background-color: orange;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

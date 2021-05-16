@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import $ from 'jquery';
 import './colorpicker.css';
+import {Link} from 'react-router-dom'
 
 const colors = ['yellow','green','teal','blue','purple','pink','red','orange'];
 
@@ -21,9 +22,9 @@ class Colorpicker extends Component {
 		return (
 			<div id="colorpicker">
 				{colors.map((singleColor, idx) => {
-					return <div key={idx} onMouseOver={(e) => this.expandColor(e)} className={"box box-color-" + (singleColor)}>
+					return <Link to={`/color?color=${singleColor}`} key={idx} onMouseOver={(e) => this.expandColor(e)} className={"box box-color-" + (singleColor)}>
 
-					</div>
+					</Link>
 				})}
 			</div>
 		);

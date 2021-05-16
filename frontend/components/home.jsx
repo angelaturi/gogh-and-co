@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router';
-import HeaderContainer from './header/header_container'
+// import HeaderContainer from './header/header_container'
 import Carousel from './carousel/carousel';
 import Colorpicker from './colorpicker/colorpicker'
 
@@ -19,7 +19,7 @@ class Home extends React.Component {
         const images = [{image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'},{image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'}]
         return (
             <div className="main-content">
-                <HeaderContainer />
+                {/* <HeaderContainer /> */}
                 <div className="main-content-inner"> 
                     <section className="top-picks">
                         <div className="top-picks-inner">
