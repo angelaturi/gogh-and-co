@@ -14,7 +14,10 @@ export const requestArtworks = () => {
     return function (dispatch) {
         return ArtworksAPI.requestArtworks()
             .then(
-                (artworks) => dispatch(receiveArtworks(artworks)),
+                (artworks) => {
+                    debugger
+                    dispatch(receiveArtworks(artworks))
+                },
                 (err) => dispatch(receiveArtworksFail(err))
             )
     } 

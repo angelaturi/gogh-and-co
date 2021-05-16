@@ -10132,7 +10132,8 @@ var RECEIVE_ARTWORKS_FAIL = "RECEIVE_ARTWORKS_FAIL";
 var requestArtworks = function requestArtworks() {
   return function (dispatch) {
     return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.requestArtworks().then(function (artworks) {
-      return dispatch(receiveArtworks(artworks));
+      debugger;
+      dispatch(receiveArtworks(artworks));
     }, function (err) {
       return dispatch(receiveArtworksFail(err));
     });
@@ -11128,6 +11129,106 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/colorpicker/colorpicker.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/colorpicker/colorpicker.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _colorpicker_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./colorpicker.css */ "./frontend/components/colorpicker/colorpicker.css");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var colors = ['yellow', 'green', 'teal', 'blue', 'purple', 'pink', 'red', 'orange'];
+
+var Colorpicker = /*#__PURE__*/function (_Component) {
+  _inherits(Colorpicker, _Component);
+
+  var _super = _createSuper(Colorpicker);
+
+  function Colorpicker() {
+    var _this;
+
+    _classCallCheck(this, Colorpicker);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "expandColor", function (e) {
+      e.preventDefault();
+      var selected = jquery__WEBPACK_IMPORTED_MODULE_1___default()(e.currentTarget);
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()('#colorpicker .box').removeClass('open');
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()(selected).addClass('open');
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()('#colorpicker .box').first().addClass('open');
+    });
+
+    return _this;
+  }
+
+  _createClass(Colorpicker, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "colorpicker"
+      }, colors.map(function (singleColor, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: idx,
+          onMouseOver: function onMouseOver(e) {
+            return _this2.expandColor(e);
+          },
+          className: "box box-color-" + singleColor
+        });
+      }));
+    }
+  }]);
+
+  return Colorpicker;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Colorpicker);
+
+/***/ }),
+
 /***/ "./frontend/components/fontawesome.js":
 /*!********************************************!*\
   !*** ./frontend/components/fontawesome.js ***!
@@ -11229,6 +11330,8 @@ var Grid = /*#__PURE__*/function (_React$Component) {
   _createClass(Grid, [{
     key: "render",
     value: function render() {
+      var art = this.props.artworks;
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "artwork-grid"
       }, this.props.artworks.map(function (artwork, idx) {
@@ -11575,9 +11678,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header/header_container */ "./frontend/components/header/header_container.js");
 /* harmony import */ var _carousel_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./carousel/carousel */ "./frontend/components/carousel/carousel.jsx");
+/* harmony import */ var _colorpicker_colorpicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./colorpicker/colorpicker */ "./frontend/components/colorpicker/colorpicker.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11599,6 +11703,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -11665,30 +11770,20 @@ var Home = /*#__PURE__*/function (_React$Component) {
         className: "fav-color-inner"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "fav-color-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "What's your favorite color?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Discover artworks by color")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "fav-color-header-inner"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "What's your favorite color?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Discover artworks by color"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "color-boxes"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "color-cards"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "green"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "green-card"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "title-div"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "pink"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "pink-card"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "title"
-      })))))))));
+        className: "color-picker-box"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_colorpicker_colorpicker__WEBPACK_IMPORTED_MODULE_3__.default, null)))))));
     }
   }]);
 
   return Home;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__.withRouter)(Home));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_4__.withRouter)(Home));
 
 /***/ }),
 
@@ -12206,12 +12301,21 @@ var TimelineGrid = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(TimelineGrid, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (!this.props.artworks.isLoaded) {
+        this.props.requestArtworks();
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_slider__WEBPACK_IMPORTED_MODULE_1__.default, {
         items: this.props.times,
         type: "gogh-time"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_grid__WEBPACK_IMPORTED_MODULE_2__.default, null));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_grid__WEBPACK_IMPORTED_MODULE_2__.default, {
+        artworks: this.props.artworks.artworks
+      }));
     }
   }]);
 
@@ -12234,9 +12338,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _timeline_grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./timeline_grid */ "./frontend/components/timeline/timeline_grid.jsx");
+/* harmony import */ var _actions_time_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/time_actions */ "./frontend/actions/time_actions.js");
+/* harmony import */ var _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/artworks_actions */ "./frontend/actions/artworks_actions.js");
+
+
 
 
 
@@ -12245,42 +12353,26 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   return {
     times: state.time.times,
-    currentTime: state.time.currentTime
+    currentTime: state.time.currentTime,
+    artworks: state.artworks
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    setCurrentTime: function (_setCurrentTime) {
-      function setCurrentTime(_x) {
-        return _setCurrentTime.apply(this, arguments);
-      }
-
-      setCurrentTime.toString = function () {
-        return _setCurrentTime.toString();
-      };
-
-      return setCurrentTime;
-    }(function (time) {
-      return dispatch(setCurrentTime(time));
-    }),
-    setTimes: function (_setTimes) {
-      function setTimes(_x2) {
-        return _setTimes.apply(this, arguments);
-      }
-
-      setTimes.toString = function () {
-        return _setTimes.toString();
-      };
-
-      return setTimes;
-    }(function (times) {
-      return dispatch(setTimes(times));
-    })
+    setCurrentTime: function setCurrentTime(time) {
+      return dispatch((0,_actions_time_actions__WEBPACK_IMPORTED_MODULE_3__.setCurrentTime)(time));
+    },
+    setTimes: function setTimes(times) {
+      return dispatch((0,_actions_time_actions__WEBPACK_IMPORTED_MODULE_3__.setTimes)(times));
+    },
+    requestArtworks: function requestArtworks() {
+      return dispatch((0,_actions_artworks_actions__WEBPACK_IMPORTED_MODULE_4__.requestArtworks)());
+    }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_timeline_grid__WEBPACK_IMPORTED_MODULE_2__.default)));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_5__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(_timeline_grid__WEBPACK_IMPORTED_MODULE_2__.default)));
 
 /***/ }),
 
@@ -12845,7 +12937,34 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "main {\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n}\n\n#carousel {\n    position: relative;\n    height: 450px;\n    top: 50%;\n    /*transform: translateY(-50%);*/\n    overflow: hidden;\n}\n\n#carousel div {\n    position: absolute;\n    transition: transform 1s, left 1s, opacity 1s, z-index 0s;\n    opacity: 1;\n    cursor: pointer;\n}\n\n#carousel div img {\n    width: 400px;\n    transition: width 1s;\n    border-radius: 10px;\n}\n\n#carousel div.title {\n    position: absolute;\n    bottom: 275px;\n    z-index: 20;\n    color: white;\n    font-size: 30px;\n    left: 20px;\n}\n\n#carousel div.hideLeft {\n    left: 0%;\n    opacity: 0;\n    transform: translateY(50%) translateX(-50%);\n}\n\n#carousel div.hideLeft img {\n    border-radius: 10px;\n}\n\n#carousel div.hideRight {\n    left: 100%;\n    opacity: 0;\n    transform: translateY(50%) translateX(-50%);\n}\n\n#carousel div.hideRight img {\n    width: 200px;\n    border-radius: 10px;\n}\n\n#carousel div.prev {\n    z-index: 5;\n    left: 40%;\n    transform: translateY(25px) translateX(-60%);\n}\n\n#carousel div.prev img {\n    width: 350px;\n    height: 400px;\n    border-radius: 10px;\n}\n\n#carousel div.prev .title {\n    bottom: 115px;\n}\n\n#carousel div.prevLeftSecond {\n    z-index: 4;\n    left: 32%;\n    transform: translateY(14%) translateX(-100%);\n    opacity: 0.7;\n}\n\n#carousel div.prevLeftSecond img {\n    width: 300px;\n    height: 350px;\n    border-radius: 10px;\n}\n\n#carousel div.prevLeftSecond .title {\n    bottom: 115px;\n    left: 85px;\n}\n\n#carousel div.selected {\n    z-index: 10;\n    left: 50%;\n    transform: translateY(0px) translateX(-50%);\n}\n\n#carousel div.next {\n    z-index: 5;\n    left: 60%;\n    transform: translateY(25px) translateX(-25%);\n}\n\n#carousel div.next img {\n    width: 350px;\n    height: 400px;\n    border-radius: 10px;\n}\n\n#carousel div.nect .title {\n    bottom: 105px;\n}\n\n#carousel div.nextRightSecond {\n    z-index: 4;\n    left: 68%;\n    transform: translateY(50%) translateX(-0%);\n    opacity: 0.7;\n}\n\n#carousel div.nextRightSecond img {\n    width: 200px;\n    border-radius: 10px;\n}\n\n.buttons {\n    position: fixed;\n    left: 50%;\n    transform: translateX(-50%);\n    bottom: 10px;\n}\n\n\n", "",{"version":3,"sources":["webpack://./frontend/components/carousel/carousel.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,SAAS;IACT,UAAU;AACd;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,QAAQ;IACR,+BAA+B;IAC/B,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,yDAAyD;IACzD,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,oBAAoB;IACpB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,WAAW;IACX,YAAY;IACZ,eAAe;IACf,UAAU;AACd;;AAEA;IACI,QAAQ;IACR,UAAU;IACV,2CAA2C;AAC/C;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,UAAU;IACV,UAAU;IACV,2CAA2C;AAC/C;;AAEA;IACI,YAAY;IACZ,mBAAmB;AACvB;;AAEA;IACI,UAAU;IACV,SAAS;IACT,4CAA4C;AAChD;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,UAAU;IACV,SAAS;IACT,4CAA4C;IAC5C,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,UAAU;AACd;;AAEA;IACI,WAAW;IACX,SAAS;IACT,2CAA2C;AAC/C;;AAEA;IACI,UAAU;IACV,SAAS;IACT,4CAA4C;AAChD;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,UAAU;IACV,SAAS;IACT,0CAA0C;IAC1C,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,mBAAmB;AACvB;;AAEA;IACI,eAAe;IACf,SAAS;IACT,2BAA2B;IAC3B,YAAY;AAChB","sourcesContent":["main {\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n}\n\n#carousel {\n    position: relative;\n    height: 450px;\n    top: 50%;\n    /*transform: translateY(-50%);*/\n    overflow: hidden;\n}\n\n#carousel div {\n    position: absolute;\n    transition: transform 1s, left 1s, opacity 1s, z-index 0s;\n    opacity: 1;\n    cursor: pointer;\n}\n\n#carousel div img {\n    width: 400px;\n    transition: width 1s;\n    border-radius: 10px;\n}\n\n#carousel div.title {\n    position: absolute;\n    bottom: 275px;\n    z-index: 20;\n    color: white;\n    font-size: 30px;\n    left: 20px;\n}\n\n#carousel div.hideLeft {\n    left: 0%;\n    opacity: 0;\n    transform: translateY(50%) translateX(-50%);\n}\n\n#carousel div.hideLeft img {\n    border-radius: 10px;\n}\n\n#carousel div.hideRight {\n    left: 100%;\n    opacity: 0;\n    transform: translateY(50%) translateX(-50%);\n}\n\n#carousel div.hideRight img {\n    width: 200px;\n    border-radius: 10px;\n}\n\n#carousel div.prev {\n    z-index: 5;\n    left: 40%;\n    transform: translateY(25px) translateX(-60%);\n}\n\n#carousel div.prev img {\n    width: 350px;\n    height: 400px;\n    border-radius: 10px;\n}\n\n#carousel div.prev .title {\n    bottom: 115px;\n}\n\n#carousel div.prevLeftSecond {\n    z-index: 4;\n    left: 32%;\n    transform: translateY(14%) translateX(-100%);\n    opacity: 0.7;\n}\n\n#carousel div.prevLeftSecond img {\n    width: 300px;\n    height: 350px;\n    border-radius: 10px;\n}\n\n#carousel div.prevLeftSecond .title {\n    bottom: 115px;\n    left: 85px;\n}\n\n#carousel div.selected {\n    z-index: 10;\n    left: 50%;\n    transform: translateY(0px) translateX(-50%);\n}\n\n#carousel div.next {\n    z-index: 5;\n    left: 60%;\n    transform: translateY(25px) translateX(-25%);\n}\n\n#carousel div.next img {\n    width: 350px;\n    height: 400px;\n    border-radius: 10px;\n}\n\n#carousel div.nect .title {\n    bottom: 105px;\n}\n\n#carousel div.nextRightSecond {\n    z-index: 4;\n    left: 68%;\n    transform: translateY(50%) translateX(-0%);\n    opacity: 0.7;\n}\n\n#carousel div.nextRightSecond img {\n    width: 200px;\n    border-radius: 10px;\n}\n\n.buttons {\n    position: fixed;\n    left: 50%;\n    transform: translateX(-50%);\n    bottom: 10px;\n}\n\n\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "main {\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n}\n\n#carousel {\n    position: relative;\n    height: 450px;\n    top: 50%;\n    /*transform: translateY(-50%);*/\n    overflow: hidden;\n}\n\n#carousel div {\n    position: absolute;\n    transition: transform 1s, left 1s, opacity 1s, z-index 0s;\n    opacity: 1;\n    cursor: pointer;\n}\n\n#carousel div img {\n    width: 400px;\n    height: 450px;\n    transition: width 1s;\n    border-radius: 10px;\n}\n\n#carousel div.title {\n    position: absolute;\n    bottom: 275px;\n    z-index: 20;\n    color: white;\n    font-size: 30px;\n    left: 20px;\n}\n\n#carousel div.hideLeft {\n    left: 0%;\n    opacity: 0;\n    transform: translateY(50%) translateX(-50%);\n}\n\n#carousel div.hideLeft img {\n    border-radius: 10px;\n}\n\n#carousel div.hideRight {\n    left: 100%;\n    opacity: 0;\n    transform: translateY(50%) translateX(-50%);\n}\n\n#carousel div.hideRight img {\n    width: 200px;\n    border-radius: 10px;\n}\n\n#carousel div.prev {\n    z-index: 5;\n    left: 40%;\n    transform: translateY(25px) translateX(-87%);\n}\n\n#carousel div.prev img {\n    width: 350px;\n    height: 400px;\n    border-radius: 10px;\n}\n\n#carousel div.prev .title {\n    bottom: 115px;\n}\n\n#carousel div.prevLeftSecond {\n    z-index: 4;\n    left: 32%;\n    transform: translateY(14%) translateX(-125%);\n    opacity: 0.7;\n}\n\n#carousel div.prevLeftSecond img {\n    width: 300px;\n    height: 350px;\n    border-radius: 10px;\n}\n\n#carousel div.prevLeftSecond .title {\n    bottom: 115px;\n    left: 85px;\n}\n\n#carousel div.selected {\n    z-index: 10;\n    left: 50%;\n    transform: translateY(0px) translateX(-50%);\n}\n\n#carousel div.next {\n    z-index: 5;\n    left: 60%;\n    transform: translateY(25px) translateX(-14%);\n}\n\n#carousel div.next img {\n    width: 350px;\n    height: 400px;\n    border-radius: 10px;\n}\n\n#carousel div.nect .title {\n    bottom: 105px;\n}\n\n#carousel div.nextRightSecond {\n    z-index: 4;\n    left: 68%;\n    transform: translateY(14%) translateX(20%);\n    opacity: 0.7;\n}\n\n#carousel div.nextRightSecond img {\n    width: 300px;\n    height: 350px;\n    border-radius: 10px;\n}\n\n.buttons {\n    position: fixed;\n    left: 50%;\n    transform: translateX(-50%);\n    bottom: 10px;\n}\n\n\n", "",{"version":3,"sources":["webpack://./frontend/components/carousel/carousel.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,SAAS;IACT,UAAU;AACd;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,QAAQ;IACR,+BAA+B;IAC/B,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,yDAAyD;IACzD,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,oBAAoB;IACpB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,WAAW;IACX,YAAY;IACZ,eAAe;IACf,UAAU;AACd;;AAEA;IACI,QAAQ;IACR,UAAU;IACV,2CAA2C;AAC/C;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,UAAU;IACV,UAAU;IACV,2CAA2C;AAC/C;;AAEA;IACI,YAAY;IACZ,mBAAmB;AACvB;;AAEA;IACI,UAAU;IACV,SAAS;IACT,4CAA4C;AAChD;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,UAAU;IACV,SAAS;IACT,4CAA4C;IAC5C,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,UAAU;AACd;;AAEA;IACI,WAAW;IACX,SAAS;IACT,2CAA2C;AAC/C;;AAEA;IACI,UAAU;IACV,SAAS;IACT,4CAA4C;AAChD;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,UAAU;IACV,SAAS;IACT,0CAA0C;IAC1C,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,eAAe;IACf,SAAS;IACT,2BAA2B;IAC3B,YAAY;AAChB","sourcesContent":["main {\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n}\n\n#carousel {\n    position: relative;\n    height: 450px;\n    top: 50%;\n    /*transform: translateY(-50%);*/\n    overflow: hidden;\n}\n\n#carousel div {\n    position: absolute;\n    transition: transform 1s, left 1s, opacity 1s, z-index 0s;\n    opacity: 1;\n    cursor: pointer;\n}\n\n#carousel div img {\n    width: 400px;\n    height: 450px;\n    transition: width 1s;\n    border-radius: 10px;\n}\n\n#carousel div.title {\n    position: absolute;\n    bottom: 275px;\n    z-index: 20;\n    color: white;\n    font-size: 30px;\n    left: 20px;\n}\n\n#carousel div.hideLeft {\n    left: 0%;\n    opacity: 0;\n    transform: translateY(50%) translateX(-50%);\n}\n\n#carousel div.hideLeft img {\n    border-radius: 10px;\n}\n\n#carousel div.hideRight {\n    left: 100%;\n    opacity: 0;\n    transform: translateY(50%) translateX(-50%);\n}\n\n#carousel div.hideRight img {\n    width: 200px;\n    border-radius: 10px;\n}\n\n#carousel div.prev {\n    z-index: 5;\n    left: 40%;\n    transform: translateY(25px) translateX(-87%);\n}\n\n#carousel div.prev img {\n    width: 350px;\n    height: 400px;\n    border-radius: 10px;\n}\n\n#carousel div.prev .title {\n    bottom: 115px;\n}\n\n#carousel div.prevLeftSecond {\n    z-index: 4;\n    left: 32%;\n    transform: translateY(14%) translateX(-125%);\n    opacity: 0.7;\n}\n\n#carousel div.prevLeftSecond img {\n    width: 300px;\n    height: 350px;\n    border-radius: 10px;\n}\n\n#carousel div.prevLeftSecond .title {\n    bottom: 115px;\n    left: 85px;\n}\n\n#carousel div.selected {\n    z-index: 10;\n    left: 50%;\n    transform: translateY(0px) translateX(-50%);\n}\n\n#carousel div.next {\n    z-index: 5;\n    left: 60%;\n    transform: translateY(25px) translateX(-14%);\n}\n\n#carousel div.next img {\n    width: 350px;\n    height: 400px;\n    border-radius: 10px;\n}\n\n#carousel div.nect .title {\n    bottom: 105px;\n}\n\n#carousel div.nextRightSecond {\n    z-index: 4;\n    left: 68%;\n    transform: translateY(14%) translateX(20%);\n    opacity: 0.7;\n}\n\n#carousel div.nextRightSecond img {\n    width: 300px;\n    height: 350px;\n    border-radius: 10px;\n}\n\n.buttons {\n    position: fixed;\n    left: 50%;\n    transform: translateX(-50%);\n    bottom: 10px;\n}\n\n\n"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./frontend/components/colorpicker/colorpicker.css":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./frontend/components/colorpicker/colorpicker.css ***!
+  \***********************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".box {\n    border-radius: 10px;\n    height: 450px;\n    width: 10%;\n    transition: all .5s linear;\n    display: inline-block;\n}\n\n.open {\n    width: 25% !important;\n}\n\n.box-color-yellow {\n    background: rgb(255,255,0);\n    background: -moz-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffff00\",endColorstr=\"#9aa201\",GradientType=1);\n}\n\n.box-color-green {\n    background-color: green;\n}\n\n.box-color-teal {\n    background-color: teal;\n}\n\n.box-color-blue {\n    background-color: blue;\n}\n\n.box-color-purple {\n    background-color: purple;\n}\n\n.box-color-pink {\n    background-color: pink;\n}\n\n.box-color-red {\n    background-color: red;\n}\n\n.box-color-orange {\n    background-color: orange;\n}\n", "",{"version":3,"sources":["webpack://./frontend/components/colorpicker/colorpicker.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,aAAa;IACb,UAAU;IACV,0BAA0B;IAC1B,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,0BAA0B;IAC1B,uFAAuF;IACvF,0FAA0F;IAC1F,kFAAkF;IAClF,gHAAgH;AACpH;;AAEA;IACI,uBAAuB;AAC3B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,wBAAwB;AAC5B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,wBAAwB;AAC5B","sourcesContent":[".box {\n    border-radius: 10px;\n    height: 450px;\n    width: 10%;\n    transition: all .5s linear;\n    display: inline-block;\n}\n\n.open {\n    width: 25% !important;\n}\n\n.box-color-yellow {\n    background: rgb(255,255,0);\n    background: -moz-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffff00\",endColorstr=\"#9aa201\",GradientType=1);\n}\n\n.box-color-green {\n    background-color: green;\n}\n\n.box-color-teal {\n    background-color: teal;\n}\n\n.box-color-blue {\n    background-color: blue;\n}\n\n.box-color-purple {\n    background-color: purple;\n}\n\n.box-color-pink {\n    background-color: pink;\n}\n\n.box-color-red {\n    background-color: red;\n}\n\n.box-color-orange {\n    background-color: orange;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -61570,6 +61689,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_carousel_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./frontend/components/colorpicker/colorpicker.css":
+/*!*********************************************************!*\
+  !*** ./frontend/components/colorpicker/colorpicker.css ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_colorpicker_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!./colorpicker.css */ "./node_modules/css-loader/dist/cjs.js!./frontend/components/colorpicker/colorpicker.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_colorpicker_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_colorpicker_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
 
 /***/ }),
 

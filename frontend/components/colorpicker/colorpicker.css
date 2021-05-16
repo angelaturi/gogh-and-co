@@ -1,16 +1,21 @@
 .box {
     border-radius: 10px;
     height: 450px;
-    width: 158px;
+    width: 10%;
     transition: all .5s linear;
+    display: inline-block;
 }
 
 .open {
-    width: 316px !important;
+    width: 25% !important;
 }
 
 .box-color-yellow {
-    background-color: yellow;
+    background: rgb(255,255,0);
+    background: -moz-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);
+    background: linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffff00",endColorstr="#9aa201",GradientType=1);
 }
 
 .box-color-green {

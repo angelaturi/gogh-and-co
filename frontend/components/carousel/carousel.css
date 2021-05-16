@@ -22,6 +22,7 @@ main {
 
 #carousel div img {
     width: 400px;
+    height: 450px;
     transition: width 1s;
     border-radius: 10px;
 }
@@ -59,7 +60,7 @@ main {
 #carousel div.prev {
     z-index: 5;
     left: 40%;
-    transform: translateY(25px) translateX(-60%);
+    transform: translateY(25px) translateX(-87%);
 }
 
 #carousel div.prev img {
@@ -75,7 +76,7 @@ main {
 #carousel div.prevLeftSecond {
     z-index: 4;
     left: 32%;
-    transform: translateY(14%) translateX(-100%);
+    transform: translateY(14%) translateX(-125%);
     opacity: 0.7;
 }
 
@@ -99,7 +100,7 @@ main {
 #carousel div.next {
     z-index: 5;
     left: 60%;
-    transform: translateY(25px) translateX(-25%);
+    transform: translateY(25px) translateX(-14%);
 }
 
 #carousel div.next img {
@@ -115,12 +116,13 @@ main {
 #carousel div.nextRightSecond {
     z-index: 4;
     left: 68%;
-    transform: translateY(50%) translateX(-0%);
+    transform: translateY(14%) translateX(20%);
     opacity: 0.7;
 }
 
 #carousel div.nextRightSecond img {
-    width: 200px;
+    width: 300px;
+    height: 350px;
     border-radius: 10px;
 }
 

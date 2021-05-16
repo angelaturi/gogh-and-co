@@ -10,6 +10,7 @@ section {
         padding: 36px 0;
         margin: 0;
         position: relative;
+        background: #fff;
     }
 
 
@@ -95,13 +96,51 @@ section {
 }
 
 .fav-color {
-        margin-left: auto;
-        margin-right: auto;
-        overflow: visible;
-        padding: 36px 0;
+    margin: 0;
+    padding: 24px 0;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+}
+
+.fav-color-header {
+    margin-bottom: 24px;
+    margin-top: 0;
+    margin: 0 auto;
+    max-width: none;
+    text-align: var(--text-align,left);
+    width: 100%;
+    z-index: 1;
+}
+
+.fav-color-header-inner {
+    margin-bottom: 0;
+    padding: 0 24px;
+
+    h2 {
+        font-size: 1.375rem;
+        letter-spacing: 0;
+        color: var(--title-color,#3c4043);
         margin: 0;
-        position: relative;
     }
+
+    h2 span {
+        font-family: 'Roboto'
+    }
+
+    h3 {
+        margin-top: 8px;
+        letter-spacing: .025em;
+        font-size: .75rem;
+        line-height: 1rem;
+        font-family: 'Roboto';
+        color: var(--subtitle-color,rgba(0,0,0,0.502));
+    }
+}
+
+.color-picker-box {
+    margin: 0 24px;
+}
 
 .museum-home {
         margin-left: auto;

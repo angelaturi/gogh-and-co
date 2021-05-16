@@ -1,5 +1,6 @@
-import {Component} from "react";
+import React, { Component } from "react";
 import $ from 'jquery';
+import './colorpicker.css';
 
 const colors = ['yellow','green','teal','blue','purple','pink','red','orange'];
 
@@ -20,7 +21,7 @@ class Colorpicker extends Component {
 		return (
 			<div id="colorpicker">
 				{colors.map((singleColor, idx) => {
-					return <div key={idx} onClick={(e) => this.expandColor(e)} className={"box box-color-" + (singleColor)}>
+					return <div key={idx} onMouseOver={(e) => this.expandColor(e)} className={"box box-color-" + (singleColor)}>
 
 					</div>
 				})}

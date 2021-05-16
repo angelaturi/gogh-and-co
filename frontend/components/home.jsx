@@ -2,7 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router';
 import HeaderContainer from './header/header_container'
 import Carousel from './carousel/carousel';
-
+import Colorpicker from './colorpicker/colorpicker'
 
 
 class Home extends React.Component {
@@ -87,26 +87,31 @@ class Home extends React.Component {
                     <section className="fav-color">
                         <div className="fav-color-inner">
                             <div className="fav-color-header">
-                                <h2><span>What's your favorite color?</span></h2>
-                                <h3>Discover artworks by color</h3>
+                                <div className="fav-color-header-inner">
+                                    <h2><span>What's your favorite color?</span></h2>
+                                    <h3>Discover artworks by color</h3>
+                                </div>
                             </div>
                             <div className="color-boxes">
-                                <div className="color-cards">
+                                <div className="color-picker-box">
+                                    <Colorpicker />
+                                </div>
+                                {/* <div className="color-cards">
                                     <div className="green">
                                         <a className="green-card">
                                             <div className="title-div">
                                                 {/* <h3 className="title">Green</h3> */}
-                                            </div>
+                                            {/* </div>
                                         </a>
                                     </div>
                                      <div className="pink">
                                         <a className="pink-card">
-                                            <div className="title">
+                                            <div className="title"> */}
                                                 {/* <h3 className="title">Pink</h3> */}
-                                            </div>
+                                            {/* </div>
                                         </a>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 

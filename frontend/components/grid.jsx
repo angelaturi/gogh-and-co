@@ -6,6 +6,8 @@ class Grid extends React.Component {
     }
     
     render() {
+        const art = this.props.artworks;
+        debugger
         return (
             <div className={"artwork-grid"}>
                 {this.props.artworks.map((artwork, idx)=> {

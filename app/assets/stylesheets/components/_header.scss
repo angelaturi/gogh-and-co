@@ -26,13 +26,15 @@
     padding: 10px 8px;
 
     a {
-        padding: 8px
+        padding: 8px;
+        font-family: 'Open Sans'
     }
 }
 
 
 .logo {
     margin-left: -6px;
+    width: 184px;
 }
 
 .logo:hover {
@@ -72,7 +74,12 @@
     font-family: 'Roboto', sans-serif;
     white-space: no-wrap;
     height: 36px;
-    transition: 150ms 
+    transition: 150ms;
+
+    p {
+        width: 48px;
+        padding: 9px 15px;
+    } 
 }  
 
 .signin-button {
