@@ -11133,6 +11133,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -11148,6 +11150,11 @@ var ColorGrid = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ColorGrid);
 
     _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "userChangedColor", function (color) {
+      console.log(color);
+    });
+
     var params = new URLSearchParams(_this.props.location.search);
     var colorParam = params.has("color") ? params.get("color") : "";
 
@@ -11161,7 +11168,8 @@ var ColorGrid = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       if (!this.props.artworks.isLoaded) {// this.props.requestArtworks()
       }
-    }
+    } //this.props.artworks.artworks
+
   }, {
     key: "render",
     value: function render() {
@@ -11170,9 +11178,10 @@ var ColorGrid = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_slider__WEBPACK_IMPORTED_MODULE_1__.default, {
         items: this.props.colors,
         type: "gogh-color",
-        selected: this.props.currentColor
+        selected: this.props.currentColor,
+        colorPicked: this.userChangedColor
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_grid__WEBPACK_IMPORTED_MODULE_2__.default, {
-        artworks: this.props.artworks.artworks
+        artworks: []
       })));
     }
   }]);
@@ -11440,8 +11449,6 @@ var Grid = /*#__PURE__*/function (_React$Component) {
   _createClass(Grid, [{
     key: "render",
     value: function render() {
-      var art = this.props.artworks;
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
         className: "artwork-grid"
       }, this.props.artworks.map(function (artwork, idx) {
@@ -12308,6 +12315,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12330,6 +12339,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 var Slider = /*#__PURE__*/function (_React$Component) {
@@ -12338,27 +12350,89 @@ var Slider = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Slider);
 
   function Slider(props) {
+    var _this;
+
     _classCallCheck(this, Slider);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      currentPosition: 0
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "moveSlider", function (e) {
+      var target = e && e.currentTarget ? jquery__WEBPACK_IMPORTED_MODULE_1___default()(e.currentTarget) : jquery__WEBPACK_IMPORTED_MODULE_1___default()(e);
+
+      if (!target) {
+        return;
+      } //get the position of the item
+
+
+      var divPosition = target.position().left - 435;
+
+      if (!_this.state.currentPosition) {
+        _this.setState({
+          currentPosition: divPosition
+        });
+
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".".concat(_this.props.type)).animate({
+          left: "+=".concat(divPosition)
+        }, 2000);
+      } else {
+        _this.props.colorPicked(target.prop('id')); //send selection to parent;
+
+
+        var move = divPosition - _this.state.currentPosition;
+        var direction = move > 0 ? "-=".concat(Math.abs(move)) : "+=".concat(Math.abs(move));
+
+        _this.setState({
+          currentPosition: divPosition
+        });
+
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".".concat(_this.props.type)).animate({
+          left: "".concat(direction)
+        }, 2000);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      //get green item
+      try {
+        var centerItem = _this.props.type === 'gogh-color' ? document.querySelector(".".concat(_this.props.type, " .green")) : '';
+
+        _this.moveSlider(centerItem);
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    return _this;
   }
 
   _createClass(Slider, [{
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "slider-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: this.props.type
       }, this.props.items.map(function (item, idx) {
-        return _this.props.type === "gogh-color" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        return _this2.props.type === "gogh-color" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: idx,
+          onClick: function onClick(e) {
+            return _this2.moveSlider(e);
+          },
+          id: item,
           className: item
         }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: idx,
           className: "timeline"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, item));
-      }));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "center"
+      }, "|"));
     }
   }]);
 

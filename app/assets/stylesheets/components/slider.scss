@@ -3,12 +3,14 @@
 }
 
 .gogh-color {
+    position: relative;
     display: flex;
     padding-bottom: 8px;
 
     & > div {
-        width: 70px;
+        width: 80px;
         height: 54px;
+        cursor: pointer;
     }
 
 }
@@ -65,7 +67,7 @@
     display: flex;
 
     & > div {
-        width: 70px;
+        width: 80px;
         height: 54px;
     }
 }
@@ -85,3 +87,15 @@
     }
 }
 
+
+.slider-container {
+    width: 800px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #e4e4e4;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
