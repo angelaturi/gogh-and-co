@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import Galleries from './favorites';
+import Galleries from './galleries';
 
-const mapStateToProps = (state, ownProps) => ({
-    artworks: state.artworks.artworks,
-    id: state.galleries.currentGallery.id,
-    title: state.galleries.currentGallery.title,
-    description: state.galleries.currentGallery.description,
-    firstArtwork: state.galleries.currentGallery.firstArtwork
-})
+const mapStateToProps = (state, ownProps) => {
+    debugger
+    return ({
+        artworks: state.artworks.artworks,
+        galleries: state.galleries.galleries
+    })
+}
 
 // const mapDispatchToProps = (dispatch, ownProps) => {
     

@@ -10107,6 +10107,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "CLEAR_ARTWORKS": () => (/* binding */ CLEAR_ARTWORKS),
 /* harmony export */   "RECEIVE_ARTWORKS_FAIL": () => (/* binding */ RECEIVE_ARTWORKS_FAIL),
 /* harmony export */   "CREATE_ARTWORK": () => (/* binding */ CREATE_ARTWORK),
+/* harmony export */   "TOGGLE_CURRENT_FAVORITE": () => (/* binding */ TOGGLE_CURRENT_FAVORITE),
 /* harmony export */   "requestArtworks": () => (/* binding */ requestArtworks),
 /* harmony export */   "receiveArtworksFail": () => (/* binding */ receiveArtworksFail),
 /* harmony export */   "receiveArtworks": () => (/* binding */ receiveArtworks),
@@ -10115,10 +10116,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "setCurrentArtwork": () => (/* binding */ setCurrentArtwork),
 /* harmony export */   "receiveCurrentArtwork": () => (/* binding */ receiveCurrentArtwork),
 /* harmony export */   "toggleFavorite": () => (/* binding */ toggleFavorite),
+/* harmony export */   "toggleCurrentFavorite": () => (/* binding */ toggleCurrentFavorite),
 /* harmony export */   "receiveFavorites": () => (/* binding */ receiveFavorites),
 /* harmony export */   "clearArtworks": () => (/* binding */ clearArtworks),
 /* harmony export */   "createArtwork": () => (/* binding */ createArtwork),
-/* harmony export */   "receiveFavoritesThunk": () => (/* binding */ receiveFavoritesThunk)
+/* harmony export */   "receiveFavoritesThunk": () => (/* binding */ receiveFavoritesThunk),
+/* harmony export */   "setFavoriteThunk": () => (/* binding */ setFavoriteThunk)
 /* harmony export */ });
 /* harmony import */ var _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/artworks_utils */ "./frontend/utils/artworks_utils.js");
 var REQUEST_ARTWORKS = "REQUEST_ARTWORKS";
@@ -10132,11 +10135,12 @@ var RECEIVE_FAVORITES = "RECEIVE_FAVORITES";
 var CLEAR_ARTWORKS = "CLEAR_ARTWORKS";
 var RECEIVE_ARTWORKS_FAIL = "RECEIVE_ARTWORKS_FAIL";
 var CREATE_ARTWORK = "CREATE_ARTWORK";
+var TOGGLE_CURRENT_FAVORITE = "TOGGLE_CURRENT_FAVORITE";
 
 var requestArtworks = function requestArtworks() {
   return function (dispatch) {
     return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.requestArtworks().then(function (artworks) {
-      debugger;
+      // debugger
       dispatch(receiveArtworks(artworks));
     }, function (err) {
       return dispatch(receiveArtworksFail(err));
@@ -10184,8 +10188,12 @@ var toggleFavorite = function toggleFavorite(id) {
     id: id
   };
 };
+var toggleCurrentFavorite = function toggleCurrentFavorite() {
+  return {
+    type: TOGGLE_CURRENT_FAVORITE
+  };
+};
 var receiveFavorites = function receiveFavorites(favorites) {
-  debugger;
   return {
     type: RECEIVE_FAVORITES,
     favorites: favorites
@@ -10203,10 +10211,17 @@ var createArtwork = function createArtwork(artwork) {
   };
 };
 var receiveFavoritesThunk = function receiveFavoritesThunk() {
-  debugger;
+  // debugger
   return function (dispatch) {
     return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.receiveFavorites().then(function (artworks) {
       dispatch(receiveFavorites(artworks));
+    });
+  };
+};
+var setFavoriteThunk = function setFavoriteThunk() {
+  return function (dispatch) {
+    return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.toggleFavorite().then(function (id) {
+      dispatch(toggleFavorite(id));
     });
   };
 };
@@ -10244,6 +10259,118 @@ var setColors = function setColors(colors) {
 
 /***/ }),
 
+/***/ "./frontend/actions/galleries_actions.js":
+/*!***********************************************!*\
+  !*** ./frontend/actions/galleries_actions.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "REQUEST_GALLERIES": () => (/* binding */ REQUEST_GALLERIES),
+/* harmony export */   "REQUEST_FAVORITE_GALLERIES": () => (/* binding */ REQUEST_FAVORITE_GALLERIES),
+/* harmony export */   "RECEIVE_GALLERIES": () => (/* binding */ RECEIVE_GALLERIES),
+/* harmony export */   "REQUEST_CURRENT_GALLERY": () => (/* binding */ REQUEST_CURRENT_GALLERY),
+/* harmony export */   "RECEIVE_CURRENT_GALLERY": () => (/* binding */ RECEIVE_CURRENT_GALLERY),
+/* harmony export */   "CREATE_GALLERY": () => (/* binding */ CREATE_GALLERY),
+/* harmony export */   "UPDATE_GALLERY": () => (/* binding */ UPDATE_GALLERY),
+/* harmony export */   "RECEIVE_GALLERY": () => (/* binding */ RECEIVE_GALLERY),
+/* harmony export */   "DELETE_GALLERY": () => (/* binding */ DELETE_GALLERY),
+/* harmony export */   "requestGalleries": () => (/* binding */ requestGalleries),
+/* harmony export */   "requestFavoriteGalleries": () => (/* binding */ requestFavoriteGalleries),
+/* harmony export */   "receiveGalleries": () => (/* binding */ receiveGalleries),
+/* harmony export */   "receiveCurrentGallery": () => (/* binding */ receiveCurrentGallery),
+/* harmony export */   "createGallery": () => (/* binding */ createGallery),
+/* harmony export */   "updateGallery": () => (/* binding */ updateGallery),
+/* harmony export */   "receiveGallery": () => (/* binding */ receiveGallery),
+/* harmony export */   "createGalleryThunk": () => (/* binding */ createGalleryThunk),
+/* harmony export */   "receiveGalleriesThunk": () => (/* binding */ receiveGalleriesThunk)
+/* harmony export */ });
+var REQUEST_GALLERIES = 'REQUEST_GALLERIES';
+var REQUEST_FAVORITE_GALLERIES = 'REQUEST_FAVORITE_GALLERIES';
+var RECEIVE_GALLERIES = 'RECEIVE_GALLERIES';
+var REQUEST_CURRENT_GALLERY = 'REQUEST_CURRENT_GALLERY';
+var RECEIVE_CURRENT_GALLERY = 'RECEIVE_CURRENT_GALLERY';
+var CREATE_GALLERY = 'CREATE_GALLERY';
+var UPDATE_GALLERY = 'UPDATE_GALLERY';
+var RECEIVE_GALLERY = 'RECEIVE_GALLERY';
+var DELETE_GALLERY = 'DELETE_GALLERY';
+var requestGalleries = function requestGalleries() {
+  return {
+    type: REQUEST_GALLERIES
+  };
+};
+var requestFavoriteGalleries = function requestFavoriteGalleries() {
+  return {
+    type: REQUEST_FAVORITE_GALLERIES
+  };
+};
+var receiveGalleries = function receiveGalleries(galleries) {
+  return {
+    type: RECEIVE_GALLERIES,
+    galleries: galleries
+  };
+}; // export const requestCurrentGallery = id => ({
+//     type: REQUEST_CURRENT_GALLERY,
+//     id
+// })
+
+var receiveCurrentGallery = function receiveCurrentGallery(gallery) {
+  return {
+    type: RECEIVE_CURRENT_GALLERY
+  };
+};
+var createGallery = function createGallery(collectedArtworks) {
+  return {
+    type: CREATE_GALLERY,
+    collectedArtworks: collectedArtworks
+  };
+};
+var updateGallery = function updateGallery(gallery, collectedArtworks) {
+  return {
+    type: UPDATE_GALLERY,
+    gallery: gallery,
+    collectedArtworks: collectedArtworks
+  };
+};
+var receiveGallery = function receiveGallery(gallery) {
+  return {
+    type: RECEIVE_GALLERY,
+    gallery: gallery
+  };
+}; // export const deleteGallery = id ({
+//     type: DELETE_GALLERY,
+//     id
+// })
+// export const receiveGalleriesThunk = () => {
+//     debugger
+//     return function (dispatch) {
+//         return GalleriesAPI.requestGalleries()
+//             .then(
+//                 () => {
+//                     dispatch(receiveGalleries())
+//                 },)
+//     } 
+// }
+
+var createGalleryThunk = function createGalleryThunk() {
+  // debugger
+  return function (dispatch) {
+    return GalleriesAPI.createGallery(gallery, collectedArtworks).then(function (collectedArtworks) {
+      dispatch(createGallery(collectedArtworks));
+    });
+  };
+};
+var receiveGalleriesThunk = function receiveGalleriesThunk(galleries) {
+  return {
+    type: RECEIVE_GALLERIES,
+    galleries: galleries
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -10262,9 +10389,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "loginUser": () => (/* binding */ loginUser),
 /* harmony export */   "createUser": () => (/* binding */ createUser),
 /* harmony export */   "receiveCurrentUser": () => (/* binding */ receiveCurrentUser),
-/* harmony export */   "logout": () => (/* binding */ logout),
+/* harmony export */   "logoutUser": () => (/* binding */ logoutUser),
 /* harmony export */   "receiveErrors": () => (/* binding */ receiveErrors),
-/* harmony export */   "clearErrors": () => (/* binding */ clearErrors)
+/* harmony export */   "clearErrors": () => (/* binding */ clearErrors),
+/* harmony export */   "createAccount": () => (/* binding */ createAccount),
+/* harmony export */   "login": () => (/* binding */ login),
+/* harmony export */   "logout": () => (/* binding */ logout)
 /* harmony export */ });
 /* harmony import */ var _utils_session_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/session_utils */ "./frontend/utils/session_utils.js");
  // constants messengers to reducers, make sure the same no matter where we use them
@@ -10293,7 +10423,7 @@ var receiveCurrentUser = function receiveCurrentUser(user) {
     user: user
   };
 };
-var logout = function logout() {
+var logoutUser = function logoutUser() {
   return {
     type: LOGOUT_CURRENT_USER
   };
@@ -10309,21 +10439,34 @@ var clearErrors = function clearErrors() {
     type: CLEAR_SESSION_ERRORS
   };
 }; // thunk actions - organize way to keep our state 'in-check'
-// export const createAccount = formUser => dispatch => postUser(formUser)
-//     .then(
-//         user => dispatch(receiveCurrentUser(user)),
-//         errors => dispatch(receiveErrors(errors.responseJSON))
-//     )
-// export const login = formUser => dispatch => postSession(formUser)
-//     .then(
-//         user => dispatch(receiveCurrentUser(user)),
-//         errors => dispatch(receiveErrors(errors.responseJSON))
-//     )
-// export const logout = () => dispatch => deleteSession()
-//     .then(
-//         () => dispatch(logoutCurrentUser()),
-//         errors => dispatch(receiveErrors(errors.responseJSON))
-//     )
+
+var createAccount = function createAccount(formUser) {
+  return function (dispatch) {
+    return (0,_utils_session_utils__WEBPACK_IMPORTED_MODULE_0__.postUser)(formUser).then(function (user) {
+      return dispatch(receiveCurrentUser(user));
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
+    });
+  };
+};
+var login = function login(formUser) {
+  return function (dispatch) {
+    return (0,_utils_session_utils__WEBPACK_IMPORTED_MODULE_0__.postSession)(formUser).then(function (user) {
+      return dispatch(receiveCurrentUser(user));
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
+    });
+  };
+};
+var logout = function logout() {
+  return function (dispatch) {
+    return (0,_utils_session_utils__WEBPACK_IMPORTED_MODULE_0__.deleteSession)().then(function () {
+      return dispatch(logoutCurrentUser());
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
+    });
+  };
+};
 
 /***/ }),
 
@@ -10432,7 +10575,7 @@ var AccountForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      debugger;
+      // debugger
       e.preventDefault();
       this.props.processForm(this.state);
     }
@@ -10642,13 +10785,13 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  debugger;
+  // debugger
   return {
     processForm: function processForm(user) {
-      return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.createUser)(user));
+      return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.createAccount)(user));
     },
     login: function login(user) {
-      return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.loginUser)(user));
+      return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.login)(user));
     },
     clearErrors: function clearErrors() {
       return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.clearErrors)());
@@ -10893,18 +11036,12 @@ var Artwork = /*#__PURE__*/function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "favoriting", function (e) {
       e.preventDefault();
-      /*
-      if(!this.props.currentUser){
-          this.props.history.push('/signup');
-      } else {
-      */
 
-      if (typeof _this.props.artwork.id === 'string') {
-        _this.props.createArtwork(_this.props.artwork);
+      if (!_this.props.currentUser) {
+        _this.props.history.push('/signup');
       } else {
-        _this.props.toggleFavorite(_this.props.artwork.id);
-      } //}
-
+        _this.props.toggleCurrentFavorite();
+      }
     });
 
     var currentArtwork = _this.props.artworks.find(function (aw) {
@@ -10986,14 +11123,7 @@ var mapStateToProps = function mapStateToProps(state) {
   return {
     artworks: state.artworks.artworks,
     artwork: state.artworks.currentArtwork,
-    currentUser: state.session.currentUser // currentUser: state.session.currentUser
-    // title: state.artworks.currentArtwork.title,
-    // date_created: state.artworks.currentArtwork.date_created,
-    // color: state.artworks.currentArtwork.color,
-    // style: state.artworks.currentArtwork.style,
-    // medium: state.artworks.currentArtwork.medium,
-    // partner_organization: state.artworks.currentArtwork.partner_organization
-
+    currentUser: state.session.currentUser
   };
 };
 
@@ -11403,7 +11533,9 @@ var Colorpicker = /*#__PURE__*/function (_Component) {
             return _this2.expandColor(e);
           },
           className: "box box-color-" + singleColor
-        });
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+          className: "color-header"
+        }, singleColor));
       }));
     }
   }]);
@@ -11549,22 +11681,15 @@ var Favorites = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Favorites);
 
   function Favorites(props) {
-    var _this;
-
     _classCallCheck(this, Favorites);
 
-    _this = _super.call(this, props);
-    debugger;
-    _this.state = {
-      favorites: []
-    };
-    return _this;
+    return _super.call(this, props); // debugger
   }
 
   _createClass(Favorites, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+      // debugger
       var favorites = this.props.receiveFavorites();
       this.setState({
         favorites: favorites
@@ -11573,7 +11698,9 @@ var Favorites = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.favorites.first.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.favorites.map(function (artwork, idx) {
+      // console.log(this.props)
+      var title = this.props.favorites.length ? this.props.favorites[0].title : "No favorites";
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.favorites.map(function (artwork, idx) {
         var artwork_source = artwork.title.toLowerCase().replace(/([ |%20])/g, "_");
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Link, {
           to: "/artwork/".concat(artwork.id),
@@ -11613,11 +11740,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  debugger;
   return {
-    // favorites: state.artworks.,
-    errors: state.errors.session,
-    formType: 'Sign In'
+    favorites: state.artworks.favorites
   };
 };
 
@@ -11653,9 +11777,140 @@ _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.library.add(_fort
 /*!*****************************************************!*\
   !*** ./frontend/components/galleries/galleries.jsx ***!
   \*****************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/angelaturi/Desktop/van-gogh/gogh-and-co/frontend/components/galleries/galleries.jsx: Missing semicolon. (7:18)\n\n\u001b[0m \u001b[90m  5 |\u001b[39m     constructor(props) {\u001b[0m\n\u001b[0m \u001b[90m  6 |\u001b[39m         \u001b[36msuper\u001b[39m(props)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m         \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate {\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m             \u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m         }\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m     }\u001b[0m\n    at Object._raise (/Users/angelaturi/Desktop/van-gogh/gogh-and-co/node_modules/@babel/parser/lib/index.js:807:17)\n    at Object.raiseWithData (/Users/angelaturi/Desktop/van-gogh/gogh-and-co/node_modules/@babel/parser/lib/index.js:800:17)\n    at Object.raise (/Users/angelaturi/Desktop/van-gogh/gogh-and-co/node_modules/@babel/parser/lib/index.js:761:17)\n    at Object.semicolon (/Users/angelaturi/Desktop/van-gogh/gogh-and-co/node_modules/@babel/parser/lib/index.js:9901:10)\n    at Object.parseExpressionStatement (/Users/angelaturi/Desktop/van-gogh/gogh-and-co/node_modules/@babel/parser/lib/index.js:13012:10)\n    at Object.parseStatementContent (/Users/angelaturi/Desktop/van-gogh/gogh-and-co/node_modules/@babel/parser/lib/index.js:12601:19)\n    at Object.parseStatement (/Users/angelaturi/Desktop/van-gogh/gogh-and-co/node_modules/@babel/parser/lib/index.js:12465:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/angelaturi/Desktop/van-gogh/gogh-and-co/node_modules/@babel/parser/lib/index.js:13054:25)\n    at Object.parseBlockBody (/Users/angelaturi/Desktop/van-gogh/gogh-and-co/node_modules/@babel/parser/lib/index.js:13045:10)\n    at Object.parseBlock (/Users/angelaturi/Desktop/van-gogh/gogh-and-co/node_modules/@babel/parser/lib/index.js:13029:10)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _gallery_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gallery_item */ "./frontend/components/galleries/gallery_item.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var Galleries = /*#__PURE__*/function (_React$Component) {
+  _inherits(Galleries, _React$Component);
+
+  var _super = _createSuper(Galleries);
+
+  function Galleries(props) {
+    _classCallCheck(this, Galleries);
+
+    return _super.call(this, props); // this.state {
+    //     galleries: [];
+    // }
+  } // componentDidMount() {
+  //     debugger
+  //     const galleries = this.props.receiveGalleries();
+  //     this.setState({galleries: galleries})
+  //     // console.log(this.state)
+  // }
+
+
+  _createClass(Galleries, [{
+    key: "render",
+    value: function render() {
+      var galleryItems = this.props.galleries.map(function (gallery, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_gallery_item__WEBPACK_IMPORTED_MODULE_1__.default, {
+          gallery: gallery,
+          key: idx
+        });
+      });
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, galleryItems), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        to: "/favorite/create",
+        className: "add-button"
+      }, "+"));
+    }
+  }]);
+
+  return Galleries;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Galleries); // <div className={invisible ? 'galleries invisible' : 'galleries'} >
+
+/***/ }),
+
+/***/ "./frontend/components/galleries/galleries_container.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/galleries/galleries_container.jsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _galleries__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./galleries */ "./frontend/components/galleries/galleries.jsx");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  debugger;
+  return {
+    artworks: state.artworks.artworks,
+    galleries: state.galleries.galleries
+  };
+}; // const mapDispatchToProps = (dispatch, ownProps) => {
+// }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, null)(_galleries__WEBPACK_IMPORTED_MODULE_1__.default));
+
+/***/ }),
+
+/***/ "./frontend/components/galleries/gallery_item.jsx":
+/*!********************************************************!*\
+  !*** ./frontend/components/galleries/gallery_item.jsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var GalleryItem = function GalleryItem(_ref) {
+  var gallery = _ref.gallery;
+  var content = gallery.firstArtwork === undefined ? 'http://www.pbs.org/newshour/data/bubble-quiz/images/facebook-square.svg' : gallery.firstArtwork;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+    id: gallery.id
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: content
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, collection.title)));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GalleryItem);
 
 /***/ }),
 
@@ -12248,7 +12503,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _favorites_favorites_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./favorites/favorites_container */ "./frontend/components/favorites/favorites_container.jsx");
-/* harmony import */ var _galleries_galleries__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./galleries/galleries */ "./frontend/components/galleries/galleries.jsx");
+/* harmony import */ var _galleries_galleries_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./galleries/galleries_container */ "./frontend/components/galleries/galleries_container.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -12344,7 +12599,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.toggle("galleries");
         }
-      }, "Galleries"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.showFavorites ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_favorites_favorites_container__WEBPACK_IMPORTED_MODULE_1__.default, null) : "", this.state.showGalleries ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_galleries_galleries__WEBPACK_IMPORTED_MODULE_2__.default, null) : ""));
+      }, "Galleries"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.showFavorites ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_favorites_favorites_container__WEBPACK_IMPORTED_MODULE_1__.default, null) : "", this.state.showGalleries ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_galleries_galleries_container__WEBPACK_IMPORTED_MODULE_2__.default, null) : ""));
     }
   }]);
 
@@ -13337,7 +13592,8 @@ var initialState = {
     favorited: false
   },
   isLoaded: false,
-  error: ""
+  error: "",
+  favorites: []
 };
 
 var artworksReducer = function artworksReducer() {
@@ -13367,7 +13623,10 @@ var artworksReducer = function artworksReducer() {
       return nextState;
 
     case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_FAVORITES:
-      debugger;
+      // debugger
+      return _objectSpread(_objectSpread({}, state), {}, {
+        favorites: action.favorites
+      });
     // const favorites = {state.favorites}
 
     case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.SET_CURRENT_ARTWORK:
@@ -13376,6 +13635,17 @@ var artworksReducer = function artworksReducer() {
       });
 
     case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.TOGGLE_FAVORITE:
+      var favorites = state.favorites;
+      favorites.forEach(function (favorite) {
+        if (favorite.id === action.id) {
+          favorite.favorited = !favorite.favorited;
+        }
+      });
+      return _objectSpread(_objectSpread({}, state), {}, {
+        favorites: favorites
+      });
+
+    case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.TOGGLE_CURRENT_FAVORITE:
       var currentFavorite = _objectSpread({}, state).currentArtwork.favorited;
 
       return _objectSpread(_objectSpread({}, state), {}, {
@@ -13463,6 +13733,75 @@ var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
 
 /***/ }),
 
+/***/ "./frontend/reducers/galleries_reducer.js":
+/*!************************************************!*\
+  !*** ./frontend/reducers/galleries_reducer.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_galleries_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/galleries_actions */ "./frontend/actions/galleries_actions.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var initialState = {
+  collectedArtworks: [],
+  galleries: [],
+  currentGallery: {
+    id: 0,
+    title: '',
+    description: '',
+    firstArtwork: {
+      id: 0,
+      title: "",
+      date_created: null,
+      color: "",
+      style: "",
+      medium: "",
+      partner_organization: ""
+    }
+  }
+};
+
+var galleriesReducer = function galleriesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var nextState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_galleries_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_GALLERIES:
+      return action.galleries;
+
+    case _actions_galleries_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_GALLERY:
+      nextState.galleries.push(action.gallery);
+      return nextState;
+
+    case _actions_galleries_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_GALLERY:
+      nextState.currentGallery = action.gallery;
+      return nextState;
+
+    case _actions_galleries_actions__WEBPACK_IMPORTED_MODULE_0__.CREATE_GALLERY:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        collectedArtworks: action.collectedArtworks
+      });
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (galleriesReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/root_reducer.js":
 /*!*******************************************!*\
   !*** ./frontend/reducers/root_reducer.js ***!
@@ -13474,12 +13813,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _entities_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./entities_reducer */ "./frontend/reducers/entities_reducer.js");
 /* harmony import */ var _session_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_reducer */ "./frontend/reducers/session_reducer.js");
 /* harmony import */ var _artworks_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./artworks_reducer */ "./frontend/reducers/artworks_reducer.js");
 /* harmony import */ var _color_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./color_reducer */ "./frontend/reducers/color_reducer.js");
 /* harmony import */ var _time_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./time_reducer */ "./frontend/reducers/time_reducer.js");
+/* harmony import */ var _galleries_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./galleries_reducer */ "./frontend/reducers/galleries_reducer.js");
 
 
 
@@ -13487,13 +13827,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_5__.combineReducers)({
+
+var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_6__.combineReducers)({
   entities: _entities_reducer__WEBPACK_IMPORTED_MODULE_0__.default,
   session: _session_reducer__WEBPACK_IMPORTED_MODULE_1__.default,
   errors: _entities_reducer__WEBPACK_IMPORTED_MODULE_0__.default,
   artworks: _artworks_reducer__WEBPACK_IMPORTED_MODULE_2__.default,
   color: _color_reducer__WEBPACK_IMPORTED_MODULE_3__.default,
-  time: _time_reducer__WEBPACK_IMPORTED_MODULE_4__.default
+  time: _time_reducer__WEBPACK_IMPORTED_MODULE_4__.default,
+  galleries: _galleries_reducer__WEBPACK_IMPORTED_MODULE_5__.default
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (rootReducer);
 
@@ -13674,7 +14016,7 @@ __webpack_require__.r(__webpack_exports__);
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   return (// createStore(rootReducer, preloadedState, rootMiddleware)
-    (0,redux__WEBPACK_IMPORTED_MODULE_3__.createStore)(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_2__.default, preloadedState, (0,redux__WEBPACK_IMPORTED_MODULE_3__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_0__.default))
+    (0,redux__WEBPACK_IMPORTED_MODULE_3__.createStore)(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_2__.default, preloadedState, (0,redux__WEBPACK_IMPORTED_MODULE_3__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_0__.default, (redux_logger__WEBPACK_IMPORTED_MODULE_1___default())))
   );
 };
 
@@ -13839,7 +14181,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // create user
 var postUser = function postUser(user, success, error) {
-  debugger;
+  // debugger
   return $.ajax({
     method: 'POST',
     url: '/api/users',
@@ -13920,7 +14262,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".box {\n    border-radius: 10px;\n    height: 450px;\n    width: 10%;\n    transition: all .5s linear;\n    display: inline-block;\n}\n\n.open {\n    width: 25% !important;\n}\n\n.box-color-yellow {\n    background: rgb(255,255,0);\n    background: -moz-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffff00\",endColorstr=\"#9aa201\",GradientType=1);\n}\n\n.box-color-green {\n    background: rgb(105,233,26);\n    background: -moz-linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    background: linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#69e91a\",endColorstr=\"#305817\",GradientType=1);\n}\n\n.box-color-teal {\n    background: rgb(26,213,233);\n    background: -moz-linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    background: linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#1ad5e9\",endColorstr=\"#1ad5e9\",GradientType=1);   \n}\n\n.box-color-blue {\n    background-color: blue;\n}\n\n.box-color-purple {\n    background-color: purple;\n}\n\n.box-color-pink {\n    background-color: pink;\n}\n\n.box-color-red {\n    background-color: red;\n}\n\n.box-color-orange {\n    background-color: orange;\n}\n", "",{"version":3,"sources":["webpack://./frontend/components/colorpicker/colorpicker.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,aAAa;IACb,UAAU;IACV,0BAA0B;IAC1B,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,0BAA0B;IAC1B,uFAAuF;IACvF,0FAA0F;IAC1F,kFAAkF;IAClF,gHAAgH;AACpH;;AAEA;IACI,2BAA2B;IAC3B,sFAAsF;IACtF,yFAAyF;IACzF,iFAAiF;IACjF,gHAAgH;AACpH;;AAEA;IACI,2BAA2B;IAC3B,wFAAwF;IACxF,2FAA2F;IAC3F,mFAAmF;IACnF,gHAAgH;AACpH;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,wBAAwB;AAC5B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,wBAAwB;AAC5B","sourcesContent":[".box {\n    border-radius: 10px;\n    height: 450px;\n    width: 10%;\n    transition: all .5s linear;\n    display: inline-block;\n}\n\n.open {\n    width: 25% !important;\n}\n\n.box-color-yellow {\n    background: rgb(255,255,0);\n    background: -moz-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    background: linear-gradient(180deg, rgba(255,255,0,1) 21%, rgba(154,162,1,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ffff00\",endColorstr=\"#9aa201\",GradientType=1);\n}\n\n.box-color-green {\n    background: rgb(105,233,26);\n    background: -moz-linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    background: linear-gradient(180deg, rgba(105,233,26,1) 0%, rgba(48,88,23,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#69e91a\",endColorstr=\"#305817\",GradientType=1);\n}\n\n.box-color-teal {\n    background: rgb(26,213,233);\n    background: -moz-linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    background: linear-gradient(180deg, rgba(26,213,233,1) 0%, rgba(26,213,233,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#1ad5e9\",endColorstr=\"#1ad5e9\",GradientType=1);   \n}\n\n.box-color-blue {\n    background-color: blue;\n}\n\n.box-color-purple {\n    background-color: purple;\n}\n\n.box-color-pink {\n    background-color: pink;\n}\n\n.box-color-red {\n    background-color: red;\n}\n\n.box-color-orange {\n    background-color: orange;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".box {\n    border-radius: 10px;\n    height: 450px;\n    width: 10%;\n    transition: all .5s linear;\n    display: inline-block;\n}\n\n.color-header {\n    text-decoration: none;\n    color: white;\n    \n}\n\n.open {\n    width: 25% !important;\n}\n\n.box-color-yellow {\n    background: rgb(245,243,60);\n    background: -moz-linear-gradient(180deg, rgba(245,243,60,1) 0%, rgba(147,146,43,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(245,243,60,1) 0%, rgba(147,146,43,1) 100%);\n    background: linear-gradient(180deg, rgba(245,243,60,1) 0%, rgba(147,146,43,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#f5f33c\",endColorstr=\"#93922b\",GradientType=1);\n}\n\n.box-color-green {\n    background: rgb(75,251,115);\n    background: -moz-linear-gradient(180deg, rgba(75,251,115,1) 0%, rgba(26,98,53,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(75,251,115,1) 0%, rgba(26,98,53,1) 100%);\n    background: linear-gradient(180deg, rgba(75,251,115,1) 0%, rgba(26,98,53,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#4bfb73\",endColorstr=\"#1a6235\",GradientType=1);   \n}\n\n.box-color-teal {\n    background: rgb(87,235,203);\n    background: -moz-linear-gradient(180deg, rgba(87,235,203,1) 0%, rgba(30,102,90,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(87,235,203,1) 0%, rgba(30,102,90,1) 100%);\n    background: linear-gradient(180deg, rgba(87,235,203,1) 0%, rgba(30,102,90,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#57ebcb\",endColorstr=\"#1e665a\",GradientType=1);   \n}\n\n.box-color-blue {\n    background: rgb(156,201,255);\n    background: -moz-linear-gradient(180deg, rgba(156,201,255,1) 0%, rgba(47,84,107,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(156,201,255,1) 0%, rgba(47,84,107,1) 100%);\n    background: linear-gradient(180deg, rgba(156,201,255,1) 0%, rgba(47,84,107,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#9cc9ff\",endColorstr=\"#2f546b\",GradientType=1);\n}\n\n.box-color-purple {\n    background: rgb(205,156,255);\n    background: -moz-linear-gradient(180deg, rgba(205,156,255,1) 0%, rgba(82,50,115,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(205,156,255,1) 0%, rgba(82,50,115,1) 100%);\n    background: linear-gradient(180deg, rgba(205,156,255,1) 0%, rgba(82,50,115,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#cd9cff\",endColorstr=\"#523273\",GradientType=1);\n}\n\n.box-color-pink {\n    background: rgb(247,126,172);\n    background: -moz-linear-gradient(180deg, rgba(247,126,172,1) 0%, rgba(140,20,77,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(247,126,172,1) 0%, rgba(140,20,77,1) 100%);\n    background: linear-gradient(180deg, rgba(247,126,172,1) 0%, rgba(140,20,77,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#f77eac\",endColorstr=\"#8c144d\",GradientType=1);\n}\n\n.box-color-red {\n    background: rgb(231,52,52);\n    background: -moz-linear-gradient(180deg, rgba(231,52,52,1) 0%, rgba(110,26,26,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(231,52,52,1) 0%, rgba(110,26,26,1) 100%);\n    background: linear-gradient(180deg, rgba(231,52,52,1) 0%, rgba(110,26,26,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#e73434\",endColorstr=\"#6e1a1a\",GradientType=1);\n}\n\n.box-color-orange {\n    background: rgb(255,108,45);\n    background: -moz-linear-gradient(180deg, rgba(255,108,45,1) 0%, rgba(140,66,26,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(255,108,45,1) 0%, rgba(140,66,26,1) 100%);\n    background: linear-gradient(180deg, rgba(255,108,45,1) 0%, rgba(140,66,26,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ff6c2d\",endColorstr=\"#8c421a\",GradientType=1);\n}\n", "",{"version":3,"sources":["webpack://./frontend/components/colorpicker/colorpicker.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,aAAa;IACb,UAAU;IACV,0BAA0B;IAC1B,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;IACrB,YAAY;;AAEhB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,2BAA2B;IAC3B,wFAAwF;IACxF,2FAA2F;IAC3F,mFAAmF;IACnF,gHAAgH;AACpH;;AAEA;IACI,2BAA2B;IAC3B,sFAAsF;IACtF,yFAAyF;IACzF,iFAAiF;IACjF,gHAAgH;AACpH;;AAEA;IACI,2BAA2B;IAC3B,uFAAuF;IACvF,0FAA0F;IAC1F,kFAAkF;IAClF,gHAAgH;AACpH;;AAEA;IACI,4BAA4B;IAC5B,wFAAwF;IACxF,2FAA2F;IAC3F,mFAAmF;IACnF,gHAAgH;AACpH;;AAEA;IACI,4BAA4B;IAC5B,wFAAwF;IACxF,2FAA2F;IAC3F,mFAAmF;IACnF,gHAAgH;AACpH;;AAEA;IACI,4BAA4B;IAC5B,wFAAwF;IACxF,2FAA2F;IAC3F,mFAAmF;IACnF,gHAAgH;AACpH;;AAEA;IACI,0BAA0B;IAC1B,sFAAsF;IACtF,yFAAyF;IACzF,iFAAiF;IACjF,gHAAgH;AACpH;;AAEA;IACI,2BAA2B;IAC3B,uFAAuF;IACvF,0FAA0F;IAC1F,kFAAkF;IAClF,gHAAgH;AACpH","sourcesContent":[".box {\n    border-radius: 10px;\n    height: 450px;\n    width: 10%;\n    transition: all .5s linear;\n    display: inline-block;\n}\n\n.color-header {\n    text-decoration: none;\n    color: white;\n    \n}\n\n.open {\n    width: 25% !important;\n}\n\n.box-color-yellow {\n    background: rgb(245,243,60);\n    background: -moz-linear-gradient(180deg, rgba(245,243,60,1) 0%, rgba(147,146,43,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(245,243,60,1) 0%, rgba(147,146,43,1) 100%);\n    background: linear-gradient(180deg, rgba(245,243,60,1) 0%, rgba(147,146,43,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#f5f33c\",endColorstr=\"#93922b\",GradientType=1);\n}\n\n.box-color-green {\n    background: rgb(75,251,115);\n    background: -moz-linear-gradient(180deg, rgba(75,251,115,1) 0%, rgba(26,98,53,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(75,251,115,1) 0%, rgba(26,98,53,1) 100%);\n    background: linear-gradient(180deg, rgba(75,251,115,1) 0%, rgba(26,98,53,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#4bfb73\",endColorstr=\"#1a6235\",GradientType=1);   \n}\n\n.box-color-teal {\n    background: rgb(87,235,203);\n    background: -moz-linear-gradient(180deg, rgba(87,235,203,1) 0%, rgba(30,102,90,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(87,235,203,1) 0%, rgba(30,102,90,1) 100%);\n    background: linear-gradient(180deg, rgba(87,235,203,1) 0%, rgba(30,102,90,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#57ebcb\",endColorstr=\"#1e665a\",GradientType=1);   \n}\n\n.box-color-blue {\n    background: rgb(156,201,255);\n    background: -moz-linear-gradient(180deg, rgba(156,201,255,1) 0%, rgba(47,84,107,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(156,201,255,1) 0%, rgba(47,84,107,1) 100%);\n    background: linear-gradient(180deg, rgba(156,201,255,1) 0%, rgba(47,84,107,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#9cc9ff\",endColorstr=\"#2f546b\",GradientType=1);\n}\n\n.box-color-purple {\n    background: rgb(205,156,255);\n    background: -moz-linear-gradient(180deg, rgba(205,156,255,1) 0%, rgba(82,50,115,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(205,156,255,1) 0%, rgba(82,50,115,1) 100%);\n    background: linear-gradient(180deg, rgba(205,156,255,1) 0%, rgba(82,50,115,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#cd9cff\",endColorstr=\"#523273\",GradientType=1);\n}\n\n.box-color-pink {\n    background: rgb(247,126,172);\n    background: -moz-linear-gradient(180deg, rgba(247,126,172,1) 0%, rgba(140,20,77,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(247,126,172,1) 0%, rgba(140,20,77,1) 100%);\n    background: linear-gradient(180deg, rgba(247,126,172,1) 0%, rgba(140,20,77,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#f77eac\",endColorstr=\"#8c144d\",GradientType=1);\n}\n\n.box-color-red {\n    background: rgb(231,52,52);\n    background: -moz-linear-gradient(180deg, rgba(231,52,52,1) 0%, rgba(110,26,26,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(231,52,52,1) 0%, rgba(110,26,26,1) 100%);\n    background: linear-gradient(180deg, rgba(231,52,52,1) 0%, rgba(110,26,26,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#e73434\",endColorstr=\"#6e1a1a\",GradientType=1);\n}\n\n.box-color-orange {\n    background: rgb(255,108,45);\n    background: -moz-linear-gradient(180deg, rgba(255,108,45,1) 0%, rgba(140,66,26,1) 100%);\n    background: -webkit-linear-gradient(180deg, rgba(255,108,45,1) 0%, rgba(140,66,26,1) 100%);\n    background: linear-gradient(180deg, rgba(255,108,45,1) 0%, rgba(140,66,26,1) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\"#ff6c2d\",endColorstr=\"#8c421a\",GradientType=1);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

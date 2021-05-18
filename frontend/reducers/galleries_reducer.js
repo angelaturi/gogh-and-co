@@ -10,7 +10,24 @@ import {
     DELETE_GALLERY
 } from '../actions/galleries_actions'
 
-const galleriesReducer = (state = {galleries=[], currentGallery: {id: 0, title: '', description: '', firstArtwork: {id: 0, title: "", date_created: null, color: "", style: "", medium: "", partner_organization: ""}}}, action) => {
+const initialState = {
+    collectedArtworks: [],
+    galleries: [],
+    currentGallery: {
+        id: 0,
+        title: '',
+        description: '',
+        firstArtwork: {
+            id: 0,
+            title: "",
+            date_created: null,
+            color: "",
+            style: "",
+            medium: "",
+            partner_organization: ""}}
+}
+
+const galleriesReducer = (state = initialState, action) => {
     const nextState = Object.assign({}, state);
 
     switch (action.type) {
@@ -22,6 +39,9 @@ const galleriesReducer = (state = {galleries=[], currentGallery: {id: 0, title: 
         case RECEIVE_CURRENT_GALLERY:
             nextState.currentGallery = action.gallery
             return nextState
+        case CREATE_GALLERY:
+            return {...state,
+            collectedArtworks: action.collectedArtworks}
         default:
             return state;
     }

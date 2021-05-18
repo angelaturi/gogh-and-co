@@ -9,6 +9,7 @@ export const RECEIVE_FAVORITES = "RECEIVE_FAVORITES";
 export const CLEAR_ARTWORKS = "CLEAR_ARTWORKS";
 export const RECEIVE_ARTWORKS_FAIL = "RECEIVE_ARTWORKS_FAIL";
 export const CREATE_ARTWORK = "CREATE_ARTWORK";
+export const TOGGLE_CURRENT_FAVORITE = "TOGGLE_CURRENT_FAVORITE";
 import * as ArtworksAPI from '../utils/artworks_utils';
 
 export const requestArtworks = () => {
@@ -16,7 +17,7 @@ export const requestArtworks = () => {
         return ArtworksAPI.requestArtworks()
             .then(
                 (artworks) => {
-                    debugger
+                    // debugger
                     dispatch(receiveArtworks(artworks))
                 },
                 (err) => dispatch(receiveArtworksFail(err))
@@ -58,13 +59,14 @@ export const toggleFavorite = id => ({
     id
 })
 
-export const receiveFavorites = favorites => {
-    debugger
-    return ({
-        type: RECEIVE_FAVORITES,
-        favorites
-    })
-}
+export const toggleCurrentFavorite = () => ({
+    type: TOGGLE_CURRENT_FAVORITE
+})
+
+export const receiveFavorites = favorites => ({
+    type: RECEIVE_FAVORITES,
+    favorites
+})
 
 export const clearArtworks = () => ({
     type: CLEAR_ARTWORKS
@@ -76,7 +78,7 @@ export const createArtwork = artwork => ({
 })
 
 export const receiveFavoritesThunk = () => {
-    debugger
+    // debugger
     return function (dispatch) {
         return ArtworksAPI.receiveFavorites()
             .then(
@@ -85,4 +87,15 @@ export const receiveFavoritesThunk = () => {
                 },)
 
     } 
+}
+
+export const setFavoriteThunk = () => {
+    return function (dispatch) {
+        return ArtworksAPI.toggleFavorite()
+            .then(
+                (id) => {
+                    dispatch(toggleFavorite(id))
+                })
+
+    }
 }

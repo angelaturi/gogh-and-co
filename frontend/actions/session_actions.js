@@ -31,7 +31,7 @@ export const receiveCurrentUser = user => ({
     user
 });
 
-export const logout = () => ({
+export const logoutUser = () => ({
     type: LOGOUT_CURRENT_USER
 });
 
@@ -49,23 +49,23 @@ export const clearErrors = () => ({
 
 // thunk actions - organize way to keep our state 'in-check'
 
-// export const createAccount = formUser => dispatch => postUser(formUser)
-//     .then(
-//         user => dispatch(receiveCurrentUser(user)),
-//         errors => dispatch(receiveErrors(errors.responseJSON))
-//     )
+export const createAccount = formUser => dispatch => postUser(formUser)
+    .then(
+        user => dispatch(receiveCurrentUser(user)),
+        errors => dispatch(receiveErrors(errors.responseJSON))
+    )
 
-// export const login = formUser => dispatch => postSession(formUser)
-//     .then(
-//         user => dispatch(receiveCurrentUser(user)),
-//         errors => dispatch(receiveErrors(errors.responseJSON))
-//     )
+export const login = formUser => dispatch => postSession(formUser)
+    .then(
+        user => dispatch(receiveCurrentUser(user)),
+        errors => dispatch(receiveErrors(errors.responseJSON))
+    )
 
-// export const logout = () => dispatch => deleteSession()
-//     .then(
-//         () => dispatch(logoutCurrentUser()),
-//         errors => dispatch(receiveErrors(errors.responseJSON))
-//     )
+export const logout = () => dispatch => deleteSession()
+    .then(
+        () => dispatch(logoutCurrentUser()),
+        errors => dispatch(receiveErrors(errors.responseJSON))
+    )
 
 
 

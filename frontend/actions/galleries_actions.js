@@ -18,7 +18,8 @@ export const requestFavoriteGalleries = () => ({
 })
 
 export const receiveGalleries = galleries => ({
-    type: RECEIVE_GALLERIES
+    type: RECEIVE_GALLERIES,
+    galleries
 })
 
 // export const requestCurrentGallery = id => ({
@@ -30,9 +31,8 @@ export const receiveCurrentGallery = gallery => ({
     type: RECEIVE_CURRENT_GALLERY
 })
 
-export const createGallery = (gallery, collectedArtworks) => ({
+export const createGallery = (collectedArtworks) => ({
     type: CREATE_GALLERY,
-    gallery,
     collectedArtworks
 })
 
@@ -52,14 +52,31 @@ export const receiveGallery = gallery => ({
 //     id
 // })
 
-export const receiveGalleriesThunk = () => {
-    debugger
+// export const receiveGalleriesThunk = () => {
+//     debugger
+//     return function (dispatch) {
+//         return GalleriesAPI.requestGalleries()
+//             .then(
+//                 () => {
+//                     dispatch(receiveGalleries())
+//                 },)
+
+//     } 
+// }
+
+export const createGalleryThunk = () => {
+    // debugger
     return function (dispatch) {
-        return GalleriesAPI.requestGalleries()
+        return GalleriesAPI.createGallery(gallery, collectedArtworks)
             .then(
-                () => {
-                    dispatch(receiveGalleries())
+                (collectedArtworks) => {
+                    dispatch(createGallery(collectedArtworks))
                 },)
 
     } 
 }
+
+export const receiveGalleriesThunk = galleries => ({
+    type: RECEIVE_GALLERIES,
+    galleries
+})

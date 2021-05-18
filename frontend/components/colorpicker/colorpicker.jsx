@@ -23,7 +23,7 @@ class Colorpicker extends Component {
 			<div id="colorpicker">
 				{colors.map((singleColor, idx) => {
 					return <Link to={`/color?color=${singleColor}`} key={idx} onMouseOver={(e) => this.expandColor(e)} className={"box box-color-" + (singleColor)}>
-
+						<h1 className="color-header">{singleColor}</h1>
 					</Link>
 				})}
 			</div>

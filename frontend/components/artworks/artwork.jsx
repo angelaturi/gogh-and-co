@@ -58,17 +58,12 @@ class Artwork extends React.Component {
 
     favoriting = (e) => {
         e.preventDefault();
-        /*
+        
         if(!this.props.currentUser){
             this.props.history.push('/signup');
         } else {
-        */
-            if (typeof this.props.artwork.id === 'string') {
-                this.props.createArtwork(this.props.artwork)
-            } else {
-                this.props.toggleFavorite(this.props.artwork.id)
-            }
-        //}
+            this.props.toggleCurrentFavorite()
+        }
     }
 
         // const image = document.querySelector('#artwork-loader')

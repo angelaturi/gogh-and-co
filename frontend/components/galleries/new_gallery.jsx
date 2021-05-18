@@ -1,12 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-class Galleries extends React.Component {
+class NewGallery extends React.Component {
     constructor(props) {
         super(props)
-        this.state {
-            gallery: []
-        }
+        // this.state {
+        //     gallery: []
+        // }
     }
 
     componentDidMount() {
@@ -16,20 +16,22 @@ class Galleries extends React.Component {
         // console.log(this.state)
     }
 
+
+
+
+
     render() {
         return (
             <div>
                 <div>
-                    {this.props.galleries.map((gallery, idx)=> {
-                        
-                    // let gallery_source = gallery.title.toLowerCase().replace(/([ |%20])/g, "_")
-                    // return (<Link to={`/artwork/${gallery.id}`} key={idx} className={"artwork"} style={{
-                    //             backgroundImage: `url(https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${gallery_source}.png)`
-                    //             }}>
-                    //         {/* <div>{artwork.title}
-                    //         </div> */}
-                    //         </Link>)
-                })}
+                </div>
+                <div className='new_collection'>
+                    <form onSubmit={e => e.preventDefault()}>
+                        <input type='text' placeholder='Title' value={title} onChange={this.props._updateForm('title')}/>
+                        <aside>{title.length}/150</aside>
+                        <input type='text' placeholder='Description' value={description} onChange={this.props._updateForm('description')}/>
+                        <aside>{description.length}/800</aside>
+                    </form>
                 </div>
             </div>
         )
@@ -37,3 +39,4 @@ class Galleries extends React.Component {
 }
 
 export default Galleries
+

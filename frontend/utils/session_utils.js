@@ -1,7 +1,7 @@
 // create user
 
 export const postUser = (user, success, error) => {
-    debugger
+    // debugger
     return $.ajax({
         method: 'POST',
         url: '/api/users',

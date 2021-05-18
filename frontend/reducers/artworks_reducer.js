@@ -8,7 +8,9 @@ import {
     TOGGLE_FAVORITE,
     RECEIVE_FAVORITES,
     CLEAR_ARTWORKS,
-    RECEIVE_ARTWORKS_FAIL
+    RECEIVE_ARTWORKS_FAIL,
+    TOGGLE_CURRENT_FAVORITE,
+    
 } from '../actions/artworks_actions';
 
 const artworks = [
@@ -46,7 +48,8 @@ const initialState = {
         partner_organization: "",
         favorited: false},
     isLoaded: false,
-    error: ""
+    error: "",
+    favorites: []
 }
 
 const artworksReducer = (state = initialState, action) => {
@@ -72,7 +75,8 @@ const artworksReducer = (state = initialState, action) => {
             nextState.currentArtwork = action.artwork;
             return nextState
         case RECEIVE_FAVORITES:
-            debugger
+            // debugger
+            return {...state, favorites: action.favorites}
             // const favorites = {state.favorites}
         case SET_CURRENT_ARTWORK:
             return {
@@ -80,6 +84,16 @@ const artworksReducer = (state = initialState, action) => {
                 currentArtwork: action.artwork
             }
         case TOGGLE_FAVORITE:
+            let favorites = state.favorites
+            favorites.forEach((favorite)=> {
+                if (favorite.id === action.id) {
+                    favorite.favorited = !favorite.favorited
+                }})
+            return {
+                ...state,
+                favorites
+            }
+        case TOGGLE_CURRENT_FAVORITE:
             const currentFavorite  = {...state}.currentArtwork.favorited;
             return {
                 ...state,

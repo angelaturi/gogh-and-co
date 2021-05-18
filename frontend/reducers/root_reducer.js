@@ -5,6 +5,7 @@ import errorsReducer from './entities_reducer';
 import artworksReducer from './artworks_reducer';
 import colorReducer from './color_reducer';
 import timeReducer from './time_reducer';
+import galleriesReducer from './galleries_reducer';
 
 const rootReducer = combineReducers({
     entities: entitiesReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     artworks: artworksReducer,
     color: colorReducer,
     time: timeReducer,
+    galleries: galleriesReducer
 })
 
 export default rootReducer

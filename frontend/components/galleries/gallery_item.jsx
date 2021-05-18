@@ -1,33 +1,16 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
-class GalleryItem extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state {
-            gallery: []
-        }
-    }
-
-    componentDidMount() {
-        debugger
-        const galleries = this.props.receiveGalleries()
-        this.setState({galleries: galleries})
-        // console.log(this.state)
-    }
-
-    render() {
-        return (
-            <div>
-                <div>
-                    {this.props.favorites.((gallery, idx)=> {
-                        
-                })}
-                </div>
-                <Link to={"/favorite/create"}className={"add-button"}>+</Link>
-            </div>
-        )
-    }
+const GalleryItem = ({gallery}) => {
+    const content = gallery.firstArtwork === undefined ? 'http://www.pbs.org/newshour/data/bubble-quiz/images/facebook-square.svg' : gallery.firstArtwork;
+    
+    return (
+        <li id={gallery.id}>
+            <img src={content}></img>
+            <span>
+                <div>{collection.title}</div>
+            </span>
+        </li>
+    )
 }
 
-export default GalleryItem
+export default GalleryItem;

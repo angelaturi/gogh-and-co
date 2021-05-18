@@ -32,7 +32,7 @@ class App extends React.Component {
             <Route path="/time" component={TimelineGridContainer}/>
             <Route path="/color" component={ColorGridContainer}/>
             <Route path="/explore" component={Explore}/>
-            <Route path="/profile" component={Profile} />
+            <Route path="/profile" component={Profile}/>
         </Switch>
         )
         }

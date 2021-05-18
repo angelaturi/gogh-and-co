@@ -1,6 +1,6 @@
 import React from 'react';
 import FavoritesContainer from './favorites/favorites_container';
-import Galleries from './galleries/galleries';
+import GalleriesContainer from './galleries/galleries_container';
 import {Link} from 'react-router-dom';
 
 class Profile extends React.Component {
@@ -43,7 +43,7 @@ class Profile extends React.Component {
                 </div>
                 <div>
                     {this.state.showFavorites ? <FavoritesContainer /> : ""}
-                    {this.state.showGalleries ? <Galleries /> : ""}
+                    {this.state.showGalleries ? <GalleriesContainer /> : ""}
                 </div>
             </React.Fragment>
         )
