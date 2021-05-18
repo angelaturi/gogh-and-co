@@ -7,7 +7,8 @@ import {
     RECEIVE_CURRENT_ARTWORK,
     TOGGLE_FAVORITE,
     RECEIVE_FAVORITE,
-    CLEAR_ARTWORKS, 
+    CLEAR_ARTWORKS,
+    CREATE_ARTWORKS, 
     receiveArtworks,
     receiveCurrentArtwork,
     receiveFavorite
@@ -35,6 +36,10 @@ const artworksMiddleware = ({getState, dispatch}) => next => action => {
         case TOGGLE_FAVORITE:
             success = () => dispatch(receiveFavorite())
             ArtworksAPI.toggleFavorite(action.id, success)
+            return next(action);
+        case CREATE_ARTWORK:
+            success = artwork => dispatch(receiveCurrentArtwork(artwork));
+            ArtworksAPI.createArtwork(action.artwork, success);
             return next(action);
         default:
             return next(action);

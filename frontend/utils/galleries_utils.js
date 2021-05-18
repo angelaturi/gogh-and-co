@@ -27,6 +27,7 @@ export const requestCurrentGallery = (id, success, error) => {
     })
 }
 
+
 export const createGallery = (gallery, collectedArtworks, success, error) => {
     return $.ajax({
         method: 'POST',

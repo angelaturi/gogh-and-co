@@ -21,6 +21,7 @@ class AccountForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         this.props.processForm(this.state)
     }

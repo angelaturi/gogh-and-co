@@ -2,12 +2,14 @@ import React from 'react';
 import {withRouter} from 'react-router';
 import {connect} from 'react-redux';
 import Artwork from './artwork';
-import {setCurrentArtwork} from '../../actions/artworks_actions'
+import {setCurrentArtwork, toggleFavorite} from '../../actions/artworks_actions'
 
 
 const mapStateToProps = state => ({
     artworks: state.artworks.artworks,
-    artwork: state.artworks.currentArtwork
+    artwork: state.artworks.currentArtwork,
+    currentUser: state.session.currentUser,
+    // currentUser: state.session.currentUser
     // title: state.artworks.currentArtwork.title,
     // date_created: state.artworks.currentArtwork.date_created,
     // color: state.artworks.currentArtwork.color,
@@ -18,6 +20,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({    
     setCurrentArtwork: artwork => dispatch(setCurrentArtwork(artwork)),
+    toggleFavorite: id => dispatch(toggleFavorite(id))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Artwork))

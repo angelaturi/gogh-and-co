@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from '../slider';
-import Grid from '../grid'
+import Grid from '../grid';
+import {useHistory} from 'react-router-dom'
 
 class ColorGrid extends React.Component {
     constructor(props) {
@@ -11,7 +12,8 @@ class ColorGrid extends React.Component {
     }
 
     userChangedColor = (color) => {
-        console.log(color);
+        this.props.setCurrentColor(color);
+        history.push({...this.props.history, search: `?color=${color}`})
     }
 
     componentDidMount() {
@@ -20,14 +22,13 @@ class ColorGrid extends React.Component {
         } 
     }
 
-    //this.props.artworks.artworks
 
     render() {
         return (
             <React.Fragment>
                 <div className={"color-grid"}>
-                    <Slider items={this.props.colors} type="gogh-color" selected={this.props.currentColor} colorPicked={this.userChangedColor}/>
-                    <Grid artworks={[]}/>
+                    <Slider items={this.props.colors} type="gogh-color" selected={this.props.currentColor} onItemChange={this.userChangedColor}/>
+                    <Grid artworks={this.props.artworks.artworks}/>
                 </div>
             </React.Fragment>
         )

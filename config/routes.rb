@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     resource :session, only: [:create, :destroy]
 
-    resources :artworks, only: [:index, :show]
+    resources :artworks, only: [:index, :show, :create]
     get 'artworks/favorite', to: 'artworks#favorite'
     post 'artworks/favorites', to: 'artworks#favorites'
     get 'artworks/gallery', to: 'artworks#gallery'

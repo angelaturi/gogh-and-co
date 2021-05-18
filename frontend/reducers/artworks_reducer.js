@@ -6,7 +6,7 @@ import {
     SET_CURRENT_ARTWORK,
     RECEIVE_CURRENT_ARTWORK,
     TOGGLE_FAVORITE,
-    RECEIVE_FAVORITE,
+    RECEIVE_FAVORITES,
     CLEAR_ARTWORKS,
     RECEIVE_ARTWORKS_FAIL
 } from '../actions/artworks_actions';
@@ -71,13 +71,19 @@ const artworksReducer = (state = initialState, action) => {
         case RECEIVE_CURRENT_ARTWORK:
             nextState.currentArtwork = action.artwork;
             return nextState
-        case RECEIVE_FAVORITE:
-            nextState.currentArtwork.favorited = !nextState.currentArtwork.favorited
-            return nextState
+        case RECEIVE_FAVORITES:
+            debugger
+            // const favorites = {state.favorites}
         case SET_CURRENT_ARTWORK:
             return {
                 ...state,
                 currentArtwork: action.artwork
+            }
+        case TOGGLE_FAVORITE:
+            const currentFavorite  = {...state}.currentArtwork.favorited;
+            return {
+                ...state,
+                currentArtwork: {...state.currentArtwork, favorited: !currentFavorite}
             }
         default:
             return state;

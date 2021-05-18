@@ -1,0 +1,144 @@
+.explore-by-time-color {
+    margin: 0 0 48px;
+}
+
+.explore-inner {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    width: calc(100% - 40px *2)
+}
+
+.explore-header {
+    display: flex;
+    margin: 0 0 24px;
+    padding: 0;
+
+    & > h1 {
+        font-size: 1.375rem;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 1.75rem;
+        font-family: 'Roboto';
+    }
+}
+
+.explore-body {
+    padding: 0;
+}
+
+.explore-time {
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.explore-color {
+
+}
+
+.explore-time-body {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    padding-top: 56.25%;
+    position: relative;
+    width: 100%;
+    width: calc(50% - 8px);
+
+    & > div {
+        background-position: 50% 50%;
+        -webkit-background-size: cover;
+        background-size: cover;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.explore-time-header {
+    padding: 0;
+    position: relative;
+    text-align: var(--text-align,left);
+    width: 100%;
+
+    & > h1 {
+        letter-spacing: .00625em;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        font-family: 'Roboto';
+        color: #3c4043;
+        margin: 0 0 4px;
+        margin-bottom: 6px;
+    }
+
+    & > h3 {
+        letter-spacing: .025em;
+        font-family: 'Roboto';
+        font-size: .75rem;
+        font-weight: 400;
+        line-height: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 2rem;
+        color: #80868b;
+        margin: 0;
+    }
+}
+
+.explore-color-body {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    padding-top: 56.25%;
+    position: relative;
+    width: 100%;
+    width: calc(50% - 8px);
+    display: inline-block;
+
+    & > div {
+        background-position: 50% 50%;
+        -webkit-background-size: cover;
+        background-size: cover;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.explore-color-header {
+    padding: 0;
+    position: relative;
+    text-align: var(--text-align,left);
+    width: 100%;
+
+    & > h1 {
+        letter-spacing: .00625em;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        font-family: 'Roboto';
+        color: #3c4043;
+        margin: 0 0 4px;
+        margin-bottom: 6px;
+    }
+
+    & > h3 {
+        letter-spacing: .025em;
+        font-family: 'Roboto';
+        font-size: .75rem;
+        font-weight: 400;
+        line-height: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 2rem;
+        color: #80868b;
+        margin: 0;
+    }
+}
+
+

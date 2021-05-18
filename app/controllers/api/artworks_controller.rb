@@ -9,6 +9,16 @@ class Api::ArtworksController < ApplicationController
         render :show
     end
 
+    def create 
+        @artwork = Artwork.new(artwork_params)
+        if @artwork.save
+            Favorite.create(artwork_id: @artwork.id, favoriter_id: current_user.id)
+            render 'api/artworks/show'
+        else
+            render json: @artwork.errors.full_messages
+        end
+    end
+
     def favorite
         @artwork = current_user.artworks.where(id: params[:id])
         if @artwork
@@ -19,6 +29,7 @@ class Api::ArtworksController < ApplicationController
     end
 
     def favorites
+        # binding.pry
         @artworks = current_user.artworks
     end
 
@@ -27,5 +38,10 @@ class Api::ArtworksController < ApplicationController
         @artworks = @gallery.artworks
     end
 
+    private
+
+    def artwork_params
+        params.require(:artwork).permit(:title, :color, :style, :medium, :partner_organization)
+    end
 
 end

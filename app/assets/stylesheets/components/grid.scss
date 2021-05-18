@@ -2,11 +2,12 @@
 .artwork-grid {
     display: flex;
     flex-wrap: wrap;
+    padding-top: 4px;
 }
 
 .artwork {
     width: calc(25% - 8px);
-    margin: 4px;
+    margin: 2px;
     padding-top: 25%;
     height: 0;
     position: relative;

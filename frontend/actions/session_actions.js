@@ -20,9 +20,11 @@ export const loginUser = user => ({
     user
 });
 
-export const createUser = user => ({
+export const createUser = user => {
+    return ({
     type: CREATE_USER
 })
+}
 
 export const receiveCurrentUser = user => ({
     type: RECEIVE_CURRENT_USER,

@@ -7,7 +7,9 @@ import CreateAccountFormContainer from './account_form/create_account_form_conta
 import ArtworkContainer from './artworks/artwork_container';
 import {clearArtworks, requestArtworks, requestFavoriteArtworks, requestGallery, requestCurrentArtwork, receiveCurrentArtwork} from '../actions/artworks_actions'
 import TimelineGridContainer from './timeline/timeline_grid_container';
-import ColorGridContainer from './color/color_grid_container'
+import ColorGridContainer from './color/color_grid_container';
+import Explore from './explore';
+import Profile from './profile';
 import './fontawesome'
 
 class App extends React.Component {
@@ -29,6 +31,8 @@ class App extends React.Component {
             <Route path="/artwork/:id" component={ArtworkContainer}/>
             <Route path="/time" component={TimelineGridContainer}/>
             <Route path="/color" component={ColorGridContainer}/>
+            <Route path="/explore" component={Explore}/>
+            <Route path="/profile" component={Profile} />
         </Switch>
         )
         }

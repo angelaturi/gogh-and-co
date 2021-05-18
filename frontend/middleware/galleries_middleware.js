@@ -43,6 +43,9 @@ const galleriesMiddleware = ({getState, dispatch}) => next => action => {
         case DELETE_GALLERY:
             GalleriesAPI.deleteGallery(action.id, errors);
             return next(action);
+        case RECEIVE_GALLERIES
+            GalleriesAPI.requestGalleries();
+            return next(action);
         default:
             return next(action);
     }

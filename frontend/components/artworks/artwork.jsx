@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import ImageViewer from 'iv-viewer';
-import 'iv-viewer/dist/iv-viewer.css'
+import 'iv-viewer/dist/iv-viewer.css';
+import {history} from 'react-router-dom'
 
 // function Artwork({artworks, artwork, setCurrentArtwork, ...props}) {
 
@@ -47,9 +48,27 @@ class Artwork extends React.Component {
 
     componentDidUpdate() {
         // props.artwork.title) {
-            $('.favorites').removeClass('invisible')
-            const viewer = new ImageViewer(document.querySelector("#image"))
+            
         // }
+    }
+
+    triggerViewer = () => {
+        const viewer = new ImageViewer(document.querySelector("#image"))
+    }
+
+    favoriting = (e) => {
+        e.preventDefault();
+        /*
+        if(!this.props.currentUser){
+            this.props.history.push('/signup');
+        } else {
+        */
+            if (typeof this.props.artwork.id === 'string') {
+                this.props.createArtwork(this.props.artwork)
+            } else {
+                this.props.toggleFavorite(this.props.artwork.id)
+            }
+        //}
     }
 
         // const image = document.querySelector('#artwork-loader')
@@ -58,17 +77,23 @@ class Artwork extends React.Component {
         // let favorite = currentImage.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
 
         render() {
+            let favorite = this.props.artwork.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png'
+            const artWork = this.props.artwork;
             return (
+                <React.Fragment>
+                {artWork && artWork.title ? 
                 <div id={"artworkCurrent"} className={"artwork-current"}>
-                    <img src={`https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${this.props.artwork.title.toLowerCase().replace(/([ |%20])/g, "_")}.png`} id="image"/>
+                    <img onLoad={() => this.triggerViewer()} src={`https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${this.props.artwork.title.toLowerCase().replace(/([ |%20])/g, "_")}.png`} id="image"/>
+                    <img className={'artwork-favorites'} src={favorite} onClick={(e) => this.favoriting(e)}></img>
                     <div className={"description"}>
-                        <p className={"title"}><b>Title:</b> {this.props.artwork.title}</p>
-                        <p className={"date"}><b>Date Created:</b> {this.props.artwork.date_created}</p>
-                        <p className={"style"}><b>Style:</b> {this.props.artwork.style}</p>
-                        <p className={"medium"}><b>Medium:</b> {this.props.artwork.medium}</p>
-                        <p className={"partner"}><b>Partner Organization:</b> {this.props.artwork.partner_organization}</p>
+                        <p><b>Title:</b> {this.props.artwork.title}</p>
+                        <p><b>Date Created:</b> {this.props.artwork.date_created}</p>
+                        <p><b>Style:</b> {this.props.artwork.style}</p>
+                        <p><b>Medium:</b> {this.props.artwork.medium}</p>
+                        <p><b>Partner Organization:</b> {this.props.artwork.partner_organization}</p>
                     </div>
-                </div>
+                </div> : '' }
+                </React.Fragment>
             )
         };
 }

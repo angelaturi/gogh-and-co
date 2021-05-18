@@ -43,3 +43,26 @@ export const toggleFavorite = (id, success, error) => {
         error
     });
 }
+
+export const createArtwork = (artwork, success, error) => {
+    return $.ajax({
+        method: 'POST',
+        url: 'api/artworks',
+        data: {artwork},
+        success,
+        error
+    });
+}
+
+export const receiveFavorites = (favorite, success, error) => {
+    // debugger
+    return $.ajax({
+        method: 'POST',
+        url: 'api/artworks/favorites',
+        success,
+        error
+    });
+}
+
+
+

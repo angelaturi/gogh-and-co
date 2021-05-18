@@ -51,3 +51,15 @@ export const receiveGallery = gallery => ({
 //     type: DELETE_GALLERY,
 //     id
 // })
+
+export const receiveGalleriesThunk = () => {
+    debugger
+    return function (dispatch) {
+        return GalleriesAPI.requestGalleries()
+            .then(
+                () => {
+                    dispatch(receiveGalleries())
+                },)
+
+    } 
+}

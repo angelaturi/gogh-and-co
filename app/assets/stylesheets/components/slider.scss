@@ -1,5 +1,6 @@
 .color-grid {
-    border-top: 116px solid #fff;
+    border-top: 65px solid #fff;
+
 }
 
 .gogh-color {
@@ -90,12 +91,27 @@
 
 .slider-container {
     width: 800px;
+    height: 54px;
     overflow: hidden;
     margin: 0 auto;
     background-color: #e4e4e4;
+    position: relative;
+    border-bottom: 2px solid white;
+
+    .gogh-time,
+    .gogh-color {
+        position: absolute;
+    }
 }
 
-.center {
-    margin: 0 auto;
-    text-align: center;
+.arrow {
+    bottom: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    left: 50%;
+    margin-left: -4px;
 }

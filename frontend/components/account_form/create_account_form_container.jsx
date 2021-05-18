@@ -8,10 +8,13 @@ const mapStateToProps = (state, ownProps) => ({
     formType: 'Create account'
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => {
+    debugger
+    return ({
     processForm: user => dispatch(createUser(user)),
     login: user => dispatch(loginUser(user)),
     clearErrors: () => dispatch(clearErrors())
 })
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountForm)
