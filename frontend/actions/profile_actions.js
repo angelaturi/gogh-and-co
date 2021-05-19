@@ -16,11 +16,12 @@ export const receiveProfileFavorites = favorites => ({
 
 export const receiveProfileFavoritesThunk = () => {
     return function (dispatch) {
-        return ArtworksAPI.fetchFavorites()
-            .then(
-                (artworks) => {
-                    dispatch(receiveProfileFavorites(artworks))
-                })
+        return ArtworksAPI.requestArtworks()
+        .then((artworks) => {
+          dispatch(receiveProfileFavorites(artworks.map((favorite)=>({
+              ...favorite, favorited: false
+            }))));
+        });
     } 
 }
 
@@ -33,3 +34,15 @@ export const receiveProfileGalleriesThunk = () => {
                 })
     }
 }
+
+export const requestGalleries = () => {
+  return function (dispatch) {
+    return GalleriesAPI.fetchGalleries()
+    .then(
+      (galleries) => {
+        // debugger
+        dispatch(receiveProfileGalleries(galleries));
+      }
+    );
+  };
+};

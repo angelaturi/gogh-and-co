@@ -75,7 +75,6 @@ const artworksReducer = (state = initialState, action) => {
             nextState.currentArtwork = action.artwork;
             return nextState
         case RECEIVE_FAVORITES:
-            // debugger
             return {...state, favorites: action.favorites}
         case SET_CURRENT_ARTWORK:
             return {

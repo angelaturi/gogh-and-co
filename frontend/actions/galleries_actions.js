@@ -1,3 +1,5 @@
+import Galleries from "../components/profile/galleries";
+
 export const REQUEST_GALLERIES = 'REQUEST_GALLERIES';
 export const REQUEST_FAVORITE_GALLERIES = 'REQUEST_FAVORITE_GALLERIES';
 export const REQUEST_CURRENT_GALLERY = 'REQUEST_CURRENT_GALLERY';

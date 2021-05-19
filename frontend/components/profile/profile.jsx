@@ -25,7 +25,6 @@ class Profile extends React.Component {
     }
 
     render() {
-
         return (
             <section className={"view"}>
                 <header className={"profile-header"}>
@@ -37,9 +36,11 @@ class Profile extends React.Component {
                 </nav>
                 <div className={"gogh-tab-content"}>
                     {this.state.showFavorites && 
-                    <Favorites favorites={this.props.favorites}/>}
+                    <Favorites favorites={[{id: 0, title: 'The Starry Night', creator_id: 1, date_created: 1889, color: 'blue', style: 'Post-Impressionism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art', favorited: false},
+                    {id: 1, title:'Panel for Edwin R. Campbell No. 4', creator_id: 2, date_created: 1914, color: 'blue', style: 'Expressionism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art', favorited: false},
+                    {id: 2, title: 'The Persistence of Memory', creator_id: 3, date_created: 1931, color: 'brown', style: 'Surrealism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art', favorited: false}]}/>}
                     {!this.state.showFavorites && 
-                    <Galleries galleries={this.props.galleries}/>}
+                    <Galleries galleries={[{id: 1, title: 'test', description: 'testing123', user_id: 8}]}/>}
                 </div>
             </section>
         )

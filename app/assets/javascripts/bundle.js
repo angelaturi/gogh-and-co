@@ -10268,6 +10268,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "receiveGallery": () => (/* binding */ receiveGallery),
 /* harmony export */   "createGalleryThunk": () => (/* binding */ createGalleryThunk)
 /* harmony export */ });
+/* harmony import */ var _components_profile_galleries__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/profile/galleries */ "./frontend/components/profile/galleries.jsx");
+
 var REQUEST_GALLERIES = 'REQUEST_GALLERIES';
 var REQUEST_FAVORITE_GALLERIES = 'REQUEST_FAVORITE_GALLERIES';
 var REQUEST_CURRENT_GALLERY = 'REQUEST_CURRENT_GALLERY';
@@ -10348,10 +10350,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "receiveProfileGalleries": () => (/* binding */ receiveProfileGalleries),
 /* harmony export */   "receiveProfileFavorites": () => (/* binding */ receiveProfileFavorites),
 /* harmony export */   "receiveProfileFavoritesThunk": () => (/* binding */ receiveProfileFavoritesThunk),
-/* harmony export */   "receiveProfileGalleriesThunk": () => (/* binding */ receiveProfileGalleriesThunk)
+/* harmony export */   "receiveProfileGalleriesThunk": () => (/* binding */ receiveProfileGalleriesThunk),
+/* harmony export */   "requestGalleries": () => (/* binding */ requestGalleries)
 /* harmony export */ });
 /* harmony import */ var _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/artworks_utils */ "./frontend/utils/artworks_utils.js");
 /* harmony import */ var _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/galleries_utils */ "./frontend/utils/galleries_utils.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 var RECEIVE_PROFILE_GALLERIES = "RECEIVE_PROFILE_GALLERIES";
@@ -10370,14 +10379,26 @@ var receiveProfileFavorites = function receiveProfileFavorites(favorites) {
 };
 var receiveProfileFavoritesThunk = function receiveProfileFavoritesThunk() {
   return function (dispatch) {
-    return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.fetchFavorites().then(function (artworks) {
-      dispatch(receiveProfileFavorites(artworks));
+    return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.requestArtworks().then(function (artworks) {
+      dispatch(receiveProfileFavorites(artworks.map(function (favorite) {
+        return _objectSpread(_objectSpread({}, favorite), {}, {
+          favorited: false
+        });
+      })));
     });
   };
 };
 var receiveProfileGalleriesThunk = function receiveProfileGalleriesThunk() {
   return function (dispatch) {
     return _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__.fetchGalleries().then(function (galleries) {
+      dispatch(receiveProfileGalleries(galleries));
+    });
+  };
+};
+var requestGalleries = function requestGalleries() {
+  return function (dispatch) {
+    return _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__.fetchGalleries().then(function (galleries) {
+      // debugger
       dispatch(receiveProfileGalleries(galleries));
     });
   };
@@ -10856,7 +10877,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _utils_route_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/route_utils */ "./frontend/utils/route_utils.jsx");
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ "./frontend/components/home.jsx");
 /* harmony import */ var _session_form_session_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/session_form_container */ "./frontend/components/session_form/session_form_container.jsx");
@@ -10867,7 +10888,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _color_color_grid_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./color/color_grid_container */ "./frontend/components/color/color_grid_container.jsx");
 /* harmony import */ var _explore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./explore */ "./frontend/components/explore.jsx");
 /* harmony import */ var _profile_profile_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./profile/profile_container */ "./frontend/components/profile/profile_container.jsx");
-/* harmony import */ var _fontawesome__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./fontawesome */ "./frontend/components/fontawesome.js");
+/* harmony import */ var _profile_gallery_item_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./profile/gallery_item_container */ "./frontend/components/profile/gallery_item_container.jsx");
+/* harmony import */ var _fontawesome__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./fontawesome */ "./frontend/components/fontawesome.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10904,6 +10926,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -10924,7 +10947,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
         exact: true,
         path: "/",
         component: _home__WEBPACK_IMPORTED_MODULE_2__.default
@@ -10934,21 +10957,24 @@ var App = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
         path: "/signup",
         component: _account_form_create_account_form_container__WEBPACK_IMPORTED_MODULE_4__.default
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
         path: "/artwork/:id",
         component: _artworks_artwork_container__WEBPACK_IMPORTED_MODULE_5__.default
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
         path: "/time",
         component: _timeline_timeline_grid_container__WEBPACK_IMPORTED_MODULE_7__.default
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
         path: "/color",
         component: _color_color_grid_container__WEBPACK_IMPORTED_MODULE_8__.default
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
         path: "/explore",
         component: _explore__WEBPACK_IMPORTED_MODULE_9__.default
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
         path: "/profile",
         component: _profile_profile_container__WEBPACK_IMPORTED_MODULE_10__.default
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+        path: "/gallery/:id",
+        component: _profile_gallery_item_container__WEBPACK_IMPORTED_MODULE_11__.default
       }));
     }
   }]);
@@ -12262,6 +12288,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12286,6 +12313,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Favorites = /*#__PURE__*/function (_React$Component) {
   _inherits(Favorites, _React$Component);
 
@@ -12300,14 +12328,11 @@ var Favorites = /*#__PURE__*/function (_React$Component) {
   _createClass(Favorites, [{
     key: "render",
     value: function render() {
-      var favorites = this.props.favorites;
-      console.log(favorites);
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Artwork", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.props.favorites.length ? this.props.favorites.length : "")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "favorite-grid"
       }, this.props.favorites.map(function (artwork, idx) {
         var artwork_source = artwork.title.toLowerCase().replace(/([ |%20])/g, "_");
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Link, {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           to: "/artwork/".concat(artwork.id),
           key: idx,
           className: "artwork",
@@ -12413,19 +12438,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
-var GalleryItem = function GalleryItem(_ref) {
-  var gallery = _ref.gallery;
-  var content = gallery.firstArtwork === undefined ? 'http://www.pbs.org/newshour/data/bubble-quiz/images/facebook-square.svg' : gallery.firstArtwork;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-    id: gallery.id
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: content
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, collection.title)));
+
+var GalleryItem = function GalleryItem(props) {
+  // const content = gallery.firstArtwork === undefined ? 'http://www.pbs.org/newshour/data/bubble-quiz/images/facebook-square.svg' : gallery.firstArtwork;
+  console.log(props);
+  var currentGallery = props.gallery;
+
+  if (currentGallery) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+      id: currentGallery.id,
+      className: "gallery-item-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      to: "/gallery/".concat(currentGallery.id),
+      src: currentGallery,
+      className: "gallery-item"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, currentGallery.title))));
+  } else {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
+  }
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GalleryItem);
+
+/***/ }),
+
+/***/ "./frontend/components/profile/gallery_item_container.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/profile/gallery_item_container.jsx ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _gallery_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gallery_item */ "./frontend/components/profile/gallery_item.jsx");
+/* harmony import */ var _actions_profile_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/profile_actions */ "./frontend/actions/profile_actions.js");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    galleries: state.profile
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    receiveGalleries: function receiveGalleries() {
+      return dispatch((0,_actions_profile_actions__WEBPACK_IMPORTED_MODULE_2__.receiveProfileGalleriesThunk)());
+    },
+    requestFavoriteGalleries: function (_requestFavoriteGalleries) {
+      function requestFavoriteGalleries() {
+        return _requestFavoriteGalleries.apply(this, arguments);
+      }
+
+      requestFavoriteGalleries.toString = function () {
+        return _requestFavoriteGalleries.toString();
+      };
+
+      return requestFavoriteGalleries;
+    }(function () {
+      return dispatch(requestFavoriteGalleries());
+    })
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, mapDispatchToProps)(_gallery_item__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -12535,9 +12621,44 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, "Galleries")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "gogh-tab-content"
       }, this.state.showFavorites && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_favorites__WEBPACK_IMPORTED_MODULE_2__.default, {
-        favorites: this.props.favorites
+        favorites: [{
+          id: 0,
+          title: 'The Starry Night',
+          creator_id: 1,
+          date_created: 1889,
+          color: 'blue',
+          style: 'Post-Impressionism',
+          medium: 'Oil on canvas',
+          partner_organization: 'MoMA The Museum of Modern Art',
+          favorited: false
+        }, {
+          id: 1,
+          title: 'Panel for Edwin R. Campbell No. 4',
+          creator_id: 2,
+          date_created: 1914,
+          color: 'blue',
+          style: 'Expressionism',
+          medium: 'Oil on canvas',
+          partner_organization: 'MoMA The Museum of Modern Art',
+          favorited: false
+        }, {
+          id: 2,
+          title: 'The Persistence of Memory',
+          creator_id: 3,
+          date_created: 1931,
+          color: 'brown',
+          style: 'Surrealism',
+          medium: 'Oil on canvas',
+          partner_organization: 'MoMA The Museum of Modern Art',
+          favorited: false
+        }]
       }), !this.state.showFavorites && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_galleries__WEBPACK_IMPORTED_MODULE_3__.default, {
-        galleries: this.props.galleries
+        galleries: [{
+          id: 1,
+          title: 'test',
+          description: 'testing123',
+          user_id: 8
+        }]
       })));
     }
   }]);
@@ -13604,7 +13725,6 @@ var artworksReducer = function artworksReducer() {
       return nextState;
 
     case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_FAVORITES:
-      // debugger
       return _objectSpread(_objectSpread({}, state), {}, {
         favorites: action.favorites
       });

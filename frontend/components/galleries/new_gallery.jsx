@@ -31,12 +31,8 @@ class NewGallery extends React.Component {
         this.setState({galleries: galleries})
     }
 
-
-
-
     render() {
         return (
-            
             <div>
                 <div>
                     {this.props.favorites.map((artwork, idx)=> {
@@ -48,8 +44,7 @@ class NewGallery extends React.Component {
                                         <div className="add style to position it in the corner">{this.isChecked(artwork.id) ? <i class="fas fa-check-circle"></i> : <i class="icon-circle-blank"></i>}</div>
                                         <img onClick={()=>this.toggle(artwork.id)}>
                                     </div>
-                                </Link>)
-                })}
+                                </Link>))}
                 </div>
                 <div className='new_collection'>
                     <form onSubmit={e => e.preventDefault()}>

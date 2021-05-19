@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => ({
     artworks: state.artworks.artworks,
     artwork: state.artworks.currentArtwork,
     currentUser: state.entities.users[state.session.id],
-
 })
 
 const mapDispatchToProps = (dispatch) => ({
