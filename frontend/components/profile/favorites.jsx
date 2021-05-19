@@ -6,6 +6,9 @@ class Favorites extends React.Component {
     }
 
     render() {
+        const favorites = this.props.favorites
+        console.log(favorites)
+        debugger
         return (
             <React.Fragment>
                 <h1>Artwork

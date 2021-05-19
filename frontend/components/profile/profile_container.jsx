@@ -5,12 +5,13 @@ import { receiveProfileFavoritesThunk, receiveProfileGalleriesThunk } from '../.
 
 const mapStateToProps = (state, ownProps) => ({
     galleries: state.profile.galleries,
-    favorites: state.profile.favorites
-})
+    favorites: state.profile.favorites,
+    currentUser: state.entities.users[state.session.id],
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     receiveFavorites: () => dispatch(receiveProfileFavoritesThunk()),
-    receiveGalleries: () => dispatch(receiveProfileGalleriesThunk())
+    receiveGalleries: () => dispatch(receiveProfileGalleriesThunk()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

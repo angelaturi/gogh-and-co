@@ -11054,6 +11054,8 @@ var Artwork = /*#__PURE__*/function (_React$Component) {
       if (!_this.props.currentUser) {
         _this.props.history.push('/signup');
       } else {
+        _this.props.toggleFavorite(_this.props.artwork.id);
+
         _this.props.toggleCurrentFavorite();
       }
     });
@@ -11133,11 +11135,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     artworks: state.artworks.artworks,
     artwork: state.artworks.currentArtwork,
-    currentUser: state.session.currentUser
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -11148,6 +11150,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     toggleFavorite: function toggleFavorite(id) {
       return dispatch((0,_actions_artworks_actions__WEBPACK_IMPORTED_MODULE_3__.toggleFavorite)(id));
+    },
+    toggleCurrentFavorite: function toggleCurrentFavorite() {
+      return dispatch((0,_actions_artworks_actions__WEBPACK_IMPORTED_MODULE_3__.toggleCurrentFavorite)());
     }
   };
 };
@@ -12295,6 +12300,9 @@ var Favorites = /*#__PURE__*/function (_React$Component) {
   _createClass(Favorites, [{
     key: "render",
     value: function render() {
+      var favorites = this.props.favorites;
+      console.log(favorites);
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Artwork", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.props.favorites.length ? this.props.favorites.length : "")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "favorite-grid"
       }, this.props.favorites.map(function (artwork, idx) {
@@ -12563,7 +12571,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     galleries: state.profile.galleries,
-    favorites: state.profile.favorites
+    favorites: state.profile.favorites,
+    currentUser: state.entities.users[state.session.id]
   };
 };
 

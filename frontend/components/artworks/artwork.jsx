@@ -3,6 +3,7 @@ import ImageViewer from 'iv-viewer';
 import 'iv-viewer/dist/iv-viewer.css';
 import {history} from 'react-router-dom'
 
+
 // function Artwork({artworks, artwork, setCurrentArtwork, ...props}) {
 
 //     useEffect(() => {
@@ -59,10 +60,11 @@ class Artwork extends React.Component {
     favoriting = (e) => {
         e.preventDefault();
         
-        if(!this.props.currentUser){
+        if (!this.props.currentUser) {
             this.props.history.push('/signup');
         } else {
-            this.props.toggleCurrentFavorite()
+            this.props.toggleFavorite(this.props.artwork.id);
+            this.props.toggleCurrentFavorite();
         }
     }
 
