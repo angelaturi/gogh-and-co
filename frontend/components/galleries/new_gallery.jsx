@@ -39,4 +39,3 @@ class NewGallery extends React.Component {
 }
 
 export default Galleries
-

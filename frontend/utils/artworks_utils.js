@@ -54,8 +54,7 @@ export const createArtwork = (artwork, success, error) => {
     });
 }
 
-export const receiveFavorites = (favorite, success, error) => {
-    // debugger
+export const fetchFavorites = (favorite, success, error) => {
     return $.ajax({
         method: 'POST',
         url: 'api/artworks/favorites',

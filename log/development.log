@@ -23103,3 +23103,1913 @@ Completed 500 Internal Server Error in 29ms (ActiveRecord: 7.1ms)
 NoMethodError (undefined method `artworks' for nil:NilClass):
   
 app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:28:04 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 893ms (Views: 886.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 17:30:08 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 590ms (Views: 583.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 17:30:35 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 485ms (Views: 481.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:30:35 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.2ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:43:41 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 840ms (Views: 833.0ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:43:43 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 2.4ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:44:47 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "&.selected": expected "{", was "&::after"
+
+"&::after" may only be used at the beginning of a compound selector.):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link rel="preconnect" href="https://fonts.gstatic.com">
+    11:     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  
+app/assets/stylesheets/components/profile.scss:3
+app/assets/stylesheets/components:9
+app/assets/stylesheets/application.scss:21
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3296160795721712605_70282401056580'
+Started GET "/" for ::1 at 2021-05-18 17:44:50 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "&.selected": expected "{", was "&::after"
+
+"&::after" may only be used at the beginning of a compound selector.):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link rel="preconnect" href="https://fonts.gstatic.com">
+    11:     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  
+app/assets/stylesheets/components/profile.scss:3
+app/assets/stylesheets/components:9
+app/assets/stylesheets/application.scss:21
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3296160795721712605_70281731124580'
+Started GET "/" for ::1 at 2021-05-18 17:45:02 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 514ms (Views: 510.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:45:02 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.6ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:45:18 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "&.selected": expected "{", was "&::after"
+
+"&::after" may only be used at the beginning of a compound selector.):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link rel="preconnect" href="https://fonts.gstatic.com">
+    11:     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  
+app/assets/stylesheets/components/profile.scss:3
+app/assets/stylesheets/components:9
+app/assets/stylesheets/application.scss:21
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3296160795721712605_70282400540760'
+Started GET "/" for ::1 at 2021-05-18 17:45:19 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "&.selected": expected "{", was "&::after"
+
+"&::after" may only be used at the beginning of a compound selector.):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link rel="preconnect" href="https://fonts.gstatic.com">
+    11:     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  
+app/assets/stylesheets/components/profile.scss:3
+app/assets/stylesheets/components:9
+app/assets/stylesheets/application.scss:21
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3296160795721712605_70282001222360'
+Started GET "/" for ::1 at 2021-05-18 17:45:21 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "&.selected": expected "{", was "&::after"
+
+"&::after" may only be used at the beginning of a compound selector.):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link rel="preconnect" href="https://fonts.gstatic.com">
+    11:     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  
+app/assets/stylesheets/components/profile.scss:3
+app/assets/stylesheets/components:9
+app/assets/stylesheets/application.scss:21
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3296160795721712605_70281725456500'
+Started GET "/" for ::1 at 2021-05-18 17:45:23 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "&.selected": expected "{", was "&::after"
+
+"&::after" may only be used at the beginning of a compound selector.):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link rel="preconnect" href="https://fonts.gstatic.com">
+    11:     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  
+app/assets/stylesheets/components/profile.scss:3
+app/assets/stylesheets/components:9
+app/assets/stylesheets/application.scss:21
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3296160795721712605_70281725310500'
+Started GET "/" for ::1 at 2021-05-18 17:45:34 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 133ms (Views: 130.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:45:35 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 8.8ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:45:44 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:48:22 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 179ms (Views: 174.8ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:48:23 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 3.2ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:48:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 124ms (Views: 122.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:48:25 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 6.3ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:48:27 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:48:27 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.3ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:50:04 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 1061ms (Views: 1055.7ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:50:06 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.4ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:50:20 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:50:20 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 5.5ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:50:22 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 170ms (Views: 167.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:50:22 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 6.3ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:50:40 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:50:40 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 2.6ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:50:42 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 166ms (Views: 162.3ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:50:42 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.2ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:51:41 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 167ms (Views: 162.6ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:51:41 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:52:05 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 133ms (Views: 130.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:52:06 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 2.1ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:52:34 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "    justify": expected "{", was "}"):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link rel="preconnect" href="https://fonts.gstatic.com">
+    11:     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  
+app/assets/stylesheets/components/profile.scss:4
+app/assets/stylesheets/components:9
+app/assets/stylesheets/application.scss:21
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3296160795721712605_70282013246800'
+Started GET "/" for ::1 at 2021-05-18 17:52:36 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "    justify": expected "{", was "}"):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link rel="preconnect" href="https://fonts.gstatic.com">
+    11:     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  
+app/assets/stylesheets/components/profile.scss:4
+app/assets/stylesheets/components:9
+app/assets/stylesheets/application.scss:21
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3296160795721712605_70282014132980'
+Started GET "/" for ::1 at 2021-05-18 17:52:37 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 143ms (Views: 140.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:52:37 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:55:16 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 243ms (Views: 236.7ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:55:16 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.7ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:55:21 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:55:21 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.2ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:57:29 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 250ms (Views: 243.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:57:30 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.9ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:57:50 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 42ms (Views: 35.5ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:57:50 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 3.4ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:57:52 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 147ms (Views: 143.9ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:57:52 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.7ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:57:56 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 33ms (Views: 31.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:57:56 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:58:06 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 74ms (Views: 66.3ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:58:06 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 3.4ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:58:48 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 153ms (Views: 150.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:58:49 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:58:50 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 144ms (Views: 141.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:58:51 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:58:56 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.2ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 17:58:58 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 17:58:58 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 8.7ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 18:02:49 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 1004ms (Views: 989.4ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 18:02:50 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 18:02:55 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 18:02:55 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.2ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 18:03:00 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 3.5ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 18:03:02 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 138ms (Views: 129.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 18:03:02 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.9ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:33:in `favorites'
+Started GET "/" for ::1 at 2021-05-18 19:12:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (68.0ms)
+Completed 200 OK in 1451ms (Views: 1391.8ms | ActiveRecord: 47.1ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:13:27 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 59ms (Views: 46.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:13:33 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 661ms (Views: 658.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:14:20 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 699ms (Views: 693.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:15:23 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (11.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 851ms (Views: 826.5ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:16:20 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 55ms (Views: 49.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:16:24 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:17:09 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 644ms (Views: 640.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:18:07 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 909ms (Views: 891.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:18:11 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 38ms (Views: 32.8ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:18:14 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:19:39 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 911ms (Views: 905.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:19:47 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 497ms (Views: 492.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:20:00 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:20:04 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 539ms (Views: 536.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:20:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 468ms (Views: 465.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:20:39 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:20:41 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 549ms (Views: 546.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:21:08 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 513ms (Views: 509.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:21:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 460ms (Views: 457.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:22:41 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 652ms (Views: 641.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:22:42 -0400
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-18 19:22:42 -0400
+Processing by Api::GalleriesController#index as JSON
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (12.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendered api/galleries/index.json.jbuilder (26.1ms)
+Completed 200 OK in 54ms (Views: 9.7ms | ActiveRecord: 23.9ms)
+
+
+Processing by Api::ArtworksController#show as JSON
+  Parameters: {"id"=>"favorites"}
+  [1m[36mArtwork Load (1.7ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/artworks_controller.rb:8
+Completed 404 Not Found in 27ms (ActiveRecord: 18.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Artwork with 'id'=favorites):
+  
+app/controllers/api/artworks_controller.rb:8:in `show'
+Started GET "/" for ::1 at 2021-05-18 19:24:31 -0400
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/angelaturi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 1374ms (Views: 1362.5ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-18 19:24:33 -0400
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:24:33 -0400
+Processing by Api::ArtworksController#show as JSON
+  Parameters: {"id"=>"favorites"}
+Processing by Api::GalleriesController#index as JSON
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (3.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  [1m[36mArtwork Load (2.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/artworks_controller.rb:8
+Completed 404 Not Found in 88ms (ActiveRecord: 36.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Artwork with 'id'=favorites):
+  
+app/controllers/api/artworks_controller.rb:8:in `show'
+  Rendered api/galleries/index.json.jbuilder (34.1ms)
+Completed 200 OK in 61ms (Views: 13.9ms | ActiveRecord: 32.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:24:41 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 36ms (Views: 32.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-18 19:24:41 -0400
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:24:41 -0400
+Processing by Api::GalleriesController#index as JSON
+Processing by Api::ArtworksController#show as JSON
+  Parameters: {"id"=>"favorites"}
+  [1m[36mArtwork Load (0.9ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/artworks_controller.rb:8
+Completed 404 Not Found in 3ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Artwork with 'id'=favorites):
+  
+app/controllers/api/artworks_controller.rb:8:in `show'
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (8.8ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendered api/galleries/index.json.jbuilder (10.1ms)
+Completed 200 OK in 73ms (Views: 57.5ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:27:43 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (47.1ms)
+Completed 200 OK in 148ms (Views: 109.7ms | ActiveRecord: 31.3ms)
+
+
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-18 19:27:44 -0400
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:27:44 -0400
+Processing by Api::ArtworksController#show as JSON
+  Parameters: {"id"=>"favorites"}
+Processing by Api::GalleriesController#index as JSON
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (4.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendered api/galleries/index.json.jbuilder (7.3ms)
+Completed 200 OK in 37ms (Views: 12.5ms | ActiveRecord: 4.4ms)
+
+
+  [1m[36mArtwork Load (1.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/artworks_controller.rb:8
+Completed 404 Not Found in 53ms (ActiveRecord: 31.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Artwork with 'id'=favorites):
+  
+app/controllers/api/artworks_controller.rb:8:in `show'
+Started GET "/" for ::1 at 2021-05-18 19:29:52 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/angelaturi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 1445ms (Views: 1433.2ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:29:54 -0400
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 19:29:54 -0400
+Processing by Api::GalleriesController#index as JSON
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (2.8ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+Processing by Api::ArtworksController#favorites as JSON
+  Rendered api/galleries/index.json.jbuilder (12.7ms)
+Completed 200 OK in 29ms (Views: 9.6ms | ActiveRecord: 9.3ms)
+
+
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Boq5A_rYIlE9cyIZkdfXg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 3.4ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:32:in `favorites'
+Started POST "/api/users" for ::1 at 2021-05-18 19:30:30 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"Angela", "last_name"=>"Turi", "email"=>"angela4000@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "angela4000@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "fh_gnnMWAEp1clButEi8JQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Create (9.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "angela4000@gmail.com"], ["first_name", "Angela"], ["last_name", "Turi"], ["password_digest", "$2a$12$5L.eZgiC4ZqdzkJypncb6.5uEeu8xXdI6q.WGLDR1LRI2bXfY4sqS"], ["session_token", "fh_gnnMWAEp1clButEi8JQ"], ["created_at", "2021-05-18 23:30:30.505245"], ["updated_at", "2021-05-18 23:30:30.505245"]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "angela4000@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Update (2.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["updated_at", "2021-05-18 23:30:30.520482"], ["id", 4]]
+  ↳ app/models/user.rb:70
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:70
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.3ms)
+Completed 200 OK in 343ms (Views: 6.1ms | ActiveRecord: 37.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:30:33 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 38ms (Views: 35.0ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 19:30:38 -0400
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:30:38 -0400
+Processing by Api::ArtworksController#favorites as JSON
+Processing by Api::GalleriesController#index as JSON
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mGallery Load (6.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendered api/galleries/index.json.jbuilder (9.0ms)
+Completed 200 OK in 18ms (Views: 9.2ms | ActiveRecord: 6.1ms)
+
+
+  Rendering api/artworks/favorites.json.jbuilder
+  [1m[36mArtwork Load (5.1ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "favorites" ON "artworks"."id" = "favorites"."artwork_id" WHERE "favorites"."favoriter_id" = $1[0m  [["favoriter_id", 4]]
+  ↳ app/views/api/artworks/favorites.json.jbuilder:1
+  Rendered api/artworks/favorites.json.jbuilder (38.0ms)
+Completed 200 OK in 81ms (Views: 22.7ms | ActiveRecord: 30.7ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:31:17 -0400
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/angelaturi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (40.9ms)
+Completed 200 OK in 834ms (Views: 804.7ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-18 19:31:18 -0400
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:31:18 -0400
+Processing by Api::ArtworksController#show as JSON
+  Parameters: {"id"=>"favorites"}
+  [1m[36mArtwork Load (2.6ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/artworks_controller.rb:8
+Completed 404 Not Found in 32ms (ActiveRecord: 19.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Artwork with 'id'=favorites):
+  
+app/controllers/api/artworks_controller.rb:8:in `show'
+Processing by Api::GalleriesController#index as JSON
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (3.2ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendered api/galleries/index.json.jbuilder (25.7ms)
+Completed 200 OK in 51ms (Views: 15.2ms | ActiveRecord: 22.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:31:22 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 35ms (Views: 28.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-18 19:31:22 -0400
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:31:22 -0400
+Processing by Api::ArtworksController#show as JSON
+  Parameters: {"id"=>"favorites"}
+Processing by Api::GalleriesController#index as JSON
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (1.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendered api/galleries/index.json.jbuilder (5.8ms)
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 1.4ms)
+
+
+  [1m[36mArtwork Load (1.9ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/artworks_controller.rb:8
+Completed 404 Not Found in 17ms (ActiveRecord: 14.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Artwork with 'id'=favorites):
+  
+app/controllers/api/artworks_controller.rb:8:in `show'
+Started GET "/" for ::1 at 2021-05-18 19:31:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-18 19:31:25 -0400
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:31:25 -0400
+Processing by Api::ArtworksController#show as JSON
+  Parameters: {"id"=>"favorites"}
+Processing by Api::GalleriesController#index as JSON
+  [1m[36mArtwork Load (7.3ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/artworks_controller.rb:8
+Completed 404 Not Found in 35ms (ActiveRecord: 7.3ms)
+
+
+  Rendering api/galleries/index.json.jbuilder
+  
+ActiveRecord::RecordNotFound (Couldn't find Artwork with 'id'=favorites):
+  
+app/controllers/api/artworks_controller.rb:8:in `show'
+  [1m[36mGallery Load (31.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendered api/galleries/index.json.jbuilder (38.2ms)
+Completed 200 OK in 69ms (Views: 33.3ms | ActiveRecord: 31.6ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:34:10 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (45.4ms)
+Completed 200 OK in 160ms (Views: 125.2ms | ActiveRecord: 30.6ms)
+
+
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:34:10 -0400
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 19:34:10 -0400
+Processing by Api::GalleriesController#index as JSON
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (3.6ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendering api/artworks/favorites.json.jbuilder
+  Rendered api/galleries/index.json.jbuilder (16.1ms)
+Completed 200 OK in 115ms (Views: 12.8ms | ActiveRecord: 8.1ms)
+
+
+  [1m[36mArtwork Load (1.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "favorites" ON "artworks"."id" = "favorites"."artwork_id" WHERE "favorites"."favoriter_id" = $1[0m  [["favoriter_id", 4]]
+  ↳ app/views/api/artworks/favorites.json.jbuilder:1
+  Rendered api/artworks/favorites.json.jbuilder (61.7ms)
+Completed 200 OK in 173ms (Views: 27.9ms | ActiveRecord: 46.2ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:36:12 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/angelaturi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (53.4ms)
+Completed 200 OK in 832ms (Views: 794.7ms | ActiveRecord: 23.8ms)
+
+
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-18 19:36:13 -0400
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:36:13 -0400
+Processing by Api::ArtworksController#show as JSON
+  Parameters: {"id"=>"favorites"}
+Processing by Api::GalleriesController#index as JSON
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (5.7ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  [1m[36mArtwork Load (2.0ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/artworks_controller.rb:8
+Completed 404 Not Found in 86ms (ActiveRecord: 32.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Artwork with 'id'=favorites):
+  
+app/controllers/api/artworks_controller.rb:8:in `show'
+  Rendered api/galleries/index.json.jbuilder (14.8ms)
+Completed 200 OK in 60ms (Views: 39.9ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:36:30 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (44.4ms)
+Completed 200 OK in 125ms (Views: 95.6ms | ActiveRecord: 28.1ms)
+
+
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:36:30 -0400
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 19:36:30 -0400
+Processing by Api::GalleriesController#index as JSON
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (12.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (7.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendered api/galleries/index.json.jbuilder (20.6ms)
+Completed 200 OK in 54ms (Views: 28.1ms | ActiveRecord: 12.8ms)
+
+
+  Rendering api/artworks/favorites.json.jbuilder
+  [1m[36mArtwork Load (2.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "favorites" ON "artworks"."id" = "favorites"."artwork_id" WHERE "favorites"."favoriter_id" = $1[0m  [["favoriter_id", 4]]
+  ↳ app/views/api/artworks/favorites.json.jbuilder:1
+  Rendered api/artworks/favorites.json.jbuilder (53.0ms)
+Completed 200 OK in 145ms (Views: 30.2ms | ActiveRecord: 42.2ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:40:51 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 709ms (Views: 699.4ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 19:40:52 -0400
+Processing by Api::ArtworksController#favorites as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/artworks/favorites.json.jbuilder
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:40:52 -0400
+  [1m[36mArtwork Load (4.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "favorites" ON "artworks"."id" = "favorites"."artwork_id" WHERE "favorites"."favoriter_id" = $1[0m  [["favoriter_id", 4]]
+  ↳ app/views/api/artworks/favorites.json.jbuilder:1
+  Rendered api/artworks/favorites.json.jbuilder (10.0ms)
+Completed 200 OK in 33ms (Views: 16.8ms | ActiveRecord: 5.5ms)
+
+
+Processing by Api::GalleriesController#index as JSON
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mGallery Load (3.3ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendered api/galleries/index.json.jbuilder (5.9ms)
+Completed 200 OK in 28ms (Views: 8.7ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/api/artworks/favorites" for ::1 at 2021-05-18 19:42:27 -0400
+Started GET "/api/galleries" for ::1 at 2021-05-18 19:42:27 -0400
+Processing by Api::ArtworksController#favorites as JSON
+Processing by Api::GalleriesController#index as JSON
+  Rendering api/galleries/index.json.jbuilder
+  [1m[36mUser Load (27.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/artworks/favorites.json.jbuilder
+  [1m[36mGallery Load (9.8ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/api/galleries/index.json.jbuilder:1
+  Rendered api/galleries/index.json.jbuilder (16.0ms)
+Completed 200 OK in 37ms (Views: 18.1ms | ActiveRecord: 9.8ms)
+
+
+  [1m[36mArtwork Load (3.8ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "favorites" ON "artworks"."id" = "favorites"."artwork_id" WHERE "favorites"."favoriter_id" = $1[0m  [["favoriter_id", 4]]
+  ↳ app/views/api/artworks/favorites.json.jbuilder:1
+  Rendered api/artworks/favorites.json.jbuilder (13.4ms)
+Completed 200 OK in 54ms (Views: 15.7ms | ActiveRecord: 30.9ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:43:11 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (11.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 96ms (Views: 81.2ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:43:47 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 46ms (Views: 39.9ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:45:07 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (4.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 60ms (Views: 51.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:46:06 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (86.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (10.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (159.1ms)
+Completed 200 OK in 381ms (Views: 205.0ms | ActiveRecord: 86.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:51:31 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (2.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 56ms (Views: 50.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:52:00 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 93ms (Views: 85.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:52:22 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (19.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (6.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (48.2ms)
+Completed 200 OK in 218ms (Views: 182.6ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:53:37 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 43ms (Views: 37.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:54:27 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 72ms (Views: 67.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:54:34 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 30ms (Views: 27.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:54:44 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:54:57 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 30ms (Views: 28.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:55:02 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 30ms (Views: 26.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:55:13 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 31ms (Views: 26.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:59:27 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 91ms (Views: 65.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 19:59:36 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:00:19 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 32ms (Views: 28.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:00:37 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 32ms (Views: 26.8ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-05-18 20:00:50 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
+Started DELETE "/api/session" for ::1 at 2021-05-18 20:01:03 -0400
+  ↳ app/models/user.rb:70
+Started GET "/" for ::1 at 2021-05-18 20:01:03 -0400
+Started DELETE "/api/session" for ::1 at 2021-05-18 20:01:03 -0400
+  [1m[36mUser Exists (112.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "angela4000@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (8.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "UWBcjYMaSXazp0lObOH47w"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Update (61.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "UWBcjYMaSXazp0lObOH47w"], ["updated_at", "2021-05-19 00:01:03.810265"], ["id", 4]]
+  ↳ app/models/user.rb:70
+  [1m[35m (20.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:70
+Completed 200 OK in 13489ms (Views: 5.5ms | ActiveRecord: 221.1ms)
+
+
+Processing by Api::SessionsController#destroy as JSON
+Processing by StaticPagesController#root as HTML
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 404 Not Found in 15ms (Views: 0.5ms | ActiveRecord: 9.9ms)
+
+
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (22.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 404 Not Found in 61ms (Views: 0.2ms | ActiveRecord: 24.6ms)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (50.1ms)
+Started GET "/" for ::1 at 2021-05-18 20:01:04 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 748ms (Views: 727.1ms | ActiveRecord: 3.3ms)
+
+
+Completed 200 OK in 206ms (Views: 197.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:01:54 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 70ms (Views: 51.4ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:02:32 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Fn9Frq5npYOiQgdJeLtd6w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 35ms (Views: 30.0ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/api/users" for ::1 at 2021-05-18 20:03:53 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"Angela", "last_name"=>"Turi", "email"=>"angelaturi2000@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (4.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "angelaturi2000@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "0ev-buLmxtkKZfjAKHszqA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Create (17.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "angelaturi2000@gmail.com"], ["first_name", "Angela"], ["last_name", "Turi"], ["password_digest", "$2a$12$/6JDD12jWcFeqnzKm74ByOF43PKoOYmTSnKCPf9a4xsKTv/TW8QJ2"], ["session_token", "0ev-buLmxtkKZfjAKHszqA"], ["created_at", "2021-05-19 00:03:54.096181"], ["updated_at", "2021-05-19 00:03:54.096181"]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "angelaturi2000@gmail.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "m0UM3_DEaDF-Jks-Oj8-uQ"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "m0UM3_DEaDF-Jks-Oj8-uQ"], ["updated_at", "2021-05-19 00:03:54.123247"], ["id", 5]]
+  ↳ app/models/user.rb:70
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:70
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered api/users/show.json.jbuilder (4.0ms)
+Completed 200 OK in 341ms (Views: 9.0ms | ActiveRecord: 31.6ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:04:07 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "m0UM3_DEaDF-Jks-Oj8-uQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 51ms (Views: 47.6ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-05-18 20:04:22 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "m0UM3_DEaDF-Jks-Oj8-uQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "angelaturi2000@gmail.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "jDvFVvYVIesKRJainM4Xnw"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "jDvFVvYVIesKRJainM4Xnw"], ["updated_at", "2021-05-19 00:04:22.849024"], ["id", 5]]
+  ↳ app/models/user.rb:70
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:70
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:04:29 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:04:40 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:04:53 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:05:00 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/users" for ::1 at 2021-05-18 20:05:31 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"Angela", "last_name"=>"Turi", "email"=>"angela5000@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "angela5000@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "lXHS6mYXPOesCLmyZsaCfg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "angela5000@gmail.com"], ["first_name", "Angela"], ["last_name", "Turi"], ["password_digest", "$2a$12$EfzmUyKamg0MiNn1vBWZ0O0ajdmXVFCl9xSdSYUUT1F22nBAUIn0e"], ["session_token", "lXHS6mYXPOesCLmyZsaCfg"], ["created_at", "2021-05-19 00:05:31.689620"], ["updated_at", "2021-05-19 00:05:31.689620"]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "angela5000@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "1gGL-BZBoDVwp1H6P4NxsA"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "1gGL-BZBoDVwp1H6P4NxsA"], ["updated_at", "2021-05-19 00:05:31.709394"], ["id", 6]]
+  ↳ app/models/user.rb:70
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:70
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.2ms)
+Completed 200 OK in 336ms (Views: 5.7ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:08:55 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1gGL-BZBoDVwp1H6P4NxsA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (10.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (37.0ms)
+Completed 200 OK in 784ms (Views: 768.6ms | ActiveRecord: 9.9ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-05-18 20:09:01 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1gGL-BZBoDVwp1H6P4NxsA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (5.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "angela5000@gmail.com"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (2.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "fCoVZwI4ju8ygrd7Q2HV4A"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Update (2.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "fCoVZwI4ju8ygrd7Q2HV4A"], ["updated_at", "2021-05-19 00:09:01.657781"], ["id", 6]]
+  ↳ app/models/user.rb:70
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:70
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:09:09 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 30ms (Views: 26.6ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/api/users" for ::1 at 2021-05-18 20:09:57 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"Angela", "last_name"=>"Turi", "email"=>"angelaturi222@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "angelaturi222@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "d950x_OOZSGvX-H8Km662w"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "angelaturi222@gmail.com"], ["first_name", "Angela"], ["last_name", "Turi"], ["password_digest", "$2a$12$0UcdIjqQyd/XnihGg8ZtHu3HZ9Oz7GKbBjLYb3R9IfT.iIDLJ4o/."], ["session_token", "d950x_OOZSGvX-H8Km662w"], ["created_at", "2021-05-19 00:09:57.456012"], ["updated_at", "2021-05-19 00:09:57.456012"]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "angelaturi222@gmail.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "A2-xvC_hEMbetQ_7FFupmA"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "A2-xvC_hEMbetQ_7FFupmA"], ["updated_at", "2021-05-19 00:09:57.463018"], ["id", 7]]
+  ↳ app/models/user.rb:70
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:70
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (1.6ms)
+Completed 200 OK in 316ms (Views: 6.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:10:43 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "A2-xvC_hEMbetQ_7FFupmA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:11:22 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "A2-xvC_hEMbetQ_7FFupmA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:17:13 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "A2-xvC_hEMbetQ_7FFupmA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 52ms (Views: 46.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-18 20:17:53 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "A2-xvC_hEMbetQ_7FFupmA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 56ms (Views: 52.8ms | ActiveRecord: 0.9ms)
+
+

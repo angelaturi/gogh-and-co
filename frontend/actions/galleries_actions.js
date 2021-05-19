@@ -1,6 +1,5 @@
 export const REQUEST_GALLERIES = 'REQUEST_GALLERIES';
 export const REQUEST_FAVORITE_GALLERIES = 'REQUEST_FAVORITE_GALLERIES';
-export const RECEIVE_GALLERIES = 'RECEIVE_GALLERIES';
 export const REQUEST_CURRENT_GALLERY = 'REQUEST_CURRENT_GALLERY';
 export const RECEIVE_CURRENT_GALLERY = 'RECEIVE_CURRENT_GALLERY';
 export const CREATE_GALLERY = 'CREATE_GALLERY';
@@ -8,18 +7,8 @@ export const UPDATE_GALLERY = 'UPDATE_GALLERY';
 export const RECEIVE_GALLERY = 'RECEIVE_GALLERY';
 export const DELETE_GALLERY = 'DELETE_GALLERY';
 
-export const requestGalleries = () => ({
-    type: REQUEST_GALLERIES
-})
-
-
 export const requestFavoriteGalleries = () => ({
     type: REQUEST_FAVORITE_GALLERIES
-})
-
-export const receiveGalleries = galleries => ({
-    type: RECEIVE_GALLERIES,
-    galleries
 })
 
 // export const requestCurrentGallery = id => ({
@@ -75,8 +64,3 @@ export const createGalleryThunk = () => {
 
     } 
 }
-
-export const receiveGalleriesThunk = galleries => ({
-    type: RECEIVE_GALLERIES,
-    galleries
-})

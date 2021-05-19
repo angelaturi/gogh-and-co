@@ -3,23 +3,15 @@ import React from 'react'
 class Favorites extends React.Component {
     constructor(props) {
         super(props)
-        // debugger
-    }
-
-    componentDidMount() {
-        // debugger
-        const favorites = this.props.receiveFavorites()
-        this.setState({favorites: favorites})
-        // console.log(this.state)
     }
 
     render() {
-        // console.log(this.props)
-        const title = this.props.favorites.length ? this.props.favorites[0].title : "No favorites";
         return (
-            <div>
-                {title}
-                <div>
+            <React.Fragment>
+                <h1>Artwork
+                    <small>{this.props.favorites.length ? this.props.favorites.length : ""}</small>
+                </h1>
+                <div className={"favorite-grid"}>
                     {this.props.favorites.map((artwork, idx)=> {
                     let artwork_source = artwork.title.toLowerCase().replace(/([ |%20])/g, "_")
                     return (<Link to={`/artwork/${artwork.id}`} key={idx} className={"artwork"} style={{
@@ -27,7 +19,7 @@ class Favorites extends React.Component {
                                 }}></Link>)
                 })}
                 </div>
-            </div>
+            </React.Fragment>
             
         )
     }

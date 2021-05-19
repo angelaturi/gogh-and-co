@@ -1,6 +1,6 @@
 import {merge} from 'lodash'
 
-export const requestGalleries = (success, error) => {
+export const fetchGalleries = (success, error) => {
     return $.ajax({
         method: 'GET',
         url: 'api/galleries',

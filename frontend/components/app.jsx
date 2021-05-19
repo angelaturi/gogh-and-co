@@ -9,7 +9,7 @@ import {clearArtworks, requestArtworks, requestFavoriteArtworks, requestGallery,
 import TimelineGridContainer from './timeline/timeline_grid_container';
 import ColorGridContainer from './color/color_grid_container';
 import Explore from './explore';
-import Profile from './profile';
+import ProfileContainer from './profile/profile_container';
 import './fontawesome'
 
 class App extends React.Component {
@@ -32,7 +32,7 @@ class App extends React.Component {
             <Route path="/time" component={TimelineGridContainer}/>
             <Route path="/color" component={ColorGridContainer}/>
             <Route path="/explore" component={Explore}/>
-            <Route path="/profile" component={Profile}/>
+            <Route path="/profile" component={ProfileContainer}/>
         </Switch>
         )
         }

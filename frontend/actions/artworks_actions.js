@@ -35,10 +35,6 @@ export const receiveArtworks = artworks => ({
     artworks
 })
 
-export const requestFavoriteArtworks = () => ({
-    type: REQUEST_FAVORITE_ARTWORKS
-})
-
 export const requestGallery = id => ({
     type: REQUEST_GALLERY,
     id
@@ -76,18 +72,6 @@ export const createArtwork = artwork => ({
     type: CREATE_ARTWORK,
     artwork
 })
-
-export const receiveFavoritesThunk = () => {
-    // debugger
-    return function (dispatch) {
-        return ArtworksAPI.receiveFavorites()
-            .then(
-                (artworks) => {
-                    dispatch(receiveFavorites(artworks))
-                },)
-
-    } 
-}
 
 export const setFavoriteThunk = () => {
     return function (dispatch) {

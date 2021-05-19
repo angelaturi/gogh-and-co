@@ -6,6 +6,7 @@ import artworksReducer from './artworks_reducer';
 import colorReducer from './color_reducer';
 import timeReducer from './time_reducer';
 import galleriesReducer from './galleries_reducer';
+import profileReducer from './profile_reducer';
 
 const rootReducer = combineReducers({
     entities: entitiesReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     artworks: artworksReducer,
     color: colorReducer,
     time: timeReducer,
-    galleries: galleriesReducer
+    galleries: galleriesReducer,
+    profile: profileReducer
 })
 
 export default rootReducer

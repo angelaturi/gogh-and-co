@@ -29,7 +29,6 @@ class Api::ArtworksController < ApplicationController
     end
 
     def favorites
-        # binding.pry
         @artworks = current_user.artworks
     end
 
