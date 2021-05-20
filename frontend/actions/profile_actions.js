@@ -1,48 +1,44 @@
-import * as ArtworksAPI from '../utils/artworks_utils';
-import * as GalleriesAPI from '../utils/galleries_utils';
+import * as ArtworksAPI from "../utils/artworks_utils";
+import * as GalleriesAPI from "../utils/galleries_utils";
 
-export const RECEIVE_PROFILE_GALLERIES = "RECEIVE_PROFILE_GALLERIES"
-export const RECEIVE_PROFILE_FAVORITES = "RECEIVE_PROFILE_FAVORITES"
+export const RECEIVE_PROFILE_GALLERIES = "RECEIVE_PROFILE_GALLERIES";
+export const RECEIVE_PROFILE_FAVORITES = "RECEIVE_PROFILE_FAVORITES";
 
-export const receiveProfileGalleries = galleries => ({
-    type: RECEIVE_PROFILE_GALLERIES,
-    galleries
-})
+export const receiveProfileGalleries = (galleries) => ({
+  type: RECEIVE_PROFILE_GALLERIES,
+  galleries,
+});
 
-export const receiveProfileFavorites = favorites => ({
-    type: RECEIVE_PROFILE_FAVORITES,
-    favorites
-})
+export const receiveProfileFavorites = (favorites) => ({
+  type: RECEIVE_PROFILE_FAVORITES,
+  favorites,
+});
 
 export const receiveProfileFavoritesThunk = () => {
-    return function (dispatch) {
-        return ArtworksAPI.requestArtworks()
-        .then((artworks) => {
-          dispatch(receiveProfileFavorites(artworks.map((favorite)=>({
-              ...favorite, favorited: false
-            }))));
-        });
-    } 
-}
+  return function (dispatch) {
+    return ArtworksAPI.fetchFavorites().then((artworks) => {
+      artworks.forEach((artwork) => {
+        artwork.favorited = false;
+      });
+      dispatch(receiveProfileFavorites(artworks));
+    });
+  };
+};
+
 
 export const receiveProfileGalleriesThunk = () => {
-    return function (dispatch) {
-        return GalleriesAPI.fetchGalleries()
-            .then(
-                (galleries) => {
-                    dispatch(receiveProfileGalleries(galleries))
-                })
-    }
-}
+  return function (dispatch) {
+    return GalleriesAPI.fetchGalleries().then((galleries) => {
+      dispatch(receiveProfileGalleries(galleries));
+    });
+  };
+};
 
 export const requestGalleries = () => {
   return function (dispatch) {
-    return GalleriesAPI.fetchGalleries()
-    .then(
-      (galleries) => {
-        // debugger
-        dispatch(receiveProfileGalleries(galleries));
-      }
-    );
+    return GalleriesAPI.fetchGalleries().then((galleries) => {
+      // debugger
+      dispatch(receiveProfileGalleries(galleries));
+    });
   };
 };

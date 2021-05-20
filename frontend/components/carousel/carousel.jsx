@@ -1,6 +1,7 @@
 import React, {Component, createRef} from "react";
 import './carousel.css';
 import $ from "jquery";
+import {Link} from 'react-router-dom';
 
 const carouselClass = ['prevLeftSecond','prev','selected','next','nextRightSecond'];
 
@@ -63,7 +64,7 @@ class Carousel extends Component {
 				<div id="carousel">
 					{imageArray && imageArray.length > 0 ? imageArray.map((singleImage, idx) => (
 						<div key={idx} onMouseOver={(e) => this.moveToSelected(e)} className={singleImage.class}>
-							<img alt='' src={singleImage.url}/>
+							<Link to={`/artwork/1`}><img alt='' src={singleImage.url}/></Link>
 							<div className="title">{singleImage.title}</div>
 						</div>
 					)) : ''}

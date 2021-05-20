@@ -5,11 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+puts "got here begin==>>"
 User.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!(User.table_name)
 Artist.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!(Artist.table_name)
 Artwork.destroy_all
-
+ActiveRecord::Base.connection.reset_pk_sequence!(Artwork.table_name)
+# puts "got here begin==>>"
 User.create(email: 'monalisa@demoemail.com', password: 'louvre123', first_name: 'Mona Lisa', last_name: 'Gherardini', profile_image_url: 'https://ibb.co/yXPR07z')
 
 
@@ -33,7 +36,7 @@ Artwork.create(title: 'The Persistence of Memory', creator_id: 3, date_created: 
 Artwork.create(title: 'The Town of the Poor', creator_id: 4, date_created: 1951, color: 'gray', style: 'Abstract Expressionism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
 Artwork.create(title: 'The Juggler', creator_id: 5, date_created: 1956, color: 'brown', style: 'Surrealism', medium: 'Oil and inlaid mother of pearl on board', partner_organization: 'MoMA The Museum of Modern Art')
 Artwork.create(title: 'Portrait of Meijer de Haan', creator_id: 6, date_created: 1889, color: 'red', style: 'Post-Impressionism', medium: 'Oil on wood', partner_organization: 'MoMA The Museum of Modern Art')
-Artwork.create(title: 'Château Noir', creator_id: 7, date_created: 1903, color: 'blue', style: 'Post-Impressionism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
+Artwork.create(title: 'Chateau Noir', creator_id: 7, date_created: 1903, color: 'blue', style: 'Post-Impressionism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
 Artwork.create(title: "Les Demoiselles d'Avignon", creator_id: 8, date_created: 1907, color: 'pink', style: 'Cubism', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
 Artwork.create(title: 'Woman Plaiting Her Hair', creator_id: 8, date_created: 1906, color: 'pink', style: "Picasso's Rose Period", medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
 Artwork.create(title: 'Two Nudes', creator_id: 8, date_created: 1906, color: 'orange', style: "Picasso's Rose Period", medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
@@ -47,3 +50,5 @@ Artwork.create(title: 'One Number 31 1950', creator_id: 10, date_created: 1950, 
 Artwork.create(title: 'Echo Number 25 1951', creator_id: 10, date_created: 1951, color: 'black', style: 'Abstract Expressionism', medium: 'Enamel paint on canvas', partner_organization: 'MoMA The Museum of Modern Art')
 Artwork.create(title: 'The Dream', creator_id: 11, date_created: 1910, color: 'green', style: 'Modern Art', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
 Artwork.create(title: 'Lagoon from Jazz', creator_id: 12, date_created: 1947, color: 'blue', style: 'Modern Art', medium: 'Oil on canvas', partner_organization: 'MoMA The Museum of Modern Art')
+
+puts "got here end==>>"

@@ -1,0 +1,27 @@
+.field-wrapper {
+
+    .tool-tip {
+        text-align: right;
+        color: #CCC;
+    }
+
+    input {
+        border: 0;
+        border-bottom: 1px solid #CCC;
+        width: 100%;
+        padding: 10px 10px 4px;
+        margin: 0 0 8px;
+
+        &:active {
+            border-bottom-color: #1a73e8; 
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+}
+
+.gogh-form {
+    margin-bottom: 16px;
+}

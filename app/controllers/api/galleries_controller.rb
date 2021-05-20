@@ -8,7 +8,8 @@ class Api::GalleriesController < ApplicationController
         @gallery = Gallery.new(gallery_params)
         @gallery.user_id = current_user.id
         if @gallery.save
-            render 'api/gallery/show'
+            # render 'api/gallery/show'
+            render json: @gallery
         else
             render json: @gallery.errors.full_messages, status: 422
         end

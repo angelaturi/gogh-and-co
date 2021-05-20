@@ -1,0 +1,21 @@
+.gogh-action-bar {
+    background: #1a73e8;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .close {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .secondary {
+        background: white;
+        color: #1a73e8;
+        padding: 8px 16px;
+        border: 0;
+        border-radius: 4px;
+    }
+}

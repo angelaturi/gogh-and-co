@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import Galleries from './favorites';
+import Gallery from './gallery';
+import { setGallery } from "../../actions/galleries_actions";
+
 
 const mapStateToProps = (state, ownProps) => ({
-    artworks: state.artworks.artworks,
-    id: state.galleries.currentGallery.id,
-    title: state.galleries.currentGallery.title,
-    description: state.galleries.currentGallery.description,
-    firstArtwork: state.galleries.currentGallery.firstArtwork
+    galleries: state.galleries.galleries,
+    gallery: state.galleries.gallery,
 })
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-    
-// }
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    setGallery: gallery => dispatch(setGallery(gallery))
+})
 
-export default connect(mapStateToProps, null)(Galleries)
+export default connect(mapStateToProps, mapDispatchToProps)(Gallery)

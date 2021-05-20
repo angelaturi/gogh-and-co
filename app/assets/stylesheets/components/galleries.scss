@@ -14,3 +14,42 @@
     justify-content: center;
     box-shadow: 1px 1px 2px #777;
 }
+
+.gogh-gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+
+    button {
+        width: calc(50% - 8px);
+        margin: 4px;
+        padding-top: 25%;
+        border: 0;
+        border-radius: 0;
+        position: relative;
+
+        &::before {
+            content: "-";
+            display: flex;
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid white;
+            color: white;
+            top: 5px;
+            left: 5px;
+            width: 16px;
+            height: 16px;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        &:nth-child(3n+1) {
+            width: 100%;
+        }
+
+        &.selected::before {
+            content: "-";
+            background: #1a73e8;
+        }
+    }
+}

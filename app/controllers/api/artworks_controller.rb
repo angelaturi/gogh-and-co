@@ -30,6 +30,9 @@ class Api::ArtworksController < ApplicationController
 
     def favorites
         @artworks = current_user.artworks
+            # .left_outer_joins(:favorites)
+            # .select("artworks.*, favorites.*")
+
     end
 
     def gallery

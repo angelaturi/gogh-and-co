@@ -1,6 +1,7 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
-class NewGallery extends React.Component {
+class EditGallery extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -10,8 +11,6 @@ class NewGallery extends React.Component {
     favorites: [],
     selectedImages: [],
     continueClicked: false,
-    title: "",
-    description: "",
   };
 
   toggle = (id) => {
@@ -87,11 +86,11 @@ class NewGallery extends React.Component {
   toggleContinue = () =>
     this.setState((prev) => ({ continueClicked: !prev.continueClicked }));
 
-  createGallery = () => {
+  updateGallery = () => {
     const { currentUser, createGalleryThunk } = this.props;
     const { title, description, selectedImages } = this.state;
     const { id } = currentUser;
-    createGalleryThunk(
+    updateGalleryThunk(
       {
         title,
         description,
@@ -107,79 +106,70 @@ class NewGallery extends React.Component {
     const { continueClicked, selectedImages, title, description, favorites } =
       this.state;
     return (
-      <div>
-        <div>
-          {continueClicked ? (
-            <div className="form-header">
-              <span onClick={() => this.props.history.push("/profile?tab=gl")}>
-                X
-              </span>
-              <span onClick={this.toggleContinue}>+</span>
-              <button disabled={!title} onClick={this.createGallery}>
-                Done
-              </button>
-            </div>
-          ) : (
-            <div className="form-header">
-              <span onClick={() => this.props.history.push("/profile?tab=gl")}>
-                X
-              </span>
-              <div>Select items</div>
-              <button
-                disabled={!selectedImages.length}
-                onClick={this.toggleContinue}
-              >
-                Continue
-              </button>
-            </div>
-          )}
+      <React.Fragment>
+        <div className={"gogh-action-bar"}>
+          <Link to={"/profile?tab=gl"} className={"close"}>
+            X
+          </Link>
+          <button
+            onClick={this.updateGallery}
+            className={"secondary"}
+            disabled={!this.props.gallery.title}
+          >
+            Save
+          </button>
         </div>
-
-        {continueClicked ? (
-          <form onSubmit={this.createGallery}>
-            <input
-              type="text"
-              placeholder="Title"
-              name="title"
-              value={title}
-              required
-              maxLength={150}
-              onChange={this.updateForm}
-            />
-            <aside>{title.length}/150</aside>
-            <input
-              type="text"
-              name="description"
-              placeholder="Description"
-              maxLength={800}
-              onChange={this.updateForm}
-            />
-            <aside>{description.length}/800</aside>
+        <section className={"view"}>
+          <form onSubmit={this.updateGallery} className={"gogh-form"}>
+            <div className={"field-wrapper"}>
+              <input
+                type="text"
+                placeholder="Title"
+                name="title"
+                value={this.props.gallery.title}
+                required
+                maxLength={150}
+                onChange={this.updateForm}
+              />
+              <div className={"tool-tip"}>
+                {this.props.gallery.title.length}/150
+              </div>
+            </div>
+            <div className={"field-wrapper"}>
+              <input
+                type="text"
+                name="description"
+                value={this.props.gallery.description}
+                placeholder="Description"
+                maxLength={800}
+                onChange={this.updateForm}
+              />
+              <div className={"tool-tip"}>
+                {this.props.gallery.description.length}/800
+              </div>
+            </div>
           </form>
-        ) : (
-          <div className={"favorite-grid"}>
+          <div className={"gogh-gallery-grid"}>
             {favorites.map((artwork, idx) => {
               let artwork_source = artwork.title
                 .toLowerCase()
                 .replace(/([ |%20])/g, "_");
               return (
-                <img
-                  //   name={`https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${artwork_source}.png`}
-                  id={artwork.id}
+                <button
                   key={idx}
-                  className={"artwork"}
+                  className={`artwork ${this.selected && "selected"}`}
                   onClick={this.selected}
                   style={{
                     backgroundImage: `url(https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${artwork_source}.png)`,
                   }}
-                ></img>
+                ></button>
               );
             })}
           </div>
-        )}
-      </div>
+        </section>
+      </React.Fragment>
     );
   }
 }
 
-export default NewGallery;
+export default EditGallery;

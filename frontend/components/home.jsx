@@ -16,7 +16,7 @@ class Home extends React.Component {
         let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const finalDate = `${days[d.getDay()]}, ${months[d.getMonth()]} ${d.getDate()}`;
 
-        const images = [{image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'},{image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'}]
+        const images = [{image: `https://active-storage-gogh-and-co-dev.s3.amazonaws.com/the_starry_night.png` , title: 'test'}, {image:`https://active-storage-gogh-and-co-dev.s3.amazonaws.com/the_starry_night.png` , title: 'test'},{image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'}, {image:'https://picsum.photos/id/1/200/300', title: 'test'}]
         return (
             <div className="main-content">
                 {/* <HeaderContainer /> */}
