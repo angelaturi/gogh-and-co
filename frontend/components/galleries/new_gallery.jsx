@@ -30,6 +30,7 @@ class NewGallery extends React.Component {
   };
 
   componentDidMount() {
+    this.props.receiveProfileFavoritesThunk();
     const favorites = [
       {
         id: 0,
@@ -65,7 +66,7 @@ class NewGallery extends React.Component {
         favorited: false,
       },
     ];
-    this.setState({ favorites });
+    // this.setState({ favorites });
   }
 
   selected = (e) => {
@@ -104,8 +105,8 @@ class NewGallery extends React.Component {
 
   render() {
     console.log("selectedImages==>>", this.props);
-    const { continueClicked, selectedImages, title, description, favorites } =
-      this.state;
+    const { continueClicked, selectedImages, title, description } = this.state;
+    const { favorites } = this.props;
     return (
       <div>
         <div>

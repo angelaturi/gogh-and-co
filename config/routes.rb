@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
     resource :session, only: [:create, :destroy]
 
+    get 'artworks/favorites', to: 'artworks#favorite'
     resources :artworks, only: [:index, :show, :create]
-    get 'artworks/favorite', to: 'artworks#favorite'
     post 'artworks/favorites', to: 'artworks#favorites'
     get 'artworks/gallery', to: 'artworks#gallery'
 
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'galleries/favorites', to: 'galleries#favorites'
 
     resources :collected_artworks, only: [:create]
-    get 'collected_artworks', to: 'collected_artworks#recollect'
+    post 'collected_artworks/recollect', to: 'collected_artworks#recollect'
     
   end
 

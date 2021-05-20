@@ -1,17 +1,16 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class EditGallery extends React.Component {
   constructor(props) {
     super(props);
+    // const { title, description, artworks } = this.props.gallery;
+    this.state = {
+      artworks: [],
+      title: "",
+      description: "",
+    };
   }
-
-  state = {
-    newGallery: [],
-    favorites: [],
-    selectedImages: [],
-    continueClicked: false,
-  };
 
   toggle = (id) => {
     const gallery = [...this.state.newGallery];
@@ -28,8 +27,19 @@ class EditGallery extends React.Component {
     return this.state.newGallery.includes(id);
   };
 
+  componentDidUpdate(prevProps) {
+    const { gallery } = this.props;
+    if (
+      gallery &&
+      JSON.stringify(prevProps.gallery) !== JSON.stringify(gallery)
+    ) {
+      this.setState({ ...gallery });
+    }
+  }
+
   componentDidMount() {
-    const favorites = [
+    this.props.receiveSingleGalleryThunk(this.props.match.params.id);
+    /*const favorites = [
       {
         id: 0,
         title: "The Starry Night",
@@ -64,20 +74,20 @@ class EditGallery extends React.Component {
         favorited: false,
       },
     ];
-    this.setState({ favorites });
+    this.setState({ favorites });*/
   }
 
-  selected = (e) => {
-    const { id } = e.target;
-    const { selectedImages } = this.state;
-    if (selectedImages.includes(id)) {
-      this.setState((prev) => ({
-        selectedImages: prev.selectedImages.filter((i) => i !== id),
-      }));
+  selected = (selectedArtwork) => {
+    const { artworks } = this.state;
+    console.log("id==>>", selectedArtwork);
+    if (artworks.some((art) => art.id == selectedArtwork.id)) {
+      this.setState({
+        artworks: artworks.filter(
+          (artwork) => artwork.id != selectedArtwork.id
+        ),
+      });
     } else {
-      this.setState((prev) => ({
-        selectedImages: prev.selectedImages.concat(id),
-      }));
+      this.setState({ artworks: artworks.concat(selectedArtwork) });
     }
   };
 
@@ -87,24 +97,29 @@ class EditGallery extends React.Component {
     this.setState((prev) => ({ continueClicked: !prev.continueClicked }));
 
   updateGallery = () => {
-    const { currentUser, createGalleryThunk } = this.props;
-    const { title, description, selectedImages } = this.state;
-    const { id } = currentUser;
+    const { currentUser, updateGalleryThunk } = this.props;
+    const { title, description, artworks, id } = this.state;
     updateGalleryThunk(
       {
+        id,
         title,
         description,
-        user_id: id,
+        user_id: currentUser.id,
       },
-      selectedImages
+      artworks.map((art) => art.id)
     );
     this.props.history.push("/profile?tab=gl");
   };
 
   render() {
-    console.log("selectedImages==>>", this.props);
-    const { continueClicked, selectedImages, title, description, favorites } =
-      this.state;
+    console.log(
+      "artworks edit gallery==>>",
+      this.props,
+      "state==>>",
+      this.state
+    );
+    const { title, description, artworks } = this.state;
+    const { gallery } = this.props;
     return (
       <React.Fragment>
         <div className={"gogh-action-bar"}>
@@ -114,7 +129,7 @@ class EditGallery extends React.Component {
           <button
             onClick={this.updateGallery}
             className={"secondary"}
-            disabled={!this.props.gallery.title}
+            disabled={!title}
           >
             Save
           </button>
@@ -126,39 +141,39 @@ class EditGallery extends React.Component {
                 type="text"
                 placeholder="Title"
                 name="title"
-                value={this.props.gallery.title}
+                value={title}
                 required
                 maxLength={150}
                 onChange={this.updateForm}
               />
-              <div className={"tool-tip"}>
-                {this.props.gallery.title.length}/150
-              </div>
+              <div className={"tool-tip"}>{title.length}/150</div>
             </div>
             <div className={"field-wrapper"}>
               <input
                 type="text"
                 name="description"
-                value={this.props.gallery.description}
+                value={description}
                 placeholder="Description"
                 maxLength={800}
                 onChange={this.updateForm}
               />
-              <div className={"tool-tip"}>
-                {this.props.gallery.description.length}/800
-              </div>
+              <div className={"tool-tip"}>{description.length}/800</div>
             </div>
           </form>
           <div className={"gogh-gallery-grid"}>
-            {favorites.map((artwork, idx) => {
+            {gallery.artworks?.map((artwork, idx, arr) => {
+              const artworkSelected = artworks.some(
+                (art) => art.id === artwork.id
+              );
               let artwork_source = artwork.title
                 .toLowerCase()
                 .replace(/([ |%20])/g, "_");
               return (
                 <button
                   key={idx}
-                  className={`artwork ${this.selected && "selected"}`}
-                  onClick={this.selected}
+                  id={artwork.id}
+                  className={`artwork ${artworkSelected && "selected"}`}
+                  onClick={() => this.selected(artwork)}
                   style={{
                     backgroundImage: `url(https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${artwork_source}.png)`,
                   }}

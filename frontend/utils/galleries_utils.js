@@ -27,7 +27,7 @@ export const requestCurrentGallery = (id, success, error) => {
   });
 };
 
-export const createGallery = (gallery, success, error) => {
+export const createGallery = (gallery, collectedArtworks, success, error) => {
   return $.ajax({
     method: "POST",
     url: "api/galleries/",
@@ -36,7 +36,7 @@ export const createGallery = (gallery, success, error) => {
       return $.ajax({
         method: "POST",
         url: "api/collected_artworks/",
-        data: { collectedArtworks: gallery.artworks },
+        data: { collectedArtworks },
         success,
       });
     },
@@ -48,12 +48,12 @@ export const updateGallery = (gallery, collectedArtworks, success, error) => {
   return $.ajax({
     method: "PATCH",
     url: `api/galleries/${gallery.id}`,
-    data: gallery,
+    data: { gallery },
     success: () => {
       return $.ajax({
         method: "POST",
         url: "api/collected_artworks/recollect",
-        data: merge({ id: gallery.gallery.id }, collectedArtworks),
+        data: { id: gallery.id, collectedArtworks },
         success,
       });
     },

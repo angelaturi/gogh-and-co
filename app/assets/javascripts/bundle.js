@@ -10114,12 +10114,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "requestGallery": () => (/* binding */ requestGallery),
 /* harmony export */   "setCurrentArtwork": () => (/* binding */ setCurrentArtwork),
 /* harmony export */   "receiveCurrentArtwork": () => (/* binding */ receiveCurrentArtwork),
+/* harmony export */   "requestFavoriteArtworks": () => (/* binding */ requestFavoriteArtworks),
 /* harmony export */   "toggleFavorite": () => (/* binding */ toggleFavorite),
 /* harmony export */   "toggleCurrentFavorite": () => (/* binding */ toggleCurrentFavorite),
 /* harmony export */   "receiveFavorites": () => (/* binding */ receiveFavorites),
 /* harmony export */   "clearArtworks": () => (/* binding */ clearArtworks),
 /* harmony export */   "createArtwork": () => (/* binding */ createArtwork),
-/* harmony export */   "setFavoriteThunk": () => (/* binding */ setFavoriteThunk)
+/* harmony export */   "setFavoriteThunk": () => (/* binding */ setFavoriteThunk),
+/* harmony export */   "requestFavoriteArtworksThunk": () => (/* binding */ requestFavoriteArtworksThunk)
 /* harmony export */ });
 /* harmony import */ var _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/artworks_utils */ "./frontend/utils/artworks_utils.js");
 var REQUEST_ARTWORKS = "REQUEST_ARTWORKS";
@@ -10175,6 +10177,12 @@ var receiveCurrentArtwork = function receiveCurrentArtwork(artwork) {
     artwork: artwork
   };
 };
+var requestFavoriteArtworks = function requestFavoriteArtworks(favorites) {
+  return {
+    type: REQUEST_FAVORITE_ARTWORKS,
+    favorites: favorites
+  };
+};
 var toggleFavorite = function toggleFavorite(id) {
   return {
     type: TOGGLE_FAVORITE,
@@ -10203,10 +10211,17 @@ var createArtwork = function createArtwork(artwork) {
     artwork: artwork
   };
 };
-var setFavoriteThunk = function setFavoriteThunk() {
+var setFavoriteThunk = function setFavoriteThunk(id) {
   return function (dispatch) {
-    return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.toggleFavorite().then(function (id) {
+    return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.toggleFavorite(id).then(function (id) {
       dispatch(toggleFavorite(id));
+    });
+  };
+};
+var requestFavoriteArtworksThunk = function requestFavoriteArtworksThunk() {
+  return function (dispatch) {
+    return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.requestFavoriteArtworks().then(function (favorites) {
+      dispatch(requestFavoriteArtworks(favorites));
     });
   };
 };
@@ -10261,13 +10276,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "SET_GALLERY": () => (/* binding */ SET_GALLERY),
 /* harmony export */   "CREATE_GALLERY": () => (/* binding */ CREATE_GALLERY),
 /* harmony export */   "DELETE_GALLERY": () => (/* binding */ DELETE_GALLERY),
+/* harmony export */   "RECEIVE_GALLERIES": () => (/* binding */ RECEIVE_GALLERIES),
 /* harmony export */   "requestFavoriteGalleries": () => (/* binding */ requestFavoriteGalleries),
 /* harmony export */   "receiveCollectedArtworks": () => (/* binding */ receiveCollectedArtworks),
 /* harmony export */   "updateGallery": () => (/* binding */ updateGallery),
 /* harmony export */   "setGallery": () => (/* binding */ setGallery),
 /* harmony export */   "createGallery": () => (/* binding */ createGallery),
+/* harmony export */   "deleteGallery": () => (/* binding */ deleteGallery),
+/* harmony export */   "receiveGalleries": () => (/* binding */ receiveGalleries),
+/* harmony export */   "receiveGalleriesThunk": () => (/* binding */ receiveGalleriesThunk),
+/* harmony export */   "receiveSingleGalleryThunk": () => (/* binding */ receiveSingleGalleryThunk),
 /* harmony export */   "createGalleryThunk": () => (/* binding */ createGalleryThunk),
-/* harmony export */   "updateGalleryThunk": () => (/* binding */ updateGalleryThunk)
+/* harmony export */   "updateGalleryThunk": () => (/* binding */ updateGalleryThunk),
+/* harmony export */   "deleteGalleryThunk": () => (/* binding */ deleteGalleryThunk)
 /* harmony export */ });
 /* harmony import */ var _components_profile_galleries__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/profile/galleries */ "./frontend/components/profile/galleries.jsx");
 /* harmony import */ var _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/galleries_utils */ "./frontend/utils/galleries_utils.js");
@@ -10281,6 +10302,7 @@ var UPDATE_GALLERY = "UPDATE_GALLERY";
 var SET_GALLERY = "RECEIVE_GALLERY";
 var CREATE_GALLERY = "CREATE_GALLERY";
 var DELETE_GALLERY = "DELETE_GALLERY";
+var RECEIVE_GALLERIES = "RECEIVE_GALLERIES";
 var requestFavoriteGalleries = function requestFavoriteGalleries() {
   return {
     type: REQUEST_FAVORITE_GALLERIES
@@ -10315,34 +10337,53 @@ var createGallery = function createGallery(gallery) {
     type: CREATE_GALLERY,
     gallery: gallery
   };
-}; // export const deleteGallery = id ({
-//     type: DELETE_GALLERY,
-//     id
-// })
-// export const receiveGalleriesThunk = () => {
-//     debugger
-//     return function (dispatch) {
-//         return GalleriesAPI.requestGalleries()
-//             .then(
-//                 () => {
-//                     dispatch(receiveGalleries())
-//                 },)
-//     }
-// }
-
-var createGalleryThunk = function createGalleryThunk(gallery) {
+};
+var deleteGallery = function deleteGallery(id) {
+  return {
+    type: DELETE_GALLERY,
+    id: id
+  };
+};
+var receiveGalleries = function receiveGalleries(galleries) {
+  return {
+    type: RECEIVE_GALLERIES,
+    galleries: galleries
+  };
+};
+var receiveGalleriesThunk = function receiveGalleriesThunk() {
+  return function (dispatch) {
+    return _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__.fetchGalleries().then(function (galleries) {
+      dispatch(receiveGalleries(galleries));
+    });
+  };
+};
+var receiveSingleGalleryThunk = function receiveSingleGalleryThunk(id) {
+  return function (dispatch) {
+    return _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__.requestCurrentGallery(id).then(function (gallery) {
+      dispatch(setGallery(gallery));
+    });
+  };
+};
+var createGalleryThunk = function createGalleryThunk(gallery, collectedArtworks) {
   // debugger
   return function (dispatch) {
-    return _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__.createGallery(gallery).then(function () {
+    return _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__.createGallery(gallery, collectedArtworks).then(function () {
       dispatch(createGallery(gallery));
     });
   };
 };
-var updateGalleryThunk = function updateGalleryThunk(gallery) {
-  // debugger
+var updateGalleryThunk = function updateGalleryThunk(gallery, artworks) {
+  console.log("in acct==>", gallery, artworks);
   return function (dispatch) {
-    return _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__.updateGallery(gallery).then(function () {
+    return _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__.updateGallery(gallery, artworks).then(function () {
       dispatch(updateGallery(gallery));
+    });
+  };
+};
+var deleteGalleryThunk = function deleteGalleryThunk(galleryId) {
+  return function (dispatch) {
+    return _utils_galleries_utils__WEBPACK_IMPORTED_MODULE_1__.deleteGallery(galleryId).then(function () {
+      dispatch(deleteGallery(galleryId));
     });
   };
 };
@@ -10386,9 +10427,9 @@ var receiveProfileFavorites = function receiveProfileFavorites(favorites) {
 };
 var receiveProfileFavoritesThunk = function receiveProfileFavoritesThunk() {
   return function (dispatch) {
-    return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.fetchFavorites().then(function (artworks) {
+    return _utils_artworks_utils__WEBPACK_IMPORTED_MODULE_0__.requestFavoriteArtworks().then(function (artworks) {
       artworks.forEach(function (artwork) {
-        artwork.favorited = false;
+        artwork.favorited = artwork.favorited || false;
       });
       dispatch(receiveProfileFavorites(artworks));
     });
@@ -11061,7 +11102,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //         // console.log(container)
 //         // viewer.load(image)
 //         // let favorite = currentImage.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
-//         let url = artwork.title ? 
+//         let url = artwork.title ?
 //         `https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${artwork.title.toLowerCase().replace(/([ |%20])/g, "_")}.png` :
 //         ""
 //         return(
@@ -11098,9 +11139,9 @@ var Artwork = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
 
       if (!_this.props.currentUser) {
-        _this.props.history.push('/signup');
+        _this.props.history.push("/signup");
       } else {
-        _this.props.toggleFavorite(_this.props.artwork.id);
+        _this.props.setFavoriteThunk(_this.props.artwork.id);
 
         _this.props.toggleCurrentFavorite();
       }
@@ -11116,9 +11157,10 @@ var Artwork = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Artwork, [{
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {// props.artwork.title) {
-      // }
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log("got here==>>");
+      this.props.requestFavoriteArtworksThunk();
     }
   }, {
     key: "render",
@@ -11129,7 +11171,14 @@ var Artwork = /*#__PURE__*/function (_React$Component) {
     function render() {
       var _this2 = this;
 
-      var favorite = this.props.artwork.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
+      console.log("artwork==??", this.props);
+      var _this$props = this.props,
+          artwork = _this$props.artwork,
+          favorites = _this$props.favorites;
+      artwork.favorited = artwork.favorited || favorites.some(function (fav) {
+        return fav.id == artwork.id;
+      });
+      var favorite = artwork.favorited ? "http://image.flaticon.com/icons/svg/60/60993.svg" : "http://image.flaticon.com/icons/png/128/126/126471.png";
       var artWork = this.props.artwork;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, artWork && artWork.title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "artworkCurrent",
@@ -11141,14 +11190,12 @@ var Artwork = /*#__PURE__*/function (_React$Component) {
         src: "https://active-storage-gogh-and-co-dev.s3.amazonaws.com/".concat(this.props.artwork.title.toLowerCase().replace(/([ |%20])/g, "_"), ".png"),
         id: "image"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: 'artwork-favorites',
+        className: "artwork-favorites",
         src: favorite,
-        onClick: function onClick(e) {
-          return _this2.favoriting(e);
-        }
+        onClick: this.favoriting
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "description"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Title:"), " ", this.props.artwork.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Date Created:"), " ", this.props.artwork.date_created), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Style:"), " ", this.props.artwork.style), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Medium:"), " ", this.props.artwork.medium), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Partner Organization:"), " ", this.props.artwork.partner_organization))) : '');
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Title:"), " ", this.props.artwork.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Date Created:"), " ", this.props.artwork.date_created), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Style:"), " ", this.props.artwork.style), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Medium:"), " ", this.props.artwork.medium), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", null, "Partner Organization:"), " ", this.props.artwork.partner_organization))) : "");
     }
   }]);
 
@@ -11185,7 +11232,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     artworks: state.artworks.artworks,
     artwork: state.artworks.currentArtwork,
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    favorites: state.artworks.favorites
   };
 };
 
@@ -11199,6 +11247,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     toggleCurrentFavorite: function toggleCurrentFavorite() {
       return dispatch((0,_actions_artworks_actions__WEBPACK_IMPORTED_MODULE_3__.toggleCurrentFavorite)());
+    },
+    setFavoriteThunk: function setFavoriteThunk(id) {
+      return dispatch((0,_actions_artworks_actions__WEBPACK_IMPORTED_MODULE_3__.setFavoriteThunk)(id));
+    },
+    requestFavoriteArtworksThunk: function requestFavoriteArtworksThunk() {
+      return dispatch((0,_actions_artworks_actions__WEBPACK_IMPORTED_MODULE_3__.requestFavoriteArtworksThunk)());
     }
   };
 };
@@ -11739,6 +11793,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -11786,14 +11844,7 @@ var EditGallery = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, EditGallery);
 
-    _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      newGallery: [],
-      favorites: [],
-      selectedImages: [],
-      continueClicked: false
-    });
+    _this = _super.call(this, props); // const { title, description, artworks } = this.props.gallery;
 
     _defineProperty(_assertThisInitialized(_this), "toggle", function (id) {
       var gallery = _toConsumableArray(_this.state.newGallery);
@@ -11815,23 +11866,21 @@ var EditGallery = /*#__PURE__*/function (_React$Component) {
       return _this.state.newGallery.includes(id);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "selected", function (e) {
-      var id = e.target.id;
-      var selectedImages = _this.state.selectedImages;
+    _defineProperty(_assertThisInitialized(_this), "selected", function (selectedArtwork) {
+      var artworks = _this.state.artworks;
+      console.log("id==>>", selectedArtwork);
 
-      if (selectedImages.includes(id)) {
-        _this.setState(function (prev) {
-          return {
-            selectedImages: prev.selectedImages.filter(function (i) {
-              return i !== id;
-            })
-          };
+      if (artworks.some(function (art) {
+        return art.id == selectedArtwork.id;
+      })) {
+        _this.setState({
+          artworks: artworks.filter(function (artwork) {
+            return artwork.id != selectedArtwork.id;
+          })
         });
       } else {
-        _this.setState(function (prev) {
-          return {
-            selectedImages: prev.selectedImages.concat(id)
-          };
+        _this.setState({
+          artworks: artworks.concat(selectedArtwork)
         });
       }
     });
@@ -11851,74 +11900,94 @@ var EditGallery = /*#__PURE__*/function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "updateGallery", function () {
       var _this$props = _this.props,
           currentUser = _this$props.currentUser,
-          createGalleryThunk = _this$props.createGalleryThunk;
+          updateGalleryThunk = _this$props.updateGalleryThunk;
       var _this$state = _this.state,
           title = _this$state.title,
           description = _this$state.description,
-          selectedImages = _this$state.selectedImages;
-      var id = currentUser.id;
+          artworks = _this$state.artworks,
+          id = _this$state.id;
       updateGalleryThunk({
+        id: id,
         title: title,
         description: description,
-        user_id: id
-      }, selectedImages);
+        user_id: currentUser.id
+      }, artworks.map(function (art) {
+        return art.id;
+      }));
 
       _this.props.history.push("/profile?tab=gl");
     });
 
+    _this.state = {
+      artworks: [],
+      title: "",
+      description: ""
+    };
     return _this;
   }
 
   _createClass(EditGallery, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      var gallery = this.props.gallery;
+
+      if (gallery && JSON.stringify(prevProps.gallery) !== JSON.stringify(gallery)) {
+        this.setState(_objectSpread({}, gallery));
+      }
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var favorites = [{
-        id: 0,
-        title: "The Starry Night",
-        creator_id: 1,
-        date_created: 1889,
-        color: "blue",
-        style: "Post-Impressionism",
-        medium: "Oil on canvas",
-        partner_organization: "MoMA The Museum of Modern Art",
-        favorited: false
-      }, {
-        id: 1,
-        title: "Panel for Edwin R. Campbell No. 4",
-        creator_id: 2,
-        date_created: 1914,
-        color: "blue",
-        style: "Expressionism",
-        medium: "Oil on canvas",
-        partner_organization: "MoMA The Museum of Modern Art",
-        favorited: false
-      }, {
-        id: 2,
-        title: "The Persistence of Memory",
-        creator_id: 3,
-        date_created: 1931,
-        color: "brown",
-        style: "Surrealism",
-        medium: "Oil on canvas",
-        partner_organization: "MoMA The Museum of Modern Art",
-        favorited: false
-      }];
-      this.setState({
-        favorites: favorites
-      });
+      this.props.receiveSingleGalleryThunk(this.props.match.params.id);
+      /*const favorites = [
+        {
+          id: 0,
+          title: "The Starry Night",
+          creator_id: 1,
+          date_created: 1889,
+          color: "blue",
+          style: "Post-Impressionism",
+          medium: "Oil on canvas",
+          partner_organization: "MoMA The Museum of Modern Art",
+          favorited: false,
+        },
+        {
+          id: 1,
+          title: "Panel for Edwin R. Campbell No. 4",
+          creator_id: 2,
+          date_created: 1914,
+          color: "blue",
+          style: "Expressionism",
+          medium: "Oil on canvas",
+          partner_organization: "MoMA The Museum of Modern Art",
+          favorited: false,
+        },
+        {
+          id: 2,
+          title: "The Persistence of Memory",
+          creator_id: 3,
+          date_created: 1931,
+          color: "brown",
+          style: "Surrealism",
+          medium: "Oil on canvas",
+          partner_organization: "MoMA The Museum of Modern Art",
+          favorited: false,
+        },
+      ];
+      this.setState({ favorites });*/
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _gallery$artworks,
+          _this2 = this;
 
-      console.log("selectedImages==>>", this.props);
+      console.log("artworks edit gallery==>>", this.props, "state==>>", this.state);
       var _this$state2 = this.state,
-          continueClicked = _this$state2.continueClicked,
-          selectedImages = _this$state2.selectedImages,
           title = _this$state2.title,
           description = _this$state2.description,
-          favorites = _this$state2.favorites;
+          artworks = _this$state2.artworks;
+      var gallery = this.props.gallery;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "gogh-action-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
@@ -11927,7 +11996,7 @@ var EditGallery = /*#__PURE__*/function (_React$Component) {
       }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: this.updateGallery,
         className: "secondary",
-        disabled: !this.props.gallery.title
+        disabled: !title
       }, "Save")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
         className: "view"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
@@ -11939,31 +12008,37 @@ var EditGallery = /*#__PURE__*/function (_React$Component) {
         type: "text",
         placeholder: "Title",
         name: "title",
-        value: this.props.gallery.title,
+        value: title,
         required: true,
         maxLength: 150,
         onChange: this.updateForm
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "tool-tip"
-      }, this.props.gallery.title.length, "/150")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, title.length, "/150")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "field-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
         name: "description",
-        value: this.props.gallery.description,
+        value: description,
         placeholder: "Description",
         maxLength: 800,
         onChange: this.updateForm
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "tool-tip"
-      }, this.props.gallery.description.length, "/800"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, description.length, "/800"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "gogh-gallery-grid"
-      }, favorites.map(function (artwork, idx) {
+      }, (_gallery$artworks = gallery.artworks) === null || _gallery$artworks === void 0 ? void 0 : _gallery$artworks.map(function (artwork, idx, arr) {
+        var artworkSelected = artworks.some(function (art) {
+          return art.id === artwork.id;
+        });
         var artwork_source = artwork.title.toLowerCase().replace(/([ |%20])/g, "_");
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           key: idx,
-          className: "artwork ".concat(_this2.selected && "selected"),
-          onClick: _this2.selected,
+          id: artwork.id,
+          className: "artwork ".concat(artworkSelected && "selected"),
+          onClick: function onClick() {
+            return _this2.selected(artwork);
+          },
           style: {
             backgroundImage: "url(https://active-storage-gogh-and-co-dev.s3.amazonaws.com/".concat(artwork_source, ".png)")
           }
@@ -12001,14 +12076,18 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     galleries: state.galleries.galleries,
-    gallery: state.galleries.gallery
+    gallery: state.galleries.gallery,
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   return {
-    setGallery: function setGallery(gallery) {
-      return dispatch((0,_actions_galleries_actions__WEBPACK_IMPORTED_MODULE_2__.setGallery)(gallery));
+    receiveSingleGalleryThunk: function receiveSingleGalleryThunk(id) {
+      return dispatch((0,_actions_galleries_actions__WEBPACK_IMPORTED_MODULE_2__.receiveSingleGalleryThunk)(id));
+    },
+    updateGalleryThunk: function updateGalleryThunk(gallery, artworks) {
+      return dispatch((0,_actions_galleries_actions__WEBPACK_IMPORTED_MODULE_2__.updateGalleryThunk)(gallery, artworks));
     }
   };
 };
@@ -12054,6 +12133,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -12070,21 +12151,36 @@ var Gallery = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Gallery);
 
     _this = _super.call(this, props);
-    var gallery = props.galleries.find(function (gal) {
-      return gal.id === parseInt(props.match.params.id);
+
+    _defineProperty(_assertThisInitialized(_this), "deleteGallery", function () {
+      _this.props.deleteGalleryThunk(_this.props.match.params.id);
+
+      _this.props.history.push("/profile");
     });
-    props.setGallery(gallery);
+
+    var gallery = props.galleries.find(function (gal) {
+      return gal.id === parseInt(_this.props.match.params.id);
+    }); // props.setGallery(gallery);
+
     return _this;
   }
 
   _createClass(Gallery, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.receiveSingleGalleryThunk(this.props.match.params.id);
+    }
+  }, {
     key: "render",
     value: function render() {
+      console.log("gal show==>", this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
         className: "view"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", {
         className: "gallery-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.gallery.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.gallery.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.gallery.artworks.length, " ", "item".concat(this.props.gallery.artworks.length === 1 ? "" : "s"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.gallery.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.gallery.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.gallery.artworks.length, " ", "item".concat(this.props.gallery.artworks.length === 1 ? "" : "s"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: this.deleteGallery
+      }, "Delete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
         to: "/favorite/edit/".concat(this.props.gallery.id)
       }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "gallery"
@@ -12131,8 +12227,11 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   return {
-    setGallery: function setGallery(gallery) {
-      return dispatch((0,_actions_galleries_actions__WEBPACK_IMPORTED_MODULE_2__.setGallery)(gallery));
+    receiveSingleGalleryThunk: function receiveSingleGalleryThunk(gallery) {
+      return dispatch((0,_actions_galleries_actions__WEBPACK_IMPORTED_MODULE_2__.receiveSingleGalleryThunk)(gallery));
+    },
+    deleteGalleryThunk: function deleteGalleryThunk(id) {
+      return dispatch((0,_actions_galleries_actions__WEBPACK_IMPORTED_MODULE_2__.deleteGalleryThunk)(id));
     }
   };
 };
@@ -12289,6 +12388,7 @@ var NewGallery = /*#__PURE__*/function (_React$Component) {
   _createClass(NewGallery, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.receiveProfileFavoritesThunk();
       var favorites = [{
         id: 0,
         title: "The Starry Night",
@@ -12319,10 +12419,7 @@ var NewGallery = /*#__PURE__*/function (_React$Component) {
         medium: "Oil on canvas",
         partner_organization: "MoMA The Museum of Modern Art",
         favorited: false
-      }];
-      this.setState({
-        favorites: favorites
-      });
+      }]; // this.setState({ favorites });
     }
   }, {
     key: "render",
@@ -12334,8 +12431,8 @@ var NewGallery = /*#__PURE__*/function (_React$Component) {
           continueClicked = _this$state2.continueClicked,
           selectedImages = _this$state2.selectedImages,
           title = _this$state2.title,
-          description = _this$state2.description,
-          favorites = _this$state2.favorites;
+          description = _this$state2.description;
+      var favorites = this.props.favorites;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, continueClicked ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "form-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
@@ -12421,7 +12518,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    favorites: state.profile.favorites
   };
 };
 
@@ -13128,6 +13226,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -13138,18 +13238,30 @@ var Galleries = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Galleries);
 
   function Galleries(props) {
+    var _this;
+
     _classCallCheck(this, Galleries);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "deleteGallery", function (id) {
+      _this.props.deleteGalleryThunk(id);
+    });
+
+    return _this;
   }
 
   _createClass(Galleries, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
+      console.log("galleries in galleries", this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "gallery-grid"
       }, this.props.galleries.map(function (gallery, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_gallery_item__WEBPACK_IMPORTED_MODULE_1__.default, {
+          deleteGallery: _this2.deleteGallery,
           gallery: gallery,
           key: idx
         });
@@ -13180,11 +13292,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 
  // import { Checkmark } from "react-checkmark";
 
 var GalleryItem = function GalleryItem(_ref) {
-  var gallery = _ref.gallery;
+  var gallery = _ref.gallery,
+      deleteGallery = _ref.deleteGallery,
+      history = _ref.history;
 
   // const content = gallery.firstArtwork === undefined ? 'http://www.pbs.org/newshour/data/bubble-quiz/images/facebook-square.svg' : gallery.firstArtwork;
   // console.log(props)
@@ -13195,24 +13310,34 @@ var GalleryItem = function GalleryItem(_ref) {
 
   var id = gallery.id,
       title = gallery.title,
-      artwork_title = gallery.artwork_title;
+      artworks = gallery.artworks;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     id: id,
     className: "gallery-item-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: "/favorite/group/".concat(id),
-    src: artwork_title,
-    className: "gallery-item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "https://active-storage-gogh-and-co-dev.s3.amazonaws.com/".concat(artwork_title.toLowerCase().replace(/([ |%20])/g, "_"), ".png"),
-    style: {
-      width: 300,
-      height: 300
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, title, " - ", (artworks === null || artworks === void 0 ? void 0 : artworks.length) || 0, " -"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: function onClick() {
+      return history.push("/favorite/edit/".concat(id));
     }
+  }, "Edit gallery"), " ", "-", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: function onClick() {
+      return deleteGallery(id);
+    }
+  }, "Delete gallery"), artworks === null || artworks === void 0 ? void 0 : artworks.map(function (artwork) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      key: artwork.id,
+      to: "/favorite/group/".concat(id),
+      className: "gallery-item"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      src: "https://active-storage-gogh-and-co-dev.s3.amazonaws.com/".concat(artwork.title.toLowerCase().replace(/([ |%20])/g, "_"), ".png"),
+      style: {
+        width: 300,
+        height: 300
+      }
+    }));
   })));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GalleryItem);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.withRouter)(GalleryItem));
 
 /***/ }),
 
@@ -13353,7 +13478,9 @@ var Profile = /*#__PURE__*/function (_React$Component) {
 
       var _this$props = this.props,
           galleries = _this$props.galleries,
-          favorites = _this$props.favorites;
+          favorites = _this$props.favorites,
+          deleteGalleryThunk = _this$props.deleteGalleryThunk;
+      console.log("props in pro==>>>", favorites);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
         className: "view"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", {
@@ -13378,51 +13505,54 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, "Galleries")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "gogh-tab-content"
       }, this.state.showFavorites && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_favorites__WEBPACK_IMPORTED_MODULE_2__.default, {
-        favorites: favorites //   favorites={[
-        //     {
-        //       id: 0,
-        //       title: "The Starry Night",
-        //       creator_id: 1,
-        //       date_created: 1889,
-        //       color: "blue",
-        //       style: "Post-Impressionism",
-        //       medium: "Oil on canvas",
-        //       partner_organization: "MoMA The Museum of Modern Art",
-        //       favorited: false,
-        //     },
-        //     {
-        //       id: 1,
-        //       title: "Panel for Edwin R. Campbell No. 4",
-        //       creator_id: 2,
-        //       date_created: 1914,
-        //       color: "blue",
-        //       style: "Expressionism",
-        //       medium: "Oil on canvas",
-        //       partner_organization: "MoMA The Museum of Modern Art",
-        //       favorited: false,
-        //     },
-        //     {
-        //       id: 2,
-        //       title: "The Persistence of Memory",
-        //       creator_id: 3,
-        //       date_created: 1931,
-        //       color: "brown",
-        //       style: "Surrealism",
-        //       medium: "Oil on canvas",
-        //       partner_organization: "MoMA The Museum of Modern Art",
-        //       favorited: false,
-        //     },
-        //   ]}
+        favorites: favorites // favorites={[
+        //   {
+        //     id: 0,
+        //     title: "The Starry Night",
+        //     creator_id: 1,
+        //     date_created: 1889,
+        //     color: "blue",
+        //     style: "Post-Impressionism",
+        //     medium: "Oil on canvas",
+        //     partner_organization: "MoMA The Museum of Modern Art",
+        //     favorited: false,
+        //   },
+        //   {
+        //     id: 1,
+        //     title: "Panel for Edwin R. Campbell No. 4",
+        //     creator_id: 2,
+        //     date_created: 1914,
+        //     color: "blue",
+        //     style: "Expressionism",
+        //     medium: "Oil on canvas",
+        //     partner_organization: "MoMA The Museum of Modern Art",
+        //     favorited: false,
+        //   },
+        //   {
+        //     id: 2,
+        //     title: "The Persistence of Memory",
+        //     creator_id: 3,
+        //     date_created: 1931,
+        //     color: "brown",
+        //     style: "Surrealism",
+        //     medium: "Oil on canvas",
+        //     partner_organization: "MoMA The Museum of Modern Art",
+        //     favorited: false,
+        //   },
+        // ]}
 
       }), !this.state.showFavorites && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_galleries__WEBPACK_IMPORTED_MODULE_3__.default, {
-        galleries: [{
-          id: 1,
-          title: "test",
-          description: "testing123",
-          user_id: 8,
-          artwork_title: "The Starry Night"
-        }] //   galleries={galleries}
-
+        deleteGalleryThunk: deleteGalleryThunk // galleries={[
+        //   {
+        //     id: 1,
+        //     title: "test",
+        //     description: "testing123",
+        //     user_id: 8,
+        //     artwork_title: "The Starry Night",
+        //   },
+        // ]}
+        ,
+        galleries: galleries
       })));
     }
   }]);
@@ -13448,6 +13578,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile */ "./frontend/components/profile/profile.jsx");
 /* harmony import */ var _actions_profile_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/profile_actions */ "./frontend/actions/profile_actions.js");
+/* harmony import */ var _actions_galleries_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/galleries_actions */ "./frontend/actions/galleries_actions.js");
+
 
 
 
@@ -13455,7 +13587,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    galleries: state.profile.galleries,
+    galleries: state.galleries.galleries,
     favorites: state.profile.favorites,
     currentUser: state.entities.users[state.session.id]
   };
@@ -13467,7 +13599,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
       return dispatch((0,_actions_profile_actions__WEBPACK_IMPORTED_MODULE_2__.receiveProfileFavoritesThunk)());
     },
     receiveGalleries: function receiveGalleries() {
-      return dispatch((0,_actions_profile_actions__WEBPACK_IMPORTED_MODULE_2__.receiveProfileGalleriesThunk)());
+      return dispatch((0,_actions_galleries_actions__WEBPACK_IMPORTED_MODULE_3__.receiveGalleriesThunk)());
+    },
+    deleteGalleryThunk: function deleteGalleryThunk(id) {
+      return dispatch((0,_actions_galleries_actions__WEBPACK_IMPORTED_MODULE_3__.deleteGalleryThunk)(id));
     }
   };
 };
@@ -14246,203 +14381,203 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var artworks = [{
   id: 0,
-  title: 'The Starry Night',
+  title: "The Starry Night",
   creator_id: 1,
   date_created: 1889,
-  color: 'blue',
-  style: 'Post-Impressionism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "blue",
+  style: "Post-Impressionism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 1,
-  title: 'Panel for Edwin R. Campbell No. 4',
+  title: "Panel for Edwin R. Campbell No. 4",
   creator_id: 2,
   date_created: 1914,
-  color: 'blue',
-  style: 'Expressionism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "blue",
+  style: "Expressionism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 2,
-  title: 'The Persistence of Memory',
+  title: "The Persistence of Memory",
   creator_id: 3,
   date_created: 1931,
-  color: 'brown',
-  style: 'Surrealism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "brown",
+  style: "Surrealism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 3,
-  title: 'The Town of the Poor',
+  title: "The Town of the Poor",
   creator_id: 4,
   date_created: 1951,
-  color: 'gray',
-  style: 'Abstract Expressionism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "gray",
+  style: "Abstract Expressionism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 4,
-  title: 'The Juggler',
+  title: "The Juggler",
   creator_id: 5,
   date_created: 1956,
-  color: 'brown',
-  style: 'Surrealism',
-  medium: 'Oil and inlaid mother of pearl on board',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "brown",
+  style: "Surrealism",
+  medium: "Oil and inlaid mother of pearl on board",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 5,
-  title: 'Portrait of Meijer de Haan',
+  title: "Portrait of Meijer de Haan",
   creator_id: 6,
   date_created: 1889,
-  color: 'red',
-  style: 'Post-Impressionism',
-  medium: 'Oil on wood',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "red",
+  style: "Post-Impressionism",
+  medium: "Oil on wood",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 6,
-  title: 'Château Noir',
+  title: "Château Noir",
   creator_id: 7,
   date_created: 1903,
-  color: 'blue',
-  style: 'Post-Impressionism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "blue",
+  style: "Post-Impressionism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 7,
   title: "Le Demoiselles d'Avignon",
   creator_id: 8,
   date_created: 1907,
-  color: 'pink',
-  style: 'Cubism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "pink",
+  style: "Cubism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 8,
-  title: 'Woman Plaiting Her Hair',
+  title: "Woman Plaiting Her Hair",
   creator_id: 8,
   date_created: 1906,
-  color: 'pink',
+  color: "pink",
   style: "Picasso's Rose Period",
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 9,
-  title: 'Two Nudes',
+  title: "Two Nudes",
   creator_id: 8,
   date_created: 1906,
-  color: 'orange',
+  color: "orange",
   style: "Picasso's Rose Period",
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 10,
-  title: 'The Reservoir, Horta de Ebro',
+  title: "The Reservoir, Horta de Ebro",
   creator_id: 8,
   date_created: 1909,
-  color: 'orange',
-  style: 'Cubism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "orange",
+  style: "Cubism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 11,
-  title: 'Bather',
+  title: "Bather",
   creator_id: 8,
   date_created: 1908,
-  color: 'gray',
-  style: 'Cubism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "gray",
+  style: "Cubism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 12,
-  title: 'Repose',
+  title: "Repose",
   creator_id: 8,
   date_created: 1908,
-  color: 'orange',
-  style: 'Cubism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "orange",
+  style: "Cubism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 13,
-  title: 'Head of a Sleeping Woman',
+  title: "Head of a Sleeping Woman",
   creator_id: 8,
   date_created: 1907,
-  color: 'yellow',
+  color: "yellow",
   style: "Picasso's African Period",
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 14,
-  title: 'Fruit Dish',
+  title: "Fruit Dish",
   creator_id: 8,
   date_created: 1908,
-  color: 'blue',
-  style: 'Cubism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "blue",
+  style: "Cubism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 15,
-  title: 'Pharisees',
+  title: "Pharisees",
   creaor_id: 9,
   date_created: 1912,
-  color: 'blue',
-  style: 'Expressionism',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "blue",
+  style: "Expressionism",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 16,
-  title: 'One Number31 1950',
+  title: "One Number31 1950",
   creator_id: 10,
   date_created: 1950,
-  color: 'gray',
-  style: 'Abstract Expressionism',
-  medium: 'Oil and enamel paint on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "gray",
+  style: "Abstract Expressionism",
+  medium: "Oil and enamel paint on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 17,
-  title: 'Echo Number 25 1951',
+  title: "Echo Number 25 1951",
   creator_id: 10,
   date_created: 1951,
-  color: 'black',
-  style: 'Abstract Expressionism',
-  medium: 'Enamel paint on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "black",
+  style: "Abstract Expressionism",
+  medium: "Enamel paint on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 18,
-  title: 'The Dream',
+  title: "The Dream",
   creator_id: 11,
   date_created: 1910,
-  color: 'green',
-  style: 'Modern Art',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "green",
+  style: "Modern Art",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }, {
   id: 19,
-  title: 'Lagoon from Jazz',
+  title: "Lagoon from Jazz",
   creator_id: 12,
   date_created: 1947,
-  color: 'blue',
-  style: 'Modern Art',
-  medium: 'Oil on canvas',
-  partner_organization: 'MoMA The Museum of Modern Art',
+  color: "blue",
+  style: "Modern Art",
+  medium: "Oil on canvas",
+  partner_organization: "MoMA The Museum of Modern Art",
   favorited: false
 }];
 var initialState = {
@@ -14516,6 +14651,11 @@ var artworksReducer = function artworksReducer() {
         currentArtwork: _objectSpread(_objectSpread({}, state.currentArtwork), {}, {
           favorited: !currentFavorite
         })
+      });
+
+    case _actions_artworks_actions__WEBPACK_IMPORTED_MODULE_0__.REQUEST_FAVORITE_ARTWORKS:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        favorites: action.favorites
       });
 
     default:
@@ -14709,21 +14849,21 @@ var artworks = [{
 }];
 var galleries = [{
   id: 0,
-  title: 'testing',
-  description: 'testing123',
+  title: "testing",
+  description: "testing123",
   artworks: artworks
 }, {
   id: 1,
-  title: 'another test',
-  description: 'another test 123',
+  title: "another test",
+  description: "another test 123",
   artworks: artworks
 }];
 var initialState = {
   galleries: galleries,
   gallery: {
     id: 0,
-    title: '',
-    description: '',
+    title: "",
+    description: "",
     artworks: artworks
   }
 };
@@ -14742,13 +14882,24 @@ var galleriesReducer = function galleriesReducer() {
     //     return {...state, galleries: [...state.galleries, action.gallery]}
 
     case _actions_galleries_actions__WEBPACK_IMPORTED_MODULE_0__.SET_GALLERY:
-      return _objectSpread(_objectSpread({}, state), {}, {
-        gallery: action.gallery
-      });
+      {
+        console.log("action==>>", action);
+        return _objectSpread(_objectSpread({}, state), {}, {
+          gallery: action.gallery
+        });
+      }
 
     case _actions_galleries_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_COLLECTED_ARTWORKS:
       return _objectSpread(_objectSpread({}, state), {}, {
         collectedArtworks: action.collectedArtworks
+      });
+
+    case _actions_galleries_actions__WEBPACK_IMPORTED_MODULE_0__.DELETE_GALLERY:
+      console.log("galleries");
+      return _objectSpread(_objectSpread({}, state), {}, {
+        galleries: state.galleries.filter(function (gal) {
+          return gal.id != action.id;
+        })
       });
 
     default:
@@ -15068,36 +15219,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "requestGallery": () => (/* binding */ requestGallery),
 /* harmony export */   "requestCurrentArtwork": () => (/* binding */ requestCurrentArtwork),
 /* harmony export */   "toggleFavorite": () => (/* binding */ toggleFavorite),
-/* harmony export */   "createArtwork": () => (/* binding */ createArtwork),
-/* harmony export */   "fetchFavorites": () => (/* binding */ fetchFavorites)
+/* harmony export */   "createArtwork": () => (/* binding */ createArtwork)
 /* harmony export */ });
 var requestArtworks = function requestArtworks(success, error) {
   return $.ajax({
-    method: 'GET',
-    url: 'api/artworks',
+    method: "GET",
+    url: "api/artworks",
     success: success,
     error: error
   });
 };
 var requestFavoriteArtworks = function requestFavoriteArtworks(success, error) {
   return $.ajax({
-    method: 'GET',
-    url: 'api/artworks/favorites',
+    method: "GET",
+    url: "api/artworks/favorites",
     success: success,
     error: error
   });
 };
 var requestGallery = function requestGallery(id, success, error) {
   return $.ajax({
-    method: 'GET',
-    url: 'api/artworks/gallery',
+    method: "GET",
+    url: "api/artworks/gallery",
     success: success,
     error: error
   });
 };
 var requestCurrentArtwork = function requestCurrentArtwork(id, success, error) {
   return $.ajax({
-    method: 'GET',
+    method: "GET",
     url: "api/artworks/".concat(id),
     success: success,
     error: error
@@ -15105,8 +15255,8 @@ var requestCurrentArtwork = function requestCurrentArtwork(id, success, error) {
 };
 var toggleFavorite = function toggleFavorite(id, success, error) {
   return $.ajax({
-    method: 'POST',
-    url: 'api/artworks/favorite',
+    method: "POST",
+    url: "api/artworks/favorites",
     data: {
       id: id
     },
@@ -15116,23 +15266,22 @@ var toggleFavorite = function toggleFavorite(id, success, error) {
 };
 var createArtwork = function createArtwork(artwork, success, error) {
   return $.ajax({
-    method: 'POST',
-    url: 'api/artworks',
+    method: "POST",
+    url: "api/artworks",
     data: {
       artwork: artwork
     },
     success: success,
     error: error
   });
-};
-var fetchFavorites = function fetchFavorites(success, error) {
-  return $.ajax({
-    method: 'POST',
-    url: 'api/artworks/favorites',
-    success: success,
-    error: error
-  });
-};
+}; // export const fetchFavorites = (success, error) => {
+//   return $.ajax({
+//     method: "POST",
+//     url: "api/artworks/favorites",
+//     success,
+//     error,
+//   });
+// };
 
 /***/ }),
 
@@ -15179,7 +15328,7 @@ var requestCurrentGallery = function requestCurrentGallery(id, success, error) {
     error: error
   });
 };
-var createGallery = function createGallery(gallery, _success, error) {
+var createGallery = function createGallery(gallery, collectedArtworks, _success, error) {
   return $.ajax({
     method: "POST",
     url: "api/galleries/",
@@ -15191,7 +15340,7 @@ var createGallery = function createGallery(gallery, _success, error) {
         method: "POST",
         url: "api/collected_artworks/",
         data: {
-          collectedArtworks: gallery.artworks
+          collectedArtworks: collectedArtworks
         },
         success: _success
       });
@@ -15203,14 +15352,17 @@ var updateGallery = function updateGallery(gallery, collectedArtworks, _success2
   return $.ajax({
     method: "PATCH",
     url: "api/galleries/".concat(gallery.id),
-    data: gallery,
+    data: {
+      gallery: gallery
+    },
     success: function success() {
       return $.ajax({
         method: "POST",
         url: "api/collected_artworks/recollect",
-        data: (0,lodash__WEBPACK_IMPORTED_MODULE_0__.merge)({
-          id: gallery.gallery.id
-        }, collectedArtworks),
+        data: {
+          id: gallery.id,
+          collectedArtworks: collectedArtworks
+        },
         success: _success2
       });
     },

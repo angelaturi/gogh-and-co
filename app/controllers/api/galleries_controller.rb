@@ -1,7 +1,8 @@
 class Api::GalleriesController < ApplicationController
     
     def index
-        @galleries = Gallery.all
+        # @galleries = Gallery.all(:includes => :collected_artworks)
+        @galleries = Gallery.all#joins(:collected_artworks)
     end
     
     def create
@@ -21,7 +22,7 @@ class Api::GalleriesController < ApplicationController
 
     def update
         @gallery = Gallery.find_by(id: params[:id])
-        if @gallery.update
+        if @gallery.update(gallery_params)
             render json: {}
         else
             render json: @gallery.errors.full_messages, status: 422

@@ -20,7 +20,7 @@ class Api::CollectedArtworksController < ApplicationController
 
     def recollect
         @gallery = Gallery.find_by(id: params[:id])
-        CollectedArtwork.delete_all(gallery_id: params[:id])
+        CollectedArtwork.where(gallery_id: params[:id]).delete_all
         if params[:collectedArtworks]
             params[:collectedArtworks].each do |artwork_id|
                 CollectedArtwork.create(artwork_id: artwork_id, gallery_id: @gallery.id)

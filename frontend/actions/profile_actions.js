@@ -16,15 +16,14 @@ export const receiveProfileFavorites = (favorites) => ({
 
 export const receiveProfileFavoritesThunk = () => {
   return function (dispatch) {
-    return ArtworksAPI.fetchFavorites().then((artworks) => {
+    return ArtworksAPI.requestFavoriteArtworks().then((artworks) => {
       artworks.forEach((artwork) => {
-        artwork.favorited = false;
+        artwork.favorited = artwork.favorited || false;
       });
       dispatch(receiveProfileFavorites(artworks));
     });
   };
 };
-
 
 export const receiveProfileGalleriesThunk = () => {
   return function (dispatch) {

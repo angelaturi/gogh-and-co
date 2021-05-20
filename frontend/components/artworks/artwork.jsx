@@ -1,8 +1,7 @@
-import React, {useEffect} from 'react';
-import ImageViewer from 'iv-viewer';
-import 'iv-viewer/dist/iv-viewer.css';
-import {history} from 'react-router-dom'
-
+import React, { useEffect } from "react";
+import ImageViewer from "iv-viewer";
+import "iv-viewer/dist/iv-viewer.css";
+import { history } from "react-router-dom";
 
 // function Artwork({artworks, artwork, setCurrentArtwork, ...props}) {
 
@@ -15,13 +14,12 @@ import {history} from 'react-router-dom'
 //         const viewer = new ImageViewer(document.querySelector("#image"))
 //     }, [artwork])
 
-
 //         // const image = document.querySelector('#artwork-loader')
 //         // console.log(container)
 //         // viewer.load(image)
 //         // let favorite = currentImage.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
-        
-//         let url = artwork.title ? 
+
+//         let url = artwork.title ?
 //         `https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${artwork.title.toLowerCase().replace(/([ |%20])/g, "_")}.png` :
 //         ""
 
@@ -41,58 +39,89 @@ import {history} from 'react-router-dom'
 // export default Artwork
 
 class Artwork extends React.Component {
-    constructor(props) {
-        super(props)
-        let currentArtwork = this.props.artworks.find((aw) => aw.id === parseInt(this.props.match.params.id))
-        this.props.setCurrentArtwork(currentArtwork)
+  constructor(props) {
+    super(props);
+    let currentArtwork = this.props.artworks.find(
+      (aw) => aw.id === parseInt(this.props.match.params.id)
+    );
+    this.props.setCurrentArtwork(currentArtwork);
+  }
+
+  componentDidMount() {
+    console.log("got here==>>");
+    this.props.requestFavoriteArtworksThunk();
+  }
+
+  triggerViewer = () => {
+    const viewer = new ImageViewer(document.querySelector("#image"));
+  };
+
+  favoriting = (e) => {
+    e.preventDefault();
+
+    if (!this.props.currentUser) {
+      this.props.history.push("/signup");
+    } else {
+      this.props.setFavoriteThunk(this.props.artwork.id);
+      this.props.toggleCurrentFavorite();
     }
+  };
 
-    componentDidUpdate() {
-        // props.artwork.title) {
-            
-        // }
-    }
+  // const image = document.querySelector('#artwork-loader')
+  // console.log(container)
+  // viewer.load(image)
+  // let favorite = currentImage.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
 
-    triggerViewer = () => {
-        const viewer = new ImageViewer(document.querySelector("#image"))
-    }
-
-    favoriting = (e) => {
-        e.preventDefault();
-        
-        if (!this.props.currentUser) {
-            this.props.history.push('/signup');
-        } else {
-            this.props.toggleFavorite(this.props.artwork.id);
-            this.props.toggleCurrentFavorite();
-        }
-    }
-
-        // const image = document.querySelector('#artwork-loader')
-        // console.log(container)
-        // viewer.load(image)
-        // let favorite = currentImage.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png';
-
-        render() {
-            let favorite = this.props.artwork.favorited ? 'http://image.flaticon.com/icons/svg/60/60993.svg' : 'http://image.flaticon.com/icons/png/128/126/126471.png'
-            const artWork = this.props.artwork;
-            return (
-                <React.Fragment>
-                {artWork && artWork.title ? 
-                <div id={"artworkCurrent"} className={"artwork-current"}>
-                    <img onLoad={() => this.triggerViewer()} src={`https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${this.props.artwork.title.toLowerCase().replace(/([ |%20])/g, "_")}.png`} id="image"/>
-                    <img className={'artwork-favorites'} src={favorite} onClick={(e) => this.favoriting(e)}></img>
-                    <div className={"description"}>
-                        <p><b>Title:</b> {this.props.artwork.title}</p>
-                        <p><b>Date Created:</b> {this.props.artwork.date_created}</p>
-                        <p><b>Style:</b> {this.props.artwork.style}</p>
-                        <p><b>Medium:</b> {this.props.artwork.medium}</p>
-                        <p><b>Partner Organization:</b> {this.props.artwork.partner_organization}</p>
-                    </div>
-                </div> : '' }
-                </React.Fragment>
-            )
-        };
+  render() {
+    console.log("artwork==??", this.props);
+    const { artwork, favorites } = this.props;
+    artwork.favorited =
+      artwork.favorited || favorites.some((fav) => fav.id == artwork.id);
+    const favorite = artwork.favorited
+      ? "http://image.flaticon.com/icons/svg/60/60993.svg"
+      : "http://image.flaticon.com/icons/png/128/126/126471.png";
+    const artWork = this.props.artwork;
+    return (
+      <React.Fragment>
+        {artWork && artWork.title ? (
+          <div id={"artworkCurrent"} className={"artwork-current"}>
+            <img
+              onLoad={() => this.triggerViewer()}
+              src={`https://active-storage-gogh-and-co-dev.s3.amazonaws.com/${this.props.artwork.title
+                .toLowerCase()
+                .replace(/([ |%20])/g, "_")}.png`}
+              id="image"
+            />
+            <img
+              className={"artwork-favorites"}
+              src={favorite}
+              onClick={this.favoriting}
+            ></img>
+            <div className={"description"}>
+              <p>
+                <b>Title:</b> {this.props.artwork.title}
+              </p>
+              <p>
+                <b>Date Created:</b> {this.props.artwork.date_created}
+              </p>
+              <p>
+                <b>Style:</b> {this.props.artwork.style}
+              </p>
+              <p>
+                <b>Medium:</b> {this.props.artwork.medium}
+              </p>
+              <p>
+                <b>Partner Organization:</b>{" "}
+                {this.props.artwork.partner_organization}
+              </p>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+      </React.Fragment>
+    );
+  }
 }
 
-export default Artwork
+export default Artwork;

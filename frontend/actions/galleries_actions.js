@@ -9,6 +9,7 @@ export const UPDATE_GALLERY = "UPDATE_GALLERY";
 export const SET_GALLERY = "RECEIVE_GALLERY";
 export const CREATE_GALLERY = "CREATE_GALLERY";
 export const DELETE_GALLERY = "DELETE_GALLERY";
+export const RECEIVE_GALLERIES = "RECEIVE_GALLERIES";
 
 export const requestFavoriteGalleries = () => ({
   type: REQUEST_FAVORITE_GALLERIES,
@@ -27,59 +28,68 @@ export const receiveCollectedArtworks = (collectedArtworks) => ({
 
 export const updateGallery = (gallery) => ({
   type: UPDATE_GALLERY,
-  gallery
+  gallery,
 });
 
 export const setGallery = (gallery) => ({
   type: SET_GALLERY,
-  gallery
+  gallery,
 });
 
 //create new gallery page
 export const createGallery = (gallery) => ({
   type: CREATE_GALLERY,
-  gallery
-})
+  gallery,
+});
 
+export const deleteGallery = (id) => ({
+  type: DELETE_GALLERY,
+  id,
+});
 
-// export const deleteGallery = id ({
-//     type: DELETE_GALLERY,
-//     id
-// })
+export const receiveGalleries = (galleries) => ({
+  type: RECEIVE_GALLERIES,
+  galleries,
+});
 
-// export const receiveGalleriesThunk = () => {
-//     debugger
-//     return function (dispatch) {
-//         return GalleriesAPI.requestGalleries()
-//             .then(
-//                 () => {
-//                     dispatch(receiveGalleries())
-//                 },)
-
-//     }
-// }
-
-export const createGalleryThunk = (gallery) => {
-  // debugger
+export const receiveGalleriesThunk = () => {
   return function (dispatch) {
-    return GalleriesAPI.createGallery(gallery)
-    .then(
-      () => {
-        dispatch(createGallery(gallery));
-      }
-    );
+    return GalleriesAPI.fetchGalleries().then((galleries) => {
+      dispatch(receiveGalleries(galleries));
+    });
   };
 };
 
-export const updateGalleryThunk = (gallery) => {
+export const receiveSingleGalleryThunk = (id) => {
+  return function (dispatch) {
+    return GalleriesAPI.requestCurrentGallery(id).then((gallery) => {
+      dispatch(setGallery(gallery));
+    });
+  };
+};
+
+export const createGalleryThunk = (gallery, collectedArtworks) => {
   // debugger
   return function (dispatch) {
-    return GalleriesAPI.updateGallery(gallery)
-    .then(
-      () => {
+    return GalleriesAPI.createGallery(gallery, collectedArtworks).then(() => {
+      dispatch(createGallery(gallery));
+    });
+  };
+};
+
+export const updateGalleryThunk = (gallery, artworks) => {
+  console.log("in acct==>", gallery, artworks);
+  return function (dispatch) {
+    return GalleriesAPI.updateGallery(gallery, artworks).then(() => {
       dispatch(updateGallery(gallery));
-    }
-    );
+    });
   };
 };
 
+export const deleteGalleryThunk = (galleryId) => {
+  return function (dispatch) {
+    return GalleriesAPI.deleteGallery(galleryId).then(() => {
+      dispatch(deleteGallery(galleryId));
+    });
+  };
+};

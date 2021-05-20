@@ -112,44 +112,43 @@ const artworks = [
 ];
 
 const galleries = [
-    {id: 0,
-    title: 'testing',
-    description: 'testing123',
-    artworks},
-    {id: 1,
-    title: 'another test',
-    description: 'another test 123',
-    artworks}
-]
+  { id: 0, title: "testing", description: "testing123", artworks },
+  { id: 1, title: "another test", description: "another test 123", artworks },
+];
 
 const initialState = {
-    galleries,
-    gallery: {
-        id: 0,
-        title: '',
-        description: '',
-        artworks
-    }
-}
+  galleries,
+  gallery: {
+    id: 0,
+    title: "",
+    description: "",
+    artworks,
+  },
+};
 
 const galleriesReducer = (state = initialState, action) => {
-    const nextState = Object.assign({}, state);
+  const nextState = Object.assign({}, state);
 
-    switch (action.type) {
-        case RECEIVE_GALLERIES:
-            return {...state,
-            galleries: action.galleries}
-        // case CREATE_GALLERY:
-        //     return {...state, galleries: [...state.galleries, action.gallery]}
-        case SET_GALLERY:
-            return {...state,
-            gallery: action.gallery}
-        case RECEIVE_COLLECTED_ARTWORKS:
-            return {...state,
-            collectedArtworks: action.collectedArtworks}
-        default:
-            return state;
+  switch (action.type) {
+    case RECEIVE_GALLERIES:
+      return { ...state, galleries: action.galleries };
+    // case CREATE_GALLERY:
+    //     return {...state, galleries: [...state.galleries, action.gallery]}
+    case SET_GALLERY: {
+      console.log("action==>>", action);
+      return { ...state, gallery: action.gallery };
     }
-}
+    case RECEIVE_COLLECTED_ARTWORKS:
+      return { ...state, collectedArtworks: action.collectedArtworks };
+    case DELETE_GALLERY:
+      console.log("galleries");
+      return {
+        ...state,
+        galleries: state.galleries.filter((gal) => gal.id != action.id),
+      };
+    default:
+      return state;
+  }
+};
 
-export default galleriesReducer
+export default galleriesReducer;

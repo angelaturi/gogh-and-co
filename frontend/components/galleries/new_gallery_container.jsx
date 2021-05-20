@@ -6,6 +6,7 @@ import { createGalleryThunk } from "../../actions/galleries_actions";
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
+  favorites: state.profile.favorites,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
