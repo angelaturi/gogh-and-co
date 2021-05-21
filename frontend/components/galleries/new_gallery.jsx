@@ -180,6 +180,8 @@ class NewGallery extends React.Component {
         )}
       </div>
     );
+
+    //testing
   }
 }
 

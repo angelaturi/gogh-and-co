@@ -12524,7 +12524,7 @@ var NewGallery = /*#__PURE__*/function (_React$Component) {
             backgroundImage: "url(https://active-storage-gogh-and-co-dev.s3.amazonaws.com/".concat(artwork_source, ".png)")
           }
         });
-      })));
+      }))); //testing
     }
   }]);
 
