@@ -1,117 +1,238 @@
-.color-grid {
-    border-top: 65px solid #fff;
+// .color-grid {
+//     border-top: 65px solid #fff;
 
+// }
+
+// .gogh-color {
+//     position: relative;
+//     display: flex;
+//     padding-bottom: 8px;
+
+//     & > div {
+//         width: 80px;
+//         height: 54px;
+//         cursor: pointer;
+//     }
+
+// }
+
+// .white {
+//     background:  #FFFFFF;
+// }
+
+// .gray {
+//     background: #BDBDBD;
+// }
+
+// .pink {
+//     background: #F48FB1;
+// }
+
+// .purple {
+//     background: #9C27B0;
+// }
+
+// .royal {
+//     background: #2A56C6;
+// }
+
+// .blue {
+//     background: #2979FF;
+// }
+
+// .green {
+//     background: #0D904F;
+// }
+
+// .yellow {
+//     background: #FDD835;
+// }
+
+// .orange {
+//     background: #FF9800;
+// }
+
+// .red {
+//     background: #D50000;
+// }
+
+// .brown {
+//     background: #795548;
+// }
+
+// .black {
+//     background: #37474F;
+// }
+
+// .gogh-time {
+//     display: flex;
+
+//     & > div {
+//         width: 80px;
+//         height: 54px;
+//     }
+// }
+
+// .timeline {
+//     text-align: center;
+//     color: #CCC;
+//     font-family: 'Open Sans';
+
+//     span::after {
+//         content: " ";
+//         display: block;
+//         background: #CCC;
+//         height: 20px;
+//         width: 1px;
+//         margin: 0 auto;
+//     }
+// }
+
+
+// .slider-container {
+//     width: 800px;
+//     height: 54px;
+//     overflow: hidden;
+//     margin: 0 auto;
+//     background-color: #e4e4e4;
+//     position: relative;
+//     border-bottom: 2px solid white;
+
+//     .gogh-time,
+//     .gogh-color {
+//         position: absolute;
+//     }
+// }
+
+// .arrow {
+//     bottom: 0;
+//     position: absolute;
+//     width: 0;
+//     height: 0;
+//     border-left: 8px solid transparent;
+//     border-right: 8px solid transparent;
+//     border-bottom: 8px solid white;
+//     left: 50%;
+//     margin-left: -4px;
+// }
+
+// .color-grid {
+//     border-top: 116px solid #fff;
+// }
+
+// .gogh-color {
+//     position: relative;
+//     display: flex;
+//     padding-bottom: 8px;
+
+//     & > div {
+//         width: 80px;
+//         height: 54px;
+//         cursor: pointer;
+//     }
+
+// }
+
+// .white {
+//     background:  #FFFFFF;
+// }
+
+// .gray {
+//     background: #BDBDBD;
+// }
+
+// .pink {
+//     background: #F48FB1;
+// }
+
+// .purple {
+//     background: #9C27B0;
+// }
+
+// .royal {
+//     background: #2A56C6;
+// }
+
+// .blue {
+//     background: #2979FF;
+// }
+
+// .green {
+//     background: #0D904F;
+// }
+
+// .yellow {
+//     background: #FDD835;
+// }
+
+// .orange {
+//     background: #FF9800;
+// }
+
+// .red {
+//     background: #D50000;
+// }
+
+// .brown {
+//     background: #795548;
+// }
+
+// .black {
+//     background: #37474F;
+// }
+
+// .gogh-time {
+//     display: flex;
+
+//     & > div {
+//         width: 80px;
+//         height: 54px;
+//     }
+// }
+
+// .timeline {
+//     text-align: center;
+//     color: #CCC;
+//     font-family: 'Open Sans';
+
+//     span::after {
+//         content: " ";
+//         display: block;
+//         background: #CCC;
+//         height: 20px;
+//         width: 1px;
+//         margin: 0 auto;
+//     }
+// }
+
+
+// .slider-container {
+//     width: 800px;
+//     overflow: hidden;
+//     margin: 0 auto;
+//     background-color: #e4e4e4;
+// }
+
+// .center {
+//     margin: 0 auto;
+//     text-align: center;
+// }
+
+.menu-item {
+  padding: 0 40px;
+  margin: 5px 10px;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+}
+.menu-item-wrapper.active {
+  border: 1px blue solid;
+}
+.menu-item.active {
+  border: 1px green solid;
 }
 
-.gogh-color {
-    position: relative;
-    display: flex;
-    padding-bottom: 8px;
-
-    & > div {
-        width: 80px;
-        height: 54px;
-        cursor: pointer;
-    }
-
-}
-
-.white {
-    background:  #FFFFFF;
-}
-
-.gray {
-    background: #BDBDBD;
-}
-
-.pink {
-    background: #F48FB1;
-}
-
-.purple {
-    background: #9C27B0;
-}
-
-.royal {
-    background: #2A56C6;
-}
-
-.blue {
-    background: #2979FF;
-}
-
-.green {
-    background: #0D904F;
-}
-
-.yellow {
-    background: #FDD835;
-}
-
-.orange {
-    background: #FF9800;
-}
-
-.red {
-    background: #D50000;
-}
-
-.brown {
-    background: #795548;
-}
-
-.black {
-    background: #37474F;
-}
-
-.gogh-time {
-    display: flex;
-
-    & > div {
-        width: 80px;
-        height: 54px;
-    }
-}
-
-.timeline {
-    text-align: center;
-    color: #CCC;
-    font-family: 'Open Sans';
-
-    span::after {
-        content: " ";
-        display: block;
-        background: #CCC;
-        height: 20px;
-        width: 1px;
-        margin: 0 auto;
-    }
-}
-
-
-.slider-container {
-    width: 800px;
-    height: 54px;
-    overflow: hidden;
-    margin: 0 auto;
-    background-color: #e4e4e4;
-    position: relative;
-    border-bottom: 2px solid white;
-
-    .gogh-time,
-    .gogh-color {
-        position: absolute;
-    }
-}
-
-.arrow {
-    bottom: 0;
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid white;
-    left: 50%;
-    margin-left: -4px;
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
 }

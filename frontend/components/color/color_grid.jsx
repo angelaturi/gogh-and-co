@@ -6,20 +6,24 @@ import {useHistory} from 'react-router-dom'
 class ColorGrid extends React.Component {
     constructor(props) {
         super(props)
-        const params = new URLSearchParams(this.props.location.search)
-        const colorParam = params.has("color") ? params.get("color") : ""
-        this.props.setCurrentColor(colorParam)
     }
 
-    userChangedColor = (color) => {
-        this.props.setCurrentColor(color);
-        history.push({...this.props.history, search: `?color=${color}`})
+    state = {
+        currentColor: ""
+    }
+
+    setCurrentColor = (color) => {
+        this.setState({currentColor: color});
+        // this.history.push({...this.props.history, search: `?color=${color}`})
     }
 
     componentDidMount() {
         if (!this.props.artworks.isLoaded)  {
             // this.props.requestArtworks()
         } 
+        const params = new URLSearchParams(this.props.location.search);
+        const colorParam = params.has("color") ? params.get("color") : "";
+        this.setState({ currentColor: colorParam });
     }
 
 
@@ -27,7 +31,7 @@ class ColorGrid extends React.Component {
         return (
             <React.Fragment>
                 <div className={"color-grid"}>
-                    <Slider items={this.props.colors} type="gogh-color" selected={this.props.currentColor} onItemChange={this.userChangedColor}/>
+                    <Slider items={this.props.colors} type="gogh-color" selected={this.state.currentColor} setCurrent={this.setCurrentColor}/>
                     <Grid artworks={this.props.artworks.artworks}/>
                 </div>
             </React.Fragment>
@@ -36,3 +40,4 @@ class ColorGrid extends React.Component {
 }
 
 export default ColorGrid
+

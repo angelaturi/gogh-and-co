@@ -1,70 +1,41 @@
-import React, { useRef } from 'react';
-import Logo from '../logo';
+import React, { useState } from 'react';
+import Logo from './logo';
 import SigninButton from './signin_button';
 import UserIconContainer from './user_icon_container';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import Sidebar from '../sidebar'
+import Sidebar from './sidebar';
+import Search from './search';
+import {Link} from 'react-router-dom';
 
-const Header = (props) => {
-    const {currentUser, logout} = props
-    const sidebar = useRef(null)
-    // const screen = useRef(null)
+const Header = ({ currentUser, logout }) => {
 
-    const toggleSidebar = () => {
-        // debugger
-        sidebar.current.classList.toggle('slide-in')
-        // screen.current.classList.toggle('hide')
-    }
+  const [isNavOpen, setIsNavOpen] = useState(false)
 
-    return (
-        <div id="header">
-            <div className="dropdown" ref={sidebar}>
-                <div id="dropdown-header">
-                    <div className="hamburger-circle" onClick={toggleSidebar}>
-                        <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="hamburger">
-                            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                        </svg>
-                    </div>
-                </div>
-                <Sidebar />
-            </div>
+  const toggleSidebar = () => {
+    setIsNavOpen(!isNavOpen)
+  };
 
-            <div className="left-header">
-                <div className="hamburger-circle" onClick={toggleSidebar}>
-                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="hamburger">
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                    </svg>
-                </div>
+  return (
+    <header className={"header"}>
+        <Sidebar isNavOpen={isNavOpen} toggle={toggleSidebar}/>
 
-                <div className="logo">
-                    <Logo />
-                </div>
-            </div>
+      <div className="brand">
+        <FontAwesomeIcon icon={["fa", "bars"]} onClick={toggleSidebar} />
+        <Logo />
+      </div>
 
-            <div className="right-header">
-                <div className="right-header-words">
-                    <a>Home</a>
-                </div>
-                <div className="right-header-words">
-                    <a>Explore</a>
-                </div>
-                <div className="right-header-words">
-                    <a>Nearby</a>
-                </div>
-                <div className="right-header-words">
-                    <a>Favorites</a>
-                </div>
+      <nav className="primary-nav">
+        <Link to={"/"}>Home</Link>
+        <Link to={"/explore"}>Explore</Link>
+        <Link to={"/maps"}>Nearby</Link>
+        <Link to={"/profile"}>Favorites</Link>
+        
+        <Search />
 
-                <div className="search-icon">
-                    <FontAwesomeIcon icon={['fa', 'search']} />
-                </div>
-
-                
-            {currentUser ? <UserIconContainer /> : <SigninButton />}
-                
-            </div>
-        </div>
-    )
-}
+        {currentUser ? <UserIconContainer /> : <SigninButton />}
+      </nav>
+    </header>
+  );
+};
 
 export default Header

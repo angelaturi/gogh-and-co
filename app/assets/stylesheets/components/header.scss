@@ -1,106 +1,119 @@
-#header {
-    height: 56px;
-    padding: 0 16px 0 16px;
+.header {
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  background: white;
+
+  .brand {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: white;
+    width: 300px;
+  }
 }
 
-.left-header {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+.primary-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
-.right-header {
-    width: 100%;
+  a {
+    padding: 0 10px;
+    font-family: "Open Sans";
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    height: 100%;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    margin: 0 10px;
+    color: #202124;
+
+    &:after {
+      content: " ";
+      display: block;
+      width: 100%;
+      position: absolute;
+      border-bottom: 1px solid #4285f4;
+      border-left: 2px solid transparent;
+      border-right: 2px solid transparent;
+      bottom: 4px;
+      left: 0;
+    }
+
+    &.active {
+      &:after {
+        border-bottom-width: 4px;
+      }
+    }
+  }
 }
 
 .right-header-words {
-    padding: 10px 8px;
-
-    a {
-        padding: 8px;
-        font-family: 'Open Sans';
-        font-size: 14px;
-    }
-}
-
-
-.logo {
-    margin-left: -6px;
-    width: 184px;
-}
-
-.logo:hover {
-    cursor: pointer;
+  padding: 10px 8px;
 }
 
 .hamburger {
-    width: 24px;
-    height: 24px;
-    padding: 10px;
-    font-size: larger;
-    fill: black;
+  width: 24px;
+  height: 24px;
+  padding: 10px;
+  font-size: larger;
+  fill: black;
 }
 
 .search-icon {
-    width: 24px;
-    height: 24px;
-    padding: 10px 8px;
+  width: 24px;
+  height: 24px;
+  padding: 10px 8px;
 }
 
 .user-icon-container {
-    display: inline-block;
-    border-radius: 50%;
-    border: none;
-    margin: 1px 6px;
-    padding: 0;
-    background: transparent
+  display: inline-block;
+  border-radius: 50%;
+  border: none;
+  margin: 1px 6px;
+  padding: 0;
+  background: transparent;
 }
 
 .signin-button {
-    padding: 0 21px;
-    border-radius: 5px;
-    border: 2px solid rgb(26, 115, 232);
-    background: rgb(26, 115, 232);
-    color: white;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    white-space: no-wrap;
-    height: 36px;
-    transition: 150ms;
+  padding: 0 21px;
+  border-radius: 5px;
+  border: 2px solid rgb(26, 115, 232);
+  background: rgb(26, 115, 232);
+  color: white;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  white-space: no-wrap;
+  height: 36px;
+  transition: 150ms;
 
-    p {
-        width: 48px;
-        padding: 9px 15px;
-    } 
-}  
+  p {
+    width: 48px;
+    padding: 9px 15px;
+  }
+}
 
 .signin-button {
-    font-family: 'Roboto', sans-serif;
-    color: white;
+  font-family: "Roboto", sans-serif;
+  color: white;
 }
 
 img.user-icon {
-    height: 32px;
-    aspect-ratio: auto 32 / 32;
-    width: 32px;
-    border-radius: 50%;
+  height: 32px;
+  aspect-ratio: auto 32 / 32;
+  width: 32px;
+  border-radius: 50%;
 }
 
 .hamburger-circle {
-    display: flex;
-    background: none;
-    margin-right: 16px;
-    transition: background-color 0.5s;
-    transform-origin: center center;
-    cursor: pointer
+  display: flex;
+  background: none;
+  margin-right: 16px;
+  transition: background-color 0.5s;
+  transform-origin: center center;
+  cursor: pointer;
 }
-

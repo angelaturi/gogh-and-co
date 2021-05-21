@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { AuthRoute, ProtectedRoute } from "../utils/route_utils";
+import Modal from "react-modal";
+import { AuthRoute, ProtectedRoute, HeaderRoute } from "../utils/route_utils";
 import Home from "./home";
 import SessionFormContainer from "./session_form/session_form_container";
 import CreateAccountFormContainer from "./account_form/create_account_form_container";
@@ -20,34 +21,37 @@ import ProfileContainer from "./profile/profile_container";
 import GalleryItemContainer from "./profile/gallery_item_container";
 import NewGalleryContainer from "./galleries/new_gallery_container";
 import GalleryContainer from "./galleries/gallery_container";
-import EditGalleryContainer from './galleries/edit_gallery_container'
+import EditGalleryContainer from './galleries/edit_gallery_container';
 import "./fontawesome";
+
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  _home() {
-    this.context.store.dispatch(requestArtworks());
-    this.context.store.dispatch(requestGalleries);
-  }
+  // _home() {
+  //   this.context.store.dispatch(requestArtworks());
+  //   this.context.store.dispatch(requestGalleries);
+  // }
 
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={Home} />
+        <HeaderRoute exact path="/" component={Home} />
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={CreateAccountFormContainer} />
-        <Route path="/artwork/:id" component={ArtworkContainer} />
-        <Route path="/time" component={TimelineGridContainer} />
-        <Route path="/color" component={ColorGridContainer} />
-        <Route path="/explore" component={Explore} />
-        <Route path="/profile" component={ProfileContainer} />
-        <Route path="/gallery/:id" component={GalleryItemContainer} />
+        <HeaderRoute path="/artwork/:id" component={ArtworkContainer} />
+        <HeaderRoute path="/time" component={TimelineGridContainer} />
+        <HeaderRoute path="/color" component={ColorGridContainer} />
+        <HeaderRoute path="/explore" component={Explore} />
+        <HeaderRoute path="/profile" component={ProfileContainer} />
+        <HeaderRoute path="/gallery/:id" component={GalleryItemContainer} />
         <Route path="/favorite/create" component={NewGalleryContainer} />
-        <Route path="/favorite/group/:id" component={GalleryContainer} />
+        <HeaderRoute path="/favorite/group/:id" component={GalleryContainer} />
         <Route path="/favorite/edit/:id" component={EditGalleryContainer} />
+        
         {/* <Route path="/favorite/delete/:id" component={DeleteGalleryContainer} /> */}
       </Switch>
     );
