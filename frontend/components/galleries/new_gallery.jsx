@@ -182,6 +182,7 @@ class NewGallery extends React.Component {
     );
 
     //testing
+    //testing
   }
 }
 
