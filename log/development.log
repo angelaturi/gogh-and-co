@@ -46700,3 +46700,96 @@ Processing by Api::ArtworksController#favorite as JSON
 Completed 200 OK in 11ms (Views: 5.8ms | ActiveRecord: 3.5ms)
 
 
+Started GET "/" for ::1 at 2021-05-21 08:40:15 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 704ms (Views: 699.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-21 08:44:17 -0400
+Processing by Api::ArtworksController#favorite as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:34:in `favorite'
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-21 10:17:50 -0400
+Processing by Api::ArtworksController#favorite as JSON
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.9ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:34:in `favorite'
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-21 12:07:04 -0400
+Processing by Api::ArtworksController#favorite as JSON
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 2.1ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:34:in `favorite'
+Started GET "/api/artworks/favorites" for ::1 at 2021-05-21 12:07:16 -0400
+Processing by Api::ArtworksController#favorite as JSON
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.4ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:34:in `favorite'
+Started GET "/" for ::1 at 2021-05-24 14:07:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (61.2ms)
+Completed 200 OK in 204ms (Views: 180.1ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-24 14:07:31 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 120ms (Views: 105.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2021-06-07 11:31:22 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/angelaturi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 1560ms (Views: 1550.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/api/artworks/favorites" for ::1 at 2021-06-07 11:31:40 -0400
+Processing by Api::ArtworksController#favorite as JSON
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 4.2ms)
+
+
+  
+NoMethodError (undefined method `artworks' for nil:NilClass):
+  
+app/controllers/api/artworks_controller.rb:34:in `favorite'
